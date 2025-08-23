@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Drag Test - Digital Dog</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .test-info {
+            background: rgba(0, 188, 212, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .debug-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            max-width: 300px;
+            z-index: 1000;
+        }
+        .test-button {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0097a7;
+        }
+        .shuffle-test-area {
+            height: 500px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-info">
+            <h1>Card Drag Test</h1>
+            <p>Testing the fixed card deck dragging functionality</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>Test Instructions:</h3>
+            <ol>
+                <li>Drag any card to the left or right</li>
+                <li>The dragged card should smoothly animate out</li>
+                <li>The dragged card should move to the back of the deck</li>
+                <li>The next card should become the new front card</li>
+                <li>Cards should maintain proper stacking order</li>
+            </ol>
+        </div>
+
+        <div class="debug-info" id="debugInfo">
+            <h4>Debug Info:</h4>
+            <div id="cardOrder">Cards: Loading...</div>
+            <div id="activeCard">Active: Loading...</div>
+            <div id="dragState">Drag: None</div>
+        </div>
+
+        <button class="test-button" onclick="testDrag()">Test Drag Function</button>
+        <button class="test-button" onclick="resetCards()">Reset Cards</button>
+        <button class="test-button" onclick="showCardOrder()">Show Order</button>
+
+        <div class="shuffle-test-area">
+            <iframe src="index.html#portfolio" style="width: 100%; height: 100%; border: none; border-radius: 10px;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function updateDebugInfo() {
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.digitalDogSite) {
+                const site = iframe.contentWindow.digitalDogSite;
+                if (site.shuffleState) {
+                    document.getElementById('cardOrder').textContent = 
+                        'Cards: ' + site.shuffleState.cards.map(c => c.dataset.project).join(', ');
+                    document.getElementById('activeCard').textContent = 
+                        'Active: ' + (site.shuffleState.cards[site.shuffleState.currentIndex]?.dataset.project || 'None');
+                    document.getElementById('dragState').textContent = 
+                        'Drag: ' + (site.dragState?.isDragging ? 'Active' : 'None');
+                }
+            }
+        }
+
+        function testDrag() {
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.testDrag) {
+                iframe.contentWindow.testDrag();
+                updateDebugInfo();
+            }
+        }
+
+        function resetCards() {
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.digitalDogSite) {
+                const site = iframe.contentWindow.digitalDogSite;
+                if (site.initShuffleEffect) {
+                    site.initShuffleEffect();
+                    updateDebugInfo();
+                }
+            }
+        }
+
+        function showCardOrder() {
+            updateDebugInfo();
+        }
+
+        // Update debug info every second
+        setInterval(updateDebugInfo, 1000);
+
+        // Initial update when iframe loads
+        setTimeout(() => {
+            updateDebugInfo();
+        }, 2000);
+    </script>
+</body>
+</html>

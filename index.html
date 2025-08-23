@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Dog - Sites Para Veterinários | Web Design + SEO + Google Meu Negócio</title>
+    <meta name="description" content="Criamos sites profissionais para veterinários com Google Meu Negócio gratuito. Aumente sua presença digital e atraia mais clientes para sua clínica veterinária.">
+    <meta name="keywords" content="site veterinário, web design veterinário, SEO veterinário, google meu negócio veterinário, marketing digital veterinário">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Digital Dog - Sites Para Veterinários">
+    <meta property="og:description" content="Sites profissionais para veterinários com Google Meu Negócio gratuito">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./logo_digital_dog.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo_digital_dog-removebg-preview.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Anime.js for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Digital Dog",
+        "description": "Desenvolvimento de sites para veterinários",
+        "url": "https://digitaldog.com.br",
+        "telephone": "+55-11-99999-9999",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BR"
+        },
+        "serviceType": "Web Design, SEO, Marketing Digital",
+        "areaServed": "Brasil"
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas id="tech-background"></canvas>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="./logo_digital_dog.png" alt="Digital Dog" class="hero-logo-img">
+                </div>
+                <h1 class="hero-title">
+                    Enquanto você salva vidas, nós salvamos a sua
+                    <span class="highlight-gradient">Reputação Online</span>
+                </h1>
+                <p class="hero-subtitle">
+                    sites profissionais para medicina veterinária
+                </p>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i data-lucide="rocket"></i>
+                        <span>Site Responsivo</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="smartphone"></i>
+                        <span>Google Meu Negócio</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="target"></i>
+                        <span>SEO Otimizado</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="cta-primary">
+                        <span>Quero Meu Site + GMB Grátis</span>
+                        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="cta-secondary" onclick="document.querySelector('#portfolio').scrollIntoView({ behavior: 'smooth' })">Ver Sites Criados</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Seu Site Veterinário Completo</h2>
+                <p class="section-subtitle">Tenha sua presença digital profissional + Google Meu Negócio GRATUITO</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Site Veterinário Completo</h3>
+                        <p class="service-description">Site profissional que atrai mais clientes e aumenta sua credibilidade online</p>
+                        <ul class="service-features">
+                            <li>Design responsivo</li>
+                            <li>Formulário otimizado</li>
+                            <li>Galeria de fotos</li>
+                            <li>Página de serviços</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="service-badge">GRATUITO</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Google Meu Negócio GRATUITO</h3>
+                        <p class="service-description">Brinde exclusivo! Configure seu perfil no Google e apareça nas buscas locais</p>
+                        <ul class="service-features">
+                            <li>Criação do perfil</li>
+                            <li>Upload de fotos</li>
+                            <li>Configuração completa</li>
+                            <li>Treinamento incluído</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 7h6v6" />
+                            <path d="m22 7-8.5 8.5-5-5L2 17" />
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">SEO Básico Incluído</h3>
+                        <p class="service-description">Seu site já sai otimizado para ser encontrado no Google</p>
+                        <ul class="service-features">
+                            <li>Títulos otimizados</li>
+                            <li>Palavras-chave</li>
+                            <li>Meta tags</li>
+                            <li>Estrutura SEO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section with Shuffle Effect -->
+    <section id="portfolio" class="portfolio">
+        <canvas id="portfolio-background"></canvas>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sites que Criamos</h2>
+                <p class="section-subtitle">Veterinários que já conquistaram mais clientes com seus sites</p>
+            </div>
+            
+            <!-- Shuffle Portfolio Display -->
+            <div class="shuffle-portfolio">
+                <div class="shuffle-container">
+                    <div class="shuffle-stack">
+                        <!-- Website Preview Cards -->
+                        <div class="portfolio-card" data-project="vetcare">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">vetcareclinica.com.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">Clínica VetCare</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card" data-project="animalhospital">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">hospitalanimal.vet.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">Hospital Animal+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card" data-project="petvet">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">petvetclinica.com.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">PetVet Clínica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card" data-project="vetexpress">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">vetexpress24h.com.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">Vet Express</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card" data-project="zooclinica">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">zooclinica.vet.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">Zoo Clínica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card" data-project="animalcare">
+                            <div class="screenshot-placeholder">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="browser-url">animalcare.com.br</div>
+                                </div>
+                                <div class="screenshot-content">
+                                    <div class="placeholder-text">SUBSTITUA POR PRINT DO SITE</div>
+                                    <div class="placeholder-subtitle">Animal Care</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shuffle Controls -->
+                <div class="shuffle-controls">
+                    <div class="drag-hint">
+                        <svg viewBox="0 0 24 24" fill="none" class="drag-icon">
+                            <path d="M8 18L12 6L16 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Arraste para navegar</span>
+                        <svg viewBox="0 0 24 24" fill="none" class="drag-icon">
+                            <path d="M16 18L12 6L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="shuffle-controls-row">
+                        <div class="shuffle-indicators">
+                            <div class="indicator active" data-index="0"></div>
+                            <div class="indicator" data-index="1"></div>
+                            <div class="indicator" data-index="2"></div>
+                            <div class="indicator" data-index="3"></div>
+                            <div class="indicator" data-index="4"></div>
+                            <div class="indicator" data-index="5"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="portfolio-summary">
+                    <div class="summary-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Sites Criados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">300%</span>
+                            <span class="stat-label">Aumento Médio</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">GMB Gratuito</span>
+                        </div>
+                    </div>
+                    <div class="cta-portfolio">
+                        <button class="cta-primary portfolio-cta">
+                            <span>Quero Resultados Assim</span>
+                            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Por que Escolher a Digital Dog?</h2>
+                    <p>Criamos sites profissionais especialmente para veterinários. Além do site, você ganha o Google Meu Negócio configurado gratuitamente - tudo para você conquistar mais clientes online.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Sites Criados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Taxa de Satisfação</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">GMB Gratuito Garantido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="digital-dog-illustration">
+                        <img src="./logo_digital_dog-removebg-preview.png" alt="Digital Dog" class="about-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quero Meu Site + GMB Gratuito!</h2>
+                <p class="section-subtitle">Entre em contato e tenha seu site veterinário profissional</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <div class="contact-item">
+                        <i data-lucide="smartphone"></i>
+                        <span>WhatsApp: (11) 99999-9999</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="mail"></i>
+                        <span>contato@digitaldog.com.br</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="clock"></i>
+                        <span>Seg-Sex: 9h às 18h</span>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="clinica" name="clinica" placeholder="Nome da clínica">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu projeto" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span>Quero Meu Site + GMB Grátis</span>
+                        <svg class="submit-arrow" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./logo_digital_dog.png" alt="Digital Dog">
+                    <p>Desenvolvendo o futuro digital dos veterinários</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>WhatsApp: (11) 99999-9999</p>
+                    <p>E-mail: contato@digitaldog.com.br</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Dog. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="diagnostic_test.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Positioning Test - Digital Dog</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 188, 212, 0.05);
+        }
+        .test-button {
+            background: linear-gradient(135deg, #00BCD4 0%, #4DD0E1 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: 600;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+        #test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        .warning { color: #fbbf24; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Card Positioning System Test</h1>
+        <p>This page tests the enhanced card positioning system with anime.js timeline and stagger effects.</p>
+        
+        <div class="test-section">
+            <h2>🎯 Quick Tests</h2>
+            <button class="test-button" onclick="testStackReset()">Test Stack Reset</button>
+            <button class="test-button" onclick="testDragPerformance()">Check Performance</button>
+            <button class="test-button" onclick="testStackPositioning()">Verify Positioning</button>
+            <button class="test-button" onclick="testAnimationSupport()">Test Anime.js Support</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 Debugging Tools</h2>
+            <button class="test-button" onclick="forceReset()">Force Stack Reset</button>
+            <button class="test-button" onclick="simulateDrag()">Simulate Drag</button>
+            <button class="test-button" onclick="testStaggerEffects()">Test Stagger Effects</button>
+            <button class="test-button" onclick="clearResults()">Clear Results</button>
+        </div>
+
+        <div id="test-results">
+            <div class="info">🚀 Test results will appear here...</div>
+        </div>
+    </div>
+
+    <!-- Load the main scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        let testResults = document.getElementById('test-results');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type;
+            testResults.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            testResults.scrollTop = testResults.scrollHeight;
+        }
+        
+        function clearResults() {
+            testResults.innerHTML = '<div class="info">🚀 Test results cleared...</div>';
+        }
+        
+        function testStackReset() {
+            log('🔄 Testing stack reset functionality...', 'info');
+            try {
+                if (typeof window.forceStackReset === 'function') {
+                    window.forceStackReset();
+                    log('✅ Stack reset test passed', 'success');
+                } else {
+                    log('❌ forceStackReset function not available', 'error');
+                }
+            } catch (error) {
+                log(`❌ Stack reset test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function testDragPerformance() {
+            log('⚡ Testing drag performance...', 'info');
+            try {
+                if (typeof window.checkDragPerformance === 'function') {
+                    window.checkDragPerformance();
+                    log('✅ Performance check completed', 'success');
+                } else {
+                    log('❌ checkDragPerformance function not available', 'error');
+                }
+            } catch (error) {
+                log(`❌ Performance test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function testStackPositioning() {
+            log('📍 Testing stack positioning...', 'info');
+            try {
+                if (typeof window.verifyStackPositioning === 'function') {
+                    const result = window.verifyStackPositioning();
+                    if (result && result.activeProperlyPositioned) {
+                        log('✅ Stack positioning verified - active card properly centered', 'success');
+                    } else {
+                        log('⚠️ Stack positioning needs attention', 'warning');
+                    }
+                } else {
+                    log('❌ verifyStackPositioning function not available', 'error');
+                }
+            } catch (error) {
+                log(`❌ Stack positioning test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function testAnimationSupport() {
+            log('🎬 Testing anime.js support...', 'info');
+            
+            // Test anime.js availability
+            if (typeof anime === 'undefined') {
+                log('❌ Anime.js not loaded', 'error');
+                return;
+            }
+            
+            log('✅ Anime.js loaded successfully', 'success');
+            
+            // Test timeline support
+            if (typeof anime.timeline === 'function') {
+                log('✅ Timeline support available', 'success');
+            } else {
+                log('❌ Timeline support missing', 'error');
+            }
+            
+            // Test stagger support
+            if (typeof anime.stagger === 'function') {
+                log('✅ Stagger effects available', 'success');
+            } else {
+                log('❌ Stagger effects missing', 'error');
+            }
+            
+            // Test a simple animation
+            try {
+                const testDiv = document.createElement('div');
+                testDiv.style.opacity = '0';
+                document.body.appendChild(testDiv);
+                
+                anime({
+                    targets: testDiv,
+                    opacity: 1,
+                    duration: 100,
+                    complete: () => {
+                        document.body.removeChild(testDiv);
+                        log('✅ Basic animation test passed', 'success');
+                    }
+                });
+            } catch (error) {
+                log(`❌ Basic animation test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function forceReset() {
+            log('🔧 Forcing stack reset...', 'info');
+            testStackReset();
+        }
+        
+        function simulateDrag() {
+            log('🖱️ Simulating drag operation...', 'warning');
+            log('Note: This requires the main site context to be loaded', 'info');
+            try {
+                if (typeof window.testDrag === 'function') {
+                    window.testDrag();
+                    log('✅ Drag simulation completed', 'success');
+                } else {
+                    log('❌ testDrag function not available', 'error');
+                }
+            } catch (error) {
+                log(`❌ Drag simulation failed: ${error.message}`, 'error');
+            }
+        }
+        
+        function testStaggerEffects() {
+            log('✨ Testing stagger effects...', 'info');
+            
+            // Create test elements
+            const testContainer = document.createElement('div');
+            testContainer.style.position = 'fixed';
+            testContainer.style.top = '50px';
+            testContainer.style.right = '20px';
+            testContainer.style.width = '200px';
+            testContainer.style.height = '150px';
+            testContainer.style.background = 'rgba(0, 0, 0, 0.8)';
+            testContainer.style.borderRadius = '10px';
+            testContainer.style.padding = '10px';
+            testContainer.style.zIndex = '10000';
+            
+            // Create multiple test cards
+            for (let i = 0; i < 5; i++) {
+                const testCard = document.createElement('div');
+                testCard.style.width = '30px';
+                testCard.style.height = '20px';
+                testCard.style.background = `hsl(${i * 72}, 70%, 60%)`;
+                testCard.style.margin = '5px';
+                testCard.style.borderRadius = '3px';
+                testCard.style.opacity = '0';
+                testCard.style.transform = 'translateY(20px)';
+                testContainer.appendChild(testCard);
+            }
+            
+            document.body.appendChild(testContainer);
+            
+            // Apply stagger animation
+            try {
+                anime({
+                    targets: testContainer.children,
+                    opacity: 1,
+                    translateY: 0,
+                    duration: 600,
+                    delay: anime.stagger(100),
+                    easing: 'easeOutCubic',
+                    complete: () => {
+                        log('✅ Stagger effects test passed', 'success');
+                        // Clean up after 2 seconds
+                        setTimeout(() => {
+                            if (document.body.contains(testContainer)) {
+                                anime({
+                                    targets: testContainer,
+                                    opacity: 0,
+                                    duration: 300,
+                                    complete: () => {
+                                        document.body.removeChild(testContainer);
+                                    }
+                                });
+                            }
+                        }, 2000);
+                    }
+                });
+            } catch (error) {
+                document.body.removeChild(testContainer);
+                log(`❌ Stagger effects test failed: ${error.message}`, 'error');
+            }
+        }
+        
+        // Auto-run basic tests on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                log('🚀 Auto-running basic tests...', 'info');
+                testAnimationSupport();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(python:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(start index.html)",
+      "Bash(pip install:*)",
+      "Bash(playwright install:*)",
+      "Bash(timeout:*)",
+      "mcp__ide__executeCode",
+      "WebFetch(domain:www.flowfest.co.uk)",
+      "WebFetch(domain:flowfest.co.uk)",
+      "WebFetch(domain:animejs.com)",
+      "Bash(grep:*)",
+      "Bash(node:*)",
+      "WebFetch(domain:lucide.dev)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Landing Page Animada"
+    ]
+  }
+}
