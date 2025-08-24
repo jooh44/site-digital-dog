@@ -493,22 +493,9 @@ class DigitalDogSite {
         const successMessage = document.getElementById('form-success-message');
         if (!contactForm) return;
 
-        // Check if coming back from successful FormSubmit.co submission
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            // Show success message below button
-            successMessage.innerHTML = '✅ Formulário enviado com sucesso!';
-            successMessage.className = 'form-message form-message-success';
-            successMessage.style.display = 'block';
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent page navigation
             
-            // Clean URL without page reload
-            window.history.replaceState({}, document.title, window.location.pathname);
-            
-            // Scroll to the success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        contactForm.addEventListener('submit', (e) => {
             // Show loading state
             const submitButton = contactForm.querySelector('.form-submit');
             const originalText = submitButton.innerHTML;
@@ -518,11 +505,37 @@ class DigitalDogSite {
             // Hide any previous messages
             successMessage.style.display = 'none';
             
-            // Let the form submit normally to FormSubmit.co
-            // It will redirect back with success=true parameter
-            
-            // Note: We don't prevent default here, so the form submits normally
-            // The page will redirect to FormSubmit.co and then back with success=true
+            try {
+                // Send via AJAX to FormSubmit.co
+                const formData = new FormData(contactForm);
+                
+                const response = await fetch('https://formsubmit.co/joohxd123@gmail.com', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Show success message without leaving page
+                successMessage.innerHTML = '✅ Formulário enviado com sucesso!';
+                successMessage.className = 'form-message form-message-success';
+                successMessage.style.display = 'block';
+                
+                // Clear form
+                contactForm.reset();
+                
+                // Smooth scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Show error message
+                successMessage.innerHTML = '❌ Erro ao enviar. Tente novamente.';
+                successMessage.className = 'form-message form-message-error';
+                successMessage.style.display = 'block';
+            } finally {
+                // Restore button
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
         });
     }
 
