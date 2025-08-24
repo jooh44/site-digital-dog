@@ -3,8 +3,73 @@ class DigitalDogSite {
     constructor() {
         console.log('🚀 Digital Dog Site initializing...');
         
+        // Initialize performance optimization
+        this.initPerformanceOptimization();
+        
         // Bind methods to this context
         this.init();
+    }
+
+    // Performance optimization based on device capabilities
+    initPerformanceOptimization() {
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isLowPerformance = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+        const isSlowConnection = navigator.connection && (navigator.connection.effectiveType === 'slow-2g' || navigator.connection.effectiveType === '2g');
+        
+        // Add performance class to body for CSS targeting
+        document.body.classList.add('performance-mode');
+        
+        if (isMobile) {
+            document.body.classList.add('mobile-device');
+        }
+        
+        if (isLowPerformance || isSlowConnection) {
+            document.body.classList.add('low-performance');
+            console.log('🔧 Low-performance mode activated');
+        }
+        
+        // Reduce animation complexity on low-end devices
+        if (isLowPerformance) {
+            // Store original values for potential restoration
+            this.originalAnimationSettings = {
+                reducedMotion: false
+            };
+        }
+        
+        // Performance monitoring
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                this.monitorPerformance();
+            });
+        }
+    }
+
+    // Monitor performance and adjust accordingly
+    monitorPerformance() {
+        let frameCount = 0;
+        let lastTime = performance.now();
+        
+        const checkFPS = () => {
+            frameCount++;
+            const currentTime = performance.now();
+            
+            if (currentTime - lastTime >= 1000) { // Every second
+                const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                
+                // If FPS is consistently low, activate performance mode
+                if (fps < 30) {
+                    document.body.classList.add('low-fps');
+                    console.log(`⚠️ Low FPS detected (${fps}fps), activating performance optimizations`);
+                }
+                
+                frameCount = 0;
+                lastTime = currentTime;
+            }
+            
+            requestAnimationFrame(checkFPS);
+        };
+        
+        requestAnimationFrame(checkFPS);
     }
     
     init() {
@@ -34,14 +99,26 @@ class DigitalDogSite {
             return;
         }
 
+        // Detect mobile/low-performance devices
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isLowPerformance = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+        
         this.shuffleState = {
             cards: Array.from(shuffleContainer.children),
             currentIndex: 0,
-            animationDuration: 3000,
-            transitionDuration: 600
+            animationDuration: isMobile || isLowPerformance ? 5000 : 4000, // Slower animations
+            transitionDuration: isMobile || isLowPerformance ? 800 : 700, // Smoother transitions
+            isMobile: isMobile,
+            isLowPerformance: isLowPerformance
         };
 
         console.log('Shuffle portfolio initialized with', this.shuffleState.cards.length, 'cards');
+        console.log('Performance settings:', {
+            isMobile: this.shuffleState.isMobile,
+            isLowPerformance: this.shuffleState.isLowPerformance,
+            animationDuration: this.shuffleState.animationDuration,
+            transitionDuration: this.shuffleState.transitionDuration
+        });
 
         // Initialize the shuffle effect
         this.initShuffleEffect();
@@ -80,18 +157,30 @@ class DigitalDogSite {
             
             // Posicionamento baseado na posição atual
             const stackIndex = isActive ? 0 : index;
-            const translateX = isActive ? 0 : stackIndex * 8;
-            const translateY = isActive ? 0 : stackIndex * 8;
-            const rotate = isActive ? 0 : stackIndex * 0.8;
-            const scale = isActive ? 1 : Math.max(0.97, 1 - (stackIndex * 0.008));
+            // Reduced complexity for better mobile performance
+            const baseOffset = this.shuffleState.isMobile ? 6 : 8;
+            const translateX = isActive ? 0 : stackIndex * baseOffset;
+            const translateY = isActive ? 0 : stackIndex * baseOffset;
+            const rotate = isActive ? 0 : stackIndex * (this.shuffleState.isMobile ? 0.5 : 0.8);
+            const scale = isActive ? 1 : Math.max(0.98, 1 - (stackIndex * (this.shuffleState.isMobile ? 0.005 : 0.008)));
             
             // Z-index dinâmico
             const zIndex = isActive ? 
                 this.shuffleState.cards.length + 10 : 
                 (this.shuffleState.cards.length - stackIndex);
             
-            anime.set(card, {
-                translateX, translateY, rotate, scale, zIndex
+            // Optimized animation settings for performance
+            const animationSettings = {
+                translateX, translateY, rotate, scale, zIndex,
+                // Force GPU acceleration and reduce paint operations
+                transform: `translate3d(${translateX}px, ${translateY}px, 0) rotate(${rotate}deg) scale(${scale})`
+            };
+            
+            // Use the helper function to set properties
+            console.log(`Setting card ${index} (${card.dataset.project}) - active: ${isActive}, transform: ${animationSettings.transform}, zIndex: ${zIndex}`);
+            this.setElementProps(card, {
+                ...animationSettings,
+                zIndex: zIndex
             });
             
             if (isActive) {
@@ -108,6 +197,76 @@ class DigitalDogSite {
     //         indicator.classList.toggle('active', index === this.shuffleState.currentIndex);
     //     });
     // }
+
+    // Helper function to set element properties with or without anime.js
+    setElementProps(element, props) {
+        try {
+            if (this.shuffleState.isMobile || this.shuffleState.isLowPerformance) {
+                // Direct style manipulation for better performance
+                this.setElementPropsDirectly(element, props);
+            } else {
+                // Use anime.js for smooth animations
+                if (typeof anime !== 'undefined') {
+                    // Clean props for anime.js - remove transform if individual properties exist
+                    const animeProps = { ...props };
+                    if (animeProps.translateX !== undefined || animeProps.translateY !== undefined) {
+                        delete animeProps.transform; // Let anime.js handle individual properties
+                    }
+                    anime.set(element, animeProps);
+                } else {
+                    // Fallback if anime.js isn't available
+                    this.setElementPropsDirectly(element, props);
+                }
+            }
+        } catch (error) {
+            console.warn('Error in setElementProps, using fallback:', error);
+            // Always fallback to direct style setting if anime.js fails
+            this.setElementPropsDirectly(element, props);
+        }
+    }
+    
+    // Fallback method for direct style setting
+    setElementPropsDirectly(element, props) {
+        if (props.translateX !== undefined || props.translateY !== undefined) {
+            const tx = props.translateX || 0;
+            const ty = props.translateY || 0;
+            const rotate = props.rotate || 0;
+            const scale = props.scale !== undefined ? props.scale : 1;
+            element.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rotate}deg) scale(${scale})`;
+        }
+        if (props.transform) {
+            element.style.transform = props.transform;
+        }
+        if (props.opacity !== undefined) {
+            element.style.opacity = props.opacity;
+        }
+        if (props.zIndex !== undefined) {
+            element.style.zIndex = props.zIndex;
+        }
+    }
+    
+    // Helper function to animate elements with or without anime.js
+    animateElement(element, props, options = {}) {
+        return new Promise((resolve) => {
+            if (this.shuffleState.isMobile || this.shuffleState.isLowPerformance) {
+                // Direct style manipulation with timeout to simulate animation
+                this.setElementPropsDirectly(element, props);
+                setTimeout(resolve, options.duration || 300);
+            } else if (typeof anime !== 'undefined') {
+                // Use anime.js for smooth animations
+                anime({
+                    targets: element,
+                    ...props,
+                    ...options,
+                    complete: resolve
+                });
+            } else {
+                // Fallback: direct style setting
+                this.setElementPropsDirectly(element, props);
+                setTimeout(resolve, options.duration || 300);
+            }
+        });
+    }
 
     setupCardDragFunctionality() {
         const shuffleContainer = document.querySelector('.shuffle-stack');
@@ -182,7 +341,7 @@ class DigitalDogSite {
         // Visual feedback
         this.dragState.draggedCard.classList.add('dragging');
         this.dragState.draggedCard.style.cursor = 'grabbing';
-        anime.set(this.dragState.draggedCard, { zIndex: 100 });
+        this.setElementProps(this.dragState.draggedCard, { zIndex: 100 });
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
         shuffleContainer.classList.add('shuffle-dragging');
@@ -206,18 +365,18 @@ class DigitalDogSite {
         const deltaX = this.dragState.currentX - this.dragState.startX;
         
         // Calculate transform values
-        const rotation = Math.max(-15, Math.min(15, deltaX * 0.08));
-        const scale = Math.max(0.95, 1 - Math.abs(deltaX) * 0.0003);
-        const opacity = Math.max(0.85, 1 - Math.abs(deltaX) * 0.001);
+        // Smoother, less aggressive drag effects
+        const rotation = Math.max(-12, Math.min(12, deltaX * (this.shuffleState.isMobile ? 0.05 : 0.06)));
+        const scale = Math.max(0.96, 1 - Math.abs(deltaX) * (this.shuffleState.isMobile ? 0.0002 : 0.0003));
+        const opacity = Math.max(0.88, 1 - Math.abs(deltaX) * (this.shuffleState.isMobile ? 0.0008 : 0.001));
         
-        if (typeof anime !== 'undefined') {
-            anime.set(this.dragState.draggedCard, {
-                translateX: deltaX,
-                rotate: rotation,
-                scale: scale,
-                opacity: opacity
-            });
-        }
+        // Use helper function for consistent behavior
+        this.setElementProps(this.dragState.draggedCard, {
+            translateX: deltaX,
+            rotate: rotation,
+            scale: scale,
+            opacity: opacity
+        });
 
         // Visual feedback
         if (Math.abs(deltaX) > 20) {
@@ -250,66 +409,62 @@ class DigitalDogSite {
             // ✅ ANIMATION PROTECTION: Set animation lock
             this.dragState.isAnimating = true;
             
-            if (typeof anime !== 'undefined') {
-                anime({
-                    targets: this.dragState.draggedCard,
-                    translateX: deltaX > 0 ? '150%' : '-150%',
-                    rotate: deltaX > 0 ? '25deg' : '-25deg',
-                    scale: 0.7,
-                    opacity: 0,
-                    duration: 400,
-                    easing: 'easeOutQuad',
-                    complete: () => {
-                        // ✅ CRITICAL: Animation complete - release lock
-                        this.dragState.isAnimating = false;
-                        
-                        const draggedCardElement = this.dragState.draggedCard;
-                        this.dragState.draggedCard = null;
-                        
-                        // Move dragged card to end of array
-                        const originalIndex = this.shuffleState.cards.indexOf(draggedCardElement);
-                        if (originalIndex > -1) {
-                            this.shuffleState.cards.splice(originalIndex, 1);
-                            this.shuffleState.cards.push(draggedCardElement);
-                        }
-                        
-                        // Reset properties
-                        anime.set(draggedCardElement, {
-                            translateX: 0, translateY: 0, rotate: 0, 
-                            scale: 1, opacity: 1, zIndex: 0
-                        });
-                        draggedCardElement.classList.remove('active');
-                        
-                        // New active card is always first
-                        this.shuffleState.currentIndex = 0;
-                        this.shuffleState.cards[0].classList.add('active');
-                        
-                        this.initShuffleEffect();
-                        // this.updateIndicators(); // removed indicators
-
-                        if (navigator.vibrate) navigator.vibrate(50);
-                    }
+            // Use helper function for animation
+            this.animateElement(this.dragState.draggedCard, {
+                translateX: deltaX > 0 ? '150%' : '-150%',
+                rotate: deltaX > 0 ? (this.shuffleState.isMobile ? '20deg' : '25deg') : (this.shuffleState.isMobile ? '-20deg' : '-25deg'),
+                scale: this.shuffleState.isMobile ? 0.75 : 0.7,
+                opacity: 0
+            }, {
+                duration: this.shuffleState.isMobile ? 500 : 400,
+                easing: 'easeOutQuad'
+            }).then(() => {
+                // ✅ CRITICAL: Animation complete - release lock
+                this.dragState.isAnimating = false;
+                
+                const draggedCardElement = this.dragState.draggedCard;
+                this.dragState.draggedCard = null;
+                
+                // Move dragged card to end of array
+                const originalIndex = this.shuffleState.cards.indexOf(draggedCardElement);
+                if (originalIndex > -1) {
+                    this.shuffleState.cards.splice(originalIndex, 1);
+                    this.shuffleState.cards.push(draggedCardElement);
+                }
+                
+                // Reset properties using helper function
+                this.setElementProps(draggedCardElement, {
+                    translateX: 0, translateY: 0, rotate: 0, 
+                    scale: 1, opacity: 1, zIndex: 0
                 });
-            }
+                draggedCardElement.classList.remove('active');
+                
+                // New active card is always first
+                this.shuffleState.currentIndex = 0;
+                this.shuffleState.cards[0].classList.add('active');
+                
+                this.initShuffleEffect();
+                // this.updateIndicators(); // removed indicators
+
+                if (navigator.vibrate) navigator.vibrate(50);
+            });
         } else {
             // ✅ ANIMATION PROTECTION: Set animation lock for return animation
             this.dragState.isAnimating = true;
             
-            if (typeof anime !== 'undefined') {
-                anime({
-                    targets: this.dragState.draggedCard,
-                    translateX: 0,
-                    rotate: 0,
-                    scale: 1,
-                    opacity: 1,
-                    duration: 300,
-                    easing: 'easeOutElastic(1, 0.8)',
-                    complete: () => {
-                        this.dragState.isAnimating = false;
-                        this.dragState.draggedCard = null;
-                    }
-                });
-            }
+            // Use helper function for return animation
+            this.animateElement(this.dragState.draggedCard, {
+                translateX: 0,
+                rotate: 0,
+                scale: 1,
+                opacity: 1
+            }, {
+                duration: this.shuffleState.isMobile ? 400 : 300,
+                easing: this.shuffleState.isMobile ? 'easeOutBack(1.2)' : 'easeOutElastic(1, 0.8)'
+            }).then(() => {
+                this.dragState.isAnimating = false;
+                this.dragState.draggedCard = null;
+            });
         }
         
         // Remove global listeners
@@ -564,3 +719,6 @@ class DigitalDogSite {
 
 // Initialize the application
 const digitalDogSite = new DigitalDogSite();
+
+// Make instance globally accessible for debugging
+window.digitalDogSite = digitalDogSite;
