@@ -522,9 +522,6 @@ class DigitalDogSite {
                 // Clear form
                 contactForm.reset();
                 
-                // Smooth scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
             } catch (error) {
                 console.error('Form submission error:', error);
                 // Show error message
