@@ -490,52 +490,39 @@ class DigitalDogSite {
     // Contact Form Setup
     setupContactForm() {
         const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('form-success-message');
         if (!contactForm) return;
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // Check if coming back from successful FormSubmit.co submission
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            // Show success message below button
+            successMessage.innerHTML = '✅ Formulário enviado com sucesso!';
+            successMessage.className = 'form-message form-message-success';
+            successMessage.style.display = 'block';
             
+            // Clean URL without page reload
+            window.history.replaceState({}, document.title, window.location.pathname);
+            
+            // Scroll to the success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        contactForm.addEventListener('submit', (e) => {
             // Show loading state
             const submitButton = contactForm.querySelector('.form-submit');
             const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<span>Enviando...</span>';
             submitButton.disabled = true;
             
-            try {
-                // Send to Formspree
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: new FormData(contactForm),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    this.showFormMessage('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                // Fallback to WhatsApp
-                const formData = new FormData(contactForm);
-                const nome = formData.get('nome') || '';
-                const email = formData.get('email') || '';
-                const telefone = formData.get('telefone') || '';
-                const clinica = formData.get('clinica') || '';
-                const mensagem = formData.get('mensagem') || '';
-                
-                const whatsappMessage = `Olá! Meu nome é ${nome}. ${mensagem}. Email: ${email}. Telefone: ${telefone}. Clínica: ${clinica}`;
-                const whatsappLink = `https://wa.me/5547988109155?text=${encodeURIComponent(whatsappMessage)}`;
-                
-                window.open(whatsappLink, '_blank');
-                this.showFormMessage('📱 Redirecionando para WhatsApp como alternativa...', 'success');
-            } finally {
-                // Restore button
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }
+            // Hide any previous messages
+            successMessage.style.display = 'none';
+            
+            // Let the form submit normally to FormSubmit.co
+            // It will redirect back with success=true parameter
+            
+            // Note: We don't prevent default here, so the form submits normally
+            // The page will redirect to FormSubmit.co and then back with success=true
         });
     }
 
