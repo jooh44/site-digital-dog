@@ -492,56 +492,22 @@ class DigitalDogSite {
         const contactForm = document.getElementById('contactForm');
         if (!contactForm) return;
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
+        // Check if coming back from successful submission
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            this.showFormMessage('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+            // Clean URL without page reload
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        contactForm.addEventListener('submit', (e) => {
             // Show loading state
             const submitButton = contactForm.querySelector('.form-submit');
-            const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<span>Enviando...</span>';
             submitButton.disabled = true;
             
-            // Get form data
-            const formData = new FormData(contactForm);
-            
-            try {
-                // Add Web3Forms access key
-                formData.append('access_key', '8c3f7b4c-9d2f-4a8b-b6e5-1234567890ab');
-                formData.append('subject', 'Novo contato Digital Dog');
-                formData.append('from_name', 'Site Digital Dog');
-                
-                // Send to Web3Forms (free service)
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    this.showFormMessage('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.log('Form submission failed, trying WhatsApp fallback:', error);
-                
-                // Fallback to WhatsApp
-                const nome = formData.get('nome') || '';
-                const email = formData.get('email') || '';
-                const telefone = formData.get('telefone') || '';
-                const clinica = formData.get('clinica') || '';
-                const mensagem = formData.get('mensagem') || '';
-                
-                const whatsappMessage = `Olá! Meu nome é ${nome}. ${mensagem}. Email: ${email}. Telefone: ${telefone}. Clínica: ${clinica}`;
-                const whatsappLink = `https://wa.me/5547988109155?text=${encodeURIComponent(whatsappMessage)}`;
-                
-                window.open(whatsappLink, '_blank');
-                this.showFormMessage('📱 Redirecionando para WhatsApp como alternativa...', 'success');
-            } finally {
-                // Restore button
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }
+            // Let the form submit normally to FormSubmit.co
+            // It will redirect back with success=true parameter
         });
     }
 
