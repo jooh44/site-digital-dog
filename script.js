@@ -492,22 +492,50 @@ class DigitalDogSite {
         const contactForm = document.getElementById('contactForm');
         if (!contactForm) return;
 
-        // Check if coming back from successful submission
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            this.showFormMessage('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-            // Clean URL without page reload
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
             // Show loading state
             const submitButton = contactForm.querySelector('.form-submit');
+            const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<span>Enviando...</span>';
             submitButton.disabled = true;
             
-            // Let the form submit normally to FormSubmit.co
-            // It will redirect back with success=true parameter
+            try {
+                // Send to Formspree
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    this.showFormMessage('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Fallback to WhatsApp
+                const formData = new FormData(contactForm);
+                const nome = formData.get('nome') || '';
+                const email = formData.get('email') || '';
+                const telefone = formData.get('telefone') || '';
+                const clinica = formData.get('clinica') || '';
+                const mensagem = formData.get('mensagem') || '';
+                
+                const whatsappMessage = `Olá! Meu nome é ${nome}. ${mensagem}. Email: ${email}. Telefone: ${telefone}. Clínica: ${clinica}`;
+                const whatsappLink = `https://wa.me/5547988109155?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                window.open(whatsappLink, '_blank');
+                this.showFormMessage('📱 Redirecionando para WhatsApp como alternativa...', 'success');
+            } finally {
+                // Restore button
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
         });
     }
 
