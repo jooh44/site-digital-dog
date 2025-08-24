@@ -27,7 +27,6 @@ class DigitalDogSite {
     // Shuffle Portfolio Setup
     setupShufflePortfolio() {
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        const indicators = document.querySelectorAll('.indicator');
         const portfolioCta = document.querySelector('.portfolio-cta');
         
         if (!shuffleContainer) {
@@ -48,10 +47,7 @@ class DigitalDogSite {
         this.initShuffleEffect();
         this.setupCardDragFunctionality();
         
-        // Setup event listeners
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => this.goToCard(index));
-        });
+        // Setup event listeners (indicators removed)
 
         // Setup portfolio CTA
         if (portfolioCta) {
@@ -59,6 +55,9 @@ class DigitalDogSite {
                 document.querySelector('#contato').scrollIntoView({ behavior: 'smooth' });
             });
         }
+
+        // Setup contact form
+        this.setupContactForm();
 
         // Add debugging functions to window
         window.testDrag = () => {
@@ -100,15 +99,15 @@ class DigitalDogSite {
             }
         });
         
-        this.updateIndicators();
+        // this.updateIndicators(); // removed indicators
     }
 
-    updateIndicators() {
-        const indicators = document.querySelectorAll('.indicator');
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === this.shuffleState.currentIndex);
-        });
-    }
+    // updateIndicators() {
+    //     const indicators = document.querySelectorAll('.indicator');
+    //     indicators.forEach((indicator, index) => {
+    //         indicator.classList.toggle('active', index === this.shuffleState.currentIndex);
+    //     });
+    // }
 
     setupCardDragFunctionality() {
         const shuffleContainer = document.querySelector('.shuffle-stack');
@@ -286,7 +285,7 @@ class DigitalDogSite {
                         this.shuffleState.cards[0].classList.add('active');
                         
                         this.initShuffleEffect();
-                        this.updateIndicators();
+                        // this.updateIndicators(); // removed indicators
 
                         if (navigator.vibrate) navigator.vibrate(50);
                     }
@@ -336,7 +335,7 @@ class DigitalDogSite {
             minRadius: 0.5,
             maxRadius: 2,
             connectionDistance: 120,
-            connectionOpacity: 0.08,
+            connectionOpacity: 0.03,
         };
 
         function resize() {
@@ -368,7 +367,7 @@ class DigitalDogSite {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 188, 212, 0.4)';
+                ctx.fillStyle = 'rgba(0, 188, 212, 0.2)';
                 ctx.fill();
             }
         }
@@ -486,6 +485,77 @@ class DigitalDogSite {
         window.addEventListener('resize', resize);
         resize();
         animate();
+    }
+
+    // Contact Form Setup
+    setupContactForm() {
+        const contactForm = document.getElementById('contactForm');
+        if (!contactForm) return;
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const nome = formData.get('nome');
+            const email = formData.get('email');
+            const telefone = formData.get('telefone');
+            const clinica = formData.get('clinica');
+            const mensagem = formData.get('mensagem');
+
+            // Create email body
+            const emailBody = `Nome: ${nome}%0D%0AEmail: ${email}%0D%0ATelefone: ${telefone}%0D%0AClínica: ${clinica}%0D%0AMensagem: ${mensagem}`;
+            const subject = `Contato Digital Dog - ${nome}`;
+
+            // Create mailto link
+            const mailtoLink = `mailto:joohxd123@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+            // Try to open email client
+            try {
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                this.showFormMessage('✅ Redirecionando para seu cliente de email...', 'success');
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    contactForm.reset();
+                }, 2000);
+                
+            } catch (error) {
+                // Fallback to WhatsApp
+                const whatsappMessage = `Olá! Meu nome é ${nome}. ${mensagem}. Email: ${email}. Telefone: ${telefone}. Clínica: ${clinica}`;
+                const whatsappLink = `https://wa.me/5547988109155?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                window.open(whatsappLink, '_blank');
+                this.showFormMessage('📱 Redirecionando para WhatsApp...', 'success');
+            }
+        });
+    }
+
+    // Show form message
+    showFormMessage(message, type) {
+        // Remove existing message
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+        // Create message element
+        const messageEl = document.createElement('div');
+        messageEl.className = `form-message form-message-${type}`;
+        messageEl.textContent = message;
+        
+        // Insert message
+        const submitButton = document.querySelector('.form-submit');
+        submitButton.parentNode.insertBefore(messageEl, submitButton);
+
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            if (messageEl.parentNode) {
+                messageEl.remove();
+            }
+        }, 5000);
     }
 }
 
