@@ -283,9 +283,13 @@ class DigitalDogSite {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
+            startY: 0, // Add Y coordinate tracking
             currentX: 0,
+            currentY: 0, // Add current Y tracking
             draggedCard: null,
-            threshold: 50
+            threshold: 50,
+            gestureDirection: null, // Track gesture direction: 'horizontal', 'vertical', or null
+            directionLocked: false // Whether direction has been determined
         };
 
         // Bind event handler methods to this context
@@ -335,14 +339,19 @@ class DigitalDogSite {
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        e.preventDefault();
+        // Don't prevent default immediately - wait to determine gesture direction
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.startX = clientX;
+        this.dragState.startY = clientY;
         this.dragState.currentX = clientX;
+        this.dragState.currentY = clientY;
+        this.dragState.gestureDirection = null;
+        this.dragState.directionLocked = false;
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -364,14 +373,73 @@ class DigitalDogSite {
         document.body.style.userSelect = 'none';
     }
 
+    cancelDrag() {
+        // Clean up drag state without completing the drag
+        if (this.dragState.draggedCard) {
+            this.dragState.draggedCard.classList.remove('dragging');
+            this.dragState.draggedCard.style.cursor = 'grab';
+            
+            // Reset any visual changes
+            this.setElementProps(this.dragState.draggedCard, {
+                translateX: 0,
+                rotate: 0,
+                scale: 1,
+                opacity: 1
+            });
+        }
+        
+        const shuffleContainer = document.querySelector('.shuffle-stack');
+        if (shuffleContainer) {
+            shuffleContainer.classList.remove('shuffle-dragging');
+        }
+        
+        // Remove listeners
+        document.removeEventListener('mousemove', this.handleDragMove);
+        document.removeEventListener('mouseup', this.handleDragEnd);
+        document.removeEventListener('touchmove', this.handleDragMove);
+        document.removeEventListener('touchend', this.handleDragEnd);
+        
+        document.body.style.userSelect = '';
+        
+        // Reset drag state
+        this.dragState.isDragging = false;
+        this.dragState.draggedCard = null;
+        this.dragState.gestureDirection = null;
+        this.dragState.directionLocked = false;
+    }
+
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
-        e.preventDefault();
-        
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.currentX = clientX;
+        this.dragState.currentY = clientY;
+        
         const rawDeltaX = this.dragState.currentX - this.dragState.startX;
+        const rawDeltaY = this.dragState.currentY - this.dragState.startY;
+        
+        // Determine gesture direction on first significant movement
+        if (!this.dragState.directionLocked && (Math.abs(rawDeltaX) > 10 || Math.abs(rawDeltaY) > 10)) {
+            const isHorizontal = Math.abs(rawDeltaX) > Math.abs(rawDeltaY);
+            this.dragState.gestureDirection = isHorizontal ? 'horizontal' : 'vertical';
+            this.dragState.directionLocked = true;
+            
+            // If it's vertical scroll, cancel drag and allow scroll
+            if (this.dragState.gestureDirection === 'vertical') {
+                this.cancelDrag();
+                return; // Allow scroll to continue
+            }
+        }
+        
+        // Only prevent default for horizontal gestures
+        if (this.dragState.gestureDirection === 'horizontal') {
+            e.preventDefault();
+        }
+        
+        // Only continue with drag logic if it's horizontal
+        if (this.dragState.gestureDirection !== 'horizontal') return;
+        
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
         // Calculate transform values
@@ -399,6 +467,12 @@ class DigitalDogSite {
 
     handleDragEnd() {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
+        
+        // If gesture was not horizontal, just clean up
+        if (this.dragState.gestureDirection !== 'horizontal') {
+            this.cancelDrag();
+            return;
+        }
         
         const deltaX = this.dragState.currentX - this.dragState.startX;
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
@@ -486,6 +560,10 @@ class DigitalDogSite {
         document.removeEventListener('mouseup', this.handleDragEnd);
         document.removeEventListener('touchmove', this.handleDragMove);
         document.removeEventListener('touchend', this.handleDragEnd);
+        
+        // Reset gesture tracking
+        this.dragState.gestureDirection = null;
+        this.dragState.directionLocked = false;
     }
 
     // Tech Background Animation (Hero Section)
