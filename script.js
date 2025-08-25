@@ -278,16 +278,18 @@ class DigitalDogSite {
         const shuffleContainer = document.querySelector('.shuffle-stack');
         if (!shuffleContainer) return;
 
-        // Drag state variables WITH ANIMATION LOCK
+        // Drag state variables WITH MOBILE-FIRST APPROACH
         this.dragState = {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
             startY: 0,
             currentX: 0,
+            startTime: 0, // Track touch start time
             draggedCard: null,
             threshold: 50,
-            allowDrag: true // Simple flag to control drag availability
+            mobileScrollMode: true, // Default to allowing scroll on mobile
+            touchHoldTimeout: null // Timeout for touch and hold detection
         };
 
         // Bind event handler methods to this context
@@ -337,7 +339,10 @@ class DigitalDogSite {
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        // Don't prevent default immediately for touch events
+        // On mobile, don't prevent default to allow scroll
+        if (!this.shuffleState.isMobile) {
+            e.preventDefault();
+        }
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
@@ -347,7 +352,17 @@ class DigitalDogSite {
         this.dragState.startX = clientX;
         this.dragState.startY = clientY;
         this.dragState.currentX = clientX;
-        this.dragState.allowDrag = true;
+        this.dragState.startTime = Date.now();
+        this.dragState.mobileScrollMode = this.shuffleState.isMobile;
+        
+        // On mobile, start in scroll mode and require explicit activation for drag
+        if (this.shuffleState.isMobile) {
+            // Set a timeout to enable drag after 200ms of holding still
+            this.dragState.touchHoldTimeout = setTimeout(() => {
+                this.dragState.mobileScrollMode = false;
+                console.log('🔄 Touch hold detected - drag enabled');
+            }, 200);
+        }
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -415,26 +430,30 @@ class DigitalDogSite {
         const rawDeltaX = this.dragState.currentX - this.dragState.startX;
         const rawDeltaY = clientY - this.dragState.startY;
         
-        // On first significant movement, determine if this should be a drag or scroll
-        if (this.dragState.allowDrag && (Math.abs(rawDeltaX) > 15 || Math.abs(rawDeltaY) > 15)) {
-            const isHorizontalGesture = Math.abs(rawDeltaX) > Math.abs(rawDeltaY) * 1.5; // More strict threshold
-            
-            if (!isHorizontalGesture) {
-                // This looks like vertical scroll - cancel drag and allow scroll
-                this.cancelDragForScroll();
-                return;
-            }
-            
-            // Confirmed horizontal drag - prevent default and continue
-            this.dragState.allowDrag = false; // Lock decision
+        // Clear touch hold timeout on movement
+        if (this.dragState.touchHoldTimeout) {
+            clearTimeout(this.dragState.touchHoldTimeout);
+            this.dragState.touchHoldTimeout = null;
         }
         
-        // Only prevent default and continue with drag logic if we've determined it's horizontal
-        if (!this.dragState.allowDrag) {
-            e.preventDefault();
-        } else {
-            return; // Still determining - don't interfere
+        // On mobile, check if we should switch from scroll mode to drag mode
+        if (this.shuffleState.isMobile && this.dragState.mobileScrollMode) {
+            // Strong horizontal movement can override scroll mode
+            if (Math.abs(rawDeltaX) > 30 && Math.abs(rawDeltaX) > Math.abs(rawDeltaY) * 2) {
+                this.dragState.mobileScrollMode = false;
+                console.log('📱 Strong horizontal gesture - switching to drag mode');
+            } else if (Math.abs(rawDeltaY) > 15) {
+                // Vertical movement - let scroll happen
+                this.cancelDragForScroll();
+                return;
+            } else {
+                // Still in scroll mode, don't interfere
+                return;
+            }
         }
+        
+        // Prevent default only when we're sure it's a drag
+        e.preventDefault();
         
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
@@ -463,6 +482,18 @@ class DigitalDogSite {
 
     handleDragEnd() {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
+        
+        // Clear touch hold timeout if still active
+        if (this.dragState.touchHoldTimeout) {
+            clearTimeout(this.dragState.touchHoldTimeout);
+            this.dragState.touchHoldTimeout = null;
+        }
+        
+        // If we were still in mobile scroll mode, this wasn't really a drag
+        if (this.shuffleState.isMobile && this.dragState.mobileScrollMode) {
+            this.cancelDragForScroll();
+            return;
+        }
         
         const deltaX = this.dragState.currentX - this.dragState.startX;
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
@@ -551,7 +582,9 @@ class DigitalDogSite {
         document.removeEventListener('touchmove', this.handleDragMove);
         document.removeEventListener('touchend', this.handleDragEnd);
         
-        // No additional reset needed for simplified approach
+        // Reset mobile states
+        this.dragState.mobileScrollMode = true;
+        this.dragState.touchHoldTimeout = null;
     }
 
     // Tech Background Animation (Hero Section)
