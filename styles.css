@@ -858,6 +858,63 @@ body {
     cursor: grabbing;
 }
 
+/* Mobile Navigation Buttons */
+.mobile-nav-buttons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: none;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.nav-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent; /* Changed to transparent */
+    border: 3px solid var(--primary-blue); /* Increased border width and set to primary blue */
+    color: var(--primary-blue); /* Set color to primary blue for the SVG stroke */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+}
+
+.nav-button:hover {
+    background: var(--primary-blue);
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 188, 212, 0.4);
+}
+
+.nav-button:active {
+    transform: scale(0.95);
+}
+
+.nav-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Show buttons only on mobile */
+@media (max-width: 768px) {
+    .mobile-nav-buttons {
+        display: flex;
+    }
+    
+    .shuffle-stack {
+        cursor: default; /* Remove grab cursor on mobile */
+    }
+}
+
 .portfolio-card {
     position: absolute;
     top: 0;
