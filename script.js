@@ -278,20 +278,17 @@ class DigitalDogSite {
         const shuffleContainer = document.querySelector('.shuffle-stack');
         if (!shuffleContainer) return;
 
-        // Drag state variables WITH ANIMATION LOCK AND SCROLL DETECTION
+        // Drag state variables WITH ANIMATION LOCK
         this.dragState = {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
+            startY: 0,
             currentX: 0,
             draggedCard: null,
             threshold: 50,
-            isScrolling: false, // Track if page is currently scrolling
-            scrollTimeout: null // Timeout to detect end of scroll
+            allowDrag: true // Simple flag to control drag availability
         };
-        
-        // Add scroll detection for mobile
-        this.setupScrollDetection();
 
         // Bind event handler methods to this context
         this.handleDragStart = this.handleDragStart.bind(this);
@@ -340,20 +337,17 @@ class DigitalDogSite {
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        e.preventDefault();
+        // Don't prevent default immediately for touch events
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
         
-        // Block drag if currently scrolling
-        if (this.dragState.isScrolling) {
-            console.log('🛡️ Drag blocked: Page is scrolling');
-            return;
-        }
-        
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.startX = clientX;
+        this.dragState.startY = clientY;
         this.dragState.currentX = clientX;
+        this.dragState.allowDrag = true;
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -375,51 +369,73 @@ class DigitalDogSite {
         document.body.style.userSelect = 'none';
     }
 
-    setupScrollDetection() {
-        // Detect when user is scrolling to temporarily disable drag
-        let scrollTimer = null;
+    cancelDragForScroll() {
+        // Clean up drag state to allow scroll
+        console.log('🔄 Canceling drag to allow scroll');
         
-        window.addEventListener('scroll', () => {
-            this.dragState.isScrolling = true;
+        if (this.dragState.draggedCard) {
+            this.dragState.draggedCard.classList.remove('dragging');
+            this.dragState.draggedCard.style.cursor = 'grab';
             
-            // Clear existing timer
-            if (scrollTimer) {
-                clearTimeout(scrollTimer);
-            }
-            
-            // Set timer to detect end of scroll
-            scrollTimer = setTimeout(() => {
-                this.dragState.isScrolling = false;
-                console.log('📜 Scroll ended - drag enabled again');
-            }, 150); // 150ms delay after scroll stops
-        }, { passive: true });
+            // Reset visual state immediately
+            this.setElementProps(this.dragState.draggedCard, {
+                translateX: 0,
+                rotate: 0,
+                scale: 1,
+                opacity: 1
+            });
+        }
         
-        // Also detect touch-based scrolling
-        let touchScrollTimer = null;
-        document.addEventListener('touchmove', (e) => {
-            // If not dragging a card, assume it's scrolling
-            if (!this.dragState.isDragging) {
-                this.dragState.isScrolling = true;
-                
-                if (touchScrollTimer) {
-                    clearTimeout(touchScrollTimer);
-                }
-                
-                touchScrollTimer = setTimeout(() => {
-                    this.dragState.isScrolling = false;
-                }, 150);
-            }
-        }, { passive: true });
+        const shuffleContainer = document.querySelector('.shuffle-stack');
+        if (shuffleContainer) {
+            shuffleContainer.classList.remove('shuffle-dragging');
+        }
+        
+        // Remove event listeners
+        document.removeEventListener('mousemove', this.handleDragMove);
+        document.removeEventListener('mouseup', this.handleDragEnd);
+        document.removeEventListener('touchmove', this.handleDragMove);
+        document.removeEventListener('touchend', this.handleDragEnd);
+        
+        // Reset state
+        this.dragState.isDragging = false;
+        this.dragState.draggedCard = null;
+        this.dragState.allowDrag = true;
+        
+        document.body.style.userSelect = '';
     }
 
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
-        e.preventDefault();
-        
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.currentX = clientX;
+        
         const rawDeltaX = this.dragState.currentX - this.dragState.startX;
+        const rawDeltaY = clientY - this.dragState.startY;
+        
+        // On first significant movement, determine if this should be a drag or scroll
+        if (this.dragState.allowDrag && (Math.abs(rawDeltaX) > 15 || Math.abs(rawDeltaY) > 15)) {
+            const isHorizontalGesture = Math.abs(rawDeltaX) > Math.abs(rawDeltaY) * 1.5; // More strict threshold
+            
+            if (!isHorizontalGesture) {
+                // This looks like vertical scroll - cancel drag and allow scroll
+                this.cancelDragForScroll();
+                return;
+            }
+            
+            // Confirmed horizontal drag - prevent default and continue
+            this.dragState.allowDrag = false; // Lock decision
+        }
+        
+        // Only prevent default and continue with drag logic if we've determined it's horizontal
+        if (!this.dragState.allowDrag) {
+            e.preventDefault();
+        } else {
+            return; // Still determining - don't interfere
+        }
+        
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
         // Calculate transform values

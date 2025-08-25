@@ -851,6 +851,7 @@ body {
     overflow: visible;
     perspective: 1000px;
     transform-style: preserve-3d;
+    touch-action: pan-y pinch-zoom; /* Allow vertical scrolling and pinch zoom, block horizontal pan */
 }
 
 .shuffle-stack:active {
