@@ -938,6 +938,10 @@ body {
     .shuffle-stack {
         cursor: default; /* Remove grab cursor on mobile */
     }
+    
+    .drag-hint {
+        display: none; /* Hide drag hint text on mobile since we have navigation buttons */
+    }
 }
 
 .portfolio-card {
