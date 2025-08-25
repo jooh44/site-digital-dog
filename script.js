@@ -337,16 +337,34 @@ class DigitalDogSite {
         if (prevButton && nextButton) {
             prevButton.addEventListener('click', () => {
                 console.log('📱 Mobile navigation: Previous card');
+                this.addButtonFlash(prevButton);
                 this.goToPreviousCard();
             });
             
             nextButton.addEventListener('click', () => {
                 console.log('📱 Mobile navigation: Next card');
+                this.addButtonFlash(nextButton);
                 this.goToNextCard();
             });
             
             console.log('📱 Mobile navigation buttons setup complete');
         }
+    }
+    
+    addButtonFlash(button) {
+        // Remove any existing flash class
+        button.classList.remove('flash');
+        
+        // Force reflow to ensure class removal takes effect
+        button.offsetHeight;
+        
+        // Add flash class
+        button.classList.add('flash');
+        
+        // Remove flash class after animation completes
+        setTimeout(() => {
+            button.classList.remove('flash');
+        }, 200);
     }
     
     goToNextCard() {
