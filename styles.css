@@ -897,6 +897,9 @@ body {
 
 .nav-button:active {
     transform: scale(0.95);
+    background: transparent;
+    box-shadow: none;
+    border-color: var(--primary-blue);
 }
 
 .nav-button svg {
@@ -1051,7 +1054,7 @@ body {
 .portfolio-card {
     will-change: transform, opacity;
     cursor: grab;
-    touch-action: pan-x;
+    touch-action: auto; /* Changed from pan-x to auto to allow vertical scrolling */
 }
 
 .portfolio-card:hover:not(.dragging) {
