@@ -1,0 +1,1649 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\playwright.config.js",
+    "rootDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 6
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "C:/Users/Administrador/Documents/Projetos/Digital Dog/Site Digital Dog/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "mobile-radical-approach-validation.test.js",
+      "file": "mobile-radical-approach-validation.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mobile Radical Approach Validation",
+          "file": "mobile-radical-approach-validation.test.js",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Mobile devices - drag functionality completely disabled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.490Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-fd116d5d35fc48e3fe9d",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - navigation buttons work correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7229,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.487Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-861e2f74573c2c95f7eb",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 73,
+              "column": 5
+            },
+            {
+              "title": "Desktop viewport - drag functionality preserved",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7841,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.486Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-2671316d07e5691cc4b7",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 111,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - vertical scrolling completely unblocked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6240,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2667\u001b[39m\nReceived:    \u001b[31m2136\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2667\u001b[39m\nReceived:    \u001b[31m2136\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 35,
+                          "line": 209
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 207 |\u001b[39m         \n \u001b[90m 208 |\u001b[39m         \u001b[36mconst\u001b[39m afterManualScroll \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 209 |\u001b[39m         expect(afterManualScroll)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(beforeManualScroll)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 210 |\u001b[39m         \n \u001b[90m 211 |\u001b[39m         \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 35,
+                            "line": 209
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2667\u001b[39m\nReceived:    \u001b[31m2136\u001b[39m\n\n  207 |         \n  208 |         const afterManualScroll = await page.evaluate(() => window.scrollY);\n> 209 |         expect(afterManualScroll).toBeGreaterThanOrEqual(beforeManualScroll);\n      |                                   ^\n  210 |         \n  211 |         await context.close();\n  212 |     });\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.483Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 35,
+                        "line": 209
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-2a4bfe5f3ef55f989748",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 161,
+              "column": 5
+            },
+            {
+              "title": "Breakpoint behavior - 768px threshold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 5797,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.510Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-b90eed140404f22c4692",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 215,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - button animations and no JavaScript errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 8511,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:02.508Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-aef94172984dd0f9a329",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 254,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - drag functionality completely disabled",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 15,
+                      "error": {
+                        "message": "Error: browser.newContext: options.isMobile is not supported in Firefox",
+                        "stack": "Error: browser.newContext: options.isMobile is not supported in Firefox\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:12:25",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 25,
+                          "line": 12
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m     \u001b[90m// CRITICAL TEST 1: Mobile drag completely disabled\u001b[39m\n \u001b[90m 11 |\u001b[39m     test(\u001b[32m'Mobile devices - drag functionality completely disabled'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ browser }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext(devices[\u001b[32m'iPhone 12'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m         \u001b[36mconst\u001b[39m page \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mnewPage()\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m         \n \u001b[90m 15 |\u001b[39m         \u001b[90m// Capture console messages\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 25,
+                            "line": 12
+                          },
+                          "message": "Error: browser.newContext: options.isMobile is not supported in Firefox\n\n  10 |     // CRITICAL TEST 1: Mobile drag completely disabled\n  11 |     test('Mobile devices - drag functionality completely disabled', async ({ browser }) => {\n> 12 |         const context = await browser.newContext(devices['iPhone 12']);\n     |                         ^\n  13 |         const page = await context.newPage();\n  14 |         \n  15 |         // Capture console messages\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:12:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:11.290Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 25,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-f5510c696d54bd7959c0",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - navigation buttons work correctly",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 17,
+                      "error": {
+                        "message": "Error: browser.newContext: options.isMobile is not supported in Firefox",
+                        "stack": "Error: browser.newContext: options.isMobile is not supported in Firefox\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:74:25",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 25,
+                          "line": 74
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 72 |\u001b[39m     \u001b[90m// CRITICAL TEST 2: Mobile navigation buttons functional\u001b[39m\n \u001b[90m 73 |\u001b[39m     test(\u001b[32m'Mobile devices - navigation buttons work correctly'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ browser }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext(devices[\u001b[32m'Pixel 5'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m         \u001b[36mconst\u001b[39m page \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mnewPage()\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m         \n \u001b[90m 77 |\u001b[39m         \u001b[36mconst\u001b[39m consoleLogs \u001b[33m=\u001b[39m []\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 25,
+                            "line": 74
+                          },
+                          "message": "Error: browser.newContext: options.isMobile is not supported in Firefox\n\n  72 |     // CRITICAL TEST 2: Mobile navigation buttons functional\n  73 |     test('Mobile devices - navigation buttons work correctly', async ({ browser }) => {\n> 74 |         const context = await browser.newContext(devices['Pixel 5']);\n     |                         ^\n  75 |         const page = await context.newPage();\n  76 |         \n  77 |         const consoleLogs = [];\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:74:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:11.499Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 25,
+                        "line": 74
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-92cfc101b886b9fa69f4",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 73,
+              "column": 5
+            },
+            {
+              "title": "Desktop viewport - drag functionality preserved",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 10227,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:11.600Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-355e41d464ef8f3187ae",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 111,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - vertical scrolling completely unblocked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 7551,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m1841\u001b[39m\nReceived:    \u001b[31m1836\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m1841\u001b[39m\nReceived:    \u001b[31m1836\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 35,
+                          "line": 209
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 207 |\u001b[39m         \n \u001b[90m 208 |\u001b[39m         \u001b[36mconst\u001b[39m afterManualScroll \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 209 |\u001b[39m         expect(afterManualScroll)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(beforeManualScroll)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 210 |\u001b[39m         \n \u001b[90m 211 |\u001b[39m         \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 35,
+                            "line": 209
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m1841\u001b[39m\nReceived:    \u001b[31m1836\u001b[39m\n\n  207 |         \n  208 |         const afterManualScroll = await page.evaluate(() => window.scrollY);\n> 209 |         expect(afterManualScroll).toBeGreaterThanOrEqual(beforeManualScroll);\n      |                                   ^\n  210 |         \n  211 |         await context.close();\n  212 |     });\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:11.909Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-firefox\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-firefox\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 35,
+                        "line": 209
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-a657ae71d060c38f2f17",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 161,
+              "column": 5
+            },
+            {
+              "title": "Breakpoint behavior - 768px threshold",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10188,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:12.259Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-abbebe04c36a9ae326f9",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 215,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - button animations and no JavaScript errors",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 14,
+                      "error": {
+                        "message": "Error: browser.newContext: options.isMobile is not supported in Firefox",
+                        "stack": "Error: browser.newContext: options.isMobile is not supported in Firefox\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:255:25",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 25,
+                          "line": 255
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 253 |\u001b[39m     \u001b[90m// TEST 6: Animation quality and performance\u001b[39m\n \u001b[90m 254 |\u001b[39m     test(\u001b[32m'Mobile devices - button animations and no JavaScript errors'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ browser }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 255 |\u001b[39m         \u001b[36mconst\u001b[39m context \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m browser\u001b[33m.\u001b[39mnewContext(devices[\u001b[32m'iPhone 12'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 256 |\u001b[39m         \u001b[36mconst\u001b[39m page \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mnewPage()\u001b[33m;\u001b[39m\n \u001b[90m 257 |\u001b[39m         \n \u001b[90m 258 |\u001b[39m         \u001b[36mconst\u001b[39m jsErrors \u001b[33m=\u001b[39m []\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 25,
+                            "line": 255
+                          },
+                          "message": "Error: browser.newContext: options.isMobile is not supported in Firefox\n\n  253 |     // TEST 6: Animation quality and performance\n  254 |     test('Mobile devices - button animations and no JavaScript errors', async ({ browser }) => {\n> 255 |         const context = await browser.newContext(devices['iPhone 12']);\n      |                         ^\n  256 |         const page = await context.newPage();\n  257 |         \n  258 |         const jsErrors = [];\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:255:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:12.389Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 25,
+                        "line": 255
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-e3f46ec4ef32779d37b6",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 254,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - drag functionality completely disabled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 16652,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:15.750Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-c498f4acc3211f842fd8",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - navigation buttons work correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 20230,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:19.344Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-3e6c39b5faa886811ccb",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 73,
+              "column": 5
+            },
+            {
+              "title": "Desktop viewport - drag functionality preserved",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 13569,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"veterinario-florianopolis\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"veterinario-florianopolis\"\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:155:35",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 35,
+                          "line": 155
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 153 |\u001b[39m         \u001b[90m// Verify card changed (drag worked)\u001b[39m\n \u001b[90m 154 |\u001b[39m         \u001b[36mconst\u001b[39m newActiveCard \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.portfolio-card.active'\u001b[39m)\u001b[33m.\u001b[39mgetAttribute(\u001b[32m'data-project'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 155 |\u001b[39m         expect(newActiveCard)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBe(initialActiveCard)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 156 |\u001b[39m         \n \u001b[90m 157 |\u001b[39m         \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 158 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 35,
+                            "line": 155
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"veterinario-florianopolis\"\u001b[39m\n\n  153 |         // Verify card changed (drag worked)\n  154 |         const newActiveCard = await page.locator('.portfolio-card.active').getAttribute('data-project');\n> 155 |         expect(newActiveCard).not.toBe(initialActiveCard);\n      |                                   ^\n  156 |         \n  157 |         await context.close();\n  158 |     });\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:155:35"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:21.194Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-webkit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-webkit\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 35,
+                        "line": 155
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-e35429865bcd68b75782",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 111,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - vertical scrolling completely unblocked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5693,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2535\u001b[39m\nReceived:   \u001b[31m2535\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2535\u001b[39m\nReceived:   \u001b[31m2535\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:191:32",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 32,
+                          "line": 191
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 189 |\u001b[39m         \n \u001b[90m 190 |\u001b[39m         \u001b[36mconst\u001b[39m contactScrollY \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 191 |\u001b[39m         expect(contactScrollY)\u001b[33m.\u001b[39mtoBeGreaterThan(aboutScrollY)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 192 |\u001b[39m         \n \u001b[90m 193 |\u001b[39m         \u001b[90m// Test manual scrolling over portfolio area\u001b[39m\n \u001b[90m 194 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'#portfolio'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoView())\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 32,
+                            "line": 191
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2535\u001b[39m\nReceived:   \u001b[31m2535\u001b[39m\n\n  189 |         \n  190 |         const contactScrollY = await page.evaluate(() => window.scrollY);\n> 191 |         expect(contactScrollY).toBeGreaterThan(aboutScrollY);\n      |                                ^\n  192 |         \n  193 |         // Test manual scrolling over portfolio area\n  194 |         await page.evaluate(() => document.querySelector('#portfolio').scrollIntoView());\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:191:32"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:28.360Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-webkit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-webkit\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 32,
+                        "line": 191
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-5d3eb4ae3638c836e2ca",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 161,
+              "column": 5
+            },
+            {
+              "title": "Breakpoint behavior - 768px threshold",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 5708,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:248:36",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 36,
+                          "line": 248
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 246 |\u001b[39m         \n \u001b[90m 247 |\u001b[39m         \u001b[36mconst\u001b[39m mobileButtonsAt769 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m desktopPage\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-buttons'\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 248 |\u001b[39m         expect(mobileButtonsAt769)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 249 |\u001b[39m         \n \u001b[90m 250 |\u001b[39m         \u001b[36mawait\u001b[39m desktopContext\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 251 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 36,
+                            "line": 248
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  246 |         \n  247 |         const mobileButtonsAt769 = await desktopPage.locator('.mobile-nav-buttons').isVisible();\n> 248 |         expect(mobileButtonsAt769).toBe(false);\n      |                                    ^\n  249 |         \n  250 |         await desktopContext.close();\n  251 |     });\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:248:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:28.105Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-webkit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-webkit\\test-failed-2.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-webkit\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 36,
+                        "line": 248
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-d9e8c19b1cbf1ac2ac5a",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 215,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - button animations and no JavaScript errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 26114,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:30.455Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-03f679957ea8d2a80161",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 254,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - drag functionality completely disabled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7374,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:35.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-08e3c2ea91e214c3b092",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - navigation buttons work correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:35.773Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-8333e68d72688cad4dee",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 73,
+              "column": 5
+            },
+            {
+              "title": "Desktop viewport - drag functionality preserved",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 4675,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:123:26",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 26,
+                          "line": 123
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 121 |\u001b[39m         \u001b[90m// Verify NOT mobile\u001b[39m\n \u001b[90m 122 |\u001b[39m         \u001b[36mconst\u001b[39m isMobile \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mdigitalDogSite\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mshuffleState\u001b[33m?\u001b[39m\u001b[33m.\u001b[39misMobile)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 123 |\u001b[39m         expect(isMobile)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 124 |\u001b[39m         \n \u001b[90m 125 |\u001b[39m         \u001b[90m// Navigate to portfolio\u001b[39m\n \u001b[90m 126 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'#portfolio'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoView())\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 26,
+                            "line": 123
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  121 |         // Verify NOT mobile\n  122 |         const isMobile = await page.evaluate(() => window.digitalDogSite?.shuffleState?.isMobile);\n> 123 |         expect(isMobile).toBe(false);\n      |                          ^\n  124 |         \n  125 |         // Navigate to portfolio\n  126 |         await page.evaluate(() => document.querySelector('#portfolio').scrollIntoView());\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:123:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:37.141Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-Mobile-Chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-Mobile-Chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 26,
+                        "line": 123
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-5b3703fada3b0ce5ae26",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 111,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - vertical scrolling completely unblocked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5514,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3127\u001b[39m\nReceived:    \u001b[31m2582\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3127\u001b[39m\nReceived:    \u001b[31m2582\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 35,
+                          "line": 209
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 207 |\u001b[39m         \n \u001b[90m 208 |\u001b[39m         \u001b[36mconst\u001b[39m afterManualScroll \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 209 |\u001b[39m         expect(afterManualScroll)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(beforeManualScroll)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 210 |\u001b[39m         \n \u001b[90m 211 |\u001b[39m         \u001b[36mawait\u001b[39m context\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 35,
+                            "line": 209
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m3127\u001b[39m\nReceived:    \u001b[31m2582\u001b[39m\n\n  207 |         \n  208 |         const afterManualScroll = await page.evaluate(() => window.scrollY);\n> 209 |         expect(afterManualScroll).toBeGreaterThanOrEqual(beforeManualScroll);\n      |                                   ^\n  210 |         \n  211 |         await context.close();\n  212 |     });\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:209:35"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:38.811Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-Mobile-Chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-Mobile-Chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 35,
+                        "line": 209
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-86f253055bc138b9c76c",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 161,
+              "column": 5
+            },
+            {
+              "title": "Breakpoint behavior - 768px threshold",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 5596,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:245:31",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 31,
+                          "line": 245
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 243 |\u001b[39m         \n \u001b[90m 244 |\u001b[39m         \u001b[36mconst\u001b[39m isMobileAt769 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m desktopPage\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mdigitalDogSite\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mshuffleState\u001b[33m?\u001b[39m\u001b[33m.\u001b[39misMobile)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 245 |\u001b[39m         expect(isMobileAt769)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// 769px should be considered desktop (>768px)\u001b[39m\n \u001b[90m     |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 246 |\u001b[39m         \n \u001b[90m 247 |\u001b[39m         \u001b[36mconst\u001b[39m mobileButtonsAt769 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m desktopPage\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-buttons'\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[33m;\u001b[39m\n \u001b[90m 248 |\u001b[39m         expect(mobileButtonsAt769)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 31,
+                            "line": 245
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  243 |         \n  244 |         const isMobileAt769 = await desktopPage.evaluate(() => window.digitalDogSite?.shuffleState?.isMobile);\n> 245 |         expect(isMobileAt769).toBe(false); // 769px should be considered desktop (>768px)\n      |                               ^\n  246 |         \n  247 |         const mobileButtonsAt769 = await desktopPage.locator('.mobile-nav-buttons').isVisible();\n  248 |         expect(mobileButtonsAt769).toBe(false);\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:245:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:42.972Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Chrome\\test-failed-2.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 31,
+                        "line": 245
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-13b692750c8f835e2da1",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 215,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - button animations and no JavaScript errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 7662,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:43.757Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-c1c903fbf20cda7e0c94",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 254,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - drag functionality completely disabled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8009,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:44.171Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-a93957a773c57a6e2e11",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - navigation buttons work correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 12508,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:44.472Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-a8ccbe328bad0205920b",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 73,
+              "column": 5
+            },
+            {
+              "title": "Desktop viewport - drag functionality preserved",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 4915,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:123:26",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 26,
+                          "line": 123
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 121 |\u001b[39m         \u001b[90m// Verify NOT mobile\u001b[39m\n \u001b[90m 122 |\u001b[39m         \u001b[36mconst\u001b[39m isMobile \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mdigitalDogSite\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mshuffleState\u001b[33m?\u001b[39m\u001b[33m.\u001b[39misMobile)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 123 |\u001b[39m         expect(isMobile)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 124 |\u001b[39m         \n \u001b[90m 125 |\u001b[39m         \u001b[90m// Navigate to portfolio\u001b[39m\n \u001b[90m 126 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'#portfolio'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoView())\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 26,
+                            "line": 123
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  121 |         // Verify NOT mobile\n  122 |         const isMobile = await page.evaluate(() => window.digitalDogSite?.shuffleState?.isMobile);\n> 123 |         expect(isMobile).toBe(false);\n      |                          ^\n  124 |         \n  125 |         // Navigate to portfolio\n  126 |         await page.evaluate(() => document.querySelector('#portfolio').scrollIntoView());\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:123:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:46.152Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-Mobile-Safari\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-031b5-rag-functionality-preserved-Mobile-Safari\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 26,
+                        "line": 123
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-850d89ad1653d45f59e6",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 111,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - vertical scrolling completely unblocked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 4539,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2567\u001b[39m\nReceived:   \u001b[31m2567\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2567\u001b[39m\nReceived:   \u001b[31m2567\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:185:30",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 30,
+                          "line": 185
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 183 |\u001b[39m         \n \u001b[90m 184 |\u001b[39m         \u001b[36mconst\u001b[39m aboutScrollY \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 185 |\u001b[39m         expect(aboutScrollY)\u001b[33m.\u001b[39mtoBeGreaterThan(portfolioScrollY)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 186 |\u001b[39m         \n \u001b[90m 187 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'#contato'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoView())\u001b[33m;\u001b[39m\n \u001b[90m 188 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 30,
+                            "line": 185
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m2567\u001b[39m\nReceived:   \u001b[31m2567\u001b[39m\n\n  183 |         \n  184 |         const aboutScrollY = await page.evaluate(() => window.scrollY);\n> 185 |         expect(aboutScrollY).toBeGreaterThan(portfolioScrollY);\n      |                              ^\n  186 |         \n  187 |         await page.evaluate(() => document.querySelector('#contato').scrollIntoView());\n  188 |         await page.waitForTimeout(500);\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:185:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:50.512Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-Mobile-Safari\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-c4d10-olling-completely-unblocked-Mobile-Safari\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 30,
+                        "line": 185
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-54673e2aba565970ed27",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 161,
+              "column": 5
+            },
+            {
+              "title": "Breakpoint behavior - 768px threshold",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5714,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:245:31",
+                        "location": {
+                          "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                          "column": 31,
+                          "line": 245
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 243 |\u001b[39m         \n \u001b[90m 244 |\u001b[39m         \u001b[36mconst\u001b[39m isMobileAt769 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m desktopPage\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39mdigitalDogSite\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mshuffleState\u001b[33m?\u001b[39m\u001b[33m.\u001b[39misMobile)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 245 |\u001b[39m         expect(isMobileAt769)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// 769px should be considered desktop (>768px)\u001b[39m\n \u001b[90m     |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 246 |\u001b[39m         \n \u001b[90m 247 |\u001b[39m         \u001b[36mconst\u001b[39m mobileButtonsAt769 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m desktopPage\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-nav-buttons'\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[33m;\u001b[39m\n \u001b[90m 248 |\u001b[39m         expect(mobileButtonsAt769)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                            "column": 31,
+                            "line": 245
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  243 |         \n  244 |         const isMobileAt769 = await desktopPage.evaluate(() => window.digitalDogSite?.shuffleState?.isMobile);\n> 245 |         expect(isMobileAt769).toBe(false); // 769px should be considered desktop (>768px)\n      |                               ^\n  246 |         \n  247 |         const mobileButtonsAt769 = await desktopPage.locator('.mobile-nav-buttons').isVisible();\n  248 |         expect(mobileButtonsAt769).toBe(false);\n    at C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js:245:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:52.909Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Safari\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Safari\\test-failed-2.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\test-results\\mobile-radical-approach-va-e4ba4--behavior---768px-threshold-Mobile-Safari\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\tests\\mobile-radical-approach-validation.test.js",
+                        "column": 31,
+                        "line": 245
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-9ef3a9d7a0027911668c",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 215,
+              "column": 5
+            },
+            {
+              "title": "Mobile devices - button animations and no JavaScript errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 17808,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-25T01:08:53.059Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "150bac9ce038df513dee-e34143ae47dcdbcc9490",
+              "file": "mobile-radical-approach-validation.test.js",
+              "line": 254,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-25T01:08:01.351Z",
+    "duration": 70235.167,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 14,
+    "flaky": 0
+  }
+}

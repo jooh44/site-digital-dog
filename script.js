@@ -278,18 +278,14 @@ class DigitalDogSite {
         const shuffleContainer = document.querySelector('.shuffle-stack');
         if (!shuffleContainer) return;
 
-        // Drag state variables WITH MOBILE-FIRST APPROACH
+        // Drag state variables - SIMPLIFIED (mobile disabled)
         this.dragState = {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
-            startY: 0,
             currentX: 0,
-            startTime: 0, // Track touch start time
             draggedCard: null,
-            threshold: 50,
-            mobileScrollMode: true, // Default to allowing scroll on mobile
-            touchHoldTimeout: null // Timeout for touch and hold detection
+            threshold: 50
         };
 
         // Bind event handler methods to this context
@@ -326,9 +322,108 @@ class DigitalDogSite {
         });
         
         console.log('Event delegation setup complete for', this.shuffleState.cards.length, 'cards');
+        
+        // Setup mobile navigation buttons
+        this.setupMobileNavigation();
+    }
+    
+    setupMobileNavigation() {
+        // Only setup mobile navigation if we're on mobile
+        if (!this.shuffleState.isMobile) return;
+        
+        const prevButton = document.getElementById('prevCard');
+        const nextButton = document.getElementById('nextCard');
+        
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                console.log('📱 Mobile navigation: Previous card');
+                this.goToPreviousCard();
+            });
+            
+            nextButton.addEventListener('click', () => {
+                console.log('📱 Mobile navigation: Next card');
+                this.goToNextCard();
+            });
+            
+            console.log('📱 Mobile navigation buttons setup complete');
+        }
+    }
+    
+    goToNextCard() {
+        if (this.dragState.isAnimating) return;
+        
+        // Move current card to end (same logic as successful drag)
+        const currentCard = this.shuffleState.cards[this.shuffleState.currentIndex];
+        if (!currentCard) return;
+        
+        this.dragState.isAnimating = true;
+        
+        // Animate current card out
+        this.animateElement(currentCard, {
+            translateX: '-150%',
+            rotate: '-25deg',
+            scale: 0.7,
+            opacity: 0
+        }, {
+            duration: 400,
+            easing: 'easeOutQuad'
+        }).then(() => {
+            // Move to end and reset
+            this.shuffleState.cards.splice(this.shuffleState.currentIndex, 1);
+            this.shuffleState.cards.push(currentCard);
+            
+            this.setElementProps(currentCard, {
+                translateX: 0, translateY: 0, rotate: 0, 
+                scale: 1, opacity: 1, zIndex: 0,
+                transform: 'none'
+            });
+            currentCard.style.transform = '';
+            currentCard.classList.remove('active');
+            
+            this.shuffleState.currentIndex = 0;
+            this.shuffleState.cards[0].classList.add('active');
+            
+            this.initShuffleEffect();
+            this.dragState.isAnimating = false;
+        });
+    }
+    
+    goToPreviousCard() {
+        if (this.dragState.isAnimating) return;
+        
+        // Move last card to front
+        const lastCard = this.shuffleState.cards[this.shuffleState.cards.length - 1];
+        if (!lastCard) return;
+        
+        this.dragState.isAnimating = true;
+        
+        // Move last card to front
+        this.shuffleState.cards.pop();
+        this.shuffleState.cards.unshift(lastCard);
+        
+        // Current card is no longer active
+        const oldActive = document.querySelector('.portfolio-card.active');
+        if (oldActive) oldActive.classList.remove('active');
+        
+        // New first card becomes active
+        this.shuffleState.currentIndex = 0;
+        lastCard.classList.add('active');
+        
+        this.initShuffleEffect();
+        
+        // Short animation delay
+        setTimeout(() => {
+            this.dragState.isAnimating = false;
+        }, 300);
     }
 
     handleDragStart(e, targetCard = null) {
+        // ✅ MOBILE: Completely disable drag on mobile devices
+        if (this.shuffleState.isMobile) {
+            console.log('📱 Drag disabled on mobile - scroll freely!');
+            return;
+        }
+        
         // ✅ ANIMATION PROTECTION: Block drag if animation is in progress
         if (this.dragState.isAnimating) {
             console.log('🚫 Drag blocked: Animation in progress');
@@ -339,30 +434,17 @@ class DigitalDogSite {
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        // On mobile, don't prevent default to allow scroll
-        if (!this.shuffleState.isMobile) {
-            e.preventDefault();
-        }
+        e.preventDefault();
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.startX = clientX;
-        this.dragState.startY = clientY;
         this.dragState.currentX = clientX;
-        this.dragState.startTime = Date.now();
-        this.dragState.mobileScrollMode = this.shuffleState.isMobile;
-        
-        // On mobile, start in scroll mode and require explicit activation for drag
-        if (this.shuffleState.isMobile) {
-            // Set a timeout to enable drag after 200ms of holding still
-            this.dragState.touchHoldTimeout = setTimeout(() => {
-                this.dragState.mobileScrollMode = false;
-                console.log('🔄 Touch hold detected - drag enabled');
-            }, 200);
-        }
+
+        // Always start from clean position for consistent behavior
+        this.dragState.initialCardX = 0;
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -384,77 +466,15 @@ class DigitalDogSite {
         document.body.style.userSelect = 'none';
     }
 
-    cancelDragForScroll() {
-        // Clean up drag state to allow scroll
-        console.log('🔄 Canceling drag to allow scroll');
-        
-        if (this.dragState.draggedCard) {
-            this.dragState.draggedCard.classList.remove('dragging');
-            this.dragState.draggedCard.style.cursor = 'grab';
-            
-            // Reset visual state immediately
-            this.setElementProps(this.dragState.draggedCard, {
-                translateX: 0,
-                rotate: 0,
-                scale: 1,
-                opacity: 1
-            });
-        }
-        
-        const shuffleContainer = document.querySelector('.shuffle-stack');
-        if (shuffleContainer) {
-            shuffleContainer.classList.remove('shuffle-dragging');
-        }
-        
-        // Remove event listeners
-        document.removeEventListener('mousemove', this.handleDragMove);
-        document.removeEventListener('mouseup', this.handleDragEnd);
-        document.removeEventListener('touchmove', this.handleDragMove);
-        document.removeEventListener('touchend', this.handleDragEnd);
-        
-        // Reset state
-        this.dragState.isDragging = false;
-        this.dragState.draggedCard = null;
-        this.dragState.allowDrag = true;
-        
-        document.body.style.userSelect = '';
-    }
 
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        this.dragState.currentX = clientX;
-        
-        const rawDeltaX = this.dragState.currentX - this.dragState.startX;
-        const rawDeltaY = clientY - this.dragState.startY;
-        
-        // Clear touch hold timeout on movement
-        if (this.dragState.touchHoldTimeout) {
-            clearTimeout(this.dragState.touchHoldTimeout);
-            this.dragState.touchHoldTimeout = null;
-        }
-        
-        // On mobile, check if we should switch from scroll mode to drag mode
-        if (this.shuffleState.isMobile && this.dragState.mobileScrollMode) {
-            // Strong horizontal movement can override scroll mode
-            if (Math.abs(rawDeltaX) > 30 && Math.abs(rawDeltaX) > Math.abs(rawDeltaY) * 2) {
-                this.dragState.mobileScrollMode = false;
-                console.log('📱 Strong horizontal gesture - switching to drag mode');
-            } else if (Math.abs(rawDeltaY) > 15) {
-                // Vertical movement - let scroll happen
-                this.cancelDragForScroll();
-                return;
-            } else {
-                // Still in scroll mode, don't interfere
-                return;
-            }
-        }
-        
-        // Prevent default only when we're sure it's a drag
         e.preventDefault();
         
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        this.dragState.currentX = clientX;
+        const rawDeltaX = this.dragState.currentX - this.dragState.startX;
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
         // Calculate transform values
@@ -482,18 +502,6 @@ class DigitalDogSite {
 
     handleDragEnd() {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
-        
-        // Clear touch hold timeout if still active
-        if (this.dragState.touchHoldTimeout) {
-            clearTimeout(this.dragState.touchHoldTimeout);
-            this.dragState.touchHoldTimeout = null;
-        }
-        
-        // If we were still in mobile scroll mode, this wasn't really a drag
-        if (this.shuffleState.isMobile && this.dragState.mobileScrollMode) {
-            this.cancelDragForScroll();
-            return;
-        }
         
         const deltaX = this.dragState.currentX - this.dragState.startX;
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
@@ -581,10 +589,6 @@ class DigitalDogSite {
         document.removeEventListener('mouseup', this.handleDragEnd);
         document.removeEventListener('touchmove', this.handleDragMove);
         document.removeEventListener('touchend', this.handleDragEnd);
-        
-        // Reset mobile states
-        this.dragState.mobileScrollMode = true;
-        this.dragState.touchHoldTimeout = null;
     }
 
     // Tech Background Animation (Hero Section)

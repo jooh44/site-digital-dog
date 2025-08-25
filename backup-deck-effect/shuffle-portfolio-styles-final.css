@@ -2143,6 +2143,12 @@ body {
         width: 100%;
         justify-content: center;
     }
+
+    .mobile-nav-buttons .nav-button svg polyline {
+        fill: none; /* Ensure no fill */
+        stroke: var(--white); /* Set stroke to white for contrast */
+        stroke-width: 3px; /* Make it a bit thicker for visibility */
+    }
 }
 
 /* Accessibility */

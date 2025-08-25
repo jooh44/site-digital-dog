@@ -1,0 +1,204 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - img "Digital Dog" [ref=e7]
+    - heading "Enquanto você salva vidas, nós salvamos a sua Reputação Online" [level=1] [ref=e8]:
+      - text: Enquanto você salva vidas, nós salvamos a sua
+      - generic [ref=e9]: Reputação Online
+    - paragraph [ref=e10]: Sites profissionais para Medicina Veterinária e Pet Shops
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - img [ref=e13]
+        - generic [ref=e18]: Site Rápido
+      - generic [ref=e19]:
+        - img [ref=e20]
+        - generic [ref=e23]: Google Business Gratuito
+      - generic [ref=e24]:
+        - img [ref=e25]
+        - generic [ref=e29]: 1° Página do Google
+    - generic [ref=e30]:
+      - button "Quero Meu Site Agora" [ref=e31] [cursor=pointer]:
+        - generic [ref=e32] [cursor=pointer]: Quero Meu Site Agora
+        - img [ref=e33] [cursor=pointer]
+      - button "Ver Sites Criados" [ref=e35] [cursor=pointer]
+  - generic [ref=e37]:
+    - generic [ref=e38]:
+      - generic [ref=e39]: Nossos Serviços
+      - heading "Seu Site Veterinário Completo" [level=2] [ref=e40]
+      - paragraph [ref=e41]: Tenha sua presença digital profissional + Google Meu Negócio GRATUITO
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - img [ref=e45]
+        - generic [ref=e48]:
+          - heading "Site Veterinário Completo" [level=3] [ref=e49]
+          - paragraph [ref=e50]: Site profissional que atrai mais clientes e aumenta sua credibilidade online
+          - list [ref=e51]:
+            - listitem [ref=e52]: Design responsivo
+            - listitem [ref=e53]: Formulário de contato
+            - listitem [ref=e54]: Layout moderno
+            - listitem [ref=e55]: Otimizado para celular
+      - generic [ref=e56]:
+        - generic [ref=e57]: GRATUITO
+        - img [ref=e59]
+        - generic [ref=e62]:
+          - heading "Google Meu Negócio GRATUITO" [level=3] [ref=e63]
+          - paragraph [ref=e64]: Brinde exclusivo! Configuramos seu perfil no Google para aparecer na primeira página
+          - list [ref=e65]:
+            - listitem [ref=e66]: Criação do perfil
+            - listitem [ref=e67]: Upload de fotos
+            - listitem [ref=e68]: Configuração completa
+            - listitem [ref=e69]: Treinamento incluído
+      - generic [ref=e70]:
+        - img [ref=e72]
+        - generic [ref=e75]:
+          - heading "SEO Básico Incluído" [level=3] [ref=e76]
+          - paragraph [ref=e77]: Seu site já sai otimizado para ser encontrado no Google junto com seu Google My Business
+          - list [ref=e78]:
+            - listitem [ref=e79]: Títulos otimizados
+            - listitem [ref=e80]: Palavras-chave
+            - listitem [ref=e81]: Meta tags
+            - listitem [ref=e82]: Estrutura SEO
+  - generic [ref=e85]:
+    - generic [ref=e86]:
+      - generic [ref=e87]: Portfólio
+      - heading "Sites que Criamos" [level=2] [ref=e88]
+      - paragraph [ref=e89]: Veterinários que já conquistaram mais clientes com seus sites
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic:
+          - button [ref=e92] [cursor=pointer]:
+            - img [ref=e93] [cursor=pointer]
+          - button [ref=e95] [cursor=pointer]:
+            - img [ref=e96] [cursor=pointer]
+        - generic [ref=e98]:
+          - generic [ref=e100]:
+            - generic [ref=e106]: veterinarioflorianopolis.com.br
+            - generic [ref=e107]:
+              - img "Veterinário Florianópolis"
+          - generic [ref=e109]:
+            - generic [ref=e115]: aumivet.com.br
+            - generic [ref=e116]:
+              - img "Aumi Vet"
+          - generic [ref=e118]:
+            - generic [ref=e124]: morganeted.com.br
+            - generic [ref=e125]:
+              - img "Morgane TD"
+          - generic [ref=e127]:
+            - generic [ref=e133]: rzvet.com.br
+            - generic [ref=e134]:
+              - img "RZ Vet"
+          - generic [ref=e136]:
+            - generic [ref=e142]: vetberg.com.br
+            - generic [ref=e143]:
+              - img "Vet Berg"
+          - generic [ref=e145]:
+            - generic [ref=e151]: petshoparaucaria.com.br
+            - generic [ref=e152]:
+              - img "Pet Shop Araucária"
+      - generic [ref=e154]:
+        - img [ref=e155]
+        - generic [ref=e157]: Arraste para navegar
+        - img [ref=e158]
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]: 50+
+            - generic [ref=e164]: Sites Criados
+          - generic [ref=e165]:
+            - generic [ref=e166]: "+20"
+            - generic [ref=e167]: Projetos Veterinários
+          - generic [ref=e168]:
+            - generic [ref=e169]: 100%
+            - generic [ref=e170]: GMB Gratuito
+        - button "Quero Resultados Assim" [ref=e172] [cursor=pointer]:
+          - generic [ref=e173] [cursor=pointer]: Quero Resultados Assim
+          - img [ref=e174] [cursor=pointer]
+  - generic [ref=e178]:
+    - generic [ref=e179]:
+      - generic [ref=e180]: Sobre Nós
+      - heading "Por que Escolher a Digital Dog?" [level=2] [ref=e181]
+      - paragraph [ref=e182]: Somos especialistas em UI/UX, pivotamos nossa atuação para o mercado Pet que está em constante crescimento, conhecemos os tutores que buscam atendimento de qualidade, e fidelizamos eles através de uma comunicação efetiva e artística.
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - generic [ref=e185]: 50+
+          - generic [ref=e186]: Sites Criados
+        - generic [ref=e187]:
+          - generic [ref=e188]: 95%
+          - generic [ref=e189]: Taxa de Satisfação
+        - generic [ref=e190]:
+          - generic [ref=e191]: 100%
+          - generic [ref=e192]: GMB Gratuito Garantido
+    - img "Digital Dog" [ref=e195]
+  - generic [ref=e197]:
+    - generic [ref=e198]:
+      - generic [ref=e199]: Entre em Contato
+      - heading "Quero Meu Site + GMB Gratuito!" [level=2] [ref=e200]
+      - paragraph [ref=e201]: Entre em contato e tenha seu site veterinário profissional
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - heading "Fale Conosco" [level=3] [ref=e204]
+        - generic [ref=e205]:
+          - img [ref=e206]
+          - 'link "WhatsApp: (47) 98810-9155" [ref=e208]':
+            - /url: https://wa.me/5547988109155
+        - generic [ref=e209]:
+          - img [ref=e210]
+          - link "joohxd123@gmail.com" [ref=e213]:
+            - /url: mailto:joohxd123@gmail.com
+        - generic [ref=e214]:
+          - img [ref=e215]
+          - generic [ref=e218]: "Seg-Sex: 9h às 18h"
+        - img "Digital Dog Logo" [ref=e220]
+      - generic [ref=e221]:
+        - textbox "Seu nome" [ref=e223]
+        - textbox "Seu e-mail" [ref=e225]
+        - textbox "Seu telefone" [ref=e227]
+        - textbox "Nome da clínica" [ref=e229]
+        - textbox "Conte-nos sobre seu projeto" [ref=e231]
+        - button "Quero Meu Site AGORA" [ref=e232] [cursor=pointer]:
+          - generic [ref=e233] [cursor=pointer]: Quero Meu Site AGORA
+          - img [ref=e234] [cursor=pointer]
+  - contentinfo [ref=e236]:
+    - generic [ref=e237]:
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - img "Digital Dog" [ref=e240]
+          - paragraph [ref=e241]: Desenvolvendo o futuro digital dos veterinários
+          - generic [ref=e242]:
+            - link "Instagram" [ref=e243]:
+              - /url: "#"
+              - img [ref=e244]
+            - link "LinkedIn" [ref=e247]:
+              - /url: "#"
+              - img [ref=e248]
+            - link "Facebook" [ref=e252]:
+              - /url: "#"
+              - img [ref=e253]
+            - link "Pinterest" [ref=e255]:
+              - /url: "#"
+              - img [ref=e256]
+        - generic [ref=e258]:
+          - heading "Links Úteis" [level=4] [ref=e259]
+          - list [ref=e260]:
+            - listitem [ref=e261]:
+              - link "Serviços" [ref=e262]:
+                - /url: "#servicos"
+            - listitem [ref=e263]:
+              - link "Portfolio" [ref=e264]:
+                - /url: "#portfolio"
+            - listitem [ref=e265]:
+              - link "Sobre" [ref=e266]:
+                - /url: "#sobre"
+            - listitem [ref=e267]:
+              - link "Contato" [ref=e268]:
+                - /url: "#contato"
+        - generic [ref=e269]:
+          - heading "Contato" [level=4] [ref=e270]
+          - paragraph [ref=e271]:
+            - text: "WhatsApp:"
+            - text: (47) 98810-9155
+          - paragraph [ref=e272]: "E-mail: contato@digitaldog.com.br"
+      - paragraph [ref=e274]: © 2025 Digital Dog. Todos os direitos reservados.
+```

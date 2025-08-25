@@ -1,5 +1,6 @@
 # Digital Dog - Claude Code Configuration
-
+## GITHUB:
+https://github.com/jooh44/site-digital-dog **SÓ FAZER O COMMIT SE SOLICITADO**
 ## Project Overview
 Digital Dog website development with focus on modern design, performance, and accessibility.
 
