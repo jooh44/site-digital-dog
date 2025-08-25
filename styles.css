@@ -939,8 +939,12 @@ body {
         cursor: default; /* Remove grab cursor on mobile */
     }
     
+    .shuffle-controls .drag-hint {
+        display: none !important; /* Hide drag hint text on mobile since we have navigation buttons */
+    }
+    
     .drag-hint {
-        display: none; /* Hide drag hint text on mobile since we have navigation buttons */
+        display: none !important; /* Hide drag hint text on mobile since we have navigation buttons */
     }
 }
 
