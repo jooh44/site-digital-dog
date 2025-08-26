@@ -804,6 +804,14 @@ class DigitalDogSite {
                     body: formData
                 });
 
+                // Track Lead event for Meta Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {
+                        content_name: 'Form Submission',
+                        source: 'contact_form'
+                    });
+                }
+                
                 // Show success message without leaving page
                 successMessage.innerHTML = '✅ Formulário enviado com sucesso!';
                 successMessage.className = 'form-message form-message-success';
