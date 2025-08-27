@@ -5,7 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Arquivos de configuração sensíveis
-meta-config.js
+
 .env
 .env.local
 
