@@ -17,7 +17,7 @@ window.MetaConfig = {
     
     // Dataset ID da Meta Conversions API  
     // Encontre em: Business Manager > Sources > Datasets
-    datasetId: '760145010203867',
+    datasetId: '1406278840453678',
     
     // Test Event Code (opcional - para debug)
     // Obtenha em: Events Manager > Test Events
