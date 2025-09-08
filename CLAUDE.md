@@ -16,6 +16,9 @@ Digital Dog is a professional website for veterinary services with integrated Me
 # Open directly in browser (no build system)
 # For local testing with PHP API:
 php -S localhost:8000
+
+# Alternative: Open index.html directly in browser for frontend-only testing
+# Note: Meta Conversions API requires PHP server for backend functionality
 ```
 
 ### Testing Meta Conversions API
@@ -66,10 +69,14 @@ curl -X POST http://localhost:8000/api/meta-conversions.php \
 │   └── meta-conversions.php     # Server-side Meta API endpoint
 ├── docs/                        # Technical documentation
 │   ├── design-principles.md     # UI/UX guidelines
+│   ├── CARD-DECK-EFFECT-GUIDE.md # Portfolio animation guide
 │   └── *.md                     # Various technical guides
 ├── meta-config.js              # Meta API credentials (not in repo)
 ├── meta-config.example.js      # Template for Meta configuration
 ├── META-CONVERSIONS-SETUP.md   # Meta API setup instructions
+├── manifest.json               # PWA configuration
+├── robots.txt                  # SEO configuration
+├── sitemap.xml                 # SEO sitemap
 └── builder.config.json         # Builder.io configuration
 ```
 
@@ -123,6 +130,7 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - **Anime.js**: Animation library (CDN)
 - **Lucide**: Icon library (CDN)  
 - **Google Fonts**: Inter, Space Grotesk, Poppins
+- **PWA**: Progressive Web App with manifest.json
 - **No build system**: Direct file editing and browser refresh
 
 ### Performance Guidelines
@@ -177,3 +185,4 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - **UI/UX workflow**: Use `.claude/agents/ui-ux-workflow-expert.md` for design decisions
 - **Design review**: Use design-review-agent for comprehensive visual testing
 - **Design principles**: Reference `docs/design-principles.md` for all visual changes
+- **Portfolio animations**: Reference `docs/CARD-DECK-EFFECT-GUIDE.md` for card shuffle effects

@@ -76,6 +76,7 @@ class DigitalDogSite {
         // Initialize backgrounds
         this.initTechBackground();
         this.initPortfolioBackground();
+        this.initPricingBackground();
         
         // If DOM is already loaded, initialize immediately
         if (document.readyState === 'loading') {
@@ -774,6 +775,96 @@ class DigitalDogSite {
 
         window.addEventListener('resize', resize);
         resize();
+        animate();
+    }
+
+    // Pricing Background Animation
+    initPricingBackground() {
+        const canvas = document.getElementById('pricing-background');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        const particleSettings = {
+            count: 60,
+            minSpeed: 0.03,
+            maxSpeed: 0.2,
+            minRadius: 0.5,
+            maxRadius: 1.5,
+            connectionDistance: 120,
+            connectionOpacity: 0.02,
+        };
+
+        function resize() {
+            width = canvas.width = canvas.offsetWidth;
+            height = canvas.height = canvas.offsetHeight;
+            particles = [];
+            for (let i = 0; i < particleSettings.count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
+                this.vy = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
+                this.radius = Math.random() * (particleSettings.maxRadius - particleSettings.minRadius) + particleSettings.minRadius;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 107, 53, 0.2)';
+                ctx.fill();
+            }
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < particleSettings.connectionDistance) {
+                        const opacity = (1 - distance / particleSettings.connectionDistance) * particleSettings.connectionOpacity;
+                        ctx.strokeStyle = `rgba(255, 107, 53, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
         animate();
     }
 
