@@ -119,6 +119,12 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - **JavaScript**: ES6+ features, modular functions, event delegation
 - **PHP**: Secure API practices with proper error handling
 
+### Key Dependencies
+- **Anime.js**: Animation library (CDN)
+- **Lucide**: Icon library (CDN)  
+- **Google Fonts**: Inter, Space Grotesk, Poppins
+- **No build system**: Direct file editing and browser refresh
+
 ### Performance Guidelines
 - **Images**: Optimized formats, proper alt tags, lazy loading
 - **CSS**: Critical CSS inlined, efficient selectors
@@ -166,3 +172,8 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - **JavaScript**: Main functionality in `script.js`, Meta API in separate file
 - **PHP API**: Backend is self-contained in `api/meta-conversions.php`
 - **Configuration**: Always use `meta-config.example.js` as template
+
+## Claude Code Agent Integration
+- **UI/UX workflow**: Use `.claude/agents/ui-ux-workflow-expert.md` for design decisions
+- **Design review**: Use design-review-agent for comprehensive visual testing
+- **Design principles**: Reference `docs/design-principles.md` for all visual changes
