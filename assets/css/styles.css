@@ -244,14 +244,6 @@ body {
     50% { background-position: 100% 50%; }
 }
 
-@keyframes color-animation {
-    0%, 100% {
-        color: var(--gradient-orange);
-    }
-    50% {
-        color: var(--gradient-pink);
-    }
-}
 
 .hero-subtitle {
     font-size: 1.25rem;
@@ -275,18 +267,25 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--primary-blue);
+    color: var(--light-blue);
     font-weight: 500;
-    background: rgba(0, 188, 212, 0.1);
+    background: rgba(0, 188, 212, 0.08);
     padding: 0.5rem 1rem;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(0, 188, 212, 0.2);
+    border: 1px solid rgba(0, 188, 212, 0.15);
+    transition: all 0.3s ease;
 }
 
 .feature-item svg {
     width: 24px;
     height: 24px;
-    animation: color-animation 4s ease-in-out infinite;
+    color: var(--light-blue);
+}
+
+.feature-item:hover {
+    background: rgba(0, 188, 212, 0.12);
+    border-color: rgba(0, 188, 212, 0.25);
+    transform: translateY(-1px);
 }
 
 .contact-item i {
