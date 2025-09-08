@@ -244,6 +244,15 @@ body {
     50% { background-position: 100% 50%; }
 }
 
+@keyframes color-animation {
+    0%, 100% {
+        color: var(--gradient-orange);
+    }
+    50% {
+        color: var(--gradient-pink);
+    }
+}
+
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--light-blue);
@@ -274,14 +283,10 @@ body {
     border: 1px solid rgba(0, 188, 212, 0.2);
 }
 
-.feature-icon {
-    font-size: 1.25rem;
-}
-
-.feature-item i {
+.feature-item svg {
     width: 24px;
     height: 24px;
-    color: var(--primary-blue);
+    animation: color-animation 4s ease-in-out infinite;
 }
 
 .contact-item i {
