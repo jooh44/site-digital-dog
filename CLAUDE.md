@@ -60,10 +60,10 @@ curl -X POST http://localhost:8000/api/meta-conversions.php \
 ```
 ├── index.html                    # Main website page
 ├── assets/
-│   ├── css/styles.css           # Main stylesheet (55KB+)
+│   ├── css/styles.css           # Main stylesheet (61KB+)
 │   ├── js/
-│   │   ├── script.js            # Main JavaScript (33KB+)
-│   │   └── meta-conversions-api.js # Meta API integration (10KB+)
+│   │   ├── script.js            # Main JavaScript (37KB+)
+│   │   └── meta-conversions-api.js # Meta API integration (11KB+)
 │   └── images/                  # All website images
 ├── api/
 │   └── meta-conversions.php     # Server-side Meta API endpoint
@@ -176,13 +176,21 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - Network tab for API request/response analysis
 
 ## File Editing Notes
-- **CSS changes**: Single large file (55KB+), use search to find specific sections
-- **JavaScript**: Main functionality in `script.js`, Meta API in separate file
+- **CSS changes**: Single large file (61KB+), use search to find specific sections
+- **JavaScript**: Main functionality in `script.js` (37KB+), Meta API in separate file (11KB+)
 - **PHP API**: Backend is self-contained in `api/meta-conversions.php`
 - **Configuration**: Always use `meta-config.example.js` as template
+- **Sensitive files**: `meta-config.js` is gitignored and contains API credentials
 
 ## Claude Code Agent Integration
 - **UI/UX workflow**: Use `.claude/agents/ui-ux-workflow-expert.md` for design decisions
 - **Design review**: Use design-review-agent for comprehensive visual testing
 - **Design principles**: Reference `docs/design-principles.md` for all visual changes
 - **Portfolio animations**: Reference `docs/CARD-DECK-EFFECT-GUIDE.md` for card shuffle effects
+
+## Important Development Reminders
+- **No build system**: This is a static site with direct file editing
+- **No package.json**: Dependencies loaded via CDN, no npm commands available
+- **Meta credentials**: Never commit `meta-config.js` - it's gitignored for security
+- **Testing approach**: Browser-based testing only, no automated test framework
+- **Deployment**: Simple file upload to web server with PHP support
