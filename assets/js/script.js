@@ -297,7 +297,8 @@ class DigitalDogSite {
             threshold: this.shuffleState.isMobile ? 30 : 50, // Lower threshold for mobile swipe
             isTouchInteraction: false, // ✅ Track if current interaction is touch-based
             swipeDirection: null, // ✅ Track swipe direction (horizontal/vertical)
-            minSwipeDistance: 15 // ✅ Minimum distance to determine direction
+            minSwipeDistance: 8, // ✅ Minimum distance to determine direction (lowered for faster response)
+            listenerUpgraded: false // ✅ Track if we've upgraded to non-passive listener
         };
 
         // Bind event handler methods to this context
@@ -328,7 +329,7 @@ class DigitalDogSite {
                 console.log('🔍 Calling handleDragStart for touch');
                 this.handleDragStart(e, card);
             }
-        }, { passive: false });
+        }, { passive: true }); // ✅ Changed to passive to allow scroll
 
         // Set cursor and visual indicators for all cards
         this.shuffleState.cards.forEach(card => {
@@ -441,7 +442,7 @@ class DigitalDogSite {
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        e.preventDefault();
+        // ✅ Don't prevent default immediately for touch events - let direction detection decide
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
@@ -454,6 +455,7 @@ class DigitalDogSite {
         this.dragState.currentX = clientX;
         this.dragState.currentY = clientY;
         this.dragState.swipeDirection = null; // Reset direction
+        this.dragState.listenerUpgraded = false; // Reset listener state
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -470,9 +472,10 @@ class DigitalDogSite {
         
         // Add global listeners based on interaction type
         if (isTouchEvent) {
-            document.addEventListener('touchmove', this.handleDragMove, { passive: false });
+            // ✅ Start with passive listener, will be upgraded if needed
+            document.addEventListener('touchmove', this.handleDragMove, { passive: true });
             document.addEventListener('touchend', this.handleDragEnd);
-            console.log('👆 Swipe interaction started on mobile');
+            console.log('👆 Swipe interaction started on mobile (passive mode)');
         } else {
             document.addEventListener('mousemove', this.handleDragMove);
             document.addEventListener('mouseup', this.handleDragEnd);
@@ -512,6 +515,18 @@ class DigitalDogSite {
         this.dragState.draggedCard = null;
         this.dragState.swipeDirection = null;
     }
+    
+    // ✅ Upgrade touch listener to non-passive when horizontal swipe is detected
+    upgradeToNonPassiveListener() {
+        if (this.dragState.isTouchInteraction && !this.dragState.listenerUpgraded) {
+            console.log('🔧 Upgrading to non-passive touch listener');
+            // Remove passive listener
+            document.removeEventListener('touchmove', this.handleDragMove);
+            // Add non-passive listener
+            document.addEventListener('touchmove', this.handleDragMove, { passive: false });
+            this.dragState.listenerUpgraded = true;
+        }
+    }
 
 
     handleDragMove(e) {
@@ -524,8 +539,6 @@ class DigitalDogSite {
             if (now - this.dragState.lastUpdateTime < 16) return; // ~60fps max
             this.dragState.lastUpdateTime = now;
         }
-        
-        e.preventDefault();
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
         const clientY = e.clientY || (e.touches && e.touches[0].clientY);
@@ -540,14 +553,19 @@ class DigitalDogSite {
             const absX = Math.abs(rawDeltaX);
             const absY = Math.abs(rawDeltaY);
             
-            if (absX > this.dragState.minSwipeDistance || absY > this.dragState.minSwipeDistance) {
-                if (absX > absY * 1.5) {
+            // More sensitive detection - smaller threshold
+            if (absX > 8 || absY > 8) {
+                if (absX > absY * 1.2) {
                     this.dragState.swipeDirection = 'horizontal';
-                    console.log('🔍 Horizontal swipe detected');
-                } else if (absY > absX * 1.5) {
+                    console.log('🔍 Horizontal swipe detected - preventing scroll');
+                    // Only NOW prevent default for horizontal swipes
+                    e.preventDefault();
+                    // Upgrade to non-passive listener for better control
+                    this.upgradeToNonPassiveListener();
+                } else if (absY > absX * 1.2) {
                     this.dragState.swipeDirection = 'vertical';
                     console.log('🔍 Vertical swipe detected - allowing scroll');
-                    // Allow vertical scroll by not preventing default and stopping drag
+                    // Allow vertical scroll by stopping drag and NOT preventing default
                     this.dragState.isDragging = false;
                     this.cleanupDragState();
                     return;
@@ -558,6 +576,11 @@ class DigitalDogSite {
         // If vertical swipe was detected, don't interfere with scroll
         if (this.dragState.swipeDirection === 'vertical') {
             return;
+        }
+        
+        // Only prevent default if we've determined this is horizontal swipe
+        if (this.dragState.swipeDirection === 'horizontal') {
+            e.preventDefault();
         }
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
