@@ -1283,19 +1283,18 @@ body {
     user-select: none;
 }
 
-/* ✅ Ultra-optimized swipe states for mobile touch interactions */
+/* ✅ Optimized swipe states for mobile touch interactions */
 .portfolio-card.swiping {
     cursor: default !important;
     z-index: 15;
     transition: none !important;
     touch-action: none;
+    filter: brightness(1.02); /* Keep visual feedback */
     transform-origin: center center;
     pointer-events: none;
-    /* Maximum hardware acceleration for ultra-smooth mobile swiping */
-    will-change: transform;
+    /* Hardware acceleration for smooth mobile swiping */
+    will-change: transform, opacity;
     backface-visibility: hidden;
-    perspective: 1000px;
-    transform-style: preserve-3d;
 }
 
 .shuffle-stack.shuffle-swiping {
@@ -1308,9 +1307,7 @@ body {
 /* ✅ Mobile-specific performance optimizations */
 @media (max-width: 768px) {
     .portfolio-card.swiping {
-        /* Remove expensive filters on mobile */
-        filter: none !important;
-        box-shadow: none !important; 
+        /* Keep visual effects but optimize them for mobile */
         /* Force GPU acceleration */
         transform: translateZ(0);
     }
