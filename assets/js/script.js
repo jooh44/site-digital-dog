@@ -475,6 +475,8 @@ class DigitalDogSite {
             // ✅ Start with passive listener, will be upgraded if needed
             document.addEventListener('touchmove', this.handleDragMove, { passive: true });
             document.addEventListener('touchend', this.handleDragEnd);
+            // ✅ Safety net for edge cases
+            document.addEventListener('touchcancel', this.handleDragEnd);
             console.log('👆 Swipe interaction started on mobile (passive mode)');
         } else {
             document.addEventListener('mousemove', this.handleDragMove);
@@ -503,10 +505,16 @@ class DigitalDogSite {
         
         document.body.style.userSelect = '';
         
+        // ✅ CRITICAL: Restore scroll when drag ends
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+        console.log('🔓 Scroll restored - drag ended');
+        
         // Remove listeners based on interaction type
         if (this.dragState.isTouchInteraction) {
             document.removeEventListener('touchmove', this.handleDragMove);
             document.removeEventListener('touchend', this.handleDragEnd);
+            document.removeEventListener('touchcancel', this.handleDragEnd);
         } else {
             document.removeEventListener('mousemove', this.handleDragMove);
             document.removeEventListener('mouseup', this.handleDragEnd);
@@ -562,6 +570,10 @@ class DigitalDogSite {
                     e.preventDefault();
                     // Upgrade to non-passive listener for better control
                     this.upgradeToNonPassiveListener();
+                    // ✅ Lock scroll immediately when horizontal swipe is detected
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.touchAction = 'none';
+                    console.log('🔒 Scroll locked - horizontal swipe confirmed');
                 } else if (absY > absX * 1.2) {
                     this.dragState.swipeDirection = 'vertical';
                     console.log('🔍 Vertical swipe detected - allowing scroll');
@@ -578,9 +590,13 @@ class DigitalDogSite {
             return;
         }
         
-        // Only prevent default if we've determined this is horizontal swipe
+        // ✅ CRITICAL: Once horizontal swipe is active, block ALL scrolling
         if (this.dragState.swipeDirection === 'horizontal') {
             e.preventDefault();
+            // Also prevent any future scroll attempts during this drag session
+            document.body.style.overflow = 'hidden';
+            document.body.style.touchAction = 'none';
+            console.log('🔒 Scroll locked - horizontal drag active');
         }
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
@@ -640,6 +656,11 @@ class DigitalDogSite {
         shuffleContainer.classList.remove('shuffle-dragging', 'shuffle-swiping');
         
         document.body.style.userSelect = '';
+        
+        // ✅ CRITICAL: Always restore scroll when interaction ends
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+        console.log('🔓 Scroll restored - interaction ended');
         
         if (shouldChangeCard) {
             // ✅ ANIMATION PROTECTION: Set animation lock
@@ -711,6 +732,7 @@ class DigitalDogSite {
         if (isTouchInteraction) {
             document.removeEventListener('touchmove', this.handleDragMove);
             document.removeEventListener('touchend', this.handleDragEnd);
+            document.removeEventListener('touchcancel', this.handleDragEnd);
         } else {
             document.removeEventListener('mousemove', this.handleDragMove);
             document.removeEventListener('mouseup', this.handleDragEnd);
