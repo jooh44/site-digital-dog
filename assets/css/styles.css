@@ -1125,6 +1125,10 @@ body {
     animation: buttonFlash 0.2s ease-out;
 }
 
+.nav-button.flash svg {
+    stroke: white !important;
+}
+
 @keyframes buttonFlash {
     0% {
         background: var(--primary-blue);
@@ -1135,7 +1139,7 @@ body {
         transform: scale(1.05);
     }
     100% {
-        background: transparent;
+        background: rgba(255, 255, 255, 0.1);
         transform: scale(1);
     }
 }

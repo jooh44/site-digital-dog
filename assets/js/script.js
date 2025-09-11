@@ -12,7 +12,10 @@ class DigitalDogSite {
 
     // Performance optimization based on device capabilities
     initPerformanceOptimization() {
-        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isMobile = window.innerWidth <= 768 || 
+                        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                        ('ontouchstart' in window) || 
+                        (navigator.maxTouchPoints > 0);
         const isLowPerformance = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
         const isSlowConnection = navigator.connection && (navigator.connection.effectiveType === 'slow-2g' || navigator.connection.effectiveType === '2g');
         
@@ -101,7 +104,10 @@ class DigitalDogSite {
         }
 
         // Detect mobile/low-performance devices
-        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isMobile = window.innerWidth <= 768 || 
+                        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                        ('ontouchstart' in window) || 
+                        (navigator.maxTouchPoints > 0);
         const isLowPerformance = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
         
         this.shuffleState = {
@@ -286,7 +292,7 @@ class DigitalDogSite {
             startX: 0,
             currentX: 0,
             draggedCard: null,
-            threshold: 50,
+            threshold: this.shuffleState.isMobile ? 30 : 50, // Lower threshold for mobile swipe
             isTouchInteraction: false // ✅ Track if current interaction is touch-based
         };
 
@@ -311,8 +317,11 @@ class DigitalDogSite {
         });
 
         container.addEventListener('touchstart', (e) => {
+            console.log('🔍 TouchStart event captured on container', e.target);
             const card = e.target.closest('.portfolio-card');
+            console.log('🔍 Found card:', card, 'included in cards:', card && this.shuffleState.cards.includes(card));
             if (card && this.shuffleState.cards.includes(card)) {
+                console.log('🔍 Calling handleDragStart for touch');
                 this.handleDragStart(e, card);
             }
         }, { passive: false });
@@ -354,8 +363,10 @@ class DigitalDogSite {
     }
     
     addButtonFlash(button) {
-        // Remove any existing flash class
+        // Remove any existing flash class and reset styles
         button.classList.remove('flash');
+        button.style.background = '';
+        button.style.transform = '';
         
         // Force reflow to ensure class removal takes effect
         button.offsetHeight;
@@ -363,10 +374,17 @@ class DigitalDogSite {
         // Add flash class
         button.classList.add('flash');
         
-        // Remove flash class after animation completes
+        // Remove flash class after animation completes and reset styles
         setTimeout(() => {
             button.classList.remove('flash');
-        }, 200);
+            button.style.background = '';
+            button.style.transform = '';
+            // Reset SVG stroke color
+            const svg = button.querySelector('svg');
+            if (svg) {
+                svg.style.stroke = '';
+            }
+        }, 250);
     }
     
     goToNextCard() {
@@ -460,7 +478,11 @@ class DigitalDogSite {
             return;
         }
 
-        console.log('Interaction start:', e.type, isTouchEvent ? 'SWIPE' : 'DRAG');
+        console.log('🔍 Interaction start:', e.type, isTouchEvent ? 'SWIPE' : 'DRAG', 
+                   'isMobile:', this.shuffleState.isMobile, 
+                   'windowWidth:', window.innerWidth,
+                   'hasTouch:', 'ontouchstart' in window,
+                   'maxTouchPoints:', navigator.maxTouchPoints);
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
@@ -542,7 +564,9 @@ class DigitalDogSite {
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
         const isTouchInteraction = this.dragState.isTouchInteraction;
         
-        console.log('Interaction End:', isTouchInteraction ? 'SWIPE' : 'DRAG', '- deltaX:', deltaX, 'shouldChangeCard:', shouldChangeCard);
+        console.log('🔍 Interaction End:', isTouchInteraction ? 'SWIPE' : 'DRAG', 
+                   '- deltaX:', deltaX, 'threshold:', this.dragState.threshold, 
+                   'shouldChangeCard:', shouldChangeCard, 'absX:', Math.abs(deltaX));
         
         this.dragState.isDragging = false;
         
