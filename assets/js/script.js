@@ -297,7 +297,7 @@ class DigitalDogSite {
             threshold: this.shuffleState.isMobile ? 30 : 50, // Lower threshold for mobile swipe
             isTouchInteraction: false, // ✅ Track if current interaction is touch-based
             swipeDirection: null, // ✅ Track swipe direction (horizontal/vertical)
-            minSwipeDistance: 3, // ✅ Ultra-fast detection for rapid swipes
+            minSwipeDistance: 5, // ✅ Balanced detection - fast but not too aggressive
             listenerUpgraded: false // ✅ Track if we've upgraded to non-passive listener
         };
 
@@ -340,11 +340,10 @@ class DigitalDogSite {
             console.log('🔍 Found card:', card, 'included in cards:', card && this.shuffleState.cards.includes(card));
             if (card && this.shuffleState.cards.includes(card)) {
                 console.log('🔍 Calling handleDragStart for touch');
-                // ✅ For fast swipes: immediately prevent default on card touch
-                e.preventDefault();
+                // ✅ Don't prevent default immediately - let direction detection handle it
                 this.handleDragStart(e, card);
             }
-        }, { passive: false }); // ✅ Non-passive to block fast swipes
+        }, { passive: true }); // ✅ Back to passive for initial touch
 
         // Set cursor and visual indicators for all cards
         this.shuffleState.cards.forEach(card => {
@@ -576,27 +575,27 @@ class DigitalDogSite {
             const absX = Math.abs(rawDeltaX);
             const absY = Math.abs(rawDeltaY);
             
-            // Ultra-fast detection - 3px threshold
-            if (absX > 3 || absY > 3) {
-                // ✅ CRITICAL: Be much more strict about vertical detection
-                if (absY > absX * 2.5 && absX < 10) {
-                    // Only allow vertical scroll if movement is VERY clearly vertical
+            // Fast detection - 5px threshold for balance
+            if (absX > 5 || absY > 5) {
+                if (absX > absY * 1.5) {
+                    // Horizontal swipe detected
+                    this.dragState.swipeDirection = 'horizontal';
+                    console.log('🔍 Horizontal swipe detected - enabling drag');
+                    e.preventDefault();
+                    this.upgradeToNonPassiveListener();
+                    // ✅ Lock scroll for horizontal drag
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.touchAction = 'none';
+                    console.log('🔒 Scroll locked - horizontal drag active');
+                } else if (absY > absX * 2.0 && absX < 15) {
+                    // Clearly vertical scroll
                     this.dragState.swipeDirection = 'vertical';
-                    console.log('🔍 CLEARLY vertical swipe detected - allowing scroll');
+                    console.log('🔍 Vertical scroll detected - allowing scroll');
                     this.dragState.isDragging = false;
                     this.cleanupDragState();
                     return;
-                } else {
-                    // Default to horizontal for ANY ambiguous movement
-                    this.dragState.swipeDirection = 'horizontal';
-                    console.log('🔍 Horizontal/ambiguous swipe - preventing scroll');
-                    e.preventDefault();
-                    this.upgradeToNonPassiveListener();
-                    // ✅ Lock scroll immediately
-                    document.body.style.overflow = 'hidden';
-                    document.body.style.touchAction = 'none';
-                    console.log('🔒 Scroll locked - horizontal/ambiguous movement');
                 }
+                // If neither condition met, wait for more movement
             }
         }
         
