@@ -1052,10 +1052,12 @@ body {
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 900px; /* Reverted to original desktop height */
+    height: auto; /* Changed from fixed height to auto */
+    min-height: 900px; /* Minimum height to maintain visual */
     perspective: 1000px;
     margin: 0 auto;
     z-index: 2;
+    padding: 60px 0; /* Add padding to ensure cards aren't cut off */
 }
 
 .shuffle-stack {
@@ -2349,7 +2351,9 @@ body {
     /* Responsive Shuffle Portfolio */
     .shuffle-container {
         max-width: 500px;
-        height: 750px; /* Adjusted for original desktop aspect ratio (2:3 for 500px width) */
+        height: auto;
+        min-height: 750px; /* Minimum height maintained */
+        padding: 50px 0;
     }
 
     .shuffle-controls {
@@ -2433,7 +2437,9 @@ body {
     /* Mobile Shuffle Portfolio */
     .shuffle-container {
         max-width: 380px;
-        height: 570px; /* Adjusted for original desktop aspect ratio (2:3 for 380px width) */
+        height: auto;
+        min-height: 570px; /* Minimum height maintained */
+        padding: 40px 0;
     }
 
     .card-preview {
