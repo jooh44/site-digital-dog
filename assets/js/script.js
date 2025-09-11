@@ -155,10 +155,19 @@ class DigitalDogSite {
     }
     
     init() {
-        // Initialize backgrounds
-        this.initTechBackground();
-        this.initPortfolioBackground();
-        this.initPricingBackground();
+        // Initialize backgrounds (adiar no mobile para melhorar FCP/LCP)
+        const isMobile = window.innerWidth <= 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+        if (isMobile && 'requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                this.initTechBackground();
+                this.initPortfolioBackground();
+                this.initPricingBackground();
+            }, { timeout: 1500 });
+        } else {
+            this.initTechBackground();
+            this.initPortfolioBackground();
+            this.initPricingBackground();
+        }
         
         // If DOM is already loaded, initialize immediately
         if (document.readyState === 'loading') {

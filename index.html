@@ -16,26 +16,36 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/images/logo_digital_dog-removebg-preview.png">
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PT6BQ8ZB');</script>
+    <!-- Google Tag Manager (adiado para melhorar FCP/LCP) -->
+    <script>
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PT6BQ8ZB');
+      }, 1000);
+    });
+    </script>
     <!-- End Google Tag Manager -->
     
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (adiado para melhorar FCP/LCP) -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1786370399432174');
-    fbq('track', 'PageView');
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1786370399432174');
+        fbq('track', 'PageView');
+      }, 1200);
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1786370399432174&ev=PageView&noscript=1"
@@ -50,11 +60,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Preload LCP image (hero logo) -->
+    <link rel="preload" as="image" href="./assets/images/logo_digital_dog.png"/>
+
+    <!-- Lucide Icons (defer) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     
-    <!-- Anime.js for smooth animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <!-- Anime.js for smooth animations (defer) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
     
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -87,7 +100,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-logo">
-                    <img src="./assets/images/logo_digital_dog.png" alt="Digital Dog" class="hero-logo-img">
+                    <img src="./assets/images/logo_digital_dog.png" alt="Digital Dog" class="hero-logo-img" width="450" height="160" fetchpriority="high" loading="eager" decoding="async">
                 </div>
                 <h1 class="hero-title">
                     Enquanto você Cuida dos Pets, nós cuidamos da sua
@@ -211,22 +224,22 @@
                 <div class="ticker-viewport" id="portfolioTicker">
                     <div class="ticker-track">
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/1 - veterinarioflorianopolis.com.br.jpg" alt="veterinarioflorianopolis.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/1 - veterinarioflorianopolis.com.br.jpg" alt="veterinarioflorianopolis.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/2 - aumivet.com.br.jpg" alt="aumivet.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/2 - aumivet.com.br.jpg" alt="aumivet.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/3 - morganeted.com.br.jpg" alt="morganeted.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/3 - morganeted.com.br.jpg" alt="morganeted.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/4 - rzvet.com.br.jpg" alt="rzvet.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/4 - rzvet.com.br.jpg" alt="rzvet.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/5 - vetberg.com.br.jpg" alt="vetberg.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/5 - vetberg.com.br.jpg" alt="vetberg.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                         <div class="ticker-item">
-                            <img src="./assets/images/prints-portfolio-compactado/7 - petmovecuritiba.com.br.jpg" alt="petmovecuritiba.com.br">
+                            <img src="./assets/images/prints-portfolio-compactado/7 - petmovecuritiba.com.br.jpg" alt="petmovecuritiba.com.br" loading="lazy" decoding="async" fetchpriority="low">
                         </div>
                     </div>
                 </div>
