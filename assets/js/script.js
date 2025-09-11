@@ -69,6 +69,23 @@ class DigitalDogSite {
 
         // Start
         requestAnimationFrame(animate);
+
+        // Bloquear context menu e gestos de toque prolongado nas imagens do ticker
+        viewport.addEventListener('contextmenu', (e) => {
+            if (e.target && (e.target.tagName === 'IMG' || e.target.closest('.ticker-item'))) {
+                e.preventDefault();
+            }
+        });
+        viewport.addEventListener('touchstart', (e) => {
+            if (e.target && (e.target.tagName === 'IMG' || e.target.closest('.ticker-item'))) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        viewport.addEventListener('mousedown', (e) => {
+            if (e.button === 2 && (e.target && (e.target.tagName === 'IMG' || e.target.closest('.ticker-item')))) {
+                e.preventDefault();
+            }
+        });
     }
 
 

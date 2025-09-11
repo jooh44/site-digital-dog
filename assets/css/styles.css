@@ -551,6 +551,10 @@ body {
     object-fit: contain;
     display: block;
     background: #0b1222;
+    -webkit-touch-callout: none; /* iOS: desativa menu de toque prolongado */
+    -webkit-user-drag: none; /* Safari/Chrome */
+    user-select: none; /* Evita seleção */
+    pointer-events: none; /* Passa eventos ao container para desacelerar */
 }
 
 .ticker-hint {
