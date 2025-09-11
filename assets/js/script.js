@@ -290,10 +290,14 @@ class DigitalDogSite {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
+            startY: 0, // ✅ Track Y position for scroll detection
             currentX: 0,
+            currentY: 0,
             draggedCard: null,
             threshold: this.shuffleState.isMobile ? 30 : 50, // Lower threshold for mobile swipe
-            isTouchInteraction: false // ✅ Track if current interaction is touch-based
+            isTouchInteraction: false, // ✅ Track if current interaction is touch-based
+            swipeDirection: null, // ✅ Track swipe direction (horizontal/vertical)
+            minSwipeDistance: 15 // ✅ Minimum distance to determine direction
         };
 
         // Bind event handler methods to this context
@@ -334,58 +338,9 @@ class DigitalDogSite {
         
         console.log('Event delegation setup complete for', this.shuffleState.cards.length, 'cards');
         
-        // Setup mobile navigation buttons
-        this.setupMobileNavigation();
+        // Mobile navigation removed - using swipe only
     }
     
-    setupMobileNavigation() {
-        // Only setup mobile navigation if we're on mobile
-        if (!this.shuffleState.isMobile) return;
-        
-        const prevButton = document.getElementById('prevCard');
-        const nextButton = document.getElementById('nextCard');
-        
-        if (prevButton && nextButton) {
-            prevButton.addEventListener('click', () => {
-                console.log('📱 Mobile navigation: Previous card');
-                this.addButtonFlash(prevButton);
-                this.goToPreviousCard();
-            });
-            
-            nextButton.addEventListener('click', () => {
-                console.log('📱 Mobile navigation: Next card');
-                this.addButtonFlash(nextButton);
-                this.goToNextCard();
-            });
-            
-            console.log('📱 Mobile navigation buttons setup complete');
-        }
-    }
-    
-    addButtonFlash(button) {
-        // Remove any existing flash class and reset styles
-        button.classList.remove('flash');
-        button.style.background = '';
-        button.style.transform = '';
-        
-        // Force reflow to ensure class removal takes effect
-        button.offsetHeight;
-        
-        // Add flash class
-        button.classList.add('flash');
-        
-        // Remove flash class after animation completes and reset styles
-        setTimeout(() => {
-            button.classList.remove('flash');
-            button.style.background = '';
-            button.style.transform = '';
-            // Reset SVG stroke color
-            const svg = button.querySelector('svg');
-            if (svg) {
-                svg.style.stroke = '';
-            }
-        }, 250);
-    }
     
     goToNextCard() {
         if (this.dragState.isAnimating) return;
@@ -493,8 +448,12 @@ class DigitalDogSite {
         this.dragState.isTouchInteraction = isTouchEvent;
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.startX = clientX;
+        this.dragState.startY = clientY;
         this.dragState.currentX = clientX;
+        this.dragState.currentY = clientY;
+        this.dragState.swipeDirection = null; // Reset direction
 
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
@@ -522,36 +481,112 @@ class DigitalDogSite {
         
         document.body.style.userSelect = 'none';
     }
+    
+    // ✅ Helper function to clean up drag state
+    cleanupDragState() {
+        if (this.dragState.draggedCard) {
+            this.dragState.draggedCard.classList.remove('dragging', 'swiping', 'swipe-left', 'swipe-right');
+            if (!this.dragState.isTouchInteraction) {
+                this.dragState.draggedCard.style.cursor = 'grab';
+            }
+            this.dragState.draggedCard.style.transform = '';
+            this.dragState.draggedCard.style.opacity = '';
+        }
+        
+        const shuffleContainer = document.querySelector('.shuffle-stack');
+        if (shuffleContainer) {
+            shuffleContainer.classList.remove('shuffle-dragging', 'shuffle-swiping');
+        }
+        
+        document.body.style.userSelect = '';
+        
+        // Remove listeners based on interaction type
+        if (this.dragState.isTouchInteraction) {
+            document.removeEventListener('touchmove', this.handleDragMove);
+            document.removeEventListener('touchend', this.handleDragEnd);
+        } else {
+            document.removeEventListener('mousemove', this.handleDragMove);
+            document.removeEventListener('mouseup', this.handleDragEnd);
+        }
+        
+        this.dragState.draggedCard = null;
+        this.dragState.swipeDirection = null;
+    }
 
 
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
+        // Performance optimization: throttle updates for mobile
+        if (this.shuffleState.isMobile) {
+            if (!this.dragState.lastUpdateTime) this.dragState.lastUpdateTime = 0;
+            const now = performance.now();
+            if (now - this.dragState.lastUpdateTime < 16) return; // ~60fps max
+            this.dragState.lastUpdateTime = now;
+        }
+        
         e.preventDefault();
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
         this.dragState.currentX = clientX;
+        this.dragState.currentY = clientY;
+        
         const rawDeltaX = this.dragState.currentX - this.dragState.startX;
+        const rawDeltaY = this.dragState.currentY - this.dragState.startY;
+        
+        // ✅ DIRECTION DETECTION: Determine swipe direction for mobile
+        if (this.shuffleState.isMobile && !this.dragState.swipeDirection) {
+            const absX = Math.abs(rawDeltaX);
+            const absY = Math.abs(rawDeltaY);
+            
+            if (absX > this.dragState.minSwipeDistance || absY > this.dragState.minSwipeDistance) {
+                if (absX > absY * 1.5) {
+                    this.dragState.swipeDirection = 'horizontal';
+                    console.log('🔍 Horizontal swipe detected');
+                } else if (absY > absX * 1.5) {
+                    this.dragState.swipeDirection = 'vertical';
+                    console.log('🔍 Vertical swipe detected - allowing scroll');
+                    // Allow vertical scroll by not preventing default and stopping drag
+                    this.dragState.isDragging = false;
+                    this.cleanupDragState();
+                    return;
+                }
+            }
+        }
+        
+        // If vertical swipe was detected, don't interfere with scroll
+        if (this.dragState.swipeDirection === 'vertical') {
+            return;
+        }
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
-        // Calculate transform values
-        // Smoother, less aggressive drag effects
-        const rotation = Math.max(-12, Math.min(12, rawDeltaX * (this.shuffleState.isMobile ? 0.05 : 0.06)));
-        const scale = Math.max(0.96, 1 - Math.abs(rawDeltaX) * (this.shuffleState.isMobile ? 0.0002 : 0.0003));
-        const opacity = Math.max(0.88, 1 - Math.abs(rawDeltaX) * (this.shuffleState.isMobile ? 0.0008 : 0.001));
+        // Optimized transform calculations for mobile
+        const isMobile = this.shuffleState.isMobile;
+        const rotation = Math.max(-10, Math.min(10, rawDeltaX * (isMobile ? 0.03 : 0.06)));
+        const scale = Math.max(0.98, 1 - Math.abs(rawDeltaX) * (isMobile ? 0.0001 : 0.0003));
+        const opacity = Math.max(0.9, 1 - Math.abs(rawDeltaX) * (isMobile ? 0.0004 : 0.001));
         
-        // Use helper function for consistent behavior
-        this.setElementProps(this.dragState.draggedCard, {
-            translateX: totalTranslateX,
-            rotate: rotation,
-            scale: scale,
-            opacity: opacity
-        });
+        // Direct transform for better performance on mobile
+        if (isMobile) {
+            const transform = `translate3d(${totalTranslateX}px, 0, 0) rotate(${rotation}deg) scale(${scale})`;
+            this.dragState.draggedCard.style.transform = transform;
+            this.dragState.draggedCard.style.opacity = opacity;
+        } else {
+            // Use helper function for desktop (more features)
+            this.setElementProps(this.dragState.draggedCard, {
+                translateX: totalTranslateX,
+                rotate: rotation,
+                scale: scale,
+                opacity: opacity
+            });
+        }
 
-        // Visual feedback
-        if (Math.abs(rawDeltaX) > 20) {
-            this.dragState.draggedCard.classList.remove('swipe-left', 'swipe-right');
-
+        // Simplified visual feedback
+        const absX = Math.abs(rawDeltaX);
+        if (absX > 30) {
+            this.dragState.draggedCard.classList.toggle('swipe-right', rawDeltaX > 0);
+            this.dragState.draggedCard.classList.toggle('swipe-left', rawDeltaX < 0);
         } else {
             this.dragState.draggedCard.classList.remove('swipe-left', 'swipe-right');
         }
