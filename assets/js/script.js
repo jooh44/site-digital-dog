@@ -32,7 +32,7 @@ class DigitalDogSite {
 
         // Animation state
         const isMobileTicker = window.innerWidth <= 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
-        const initialBaseSpeed = isMobileTicker ? 0.35 : 0.25; // mobile um pouco mais rápido
+        const initialBaseSpeed = isMobileTicker ? 0.5 : 0.25; // mobile mais rápido
         const state = {
             offset: 0,
             baseSpeed: initialBaseSpeed, // px por frame
