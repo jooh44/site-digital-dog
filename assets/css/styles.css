@@ -1283,23 +1283,43 @@ body {
     user-select: none;
 }
 
-/* ✅ Swipe states for mobile touch interactions */
+/* ✅ Ultra-optimized swipe states for mobile touch interactions */
 .portfolio-card.swiping {
     cursor: default !important;
     z-index: 15;
     transition: none !important;
     touch-action: none;
-    filter: brightness(1.02); /* Minimal brightness change for subtle feedback */
     transform-origin: center center;
-    pointer-events: none; /* Improve swipe performance */
-    /* Hardware acceleration for smooth swiping */
-    will-change: transform, opacity;
+    pointer-events: none;
+    /* Maximum hardware acceleration for ultra-smooth mobile swiping */
+    will-change: transform;
     backface-visibility: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .shuffle-stack.shuffle-swiping {
     user-select: none;
     touch-action: none;
+    /* Boost performance during active swiping */
+    contain: layout style paint;
+}
+
+/* ✅ Mobile-specific performance optimizations */
+@media (max-width: 768px) {
+    .portfolio-card.swiping {
+        /* Remove expensive filters on mobile */
+        filter: none !important;
+        box-shadow: none !important; 
+        /* Force GPU acceleration */
+        transform: translateZ(0);
+    }
+    
+    .shuffle-stack {
+        /* Enable GPU compositing for the entire stack on mobile */
+        transform: translateZ(0);
+        contain: layout style paint;
+    }
 }
 
 /* ✅ IMPROVED: More subtle swipe feedback that doesn't interfere with drag feel */

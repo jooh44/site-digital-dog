@@ -298,7 +298,8 @@ class DigitalDogSite {
             isTouchInteraction: false, // ✅ Track if current interaction is touch-based
             swipeDirection: null, // ✅ Track swipe direction (horizontal/vertical)
             minSwipeDistance: 5, // ✅ Balanced detection - fast but not too aggressive
-            listenerUpgraded: false // ✅ Track if we've upgraded to non-passive listener
+            listenerUpgraded: false, // ✅ Track if we've upgraded to non-passive listener
+            updateScheduled: false // ✅ Track RAF scheduling for mobile performance
         };
 
         // Bind event handler methods to this context
@@ -554,12 +555,15 @@ class DigitalDogSite {
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
-        // Performance optimization: throttle updates for mobile
-        if (this.shuffleState.isMobile) {
-            if (!this.dragState.lastUpdateTime) this.dragState.lastUpdateTime = 0;
-            const now = performance.now();
-            if (now - this.dragState.lastUpdateTime < 16) return; // ~60fps max
-            this.dragState.lastUpdateTime = now;
+        // Performance optimization: use requestAnimationFrame for smooth mobile updates
+        if (this.shuffleState.isMobile && !this.dragState.updateScheduled) {
+            this.dragState.updateScheduled = true;
+            requestAnimationFrame(() => {
+                this.dragState.updateScheduled = false;
+            });
+        } else if (this.shuffleState.isMobile && this.dragState.updateScheduled) {
+            // Skip this update if one is already scheduled
+            return;
         }
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
@@ -614,19 +618,26 @@ class DigitalDogSite {
         }
         const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
         
-        // Optimized transform calculations for mobile
+        // Ultra-optimized transform calculations for mobile performance
         const isMobile = this.shuffleState.isMobile;
-        const rotation = Math.max(-10, Math.min(10, rawDeltaX * (isMobile ? 0.03 : 0.06)));
-        const scale = Math.max(0.98, 1 - Math.abs(rawDeltaX) * (isMobile ? 0.0001 : 0.0003));
-        const opacity = Math.max(0.9, 1 - Math.abs(rawDeltaX) * (isMobile ? 0.0004 : 0.001));
         
-        // Direct transform for better performance on mobile
         if (isMobile) {
-            const transform = `translate3d(${totalTranslateX}px, 0, 0) rotate(${rotation}deg) scale(${scale})`;
-            this.dragState.draggedCard.style.transform = transform;
-            this.dragState.draggedCard.style.opacity = opacity;
+            // Simplified mobile calculations for maximum performance
+            const rotation = rawDeltaX * 0.025; // No Math.max/min for speed
+            const scale = 1 - Math.abs(rawDeltaX) * 0.00008; // Minimal scaling
+            
+            // Single optimized transform string
+            this.dragState.draggedCard.style.transform = 
+                `translate3d(${totalTranslateX}px, 0, 0) rotate(${rotation}deg) scale(${scale})`;
+            
+            // Skip opacity changes on mobile for performance
+            // this.dragState.draggedCard.style.opacity = opacity;
         } else {
-            // Use helper function for desktop (more features)
+            // Full desktop experience with all effects
+            const rotation = Math.max(-10, Math.min(10, rawDeltaX * 0.06));
+            const scale = Math.max(0.98, 1 - Math.abs(rawDeltaX) * 0.0003);
+            const opacity = Math.max(0.9, 1 - Math.abs(rawDeltaX) * 0.001);
+            
             this.setElementProps(this.dragState.draggedCard, {
                 translateX: totalTranslateX,
                 rotate: rotation,
