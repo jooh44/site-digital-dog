@@ -1279,6 +1279,25 @@ body {
     user-select: none;
 }
 
+/* ✅ Swipe states for mobile touch interactions */
+.portfolio-card.swiping {
+    cursor: default !important;
+    z-index: 15;
+    transition: none !important;
+    touch-action: none;
+    filter: brightness(1.02); /* Minimal brightness change for subtle feedback */
+    transform-origin: center center;
+    pointer-events: none; /* Improve swipe performance */
+    /* Hardware acceleration for smooth swiping */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.shuffle-stack.shuffle-swiping {
+    user-select: none;
+    touch-action: none;
+}
+
 /* ✅ IMPROVED: More subtle swipe feedback that doesn't interfere with drag feel */
 .portfolio-card.swipe-right {
     box-shadow: 

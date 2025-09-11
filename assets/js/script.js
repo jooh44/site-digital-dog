@@ -279,14 +279,15 @@ class DigitalDogSite {
         const shuffleContainer = document.querySelector('.shuffle-stack');
         if (!shuffleContainer) return;
 
-        // Drag state variables - SIMPLIFIED (mobile disabled)
+        // Drag state variables - Enhanced with touch/swipe support
         this.dragState = {
             isDragging: false,
             isAnimating: false, // ✅ Animation lock to prevent rapid dragging
             startX: 0,
             currentX: 0,
             draggedCard: null,
-            threshold: 50
+            threshold: 50,
+            isTouchInteraction: false // ✅ Track if current interaction is touch-based
         };
 
         // Bind event handler methods to this context
@@ -437,19 +438,29 @@ class DigitalDogSite {
     }
 
     handleDragStart(e, targetCard = null) {
-        // ✅ MOBILE: Completely disable drag on mobile devices
-        if (this.shuffleState.isMobile) {
-            console.log('📱 Drag disabled on mobile - scroll freely!');
-            return;
-        }
-        
         // ✅ ANIMATION PROTECTION: Block drag if animation is in progress
         if (this.dragState.isAnimating) {
             console.log('🚫 Drag blocked: Animation in progress');
             return;
         }
 
-        console.log('Drag start:', e.type, e.button);
+        // ✅ INTERACTION TYPE DETECTION: Distinguish between touch and mouse
+        const isTouchEvent = e.type.startsWith('touch');
+        const isMouseEvent = e.type.startsWith('mouse');
+        
+        // For mobile devices, only respond to touch events
+        if (this.shuffleState.isMobile && isMouseEvent) {
+            console.log('📱 Mouse event on mobile ignored - touch swipe only');
+            return;
+        }
+        
+        // For desktop devices, only respond to mouse events  
+        if (!this.shuffleState.isMobile && isTouchEvent) {
+            console.log('🖥️ Touch event on desktop ignored - mouse drag only');
+            return;
+        }
+
+        console.log('Interaction start:', e.type, isTouchEvent ? 'SWIPE' : 'DRAG');
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
@@ -457,6 +468,7 @@ class DigitalDogSite {
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
+        this.dragState.isTouchInteraction = isTouchEvent;
         
         const clientX = e.clientX || (e.touches && e.touches[0].clientX);
         this.dragState.startX = clientX;
@@ -465,22 +477,26 @@ class DigitalDogSite {
         // Always start from clean position for consistent behavior
         this.dragState.initialCardX = 0;
 
-        // Always start from clean position for consistent behavior
-        this.dragState.initialCardX = 0;
-
-        // Visual feedback
-        this.dragState.draggedCard.classList.add('dragging');
-        this.dragState.draggedCard.style.cursor = 'grabbing';
+        // Visual feedback based on interaction type
+        this.dragState.draggedCard.classList.add(isTouchEvent ? 'swiping' : 'dragging');
+        if (!isTouchEvent) {
+            this.dragState.draggedCard.style.cursor = 'grabbing';
+        }
         this.setElementProps(this.dragState.draggedCard, { zIndex: 100 });
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        shuffleContainer.classList.add('shuffle-dragging');
+        shuffleContainer.classList.add(isTouchEvent ? 'shuffle-swiping' : 'shuffle-dragging');
         
-        // Add global listeners
-        document.addEventListener('mousemove', this.handleDragMove);
-        document.addEventListener('mouseup', this.handleDragEnd);
-        document.addEventListener('touchmove', this.handleDragMove, { passive: false });
-        document.addEventListener('touchend', this.handleDragEnd);
+        // Add global listeners based on interaction type
+        if (isTouchEvent) {
+            document.addEventListener('touchmove', this.handleDragMove, { passive: false });
+            document.addEventListener('touchend', this.handleDragEnd);
+            console.log('👆 Swipe interaction started on mobile');
+        } else {
+            document.addEventListener('mousemove', this.handleDragMove);
+            document.addEventListener('mouseup', this.handleDragEnd);
+            console.log('🖱️ Drag interaction started on desktop');
+        }
         
         document.body.style.userSelect = 'none';
     }
@@ -524,16 +540,22 @@ class DigitalDogSite {
         
         const deltaX = this.dragState.currentX - this.dragState.startX;
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
-        console.log('DragEnd - deltaX:', deltaX, 'shouldChangeCard:', shouldChangeCard);
+        const isTouchInteraction = this.dragState.isTouchInteraction;
+        
+        console.log('Interaction End:', isTouchInteraction ? 'SWIPE' : 'DRAG', '- deltaX:', deltaX, 'shouldChangeCard:', shouldChangeCard);
         
         this.dragState.isDragging = false;
         
-        // Remove visual feedback
-        this.dragState.draggedCard.classList.remove('dragging', 'swipe-left', 'swipe-right');
-        this.dragState.draggedCard.style.cursor = 'grab';
+        // Remove visual feedback based on interaction type
+        this.dragState.draggedCard.classList.remove(
+            'dragging', 'swiping', 'swipe-left', 'swipe-right'
+        );
+        if (!isTouchInteraction) {
+            this.dragState.draggedCard.style.cursor = 'grab';
+        }
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        shuffleContainer.classList.remove('shuffle-dragging');
+        shuffleContainer.classList.remove('shuffle-dragging', 'shuffle-swiping');
         
         document.body.style.userSelect = '';
         
@@ -603,11 +625,14 @@ class DigitalDogSite {
             });
         }
         
-        // Remove global listeners
-        document.removeEventListener('mousemove', this.handleDragMove);
-        document.removeEventListener('mouseup', this.handleDragEnd);
-        document.removeEventListener('touchmove', this.handleDragMove);
-        document.removeEventListener('touchend', this.handleDragEnd);
+        // Remove global listeners based on interaction type
+        if (isTouchInteraction) {
+            document.removeEventListener('touchmove', this.handleDragMove);
+            document.removeEventListener('touchend', this.handleDragEnd);
+        } else {
+            document.removeEventListener('mousemove', this.handleDragMove);
+            document.removeEventListener('mouseup', this.handleDragEnd);
+        }
     }
 
     // Tech Background Animation (Hero Section)

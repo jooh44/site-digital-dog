@@ -140,7 +140,7 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 - **Meta tracking**: Optimized event payload size
 
 ### Security Practices
-- **API credentials**: Never commit `meta-config.js` to Git
+- **API credentials**: Never commit `meta-config.js` to Git - **CRITICAL: Add `meta-config.js` to .gitignore immediately**
 - **Data privacy**: Hash personal data before transmission
 - **CORS**: Properly configured for API endpoints
 - **Input validation**: Sanitize all user inputs in PHP backend
@@ -191,6 +191,13 @@ For significant UI/UX changes, use the design-review-agent subagent which provid
 ## Important Development Reminders
 - **No build system**: This is a static site with direct file editing
 - **No package.json**: Dependencies loaded via CDN, no npm commands available
-- **Meta credentials**: Never commit `meta-config.js` - it's gitignored for security
+- **Meta credentials**: Never commit `meta-config.js` - **WARNING: Currently NOT in .gitignore**
 - **Testing approach**: Browser-based testing only, no automated test framework
 - **Deployment**: Simple file upload to web server with PHP support
+- **Security issue**: Add `meta-config.js` to .gitignore before any commits
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
