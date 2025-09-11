@@ -32,7 +32,11 @@
       "Bash(copy mobile-scroll-drag-tests.js tests )",
       "Bash(del mobile-scroll-drag-tests.js)",
       "Bash(nslookup:*)",
-      "Bash(del \"C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\arte-meta-ads.html\")"
+      "Bash(del \"C:\\Users\\Administrador\\Documents\\Projetos\\Digital Dog\\Site Digital Dog\\arte-meta-ads.html\")",
+      "Bash(php:*)",
+      "Bash(start http://localhost:8000)",
+      "WebFetch(domain:petmovecuritiba.com.br)",
+      "WebFetch(domain:aumivet.com.br)"
     ],
     "deny": [],
     "ask": [],

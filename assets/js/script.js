@@ -9,6 +9,68 @@ class DigitalDogSite {
         // Bind methods to this context
         this.init();
     }
+    // Portfolio Ticker Setup (horizontal scrolling, vertical images)
+    setupPortfolioTicker() {
+        const viewport = document.getElementById('portfolioTicker');
+        if (!viewport) {
+            console.warn('Portfolio ticker viewport not found');
+            return;
+        }
+
+        const track = viewport.querySelector('.ticker-track');
+        if (!track) return;
+
+        // Duplicate items to create seamless loop
+        const items = Array.from(track.children);
+        if (items.length === 0) return;
+
+        // Ensure enough width to loop
+        const cloneOnce = items.map(el => el.cloneNode(true));
+        const cloneTwice = items.map(el => el.cloneNode(true));
+        cloneOnce.forEach(c => track.appendChild(c));
+        cloneTwice.forEach(c => track.appendChild(c));
+
+        // Animation state
+        const isMobileTicker = window.innerWidth <= 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+        const initialBaseSpeed = isMobileTicker ? 0.35 : 0.25; // mobile um pouco mais rápido
+        const state = {
+            offset: 0,
+            baseSpeed: initialBaseSpeed, // px por frame
+            speed: initialBaseSpeed,
+            targetSpeed: initialBaseSpeed,
+            paused: false
+        };
+
+        // Desktop: desacelerar no hover, Mobile: pausar no toque
+        viewport.addEventListener('mouseenter', () => {
+            state.targetSpeed = state.baseSpeed * 0.25; // 75% mais lento no hover
+        });
+        viewport.addEventListener('mouseleave', () => {
+            state.targetSpeed = state.baseSpeed;
+        });
+        viewport.addEventListener('touchstart', () => { state.targetSpeed = state.baseSpeed * 0.25; }, { passive: true });
+        viewport.addEventListener('touchend', () => { state.targetSpeed = state.baseSpeed; }, { passive: true });
+        viewport.addEventListener('touchcancel', () => { state.targetSpeed = state.baseSpeed; }, { passive: true });
+
+        // Compute total width of first set to wrap
+        const firstSetWidth = items.reduce((acc, el) => acc + el.offsetWidth, 0) + (items.length - 1) * 24; // includes gap
+
+        const animate = () => {
+            // Interpolar velocidade atual até o alvo para transição suave
+            state.speed += (state.targetSpeed - state.speed) * 0.08;
+            state.offset -= state.speed;
+            // Wrap quando passar um conjunto completo
+            if (Math.abs(state.offset) >= firstSetWidth) {
+                state.offset += firstSetWidth;
+            }
+            track.style.transform = `translate3d(${state.offset}px, 0, 0)`;
+            requestAnimationFrame(animate);
+        };
+
+        // Start
+        requestAnimationFrame(animate);
+    }
+
 
     // Performance optimization based on device capabilities
     initPerformanceOptimization() {
@@ -84,10 +146,12 @@ class DigitalDogSite {
         // If DOM is already loaded, initialize immediately
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
-                this.setupShufflePortfolio();
+                this.setupPortfolioTicker();
+                this.setupContactForm();
             });
         } else {
-            this.setupShufflePortfolio();
+            this.setupPortfolioTicker();
+            this.setupContactForm();
         }
         
         console.log('✅ Digital Dog Site initialized successfully');
@@ -118,6 +182,9 @@ class DigitalDogSite {
             isMobile: isMobile,
             isLowPerformance: isLowPerformance
         };
+        
+        console.log('Cards found:', this.shuffleState.cards.length);
+        console.log('Cards:', this.shuffleState.cards);
 
         console.log('Shuffle portfolio initialized with', this.shuffleState.cards.length, 'cards');
         console.log('Performance settings:', {
@@ -157,6 +224,13 @@ class DigitalDogSite {
     }
 
     initShuffleEffect() {
+        if (this.shuffleState.isMobile) {
+            // Mobile: Skip this completely - ticker handles display
+            console.log('📱 Mobile detected - skipping initShuffleEffect');
+            return;
+        }
+        
+        // Desktop deck logic
         this.shuffleState.cards.forEach((card, index) => {
             card.classList.remove('active', 'shuffle-out', 'shuffle-in');
             
@@ -164,30 +238,20 @@ class DigitalDogSite {
             
             // Posicionamento baseado na posição atual
             const stackIndex = isActive ? 0 : index;
-            // Reduced complexity for better mobile performance
-            const baseOffset = this.shuffleState.isMobile ? 6 : 8;
+            const baseOffset = 8;
             const translateX = isActive ? 0 : stackIndex * baseOffset;
             const translateY = isActive ? 0 : stackIndex * baseOffset;
-            const rotate = isActive ? 0 : stackIndex * (this.shuffleState.isMobile ? 0.5 : 0.8);
-            const scale = isActive ? 1 : Math.max(0.98, 1 - (stackIndex * (this.shuffleState.isMobile ? 0.005 : 0.008)));
+            const rotate = isActive ? 0 : stackIndex * 0.8;
+            const scale = isActive ? 1 : Math.max(0.98, 1 - (stackIndex * 0.008));
             
             // Z-index dinâmico
             const zIndex = isActive ? 
                 this.shuffleState.cards.length + 10 : 
                 (this.shuffleState.cards.length - stackIndex);
             
-            // Optimized animation settings for performance
-            const animationSettings = {
-                translateX, translateY, rotate, scale, zIndex,
-                // Force GPU acceleration and reduce paint operations
-                transform: `translate3d(${translateX}px, ${translateY}px, 0) rotate(${rotate}deg) scale(${scale})`
-            };
-            
-            // Use the helper function to set properties
-            console.log(`Setting card ${index} (${card.dataset.project}) - active: ${isActive}, transform: ${animationSettings.transform}, zIndex: ${zIndex}`);
+            console.log(`Desktop: Setting card ${index} (${card.dataset.project}) - active: ${isActive}`);
             this.setElementProps(card, {
-                ...animationSettings,
-                zIndex: zIndex
+                translateX, translateY, rotate, scale, zIndex
             });
             
             if (isActive) {
@@ -283,22 +347,125 @@ class DigitalDogSite {
 
     setupCardDragFunctionality() {
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        if (!shuffleContainer) return;
+        if (!shuffleContainer) {
+            console.error('Shuffle container not found!');
+            return;
+        }
 
-        // Drag state variables - Enhanced with touch/swipe support
+        console.log('Setting up drag functionality. isMobile:', this.shuffleState.isMobile, 'window width:', window.innerWidth);
+        
+        if (this.shuffleState.isMobile) {
+            console.log('Setting up mobile ticker');
+            // Mobile ticker functionality
+            this.setupMobileTicker(shuffleContainer);
+        } else {
+            console.log('Setting up desktop drag');
+            // Desktop drag functionality
+            this.setupDesktopDrag(shuffleContainer);
+        }
+    }
+
+    setupMobileTicker(container) {
+        console.log('🎬 Setting up mobile ticker');
+        console.log('📦 Container:', container);
+        console.log('🃏 Available cards:', this.shuffleState.cards.length);
+        
+        // Hide desktop shuffle stack
+        container.style.display = 'none';
+        
+        // Create ticker container
+        const tickerContainer = document.createElement('div');
+        tickerContainer.className = 'portfolio-ticker';
+        
+        // Create multiple copies for seamless loop
+        const cards = [
+            ...this.shuffleState.cards, 
+            ...this.shuffleState.cards,
+            ...this.shuffleState.cards
+        ];
+        console.log('🔄 Tripled cards for seamless loop:', cards.length);
+        
+        cards.forEach((card, index) => {
+            console.log(`🎴 Creating ticker card ${index} for project: ${card.dataset?.project}`);
+            const tickerCard = this.createTickerCard(card);
+            tickerContainer.appendChild(tickerCard);
+        });
+        
+        // Replace shuffle-stack with ticker
+        const shuffleContainer = container.parentNode;
+        console.log('📍 Inserting ticker before:', container);
+        shuffleContainer.insertBefore(tickerContainer, container);
+        
+        // Start animation immediately - even before images load
+        tickerContainer.style.animationDelay = '0s';
+        tickerContainer.style.visibility = 'visible';
+        
+        // Update instruction text
+        const instructionText = document.querySelector('.shuffle-instruction span');
+        if (instructionText) {
+            instructionText.textContent = 'PASSE O DEDO PARA PAUSAR';
+            console.log('✏️ Updated instruction text');
+        }
+        
+        console.log('✅ Mobile ticker created with', cards.length, 'cards');
+        console.log('🎯 Ticker container created:', tickerContainer);
+    }
+    
+    createTickerCard(originalCard) {
+        const tickerCard = document.createElement('div');
+        tickerCard.className = 'ticker-card';
+        
+        // Get data from original card
+        const title = originalCard.querySelector('h3')?.textContent || 'Projeto';
+        const description = originalCard.querySelector('p')?.textContent || 'Descrição do projeto';
+        const tags = originalCard.querySelectorAll('.portfolio-tags .tag');
+        const projectName = originalCard.dataset.project || 'exemplo.com.br';
+        
+        // Map project names to images
+        const imageMap = {
+            'veterinario-florianopolis': '1 - veterinarioflorianopolis.com.br.jpg',
+            'aumivet': '2 - aumivet.com.br.jpg', 
+            'morganeted': '3 - morganeted.com.br.jpg',
+            'rzvet': '4 - rzvet.com.br.jpg',
+            'vetberg': '5 - vetberg.com.br.jpg',
+            'petshop-araucaria': '6 - petshoparaucaria.com.br.jpg'
+        };
+        
+        const imagePath = `assets/images/prints-portfolio-compactado/${imageMap[projectName] || '1 - veterinarioflorianopolis.com.br.jpg'}`;
+        
+        tickerCard.innerHTML = `
+            <div class="browser-bar">
+                <div class="browser-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="browser-url">${projectName}</div>
+            </div>
+            <div class="card-image">
+                <img src="${imagePath}" alt="${title}" loading="eager" decoding="async">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">${title}</h3>
+                <p class="card-description">${description}</p>
+                <div class="card-tags">
+                    ${Array.from(tags).map(tag => `<span class="tag">${tag.textContent}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        
+        return tickerCard;
+    }
+
+    setupDesktopDrag(container) {
+        // Drag state variables for desktop only
         this.dragState = {
             isDragging: false,
-            isAnimating: false, // ✅ Animation lock to prevent rapid dragging
+            isAnimating: false,
             startX: 0,
-            startY: 0, // ✅ Track Y position for scroll detection
             currentX: 0,
-            currentY: 0,
             draggedCard: null,
-            threshold: this.shuffleState.isMobile ? 30 : 50, // Lower threshold for mobile swipe
-            isTouchInteraction: false, // ✅ Track if current interaction is touch-based
-            swipeDirection: null, // ✅ Track swipe direction (horizontal/vertical)
-            minSwipeDistance: 5, // ✅ Balanced detection - fast but not too aggressive
-            listenerUpgraded: false // ✅ Track if we've upgraded to non-passive listener
+            threshold: 50
         };
 
         // Bind event handler methods to this context
@@ -307,43 +474,19 @@ class DigitalDogSite {
         this.handleDragEnd = this.handleDragEnd.bind(this);
 
         // Use event delegation on the container
-        this.setupEventDelegation(shuffleContainer);
+        this.setupEventDelegation(container);
     }
 
     setupEventDelegation(container) {
-        console.log('Setting up event delegation for all cards');
+        console.log('Setting up desktop drag event delegation');
         
-        // Event delegation on the container
+        // Desktop-only mouse events
         container.addEventListener('mousedown', (e) => {
             const card = e.target.closest('.portfolio-card');
             if (card && this.shuffleState.cards.includes(card)) {
                 this.handleDragStart(e, card);
             }
         });
-        
-        // ✅ Allow natural scroll when touching OUTSIDE cards on mobile
-        document.addEventListener('touchstart', (e) => {
-            if (this.shuffleState.isMobile) {
-                const card = e.target.closest('.portfolio-card');
-                const isInContainer = e.target.closest('.shuffle-stack');
-                // If touching outside cards but inside container area, allow free scroll
-                if (isInContainer && !card) {
-                    console.log('🔍 Touch outside cards - allowing free scroll');
-                    // Don't capture this event, let natural scroll work
-                }
-            }
-        }, { passive: true });
-
-        container.addEventListener('touchstart', (e) => {
-            console.log('🔍 TouchStart event captured on container', e.target);
-            const card = e.target.closest('.portfolio-card');
-            console.log('🔍 Found card:', card, 'included in cards:', card && this.shuffleState.cards.includes(card));
-            if (card && this.shuffleState.cards.includes(card)) {
-                console.log('🔍 Calling handleDragStart for touch');
-                // ✅ Don't prevent default immediately - let direction detection handle it
-                this.handleDragStart(e, card);
-            }
-        }, { passive: true }); // ✅ Back to passive for initial touch
 
         // Set cursor and visual indicators for all cards
         this.shuffleState.cards.forEach(card => {
@@ -358,6 +501,8 @@ class DigitalDogSite {
     
     
     goToNextCard() {
+        // Block this desktop function on mobile
+        if (this.shuffleState.isMobile) return;
         if (this.dragState.isAnimating) return;
         
         // Move current card to end (same logic as successful drag)
@@ -397,6 +542,8 @@ class DigitalDogSite {
     }
     
     goToPreviousCard() {
+        // Block this desktop function on mobile
+        if (this.shuffleState.isMobile) return;
         if (this.dragState.isAnimating) return;
         
         // Move last card to front
@@ -426,101 +573,51 @@ class DigitalDogSite {
     }
 
     handleDragStart(e, targetCard = null) {
-        // ✅ ANIMATION PROTECTION: Block drag if animation is in progress
+        // Desktop-only drag functionality
         if (this.dragState.isAnimating) {
-            console.log('🚫 Drag blocked: Animation in progress');
             return;
         }
-
-        // ✅ INTERACTION TYPE DETECTION: Distinguish between touch and mouse
-        const isTouchEvent = e.type.startsWith('touch');
-        const isMouseEvent = e.type.startsWith('mouse');
-        
-        // For mobile devices, only respond to touch events
-        if (this.shuffleState.isMobile && isMouseEvent) {
-            console.log('📱 Mouse event on mobile ignored - touch swipe only');
-            return;
-        }
-        
-        // For desktop devices, only respond to mouse events  
-        if (!this.shuffleState.isMobile && isTouchEvent) {
-            console.log('🖥️ Touch event on desktop ignored - mouse drag only');
-            return;
-        }
-
-        console.log('🔍 Interaction start:', e.type, isTouchEvent ? 'SWIPE' : 'DRAG', 
-                   'isMobile:', this.shuffleState.isMobile, 
-                   'windowWidth:', window.innerWidth,
-                   'hasTouch:', 'ontouchstart' in window,
-                   'maxTouchPoints:', navigator.maxTouchPoints);
         
         if (e.type === 'mousedown' && e.button !== 0) return;
         
-        // ✅ Don't prevent default immediately for touch events - let direction detection decide
+        e.preventDefault();
         
         this.dragState.isDragging = true;
         this.dragState.draggedCard = targetCard || e.currentTarget;
-        this.dragState.isTouchInteraction = isTouchEvent;
         
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        this.dragState.startX = clientX;
-        this.dragState.startY = clientY;
-        this.dragState.currentX = clientX;
-        this.dragState.currentY = clientY;
-        this.dragState.swipeDirection = null; // Reset direction
-        this.dragState.listenerUpgraded = false; // Reset listener state
+        this.dragState.startX = e.clientX;
+        this.dragState.currentX = e.clientX;
 
-        // Always start from clean position for consistent behavior
-        this.dragState.initialCardX = 0;
-
-        // Visual feedback based on interaction type
-        this.dragState.draggedCard.classList.add(isTouchEvent ? 'swiping' : 'dragging');
-        if (!isTouchEvent) {
-            this.dragState.draggedCard.style.cursor = 'grabbing';
-        }
+        // Visual feedback for desktop drag
+        this.dragState.draggedCard.classList.add('dragging');
+        this.dragState.draggedCard.style.cursor = 'grabbing';
         this.setElementProps(this.dragState.draggedCard, { zIndex: 100 });
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        shuffleContainer.classList.add(isTouchEvent ? 'shuffle-swiping' : 'shuffle-dragging');
+        shuffleContainer.classList.add('shuffle-dragging');
         
-        // Add global listeners based on interaction type
-        if (isTouchEvent) {
-            // ✅ Start with passive listener, will be upgraded if needed
-            document.addEventListener('touchmove', this.handleDragMove, { passive: true });
-            document.addEventListener('touchend', this.handleDragEnd);
-            // ✅ Safety net for edge cases
-            document.addEventListener('touchcancel', this.handleDragEnd);
-            console.log('👆 Swipe interaction started on mobile (passive mode)');
-        } else {
-            document.addEventListener('mousemove', this.handleDragMove);
-            document.addEventListener('mouseup', this.handleDragEnd);
-            console.log('🖱️ Drag interaction started on desktop');
-        }
+        // Add desktop mouse listeners
+        document.addEventListener('mousemove', this.handleDragMove);
+        document.addEventListener('mouseup', this.handleDragEnd);
         
         document.body.style.userSelect = 'none';
     }
     
-    // ✅ Helper function to clean up drag state
+    // Helper function to clean up drag state
     cleanupDragState() {
         if (this.dragState.draggedCard) {
-            this.dragState.draggedCard.classList.remove('dragging', 'swiping', 'swipe-left', 'swipe-right');
-            if (!this.dragState.isTouchInteraction) {
-                this.dragState.draggedCard.style.cursor = 'grab';
-            }
+            this.dragState.draggedCard.classList.remove('dragging');
+            this.dragState.draggedCard.style.cursor = 'grab';
             this.dragState.draggedCard.style.transform = '';
             this.dragState.draggedCard.style.opacity = '';
         }
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
         if (shuffleContainer) {
-            shuffleContainer.classList.remove('shuffle-dragging', 'shuffle-swiping');
+            shuffleContainer.classList.remove('shuffle-dragging');
         }
         
         document.body.style.userSelect = '';
-        
-        // ✅ CRITICAL: Restore scroll when drag ends
-        document.body.style.overflow = '';
         document.body.style.touchAction = '';
         console.log('🔓 Scroll restored - drag ended');
         
@@ -538,115 +635,29 @@ class DigitalDogSite {
         this.dragState.swipeDirection = null;
     }
     
-    // ✅ Upgrade touch listener to non-passive when horizontal swipe is detected
-    upgradeToNonPassiveListener() {
-        if (this.dragState.isTouchInteraction && !this.dragState.listenerUpgraded) {
-            console.log('🔧 Upgrading to non-passive touch listener');
-            // Remove passive listener
-            document.removeEventListener('touchmove', this.handleDragMove);
-            // Add non-passive listener
-            document.addEventListener('touchmove', this.handleDragMove, { passive: false });
-            this.dragState.listenerUpgraded = true;
-        }
-    }
-
-
     handleDragMove(e) {
         if (!this.dragState.isDragging || !this.dragState.draggedCard) return;
         
-        // Performance optimization: lighter throttling for mobile smoothness
-        if (this.shuffleState.isMobile) {
-            if (!this.dragState.lastUpdateTime) this.dragState.lastUpdateTime = 0;
-            const now = performance.now();
-            if (now - this.dragState.lastUpdateTime < 10) return; // ~100fps for smooth mobile
-            this.dragState.lastUpdateTime = now;
-        }
+        this.dragState.currentX = e.clientX;
+        const deltaX = this.dragState.currentX - this.dragState.startX;
         
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        this.dragState.currentX = clientX;
-        this.dragState.currentY = clientY;
+        // Desktop drag effects
+        const rotation = Math.max(-10, Math.min(10, deltaX * 0.06));
+        const scale = Math.max(0.98, 1 - Math.abs(deltaX) * 0.0003);
+        const opacity = Math.max(0.9, 1 - Math.abs(deltaX) * 0.001);
         
-        const rawDeltaX = this.dragState.currentX - this.dragState.startX;
-        const rawDeltaY = this.dragState.currentY - this.dragState.startY;
-        
-        // ✅ DIRECTION DETECTION: Determine swipe direction for mobile
-        if (this.shuffleState.isMobile && !this.dragState.swipeDirection) {
-            const absX = Math.abs(rawDeltaX);
-            const absY = Math.abs(rawDeltaY);
-            
-            // Fast detection - 5px threshold for balance
-            if (absX > 5 || absY > 5) {
-                if (absX > absY * 1.5) {
-                    // Horizontal swipe detected
-                    this.dragState.swipeDirection = 'horizontal';
-                    console.log('🔍 Horizontal swipe detected - enabling drag');
-                    e.preventDefault();
-                    this.upgradeToNonPassiveListener();
-                    // ✅ Lock scroll for horizontal drag
-                    document.body.style.overflow = 'hidden';
-                    document.body.style.touchAction = 'none';
-                    console.log('🔒 Scroll locked - horizontal drag active');
-                } else if (absY > absX * 2.0 && absX < 15) {
-                    // Clearly vertical scroll
-                    this.dragState.swipeDirection = 'vertical';
-                    console.log('🔍 Vertical scroll detected - allowing scroll');
-                    this.dragState.isDragging = false;
-                    this.cleanupDragState();
-                    return;
-                }
-                // If neither condition met, wait for more movement
-            }
-        }
-        
-        // If vertical swipe was detected, don't interfere with scroll
-        if (this.dragState.swipeDirection === 'vertical') {
-            return;
-        }
-        
-        // ✅ CRITICAL: Once horizontal swipe is active, block ALL scrolling
-        if (this.dragState.swipeDirection === 'horizontal') {
-            e.preventDefault();
-            // Also prevent any future scroll attempts during this drag session
-            document.body.style.overflow = 'hidden';
-            document.body.style.touchAction = 'none';
-            console.log('🔒 Scroll locked - horizontal drag active');
-        }
-        const totalTranslateX = this.dragState.initialCardX + rawDeltaX;
-        
-        // Optimized transform calculations for mobile performance
-        const isMobile = this.shuffleState.isMobile;
-        
-        if (isMobile) {
-            // Mobile optimizations - simpler calculations
-            const rotation = Math.max(-8, Math.min(8, rawDeltaX * 0.03)); 
-            const scale = Math.max(0.98, 1 - Math.abs(rawDeltaX) * 0.0001);
-            
-            // Direct transform for performance
-            this.dragState.draggedCard.style.transform = 
-                `translate3d(${totalTranslateX}px, 0, 0) rotate(${rotation}deg) scale(${scale})`;
-            
-            // Light opacity for mobile
-            this.dragState.draggedCard.style.opacity = Math.max(0.95, 1 - Math.abs(rawDeltaX) * 0.0005);
-        } else {
-            // Full desktop experience with all effects
-            const rotation = Math.max(-10, Math.min(10, rawDeltaX * 0.06));
-            const scale = Math.max(0.98, 1 - Math.abs(rawDeltaX) * 0.0003);
-            const opacity = Math.max(0.9, 1 - Math.abs(rawDeltaX) * 0.001);
-            
-            this.setElementProps(this.dragState.draggedCard, {
-                translateX: totalTranslateX,
-                rotate: rotation,
-                scale: scale,
-                opacity: opacity
-            });
-        }
+        this.setElementProps(this.dragState.draggedCard, {
+            translateX: deltaX,
+            rotate: rotation,
+            scale: scale,
+            opacity: opacity
+        });
 
-        // Simplified visual feedback
-        const absX = Math.abs(rawDeltaX);
+        // Visual feedback
+        const absX = Math.abs(deltaX);
         if (absX > 30) {
-            this.dragState.draggedCard.classList.toggle('swipe-right', rawDeltaX > 0);
-            this.dragState.draggedCard.classList.toggle('swipe-left', rawDeltaX < 0);
+            this.dragState.draggedCard.classList.toggle('swipe-right', deltaX > 0);
+            this.dragState.draggedCard.classList.toggle('swipe-left', deltaX < 0);
         } else {
             this.dragState.draggedCard.classList.remove('swipe-left', 'swipe-right');
         }
@@ -657,47 +668,32 @@ class DigitalDogSite {
         
         const deltaX = this.dragState.currentX - this.dragState.startX;
         const shouldChangeCard = Math.abs(deltaX) > this.dragState.threshold;
-        const isTouchInteraction = this.dragState.isTouchInteraction;
-        
-        console.log('🔍 Interaction End:', isTouchInteraction ? 'SWIPE' : 'DRAG', 
-                   '- deltaX:', deltaX, 'threshold:', this.dragState.threshold, 
-                   'shouldChangeCard:', shouldChangeCard, 'absX:', Math.abs(deltaX));
         
         this.dragState.isDragging = false;
         
-        // Remove visual feedback based on interaction type
-        this.dragState.draggedCard.classList.remove(
-            'dragging', 'swiping', 'swipe-left', 'swipe-right'
-        );
-        if (!isTouchInteraction) {
-            this.dragState.draggedCard.style.cursor = 'grab';
-        }
+        // Clean up visual feedback
+        this.dragState.draggedCard.classList.remove('dragging', 'swipe-left', 'swipe-right');
+        this.dragState.draggedCard.style.cursor = 'grab';
         
         const shuffleContainer = document.querySelector('.shuffle-stack');
-        shuffleContainer.classList.remove('shuffle-dragging', 'shuffle-swiping');
+        shuffleContainer.classList.remove('shuffle-dragging');
         
         document.body.style.userSelect = '';
         
-        // ✅ CRITICAL: Always restore scroll when interaction ends
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-        console.log('🔓 Scroll restored - interaction ended');
-        
         if (shouldChangeCard) {
-            // ✅ ANIMATION PROTECTION: Set animation lock
+            // Animation lock
             this.dragState.isAnimating = true;
             
-            // Use helper function for animation
+            // Desktop drag animation
             this.animateElement(this.dragState.draggedCard, {
                 translateX: deltaX > 0 ? '150%' : '-150%',
-                rotate: deltaX > 0 ? (this.shuffleState.isMobile ? '20deg' : '25deg') : (this.shuffleState.isMobile ? '-20deg' : '-25deg'),
-                scale: this.shuffleState.isMobile ? 0.75 : 0.7,
+                rotate: deltaX > 0 ? '25deg' : '-25deg',
+                scale: 0.7,
                 opacity: 0
             }, {
-                duration: this.shuffleState.isMobile ? 500 : 400,
+                duration: 400,
                 easing: 'easeOutQuad'
             }).then(() => {
-                // ✅ CRITICAL: Animation complete - release lock
                 this.dragState.isAnimating = false;
                 
                 const draggedCardElement = this.dragState.draggedCard;
@@ -710,54 +706,43 @@ class DigitalDogSite {
                     this.shuffleState.cards.push(draggedCardElement);
                 }
                 
-                // ✅ CRITICAL: Complete reset to ensure clean state for next drag
+                // Reset card properties
                 this.setElementProps(draggedCardElement, {
                     translateX: 0, translateY: 0, rotate: 0, 
-                    scale: 1, opacity: 1, zIndex: 0,
-                    transform: 'none'  // Force clean transform state
+                    scale: 1, opacity: 1, zIndex: 0
                 });
                 
-                // Additional cleanup to prevent transform accumulation
                 draggedCardElement.style.transform = '';
                 draggedCardElement.classList.remove('active');
                 
-                // New active card is always first
+                // New active card
                 this.shuffleState.currentIndex = 0;
                 this.shuffleState.cards[0].classList.add('active');
                 
                 this.initShuffleEffect();
-                // this.updateIndicators(); // removed indicators
-
                 if (navigator.vibrate) navigator.vibrate(50);
             });
         } else {
-            // ✅ ANIMATION PROTECTION: Set animation lock for return animation
+            // Return animation
             this.dragState.isAnimating = true;
             
-            // Use helper function for return animation
             this.animateElement(this.dragState.draggedCard, {
                 translateX: 0,
                 rotate: 0,
                 scale: 1,
                 opacity: 1
             }, {
-                duration: this.shuffleState.isMobile ? 400 : 300,
-                easing: this.shuffleState.isMobile ? 'easeOutBack(1.2)' : 'easeOutElastic(1, 0.8)'
+                duration: 300,
+                easing: 'easeOutElastic(1, 0.8)'
             }).then(() => {
                 this.dragState.isAnimating = false;
                 this.dragState.draggedCard = null;
             });
         }
         
-        // Remove global listeners based on interaction type
-        if (isTouchInteraction) {
-            document.removeEventListener('touchmove', this.handleDragMove);
-            document.removeEventListener('touchend', this.handleDragEnd);
-            document.removeEventListener('touchcancel', this.handleDragEnd);
-        } else {
-            document.removeEventListener('mousemove', this.handleDragMove);
-            document.removeEventListener('mouseup', this.handleDragEnd);
-        }
+        // Remove desktop listeners
+        document.removeEventListener('mousemove', this.handleDragMove);
+        document.removeEventListener('mouseup', this.handleDragEnd);
     }
 
     // Tech Background Animation (Hero Section)
