@@ -63,8 +63,8 @@
     <!-- Preload LCP image (hero logo) -->
     <link rel="preload" as="image" href="./assets/images/logo_digital_dog.png"/>
 
-    <!-- Lucide Icons (defer) -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Lucide Icons (UMD build) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     
     <!-- Anime.js for smooth animations (defer) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
@@ -506,7 +506,20 @@
     <script src="meta-config.js"></script>
     <script src="assets/js/meta-conversions-api.js"></script>
     <script>
-        lucide.createIcons();
+        // Garante que o Lucide esteja disponível antes de criar os ícones
+        (function initLucideIcons(){
+            function create() {
+                try { if (window.lucide && typeof window.lucide.createIcons === 'function') { window.lucide.createIcons(); } } catch(e) {}
+            }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                create();
+            } else if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                window.addEventListener('load', create);
+            } else {
+                document.addEventListener('DOMContentLoaded', create);
+                window.addEventListener('load', create);
+            }
+        })();
     </script>
 </body>
 </html>
