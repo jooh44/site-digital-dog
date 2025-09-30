@@ -35,33 +35,18 @@ class DigitalDogSite {
         const initialBaseSpeed = isMobileTicker ? 0.5 : 0.25; // mobile mais rápido
         const state = {
             offset: 0,
-            baseSpeed: initialBaseSpeed, // px por frame
-            speed: initialBaseSpeed,
-            targetSpeed: initialBaseSpeed,
-            paused: false
+            speed: initialBaseSpeed
         };
 
-        // Desktop: desacelerar no hover, Mobile: pausar no toque
-        viewport.addEventListener('mouseenter', () => {
-            state.targetSpeed = state.baseSpeed * 0.25; // 75% mais lento no hover
-        });
-        viewport.addEventListener('mouseleave', () => {
-            state.targetSpeed = state.baseSpeed;
-        });
-        viewport.addEventListener('touchstart', () => { state.targetSpeed = state.baseSpeed * 0.25; }, { passive: true });
-        viewport.addEventListener('touchend', () => { state.targetSpeed = state.baseSpeed; }, { passive: true });
-        viewport.addEventListener('touchcancel', () => { state.targetSpeed = state.baseSpeed; }, { passive: true });
-
-        // Compute total width of first set to wrap
-        const firstSetWidth = items.reduce((acc, el) => acc + el.offsetWidth, 0) + (items.length - 1) * 24; // includes gap
+        // Compute total width of first set to wrap (including gap)
+        const gap = 24;
+        const firstSetWidth = items.reduce((acc, el) => acc + el.offsetWidth + gap, 0);
 
         const animate = () => {
-            // Interpolar velocidade atual até o alvo para transição suave
-            state.speed += (state.targetSpeed - state.speed) * 0.08;
             state.offset -= state.speed;
-            // Wrap quando passar um conjunto completo
-            if (Math.abs(state.offset) >= firstSetWidth) {
-                state.offset += firstSetWidth;
+            // Wrap quando passar um conjunto completo - usa modulo para loop perfeito
+            if (state.offset <= -firstSetWidth) {
+                state.offset = state.offset % firstSetWidth;
             }
             track.style.transform = `translate3d(${state.offset}px, 0, 0)`;
             requestAnimationFrame(animate);
@@ -162,11 +147,13 @@ class DigitalDogSite {
                 this.initTechBackground();
                 this.initPortfolioBackground();
                 this.initPricingBackground();
+                this.initContactBackground();
             }, { timeout: 1500 });
         } else {
             this.initTechBackground();
             this.initPortfolioBackground();
             this.initPricingBackground();
+            this.initContactBackground();
         }
         
         // If DOM is already loaded, initialize immediately
@@ -771,262 +758,252 @@ class DigitalDogSite {
         document.removeEventListener('mouseup', this.handleDragEnd);
     }
 
-    // Tech Background Animation (Hero Section)
+    // Tech Background Animation (Hero Section) - Static grid with radial gradient
     initTechBackground() {
         const canvas = document.getElementById('tech-background');
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         let width, height;
-        let particles = [];
-
-        const particleSettings = {
-            count: 120,
-            minSpeed: 0.05,
-            maxSpeed: 0.4,
-            minRadius: 0.5,
-            maxRadius: 2,
-            connectionDistance: 120,
-            connectionOpacity: 0.03,
-        };
 
         function resize() {
-            width = canvas.width = canvas.offsetWidth;
-            height = canvas.height = canvas.offsetHeight;
-            particles = [];
-            for (let i = 0; i < particleSettings.count; i++) {
-                particles.push(new Particle());
-            }
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            draw();
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.vy = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.radius = Math.random() * (particleSettings.maxRadius - particleSettings.minRadius) + particleSettings.minRadius;
-            }
+        function draw() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.sqrt(centerX * centerX + centerY * centerY);
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+            // Base black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, width, height);
 
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
+            // Grid lines first
+            ctx.strokeStyle = isMobile ? 'rgba(0, 188, 212, 0.12)' : 'rgba(0, 188, 212, 0.08)';
+            ctx.lineWidth = 1;
 
-            draw() {
+            // Vertical lines
+            for (let x = 0; x < width; x += gridSize) {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 188, 212, 0.2)';
-                ctx.fill();
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < particleSettings.connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 188, 212, ${particleSettings.connectionOpacity})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
             }
 
-            requestAnimationFrame(animate);
+            // Horizontal lines
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Radial gradient on top - lighter in center, darker at edges
+            const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+            bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
+            bgGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, width, height);
         }
 
         window.addEventListener('resize', resize);
+
+        // Initialize
         resize();
-        animate();
     }
 
-    // Portfolio Background Animation
+    // Portfolio Background Animation - Same as hero
     initPortfolioBackground() {
         const canvas = document.getElementById('portfolio-background');
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         let width, height;
-        let particles = [];
-
-        const particleSettings = {
-            count: 80,
-            minSpeed: 0.05,
-            maxSpeed: 0.3,
-            minRadius: 0.8,
-            maxRadius: 1.8,
-            connectionDistance: 100,
-            connectionOpacity: 0.03,
-        };
 
         function resize() {
-            width = canvas.width = canvas.offsetWidth;
-            height = canvas.height = canvas.offsetHeight;
-            particles = [];
-            for (let i = 0; i < particleSettings.count; i++) {
-                particles.push(new Particle());
-            }
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            draw();
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.vy = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.radius = Math.random() * (particleSettings.maxRadius - particleSettings.minRadius) + particleSettings.minRadius;
-            }
+        function draw() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.sqrt(centerX * centerX + centerY * centerY);
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+            // Base black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, width, height);
 
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
+            // Grid lines first
+            ctx.strokeStyle = isMobile ? 'rgba(0, 188, 212, 0.12)' : 'rgba(0, 188, 212, 0.08)';
+            ctx.lineWidth = 1;
 
-            draw() {
+            // Vertical lines
+            for (let x = 0; x < width; x += gridSize) {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 188, 212, 0.3)';
-                ctx.fill();
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < particleSettings.connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 188, 212, ${particleSettings.connectionOpacity})`;
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
             }
 
-            requestAnimationFrame(animate);
+            // Horizontal lines
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Radial gradient on top - lighter in center, darker at edges
+            const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+            bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
+            bgGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, width, height);
         }
 
         window.addEventListener('resize', resize);
+
+        // Initialize
         resize();
-        animate();
     }
 
-    // Pricing Background Animation
+    // Pricing Background Animation - Same as hero
     initPricingBackground() {
         const canvas = document.getElementById('pricing-background');
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         let width, height;
-        let particles = [];
-
-        const particleSettings = {
-            count: 60,
-            minSpeed: 0.03,
-            maxSpeed: 0.2,
-            minRadius: 0.5,
-            maxRadius: 1.5,
-            connectionDistance: 120,
-            connectionOpacity: 0.02,
-        };
 
         function resize() {
-            width = canvas.width = canvas.offsetWidth;
-            height = canvas.height = canvas.offsetHeight;
-            particles = [];
-            for (let i = 0; i < particleSettings.count; i++) {
-                particles.push(new Particle());
-            }
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            draw();
         }
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.vy = (Math.random() * (particleSettings.maxSpeed - particleSettings.minSpeed) + particleSettings.minSpeed) * (Math.random() < 0.5 ? -1 : 1);
-                this.radius = Math.random() * (particleSettings.maxRadius - particleSettings.minRadius) + particleSettings.minRadius;
-            }
+        function draw() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.sqrt(centerX * centerX + centerY * centerY);
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+            // Base black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, width, height);
 
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
+            // Grid lines first
+            ctx.strokeStyle = isMobile ? 'rgba(0, 188, 212, 0.12)' : 'rgba(0, 188, 212, 0.08)';
+            ctx.lineWidth = 1;
 
-            draw() {
+            // Vertical lines
+            for (let x = 0; x < width; x += gridSize) {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 107, 53, 0.2)';
-                ctx.fill();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
             }
-        }
 
-        function drawConnections() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < particleSettings.connectionDistance) {
-                        const opacity = (1 - distance / particleSettings.connectionDistance) * particleSettings.connectionOpacity;
-                        ctx.strokeStyle = `rgba(255, 107, 53, ${opacity})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
+            // Horizontal lines
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
             }
+
+            // Radial gradient on top - lighter in center, darker at edges
+            const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+            bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
+            bgGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, width, height);
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            drawConnections();
-            requestAnimationFrame(animate);
-        }
-
-        resize();
         window.addEventListener('resize', resize);
-        animate();
+
+        // Initialize
+        resize();
+    }
+
+    // Contact Background Animation - Same as hero
+    initContactBackground() {
+        const canvas = document.getElementById('contact-background');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() {
+            width = canvas.parentElement.offsetWidth;
+            height = canvas.parentElement.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            draw();
+        }
+
+        function draw() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.sqrt(centerX * centerX + centerY * centerY);
+
+            // Base black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, width, height);
+
+            // Grid lines first
+            ctx.strokeStyle = isMobile ? 'rgba(0, 188, 212, 0.12)' : 'rgba(0, 188, 212, 0.08)';
+            ctx.lineWidth = 1;
+
+            // Vertical lines
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+
+            // Horizontal lines
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Radial gradient on top - lighter in center, darker at edges
+            const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+            bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
+            bgGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, width, height);
+        }
+
+        window.addEventListener('resize', resize);
+
+        // Initialize
+        resize();
     }
 
     // Contact Form Setup
