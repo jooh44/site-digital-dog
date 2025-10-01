@@ -200,6 +200,7 @@ class MetaConversionsAPI {
     // Método principal para enviar eventos
     async sendEvent(eventName, eventData = {}) {
         try {
+            // Monta payload conforme padrão Meta Conversions API
             const payload = {
                 data: [{
                     event_name: eventName,
@@ -209,8 +210,8 @@ class MetaConversionsAPI {
                     user_data: {
                         client_ip_address: '{{client_ip_address}}', // Será substituído no servidor
                         client_user_agent: this.sessionData.clientUserAgent,
-                        fbc: this.sessionData.fbc,
-                        fbp: this.sessionData.fbp,
+                        fbc: this.sessionData.fbc || null,
+                        fbp: this.sessionData.fbp || null,
                         external_id: this.sessionData.externalId
                     },
                     custom_data: {
@@ -218,20 +219,27 @@ class MetaConversionsAPI {
                         value: eventData.value || null,
                         content_name: eventData.content_name || '',
                         content_category: eventData.content_category || '',
-                        content_ids: eventData.content_ids || [],
-                        ...eventData.custom_data
+                        content_ids: eventData.content_ids || []
                     }
                 }],
                 ...(this.config.testEventCode && { test_event_code: this.config.testEventCode })
             };
 
-            // Em produção, isso deve ser enviado via seu servidor backend
-            // Por agora, vamos simular o envio e logar para debug
+            // Adiciona custom_data adicional se fornecido
+            if (eventData.custom_data) {
+                Object.assign(payload.data[0].custom_data, eventData.custom_data);
+            }
+
+            // Log para debug
             this.logEvent(eventName, payload);
-            
-            // TODO: Implementar envio real via backend
-            // const response = await this.sendToBackend(payload);
-            
+
+            // Envia via backend
+            const response = await this.sendToBackend(payload);
+
+            if (response && response.success) {
+                console.log(`✅ Evento ${eventName} enviado com sucesso`);
+            }
+
         } catch (error) {
             console.error('❌ Erro ao enviar evento para Meta Conversions API:', error);
         }
