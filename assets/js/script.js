@@ -24,36 +24,79 @@ class DigitalDogSite {
         const items = Array.from(track.children);
         if (items.length === 0) return;
 
-        // Ensure enough width to loop
+        // Clone items - duplicar o suficiente para loop perfeito
         const cloneOnce = items.map(el => el.cloneNode(true));
-        const cloneTwice = items.map(el => el.cloneNode(true));
         cloneOnce.forEach(c => track.appendChild(c));
-        cloneTwice.forEach(c => track.appendChild(c));
 
-        // Animation state
-        const isMobileTicker = window.innerWidth <= 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
-        const initialBaseSpeed = isMobileTicker ? 0.5 : 0.25; // mobile mais rápido
-        const state = {
-            offset: 0,
-            speed: initialBaseSpeed
-        };
+        // Wait for images to load before starting animation
+        const images = track.querySelectorAll('img');
+        let loadedImages = 0;
+        const totalImages = images.length;
 
-        // Compute total width of first set to wrap (including gap)
-        const gap = 24;
-        const firstSetWidth = items.reduce((acc, el) => acc + el.offsetWidth + gap, 0);
+        const startAnimation = () => {
+            // Animation state
+            const isMobileTicker = window.innerWidth <= 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+            const initialBaseSpeed = isMobileTicker ? 0.5 : 0.25; // mobile mais rápido
+            const state = {
+                offset: 0,
+                speed: initialBaseSpeed
+            };
 
-        const animate = () => {
-            state.offset -= state.speed;
-            // Wrap quando passar um conjunto completo - usa modulo para loop perfeito
-            if (state.offset <= -firstSetWidth) {
-                state.offset = state.offset % firstSetWidth;
-            }
-            track.style.transform = `translate3d(${state.offset}px, 0, 0)`;
+            // Compute total width of first set to wrap (including gap)
+            const gap = 24;
+            let firstSetWidth = 0;
+
+            // Calculate exact width including gap
+            items.forEach((el, index) => {
+                firstSetWidth += el.offsetWidth;
+                if (index < items.length - 1) {
+                    firstSetWidth += gap;
+                }
+            });
+
+            console.log('Ticker initialized:', {
+                itemsCount: items.length,
+                firstSetWidth: firstSetWidth,
+                speed: state.speed
+            });
+
+            const animate = () => {
+                state.offset -= state.speed;
+
+                // Loop perfeito: quando offset passa do tamanho de um conjunto, adiciona o tamanho de volta
+                // Isso evita pulos visuais porque o conteúdo está duplicado
+                if (state.offset <= -firstSetWidth) {
+                    state.offset += firstSetWidth;
+                }
+
+                track.style.transform = `translate3d(${state.offset}px, 0, 0)`;
+                requestAnimationFrame(animate);
+            };
+
+            // Start
             requestAnimationFrame(animate);
         };
 
-        // Start
-        requestAnimationFrame(animate);
+        // Check if images are loaded
+        if (totalImages === 0) {
+            startAnimation();
+        } else {
+            images.forEach(img => {
+                if (img.complete) {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        startAnimation();
+                    }
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedImages++;
+                        if (loadedImages === totalImages) {
+                            startAnimation();
+                        }
+                    });
+                }
+            });
+        }
 
         // Bloquear context menu e gestos de toque prolongado nas imagens do ticker
         viewport.addEventListener('contextmenu', (e) => {
@@ -765,13 +808,36 @@ class DigitalDogSite {
 
         const ctx = canvas.getContext('2d');
         let width, height;
+        let stars = [];
 
         function resize() {
             width = canvas.parentElement.offsetWidth;
             height = canvas.parentElement.offsetHeight;
             canvas.width = width;
             canvas.height = height;
-            draw();
+            initStars();
+        }
+
+        function initStars() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            stars = [];
+
+            // Create stars at grid intersections
+            for (let x = 0; x < width; x += gridSize) {
+                for (let y = 0; y < height; y += gridSize) {
+                    // Randomly add stars (30% chance)
+                    if (Math.random() < 0.3) {
+                        stars.push({
+                            x: x,
+                            y: y,
+                            opacity: Math.random(),
+                            speed: 0.02 + Math.random() * 0.03,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+            }
         }
 
         function draw() {
@@ -805,6 +871,19 @@ class DigitalDogSite {
                 ctx.stroke();
             }
 
+            // Draw twinkling stars at intersections
+            stars.forEach(star => {
+                star.phase += star.speed;
+                star.opacity = (Math.sin(star.phase) + 1) / 2; // Oscila entre 0 e 1
+
+                const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 3);
+                gradient.addColorStop(0, `rgba(0, 188, 212, ${star.opacity * 0.8})`);
+                gradient.addColorStop(1, `rgba(0, 188, 212, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(star.x - 3, star.y - 3, 6, 6);
+            });
+
             // Radial gradient on top - lighter in center, darker at edges
             const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
             bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
@@ -814,10 +893,16 @@ class DigitalDogSite {
             ctx.fillRect(0, 0, width, height);
         }
 
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+
         window.addEventListener('resize', resize);
 
         // Initialize
         resize();
+        animate();
     }
 
     // Portfolio Background Animation - Same as hero
@@ -827,13 +912,36 @@ class DigitalDogSite {
 
         const ctx = canvas.getContext('2d');
         let width, height;
+        let stars = [];
 
         function resize() {
             width = canvas.parentElement.offsetWidth;
             height = canvas.parentElement.offsetHeight;
             canvas.width = width;
             canvas.height = height;
-            draw();
+            initStars();
+        }
+
+        function initStars() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            stars = [];
+
+            // Create stars at grid intersections
+            for (let x = 0; x < width; x += gridSize) {
+                for (let y = 0; y < height; y += gridSize) {
+                    // Randomly add stars (30% chance)
+                    if (Math.random() < 0.3) {
+                        stars.push({
+                            x: x,
+                            y: y,
+                            opacity: Math.random(),
+                            speed: 0.02 + Math.random() * 0.03,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+            }
         }
 
         function draw() {
@@ -867,6 +975,19 @@ class DigitalDogSite {
                 ctx.stroke();
             }
 
+            // Draw twinkling stars at intersections
+            stars.forEach(star => {
+                star.phase += star.speed;
+                star.opacity = (Math.sin(star.phase) + 1) / 2; // Oscila entre 0 e 1
+
+                const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 3);
+                gradient.addColorStop(0, `rgba(0, 188, 212, ${star.opacity * 0.8})`);
+                gradient.addColorStop(1, `rgba(0, 188, 212, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(star.x - 3, star.y - 3, 6, 6);
+            });
+
             // Radial gradient on top - lighter in center, darker at edges
             const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
             bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
@@ -876,10 +997,16 @@ class DigitalDogSite {
             ctx.fillRect(0, 0, width, height);
         }
 
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+
         window.addEventListener('resize', resize);
 
         // Initialize
         resize();
+        animate();
     }
 
     // Pricing Background Animation - Same as hero
@@ -889,13 +1016,36 @@ class DigitalDogSite {
 
         const ctx = canvas.getContext('2d');
         let width, height;
+        let stars = [];
 
         function resize() {
             width = canvas.parentElement.offsetWidth;
             height = canvas.parentElement.offsetHeight;
             canvas.width = width;
             canvas.height = height;
-            draw();
+            initStars();
+        }
+
+        function initStars() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            stars = [];
+
+            // Create stars at grid intersections
+            for (let x = 0; x < width; x += gridSize) {
+                for (let y = 0; y < height; y += gridSize) {
+                    // Randomly add stars (30% chance)
+                    if (Math.random() < 0.3) {
+                        stars.push({
+                            x: x,
+                            y: y,
+                            opacity: Math.random(),
+                            speed: 0.02 + Math.random() * 0.03,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+            }
         }
 
         function draw() {
@@ -929,6 +1079,19 @@ class DigitalDogSite {
                 ctx.stroke();
             }
 
+            // Draw twinkling stars at intersections
+            stars.forEach(star => {
+                star.phase += star.speed;
+                star.opacity = (Math.sin(star.phase) + 1) / 2; // Oscila entre 0 e 1
+
+                const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 3);
+                gradient.addColorStop(0, `rgba(0, 188, 212, ${star.opacity * 0.8})`);
+                gradient.addColorStop(1, `rgba(0, 188, 212, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(star.x - 3, star.y - 3, 6, 6);
+            });
+
             // Radial gradient on top - lighter in center, darker at edges
             const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
             bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
@@ -938,10 +1101,16 @@ class DigitalDogSite {
             ctx.fillRect(0, 0, width, height);
         }
 
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+
         window.addEventListener('resize', resize);
 
         // Initialize
         resize();
+        animate();
     }
 
     // Contact Background Animation - Same as hero
@@ -951,13 +1120,36 @@ class DigitalDogSite {
 
         const ctx = canvas.getContext('2d');
         let width, height;
+        let stars = [];
 
         function resize() {
             width = canvas.parentElement.offsetWidth;
             height = canvas.parentElement.offsetHeight;
             canvas.width = width;
             canvas.height = height;
-            draw();
+            initStars();
+        }
+
+        function initStars() {
+            const isMobile = width < 768;
+            const gridSize = isMobile ? 60 : 100;
+            stars = [];
+
+            // Create stars at grid intersections
+            for (let x = 0; x < width; x += gridSize) {
+                for (let y = 0; y < height; y += gridSize) {
+                    // Randomly add stars (30% chance)
+                    if (Math.random() < 0.3) {
+                        stars.push({
+                            x: x,
+                            y: y,
+                            opacity: Math.random(),
+                            speed: 0.02 + Math.random() * 0.03,
+                            phase: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+            }
         }
 
         function draw() {
@@ -991,6 +1183,19 @@ class DigitalDogSite {
                 ctx.stroke();
             }
 
+            // Draw twinkling stars at intersections
+            stars.forEach(star => {
+                star.phase += star.speed;
+                star.opacity = (Math.sin(star.phase) + 1) / 2; // Oscila entre 0 e 1
+
+                const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 3);
+                gradient.addColorStop(0, `rgba(0, 188, 212, ${star.opacity * 0.8})`);
+                gradient.addColorStop(1, `rgba(0, 188, 212, 0)`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(star.x - 3, star.y - 3, 6, 6);
+            });
+
             // Radial gradient on top - lighter in center, darker at edges
             const bgGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
             bgGradient.addColorStop(0, isMobile ? 'rgba(10, 13, 21, 0.7)' : 'rgba(10, 13, 21, 0.6)');
@@ -1000,10 +1205,16 @@ class DigitalDogSite {
             ctx.fillRect(0, 0, width, height);
         }
 
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+
         window.addEventListener('resize', resize);
 
         // Initialize
         resize();
+        animate();
     }
 
     // Contact Form Setup
