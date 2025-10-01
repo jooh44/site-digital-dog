@@ -9,20 +9,20 @@
 
 window.MetaConfig = {
     // Seu Pixel ID (já configurado)
-    pixelId: '766494342759761',
-    
+    pixelId: '801300356407188',
+
     // Access Token da Meta Conversions API
     // Obtenha em: https://developers.facebook.com/tools/explorer/
-    accessToken: 'EAAPBgMMYMUgBPSKvO7hZCjWzqLkYT6oFWiMZAW21gJ898BCH5FgKDwt3E10POdc4EmRsRE6dgeXOnfIvTG8NpsMym8Pm8DPOaU5Y95za1VjChmvOq0YmVoHYXMLfiCEnXlthnHiZAOiIzTZCaPPhH45CtWTkFDDTfk5qxXViWaHNAbC8ZCuDg5btQ7shcfYSkgQZDZD',
-    
-    // Dataset ID da Meta Conversions API  
+    accessToken: 'EAAbVUZAbBkLMBPpaJ92ZBNCKlgn3mF8joCUIHvZAyZCLa9rX5Na2MAAV3ZAFcHIkeZA15PynTpH2oW5oQLfaBQZB6AbmdUTOxoOR93m14QPo20BlTJrsyXTBOZA2S0rQVpZBbnM3MjMuIsYekd7hwWF5iiJrJw4JEGOHwEXmcbS8XRz4TBZCUrjBtIuNZCTxQ6scgZDZD',
+
+    // Dataset ID da Meta Conversions API
     // Encontre em: Business Manager > Sources > Datasets
-    datasetId: '1406278840453678',
-    
+    datasetId: '801300356407188',
+
     // Test Event Code (opcional - para debug)
     // Obtenha em: Events Manager > Test Events
-    testEventCode: 'TEST12345',
-    
+    testEventCode: '',
+
     // URL do seu endpoint backend
     backendUrl: '/api/meta-conversions.php'
 };
