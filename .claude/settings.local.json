@@ -36,7 +36,13 @@
       "Bash(php:*)",
       "Bash(start http://localhost:8000)",
       "WebFetch(domain:petmovecuritiba.com.br)",
-      "WebFetch(domain:aumivet.com.br)"
+      "WebFetch(domain:aumivet.com.br)",
+      "WebFetch(domain:rzvet.com.br)",
+      "WebFetch(domain:veterinarioflorianopolis.com.br)",
+      "WebFetch(domain:www.rzvet.com.br)",
+      "Bash(powershell:*)",
+      "Bash(git log:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": [],
