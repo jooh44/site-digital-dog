@@ -2,3 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Colors */
+  --primary-blue: #00bcd4;
+  --dark-blue: #0a0e1a;
+  --darker-blue: #03050a;
+  --light-blue: #4dd0e1;
+  --glow-blue: rgba(0, 188, 212, 0.5);
+  --gradient-orange: #ff6b35;
+  --gradient-pink: #ff1744;
+  --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #ff1744 100%);
+  --gradient-blue: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

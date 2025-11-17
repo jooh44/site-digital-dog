@@ -48,3 +48,7 @@ next-env.d.ts
 # Sensitive files
 ssh_run.py
 meta-config.js
+
+# Docker volumes and backups
+backups/
+ssl/
