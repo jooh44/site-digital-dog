@@ -1,5 +1,21 @@
 import type { Metadata } from 'next'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  preload: true,
+  weight: ['400', '500', '600', '700'],
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: 'Digital Dog - Arquitetura Digital para Medicina Veterinária',
@@ -12,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className="font-body">{children}</body>
     </html>
   )
 }

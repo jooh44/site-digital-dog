@@ -1,8 +1,9 @@
 # Epic 2: Homepage Core
 
 **Sprint:** 2 (Semanas 3-4)  
-**Status:** 📋 Ready for Development  
-**Prioridade:** 🔴 Crítica
+**Status:** 🟢 Ready for Development  
+**Prioridade:** 🔴 Crítica  
+**Dependências:** ✅ Epic 1 Completo
 
 ## Objetivo
 
