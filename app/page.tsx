@@ -3,6 +3,7 @@ import { PainPoints } from '@/components/sections/PainPoints'
 import { FourPillars } from '@/components/sections/FourPillars'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { CaseStudies } from '@/components/sections/CaseStudies'
+import { PortfolioSection } from '@/components/sections/PortfolioSection'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { ComparisonTable } from '@/components/sections/ComparisonTable'
 import { FAQ } from '@/components/sections/FAQ'
@@ -16,6 +17,7 @@ export default function Home() {
       <FourPillars />
       <HowItWorks />
       <CaseStudies />
+      <PortfolioSection />
       <Testimonials />
       <ComparisonTable />
       <FAQ />
