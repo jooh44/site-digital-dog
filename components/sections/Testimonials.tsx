@@ -95,7 +95,10 @@ export function Testimonials() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="font-heading font-bold text-primary-blue text-3xl md:text-4xl lg:text-5xl mb-4">
-            O Que Dizem Nossos Clientes
+            O Que Dizem{' '}
+            <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+              Nossos Clientes
+            </span>
           </h2>
           <p className="font-body text-light-blue text-lg md:text-xl max-w-3xl mx-auto">
             Depoimentos reais de veterinários que transformaram suas clínicas com a Digital Dog

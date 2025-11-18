@@ -108,7 +108,7 @@ export function HowItWorks() {
               <div className="space-y-24 lg:space-y-28">
                 {stages.map((stage) => (
                   <div key={`num-${stage.id}`} className="text-right flex items-start justify-end min-h-[120px]">
-                    <span className="text-4xl lg:text-5xl font-bold text-primary-blue/30 font-mono leading-none">
+                    <span className="text-4xl lg:text-5xl font-bold font-mono leading-none bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                       {stage.number}
                     </span>
                   </div>
@@ -264,7 +264,7 @@ export function HowItWorks() {
                       >
                         {/* Número */}
                         <div className="mb-2">
-                          <span className="text-2xl md:text-3xl font-bold text-primary-blue/30 font-mono">
+                          <span className="text-2xl md:text-3xl font-bold font-mono bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                             {stage.number}
                           </span>
                         </div>

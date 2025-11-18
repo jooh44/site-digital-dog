@@ -111,7 +111,10 @@ export function FAQ() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="font-heading font-bold text-primary-blue text-3xl md:text-4xl lg:text-5xl mb-4">
-              Perguntas Frequentes
+              Perguntas{' '}
+              <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+                Frequentes
+              </span>
             </h2>
             <p className="font-body text-light-blue text-lg md:text-xl max-w-3xl mx-auto">
               Tire suas dúvidas sobre Arquitetura Digital para clínicas veterinárias

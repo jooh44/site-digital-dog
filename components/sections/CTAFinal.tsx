@@ -49,7 +49,11 @@ export function CTAFinal() {
         >
           {/* Headline */}
           <h2 className="font-heading font-bold text-primary-blue mb-6 md:mb-8" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
-            Pronto para Transformar Sua Clínica?
+            Pronto para{' '}
+            <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+              Transformar
+            </span>{' '}
+            Sua Clínica?
           </h2>
           
           {/* Subtitle */}

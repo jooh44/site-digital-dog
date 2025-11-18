@@ -83,7 +83,10 @@ export function CaseStudies() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="font-heading font-bold text-primary-blue text-3xl md:text-4xl lg:text-5xl mb-4">
-            Cases de Sucesso
+            Cases de{' '}
+            <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+              Sucesso
+            </span>
           </h2>
           <p className="font-body text-light-blue text-lg md:text-xl max-w-3xl mx-auto">
             Veja como transformamos clínicas veterinárias em máquinas de crescimento sustentável
@@ -131,7 +134,7 @@ export function CaseStudies() {
 
                 {/* Challenge */}
                 <div className="mb-4 flex-1">
-                  <h4 className="font-heading font-semibold text-light-blue text-sm uppercase tracking-wider mb-2">
+                  <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-2 bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                     Desafio
                   </h4>
                   <p className="font-body text-light-blue/80 text-sm leading-relaxed">
@@ -141,7 +144,7 @@ export function CaseStudies() {
 
                 {/* Solution */}
                 <div className="mb-4 flex-1">
-                  <h4 className="font-heading font-semibold text-light-blue text-sm uppercase tracking-wider mb-2">
+                  <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-2 bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                     Solução
                   </h4>
                   <p className="font-body text-light-blue/80 text-sm leading-relaxed">
@@ -163,7 +166,7 @@ export function CaseStudies() {
                         <span className="font-body text-light-blue/80 text-sm">
                           {result.metric}
                         </span>
-                        <span className="font-heading font-bold text-primary-blue text-sm">
+                        <span className="font-heading font-bold text-sm bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                           {result.value}
                         </span>
                       </div>
