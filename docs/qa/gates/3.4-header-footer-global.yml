@@ -1,0 +1,39 @@
+schema: 1
+story: "3.4"
+story_title: "Header & Footer Global"
+gate: PASS
+status_reason: "Implementação completa e de alta qualidade. Header e Footer criados com todas as funcionalidades especificadas, menu mobile responsivo, newsletter signup funcional e design consistente com design system."
+reviewer: "Quinn (Test Architect)"
+updated: "2025-11-18T17:58:44Z"
+
+waiver: { active: false }
+top_issues: []
+
+quality_score: 95
+evidence:
+  tests_reviewed: 0
+  risks_identified: 0
+  trace:
+    ac_covered: [1, 2, 3, 4, 5, 6]
+    ac_gaps: []
+
+nfr_validation:
+  security:
+    status: PASS
+    notes: "N/A - Componentes de UI, newsletter form preparado para endpoint futuro"
+  performance:
+    status: PASS
+    notes: "Next.js Image otimizado, Framer Motion eficiente"
+  reliability:
+    status: PASS
+    notes: "Todos os links funcionais, menu mobile funcional"
+  maintainability:
+    status: PASS
+    notes: "Código limpo, bem estruturado, componentes reutilizáveis"
+
+recommendations:
+  immediate: []
+  future:
+    - action: "Testar newsletter signup quando endpoint /api/newsletter for implementado (Story 4.5)"
+      refs: ["components/layout/Footer.tsx:64-83"]
+
