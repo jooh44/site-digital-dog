@@ -6,14 +6,12 @@ import { Button } from '@/components/ui/Button'
 import { AnimatedGradient } from '@/components/ui/AnimatedGradient'
 
 const featurePills = [
-  'Marca',
-  'Ecosistema Digital',
-  'Inteligência Dados'
+  'Ecosistema Digital'
 ]
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-16 md:py-24 overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center justify-center px-4 pt-8 md:pt-12 pb-16 md:pb-24 overflow-hidden">
       {/* Background base escuro */}
       <div className="absolute inset-0 bg-darker-blue" />
       
