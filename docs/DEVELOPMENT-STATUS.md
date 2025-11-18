@@ -53,11 +53,12 @@
 
 ---
 
-### Epic 2: Homepage Core 📋 PRÓXIMO
+### Epic 2: Homepage Core 🟢 PRÓXIMO
 
 **Sprint:** 2 (Semanas 3-4)  
-**Status:** 📋 Ready for Development  
-**Prioridade:** 🔴 Crítica
+**Status:** 🟢 Ready for Development  
+**Prioridade:** 🔴 Crítica  
+**UX Analysis:** ✅ APROVADO
 
 #### Stories Planejadas:
 
@@ -72,7 +73,9 @@
 
 ✅ Epic 1 completo  
 ✅ Design System implementado  
-✅ Base técnica pronta
+✅ Base técnica pronta  
+✅ Análise UX aprovada (Mago Fora da Lei)  
+✅ Diretrizes visuais definidas
 
 ---
 

@@ -70,12 +70,40 @@ Implementar as seções principais da homepage que comunicam o posicionamento da
 - Epic 1 completo (Foundation)
 - Design system implementado
 - Copywriting aprovado
+- ✅ Análise UX aprovada (Mago Fora da Lei - Autoridade Disruptiva)
+
+## Diretrizes UX Aprovadas
+
+**Arquétipo:** Mago Fora da Lei - Autoridade Disruptiva
+
+**Princípios de Design:**
+- **Clareza Brutal:** Textos diretos, sem rodeios
+- **Estrutura Clara:** Grids definidos e uniformes, não orgânicos demais
+- **Tipografia Autoritária:** Sans-serif bold (Space Grotesk + Inter)
+- **Cores de Impacto:** Azul ciano forte, contraste alto
+- **Animações Diretas:** Rápidas e precisas, não suaves demais
+- **Espaçamento Estratégico:** Não excessivo, mas claro
+
+**Referências UX:**
+- [UX Analysis Report Revised](../UX-ANALYSIS-REPORT-REVISED.md)
+- [UX Visual Guidelines](../UX-VISUAL-GUIDELINES.md)
+
+## Atualizações Recentes
+
+**2025-11-17:** Todas as stories (2.1-2.5) atualizadas com diretrizes UX baseadas na análise revisada "Mago Fora da Lei - Autoridade Disruptiva". As especificações de design foram ajustadas para refletir:
+- Tipografia autoritária (sans-serif bold)
+- Layouts estruturados e uniformes
+- Animações rápidas e diretas
+- Espaçamento estratégico
+- Cores de alto contraste
 
 ## Referências
 
 - [PRD - Requisitos Funcionais MVP - Homepage](../prd/requisitos-funcionais-mvp.md#31-homepage-)
 - [Architecture - Design System](../architecture/design-system-implementation.md)
 - [Architecture - External Integrations](../architecture/external-integrations.md)
+- [UX Analysis Report Revised](../UX-ANALYSIS-REPORT-REVISED.md)
+- [UX Visual Guidelines](../UX-VISUAL-GUIDELINES.md)
 
 ---
 
