@@ -65,7 +65,8 @@ digitaldog-website/
 │
 ├── public/                     # Static assets
 │   ├── images/
-│   │   ├── logo.svg
+│   │   ├── logo_digital_dog.png              # Logo da navegação (header)
+│   │   ├── logo_digital_dog-removebg-preview.png  # Logo de perfil (fundo transparente)
 │   │   ├── hero-bg.webp
 │   │   └── cases/
 │   ├── fonts/                  # Self-hosted fonts (optional)
