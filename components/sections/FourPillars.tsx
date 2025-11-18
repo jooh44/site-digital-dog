@@ -120,40 +120,106 @@ function PillarCard({
   IconComponent: LucideIcon
   index: number
 }) {
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
+  const originalValuesRef = useRef<Map<SVGElement, { stroke?: string; fill?: string }>>(new Map())
 
   useEffect(() => {
-    const wrapper = wrapperRef.current
-    if (!wrapper) return
+    const card = cardRef.current
+    if (!card) return
+
+    // Aguardar um pouco para garantir que o SVG está renderizado
+    const timeoutId = setTimeout(() => {
+      const svg = card.querySelector('svg')
+      if (!svg) return
+
+      // Armazenar valores originais e aplicar gradiente inicialmente
+      // Incluir o próprio SVG e todos os elementos filhos
+      const allElements = [svg, ...Array.from(svg.querySelectorAll('*'))]
+      
+      allElements.forEach((element) => {
+        const svgElement = element as SVGElement
+        const original: { stroke?: string; fill?: string } = {}
+        
+        // Stroke: aplicar gradiente inicialmente
+        const stroke = svgElement.getAttribute('stroke')
+        if (stroke && stroke !== 'none' && stroke !== 'transparent') {
+          original.stroke = stroke
+          svgElement.setAttribute('stroke', `url(#gradient-icon-${pillar.id})`)
+          original.stroke = `url(#gradient-icon-${pillar.id})`
+        }
+        
+        // Fill: manter original (será atualizado no hover)
+        const fill = svgElement.getAttribute('fill')
+        if (fill && fill !== 'none' && fill !== 'transparent') {
+          original.fill = fill
+        }
+        
+        if (original.stroke || original.fill) {
+          originalValuesRef.current.set(svgElement, original)
+        }
+      })
+    }, 100)
 
     const handleMouseEnter = () => {
-      const svg = wrapper.querySelector('svg')
-      if (svg) {
-        // Atualizar todos os elementos SVG (path, circle, rect, line, etc.)
-        const allElements = svg.querySelectorAll('path, circle, rect, line, polyline, polygon')
-        allElements.forEach((element) => {
-          ;(element as SVGElement).setAttribute('stroke', '#00bcd4')
-        })
-      }
+      const svg = card.querySelector('svg')
+      if (!svg) return
+      
+      // Atualizar TODOS os elementos SVG - stroke E fill para azul neon
+      // Incluir o próprio SVG e todos os elementos filhos
+      const allElements = [svg, ...Array.from(svg.querySelectorAll('*'))]
+      
+      allElements.forEach((element) => {
+        const svgElement = element as SVGElement
+        
+        // Atualizar stroke para azul neon se existir
+        const stroke = svgElement.getAttribute('stroke')
+        if (stroke && stroke !== 'none' && stroke !== 'transparent') {
+          svgElement.style.stroke = '#00bcd4'
+        }
+        
+        // Atualizar fill para azul neon se existir
+        const fill = svgElement.getAttribute('fill')
+        if (fill && fill !== 'none' && fill !== 'transparent') {
+          svgElement.style.fill = '#00bcd4'
+        }
+      })
     }
 
     const handleMouseLeave = () => {
-      const svg = wrapper.querySelector('svg')
-      if (svg) {
-        // Atualizar todos os elementos SVG (path, circle, rect, line, etc.)
-        const allElements = svg.querySelectorAll('path, circle, rect, line, polyline, polygon')
-        allElements.forEach((element) => {
-          ;(element as SVGElement).setAttribute('stroke', `url(#gradient-icon-${pillar.id})`)
-        })
-      }
+      const svg = card.querySelector('svg')
+      if (!svg) return
+      
+      // Restaurar valores originais armazenados
+      // Incluir o próprio SVG e todos os elementos filhos
+      const allElements = [svg, ...Array.from(svg.querySelectorAll('*'))]
+      
+      allElements.forEach((element) => {
+        const svgElement = element as SVGElement
+        const original = originalValuesRef.current.get(svgElement)
+        
+        // Limpar style inline primeiro para permitir que atributos funcionem
+        svgElement.style.removeProperty('stroke')
+        svgElement.style.removeProperty('fill')
+        
+        if (original) {
+          // Restaurar valores originais dos atributos
+          if (original.stroke !== undefined) {
+            svgElement.setAttribute('stroke', original.stroke)
+          }
+          if (original.fill !== undefined) {
+            svgElement.setAttribute('fill', original.fill)
+          }
+        }
+      })
     }
 
-    wrapper.addEventListener('mouseenter', handleMouseEnter)
-    wrapper.addEventListener('mouseleave', handleMouseLeave)
+    card.addEventListener('mouseenter', handleMouseEnter)
+    card.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
-      wrapper.removeEventListener('mouseenter', handleMouseEnter)
-      wrapper.removeEventListener('mouseleave', handleMouseLeave)
+      clearTimeout(timeoutId)
+      card.removeEventListener('mouseenter', handleMouseEnter)
+      card.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [pillar.id])
 
@@ -168,12 +234,12 @@ function PillarCard({
       }}
     >
       <motion.div
-        ref={wrapperRef}
         whileHover={{ y: -3 }}
         transition={{ duration: 0.2 }}
         className="h-full relative group"
       >
         <Card
+          ref={cardRef}
           variant="service"
           className="h-full flex flex-col bg-gradient-to-br from-dark-blue to-darker-blue border-l-4 border-transparent transition-all duration-200 relative overflow-hidden group-hover:border-primary-blue"
         >
