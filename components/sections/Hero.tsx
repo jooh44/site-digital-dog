@@ -1,0 +1,105 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { Button } from '@/components/ui/Button'
+import { AnimatedGradient } from '@/components/ui/AnimatedGradient'
+
+const featurePills = [
+  'Marca',
+  'Ecosistema Digital',
+  'Inteligência Dados'
+]
+
+export function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-16 md:py-24 overflow-hidden">
+      {/* Background base escuro */}
+      <div className="absolute inset-0 bg-darker-blue" />
+      
+      {/* Gradiente animado estilo Framer - profissional */}
+      <AnimatedGradient />
+      
+      <div className="relative max-w-6xl mx-auto w-full z-10">
+        {/* Feature Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-3 mb-8 md:mb-12"
+        >
+          {featurePills.map((pill, index) => (
+            <motion.span
+              key={pill}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className="px-4 py-2 rounded-full border border-primary-blue/30 bg-primary-blue/5 text-light-blue text-sm md:text-base font-medium backdrop-blur-sm"
+            >
+              {pill}
+            </motion.span>
+          ))}
+        </motion.div>
+
+        {/* H1 Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center font-heading font-bold text-primary-blue mb-6 md:mb-8"
+          style={{
+            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+            lineHeight: '1.1',
+          }}
+        >
+          <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+            Arquitetura Digital
+          </span>{' '}
+          <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+            Completa
+          </span>{' '}
+          para Medicina Veterinária
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center font-body text-light-blue/90 text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-10 md:mb-12"
+          style={{
+            lineHeight: '1.6',
+          }}
+        >
+          Não é só marketing. Não é apenas tecnologia. É o ecossistema completo que transforma sua clínica em uma máquina de crescimento sustentável — enquanto você cuida do que realmente importa: os pets.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center"
+        >
+          <Link href="/diagnostico" className="w-full sm:w-auto">
+            <Button
+              variant="primary"
+              className="w-full sm:w-auto min-h-[48px] px-6 md:px-8 py-4 md:py-6 text-base md:text-lg"
+            >
+              Quero um Diagnóstico Gratuito
+            </Button>
+          </Link>
+          <Link href="/arquitetura-digital" className="w-full sm:w-auto">
+            <Button
+              variant="secondary"
+              className="w-full sm:w-auto min-h-[48px] px-6 md:px-8 py-4 md:py-6 text-base md:text-lg"
+            >
+              Entenda Arquitetura Digital
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+

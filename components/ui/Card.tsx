@@ -13,7 +13,7 @@ export function Card({ variant = 'default', className, children, ...props }: Car
   
   const variants = {
     default: 'bg-white dark:bg-dark-blue shadow-card hover:shadow-card-hover',
-    service: 'bg-gradient-to-br from-dark-blue to-darker-blue border-l-4 border-primary-blue hover:-translate-y-1 hover:shadow-card-hover'
+    service: 'bg-gradient-to-br from-dark-blue to-darker-blue border-l-4 border-transparent hover:shadow-card-hover'
   }
   
   return (
