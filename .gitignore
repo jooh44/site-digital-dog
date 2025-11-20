@@ -52,3 +52,6 @@ meta-config.js
 # Docker volumes and backups
 backups/
 ssl/
+
+proposta-dr-dixon
+proposta-dr-dixon.html

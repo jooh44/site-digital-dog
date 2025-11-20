@@ -21,38 +21,38 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    clinicName: 'Clínica Veterinária PetCare',
-    photo: '/images/cases/petcare.jpg',
-    challenge: 'Marketing fragmentado sem resultados mensuráveis. Múltiplos sistemas que não conversavam entre si, gerando retrabalho e perda de oportunidades.',
-    solution: 'Implementamos arquitetura digital completa: site otimizado, CRM integrado, automações de marketing e dashboard de métricas em tempo real. Tudo conectado em um único ecossistema.',
+    clinicName: 'Aumivet',
+    photo: '/images/portfolio/aumivet.webp',
+    challenge: 'Problemas graves de indexação e posicionamento local. O Google sugeria concorrentes ao buscar pela marca, zerando o alcance orgânico.',
+    solution: 'Auditoria SEO técnica, desenvolvimento de site institucional multi-páginas com blog de conteúdo e reposicionamento total de marca nas redes sociais.',
     results: [
-      { metric: 'Aumento de Leads', value: '+180%' },
-      { metric: 'Taxa de Conversão', value: '+65%' },
-      { metric: 'ROI Marketing', value: '340%' },
+      { metric: 'Busca Orgânica', value: '1ª Posição' },
+      { metric: 'Agendamentos', value: '+110%' },
+      { metric: 'Cirurgias', value: 'Referência' },
     ],
   },
   {
     id: 2,
-    clinicName: 'Vet & Cia',
-    photo: '/images/cases/vetecia.jpg',
-    challenge: 'Invisibilidade online em um mercado competitivo. Dificuldade para competir com grandes redes e falta de dados para tomar decisões estratégicas.',
-    solution: 'Desenvolvemos posicionamento de marca diferenciado, estratégia de conteúdo SEO, campanhas de tráfego pago otimizadas e sistema de analytics completo para decisões data-driven.',
+    clinicName: 'Morgan & Ted',
+    photo: '/images/portfolio/morgan-e-ted.webp',
+    challenge: 'Negócio recém-aberto em mercado saturado (São José dos Pinhais). Baixa visibilidade digital dificultava a atração de novos tutores.',
+    solution: 'Estratégia de SEO Local agressiva, otimização do Google Meu Negócio e site focado em captura para dominar as buscas na região.',
     results: [
-      { metric: 'Visibilidade Online', value: '+250%' },
-      { metric: 'Agendamentos Online', value: '+120%' },
-      { metric: 'Crescimento Faturamento', value: '+45%' },
+      { metric: 'Google SJP', value: 'Top 1' },
+      { metric: 'Agendamentos', value: '+150%' },
+      { metric: 'Novos Tutores', value: 'Diários' },
     ],
   },
   {
     id: 3,
-    clinicName: 'Animal Hospital Premium',
-    photo: '/images/cases/premium.jpg',
-    challenge: 'Sistemas desconectados causando retrabalho. Equipe gastando tempo em gestão manual ao invés de focar no atendimento aos pets.',
-    solution: 'Arquitetura digital integrada: site responsivo, sistema de agendamento automático, CRM com histórico completo e automações que reduziram trabalho manual em 70%.',
+    clinicName: 'RZ VET',
+    photo: '/images/portfolio/rz-vet.webp',
+    challenge: 'E-commerce com faturamento estagnado, problemas de usabilidade (UX) e campanhas de anúncios que não traziam retorno real (ROI).',
+    solution: 'Redesign completo focado em UX/UI, gestão de tráfego de alta performance (+R$ 1 mi gerenciados) e otimização de conversão.',
     results: [
-      { metric: 'Eficiência Operacional', value: '+70%' },
-      { metric: 'Satisfação Cliente', value: '+85%' },
-      { metric: 'Tempo em Gestão', value: '-60%' },
+      { metric: 'ROAS Máximo', value: '40x' },
+      { metric: 'Faturamento', value: '+100k/mês' },
+      { metric: 'Crescimento', value: '30% a.a.' },
     ],
   },
 ]
@@ -83,13 +83,13 @@ export function CaseStudies() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="font-heading font-bold text-primary-blue text-3xl md:text-4xl lg:text-5xl mb-4">
-            Cases de{' '}
+            Alguns Cases de{' '}
             <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
               Sucesso
             </span>
           </h2>
           <p className="font-body text-light-blue text-lg md:text-xl max-w-3xl mx-auto">
-            Veja como transformamos clínicas veterinárias em máquinas de crescimento sustentável
+            Veja como transformamos negócios pet em máquinas de crescimento sustentável
           </p>
         </motion.div>
 
@@ -121,10 +121,6 @@ export function CaseStudies() {
                       target.style.display = 'none'
                     }}
                   />
-                  {/* Placeholder se imagem não carregar */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-blue/20 to-primary-blue/10">
-                    <Building2 className="w-12 h-12 text-primary-blue/40" />
-                  </div>
                 </div>
 
                 {/* Clinic Name */}
