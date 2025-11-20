@@ -26,12 +26,12 @@ services:
       start_period: 20s
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.digitaldog.rule=Host(`digitaldog.pet`, `www.digitaldog.pet`)"
+      - "traefik.http.routers.digitaldog.rule=Host(`digitaldog.pet`) || Host(`www.digitaldog.pet`)"
       - "traefik.http.routers.digitaldog.entrypoints=https"
       - "traefik.http.routers.digitaldog.tls=true"
       - "traefik.http.routers.digitaldog.tls.certresolver=letsencrypt"
       - "traefik.http.services.digitaldog.loadbalancer.server.port=3000"
-      - "traefik.http.routers.digitaldog-http.rule=Host(`digitaldog.pet`, `www.digitaldog.pet`)"
+      - "traefik.http.routers.digitaldog-http.rule=Host(`digitaldog.pet`) || Host(`www.digitaldog.pet`)"
       - "traefik.http.routers.digitaldog-http.entrypoints=http"
       - "traefik.http.routers.digitaldog-http.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
