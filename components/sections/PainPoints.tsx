@@ -16,7 +16,7 @@ const painPoints = [
     id: 2,
     title: 'Sistemas que não conversam',
     highlight: 'não conversam',
-    description: 'CRM, site, redes sociais, agenda — tudo separado. Informações fragmentadas que geram caos e perda de tempo.',
+    description: 'CRM, site, redes sociais, agenda: tudo separado. Informações fragmentadas que geram caos e perda de tempo.',
   },
   {
     id: 3,
@@ -93,7 +93,7 @@ export function PainPoints() {
             </span>
           </h2>
           <p className="font-body text-light-blue text-lg md:text-xl max-w-2xl mx-auto">
-            Se você se identifica com pelo menos uma, você precisa de Arquitetura Digital — não apenas marketing ou tecnologia isolada.
+            Se você se identifica com pelo menos uma, você precisa de Arquitetura Digital, não apenas marketing ou tecnologia isolada.
           </p>
         </motion.div>
 

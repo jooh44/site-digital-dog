@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Desenvolvimento - Dr. Dixon | Sistema de Agendamento Médico</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colors - Professional Palette */
+            --primary: #00bcd4;
+            --primary-dark: #0097a7;
+            --primary-light: #4dd0e1;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-tertiary: #edf2f7;
+            --border: #e2e8f0;
+            --accent: #00bcd4;
+            
+            /* Typography */
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--border);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+        }
+        
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        /* Header */
+        .header {
+            padding: var(--space-3xl) 0 var(--space-2xl);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .header-title {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+        
+        .header-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 700px;
+        }
+        
+        .header-meta {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .header-meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header-meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .header-meta-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        /* Summary Box */
+        .summary-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: var(--space-xl);
+            margin: var(--space-2xl) 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .summary-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .summary-box li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-xl);
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .summary-box li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            transition: all 0.2s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 188, 212, 0.08);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card ul li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .card ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-2xl) 0;
+        }
+        
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin: var(--space-2xl) 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-primary);
+        }
+        
+        table th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        table td {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        table tr:hover td {
+            background: var(--bg-secondary);
+        }
+        
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: var(--space-3xl) 0;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: var(--space-sm);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* List Styles */
+        ul, ol {
+            margin-left: var(--space-lg);
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+        }
+        
+        ul li, ol li {
+            margin-bottom: var(--space-xs);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: var(--space-3xl) 0;
+            border-top: 1px solid var(--border);
+            margin-top: var(--space-4xl);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: var(--space-2xl) 0 var(--space-xl);
+            }
+            
+            h2 {
+                margin-top: var(--space-2xl);
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .header {
+                border-bottom: 2px solid #000;
+            }
+            
+            .card {
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">Proposta de Desenvolvimento</h1>
+            <p class="header-subtitle">Sistema de Agendamento Médico On-line</p>
+            <div class="header-meta">
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Cliente</span>
+                    <span class="header-meta-value">Dr. Dixon - Cardiologista</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Responsável</span>
+                    <span class="header-meta-value">Johny Oliveira - Desenvolvedor Web</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Data</span>
+                    <span class="header-meta-value">Novembro de 2025</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Versão</span>
+                    <span class="header-meta-value">1.0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Resumo Executivo -->
+        <section>
+            <h2>Resumo Executivo</h2>
+            <p style="font-size: 1.125rem; color: var(--text-primary); margin-bottom: var(--space-lg);">
+                Transforme seu consultório em uma experiência digital completa que seus pacientes valorizam.
+            </p>
+            <div class="summary-box">
+                <ul>
+                    <li><strong>Agendamento 24/7</strong> — Seus pacientes agendam quando precisam, sem depender de horário comercial</li>
+                    <li><strong>Gestão simplificada</strong> — Painel intuitivo que economiza horas semanais em administração</li>
+                    <li><strong>Menos faltas</strong> — Lembretes automáticos reduzem no-shows em até 30%</li>
+                    <li><strong>Imagem profissional</strong> — Site moderno que reflete a excelência do seu atendimento</li>
+                    <li><strong>Base para crescimento</strong> — Infraestrutura pronta para telemedicina, pagamentos e muito mais</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Objetivo -->
+        <section>
+            <h2>Objetivo</h2>
+            <p>
+                Desenvolver uma <strong>plataforma exclusiva de agendamento médico</strong> para uso profissional do Dr. Dixon, permitindo que pacientes <strong>agendem consultas diretamente pelo site</strong> e que o médico <strong>gerencie sua agenda e informações dos pacientes</strong> em um <strong>painel seguro e intuitivo</strong>.
+            </p>
+            <p>
+                O sistema será hospedado em uma <strong>VPS própria (Hostinger)</strong>, garantindo <strong>autonomia, desempenho e segurança</strong> dos dados, com total conformidade com a <strong>LGPD</strong> e regulamentações do <strong>CFM</strong>.
+            </p>
+            <div class="highlight-box">
+                <h4>Por que isso importa?</h4>
+                <p style="margin: 0;">
+                    Enquanto você se concentra no que realmente importa — o cuidado com seus pacientes —, o sistema cuida de toda a parte administrativa. Agendamentos, confirmações, lembretes e gestão de agenda acontecem automaticamente, liberando seu tempo para o que você faz de melhor.
+                </p>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Escopo MVP -->
+        <section>
+            <h2>Escopo do MVP</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Site público (paciente)</h3>
+                    <p style="margin-bottom: var(--space-md);">Uma experiência digital completa que transmite profissionalismo:</p>
+                    <ul>
+                        <li>Página institucional completa</li>
+                        <li>Catálogo de serviços apresentado de forma clara</li>
+                        <li>Calendário interativo em tempo real</li>
+                        <li>Agendamento on-line com pré-triagem</li>
+                        <li>Confirmação automática por e-mail/SMS</li>
+                        <li>Política clara de cancelamento</li>
+                        <li>Área do paciente (opcional)</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>2. Painel do médico</h3>
+                    <p style="margin-bottom: var(--space-md);">Centro de comando completo para gerenciar sua prática:</p>
+                    <ul>
+                        <li>Visualização flexível da agenda</li>
+                        <li>Filtros inteligentes</li>
+                        <li>Controle total sobre horários</li>
+                        <li>Visão completa do paciente</li>
+                        <li>Automação inteligente</li>
+                        <li>Dashboard analítico</li>
+                        <li>Exportação de relatórios</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>3. Infraestrutura</h3>
+                    <p style="margin-bottom: var(--space-md);">Fundação sólida e segura:</p>
+                    <ul>
+                        <li>Hospedagem dedicada VPS Hostinger</li>
+                        <li>Banco de dados robusto (PostgreSQL)</li>
+                        <li>Desenvolvimento moderno com IA</li>
+                        <li>Código versionado no GitHub</li>
+                        <li>Conformidade total LGPD e CFM</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Fase 2 -->
+        <section>
+            <h2>Fase 2 (pós-MVP)</h2>
+            <p style="color: var(--text-light); font-style: italic; margin-bottom: var(--space-lg);">
+                Funcionalidades avançadas a serem implementadas após validação do MVP, conforme necessidades identificadas e feedback do cliente.
+            </p>
+            <div class="card">
+                <ul>
+                    <li>Chat com IA no site para dúvidas e agendamentos</li>
+                    <li>Follow-ups automatizados de pacientes</li>
+                    <li>Pagamentos on-line e pré-autorização</li>
+                    <li>Relatórios avançados de desempenho</li>
+                    <li>Integração com Google Calendar</li>
+                    <li>Lembretes multi-canal (WhatsApp e e-mail)</li>
+                    <li>Integração com prontuário eletrônico</li>
+                    <li>Telemedicina para consultas remotas</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Cronograma -->
+        <section>
+            <h2>Cronograma Estimado</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Etapa</th>
+                            <th>Descrição</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Descoberta & UX</strong></td>
+                            <td>Levantamento de requisitos, fluxos, protótipo navegável</td>
+                            <td>1 semana</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Desenvolvimento</strong></td>
+                            <td>Criação do site, painel e API de agendamento</td>
+                            <td>3 semanas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Testes & Ajustes</strong></td>
+                            <td>QA, refinamentos e deploy final na VPS</td>
+                            <td>1 semana</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Treinamento & Suporte</strong></td>
+                            <td>Entrega documentada + onboarding do médico</td>
+                            <td>1 semana</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box" style="margin-top: var(--space-xl);">
+                <p style="margin: 0; font-size: 1.125rem; font-weight: 600; color: var(--text-primary);">
+                    Prazo total estimado: 6 semanas
+                </p>
+                <p style="margin: var(--space-sm) 0 0; color: var(--text-light); font-size: 0.9rem;">
+                    Cronograma pode ser ajustado conforme disponibilidade e prioridades do cliente.
+                </p>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Investimento -->
+        <section>
+            <h2>Investimento</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entrega</th>
+                            <th>Valor (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Desenvolvimento completo do MVP + PÓS</td>
+                            <td><strong>R$ 9.800,00</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Hospedagem VPS Hostinger</td>
+                            <td><strong>R$ 120,00/mês</strong> (estimado)</td>
+                        </tr>
+                        <tr>
+                            <td>Domínio .com.br + SSL</td>
+                            <td><strong>R$ 60,00/ano</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card" style="margin-top: var(--space-xl);">
+                <h3 style="margin-top: 0;">Condições de pagamento:</h3>
+                <ul>
+                    <li><strong>30%</strong> na assinatura da proposta (início do projeto)</li>
+                    <li><strong>40%</strong> após apresentação do protótipo funcional</li>
+                    <li><strong>30%</strong> na entrega final + suporte de 30 dias</li>
+                </ul>
+                <div class="highlight-box" style="margin-top: var(--space-lg);">
+                    <p style="margin: 0;"><strong>Flexibilidade:</strong> Parcelamento em até 12x no cartão, e desconto no pix.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Retorno Esperado -->
+        <section>
+            <h2>Retorno Esperado</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Ganhos Imediatos</h3>
+                    <ul>
+                        <li><strong>Economia de tempo:</strong> 5-10 horas semanais</li>
+                        <li><strong>Menos faltas:</strong> Redução de 20-30% em no-shows</li>
+                        <li><strong>Agendamentos 24/7:</strong> Aumento de conversão</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Benefícios de Longo Prazo</h3>
+                    <ul>
+                        <li>Melhor experiência do paciente</li>
+                        <li>Imagem profissional moderna</li>
+                        <li>Base escalável para crescimento</li>
+                        <li>Dados para decisão estratégica</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Segurança -->
+        <section>
+            <h2>Segurança & Conformidade</h2>
+            <p style="color: var(--text-light); margin-bottom: var(--space-lg);">
+                Sua tranquilidade e a dos seus pacientes são prioridade.
+            </p>
+            <div class="card">
+                <ul>
+                    <li>Hospedagem segura em VPS privada (Hostinger)</li>
+                    <li>Criptografia completa de dados (SSL + em repouso)</li>
+                    <li>Conformidade LGPD com consentimento explícito</li>
+                    <li>Conformidade CFM seguindo regulamentações</li>
+                    <li>Auditoria completa com logs de acesso</li>
+                    <li>Backup automático diário</li>
+                    <li>Política de retenção conforme legislação</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Suporte -->
+        <section>
+            <h2>Suporte e Manutenção</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Suporte técnico incluso</strong> por 3 meses após entrega</li>
+                    <li><strong>Atualizações corretivas</strong> e melhorias de performance sem custo adicional</li>
+                    <li><strong>Planos de manutenção</strong> opcionais a partir de R$ 250/mês</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Tecnologias -->
+        <section>
+            <h2>Tecnologias Previstas</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Front-end:</strong> React, TailwindCSS — Interface responsiva e moderna</li>
+                    <li><strong>Back-end:</strong> Node.js / NestJS ou Express — API robusta e escalável</li>
+                    <li><strong>Banco de dados:</strong> PostgreSQL — Dados estruturados e confiáveis</li>
+                    <li><strong>Infraestrutura:</strong> VPS Hostinger (Linux + Nginx) — Performance e controle</li>
+                    <li><strong>Integrações futuras:</strong> Twilio/Zenvia, Google Calendar, Resend/SendGrid</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Termos -->
+        <section>
+            <h2>Termos e Condições</h2>
+            <p style="color: var(--text-light); margin-bottom: var(--space-lg);">
+                Transparência e clareza desde o início.
+            </p>
+            <div class="card">
+                <ul>
+                    <li><strong>Propriedade intelectual:</strong> Código e design de uso exclusivo do cliente</li>
+                    <li><strong>Flexibilidade de prazo:</strong> Ajustes mediante escopo adicional</li>
+                    <li><strong>Evolução pós-MVP:</strong> Melhorias orçadas separadamente</li>
+                    <li><strong>Responsabilidades:</strong> VPS, domínio e mensagens do cliente</li>
+                    <li><strong>Backups adicionais:</strong> Cliente pode manter backups complementares</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Próximos Passos -->
+        <section>
+            <h2>Próximos Passos</h2>
+            <p style="color: var(--text-light); margin-bottom: var(--space-lg);">
+                Jornada simples e objetiva.
+            </p>
+            <div class="card">
+                <ol style="list-style: decimal; padding-left: var(--space-xl);">
+                    <li style="margin-bottom: var(--space-md);"><strong>Aprovação</strong> desta proposta e assinatura digital</li>
+                    <li style="margin-bottom: var(--space-md);"><strong>Pagamento inicial</strong> (30%) e kickoff do projeto</li>
+                    <li style="margin-bottom: var(--space-md);"><strong>Validação</strong> do protótipo UX</li>
+                    <li><strong>Desenvolvimento</strong> completo e deploy em produção</li>
+                </ol>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <!-- Informações de Contato -->
+        <section>
+            <h2>Informações de Contato</h2>
+            <div class="card">
+                <h3 style="margin-top: 0;">Proponente</h3>
+                <p style="margin-bottom: var(--space-sm);">
+                    <strong>Johny Oliveira</strong><br>
+                    Desenvolvedor Web
+                </p>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin: 0;">
+                    CNPJ: 57.122.378/0001-85
+                </p>
+            </div>
+            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: var(--space-lg); text-align: center;">
+                Esta proposta é válida por 30 dias a partir da data de emissão. Após aprovação, será elaborado contrato específico com termos e condições detalhados.
+            </p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Proposta gerada em Novembro de 2025 | Johny Oliveira - Desenvolvedor Web</p>
+        </div>
+    </footer>
+</body>
+</html>

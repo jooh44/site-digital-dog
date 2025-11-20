@@ -62,7 +62,7 @@ export function HowItWorks() {
   const lineProgress = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%'])
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-24 px-4 bg-darker-blue">
+    <section id="servicos" ref={sectionRef} className="relative py-16 md:py-24 px-4 bg-darker-blue">
       {/* Linha divisória neon azul */}
       <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
         {/* Glow effect */}

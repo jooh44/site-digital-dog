@@ -26,7 +26,7 @@ function trackCTAClick() {
 
 export function CTAFinal() {
   return (
-    <section className="relative py-20 md:py-28 px-4 bg-darker-blue">
+    <section id="diagnostico" className="relative py-20 md:py-28 px-4 bg-darker-blue">
       {/* Linha divisória neon azul */}
       <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
         {/* Glow effect */}
@@ -69,10 +69,15 @@ export function CTAFinal() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Link 
-              href="/diagnostico" 
-              onClick={trackCTAClick}
+              href="#diagnostico" 
+              onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('diagnostico');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                  trackCTAClick();
+              }}
               className="inline-block"
-              aria-label="Agendar Diagnóstico Gratuito - Ir para página de diagnóstico"
+              aria-label="Agendar Diagnóstico Gratuito - Ir para formulário"
             >
               <Button
                 variant="primary"

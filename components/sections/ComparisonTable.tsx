@@ -156,14 +156,15 @@ export function ComparisonTable() {
                   </div>
 
                   {/* Digital Dog - Highlighted */}
-                  <div className="bg-primary-blue/20 rounded-lg p-4 border-2 border-primary-blue/40 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gradient-orange to-gradient-pink" />
-                    <p className="font-heading font-bold text-primary-blue text-xs uppercase tracking-wider mb-2">
-                      Digital Dog
-                    </p>
-                    <p className="font-body font-semibold text-primary-blue text-sm">
-                      {item.digitalDog}
-                    </p>
+                  <div className="relative rounded-lg p-[2px] bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35]">
+                    <div className="relative rounded-lg bg-darker-blue/80 backdrop-blur-sm p-4 h-full border border-primary-blue/20">
+                      <p className="font-heading font-bold text-xs uppercase tracking-wider mb-2 bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+                        Digital Dog
+                      </p>
+                      <p className="font-body font-semibold text-light-blue text-sm">
+                        {item.digitalDog}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Card>

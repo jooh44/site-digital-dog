@@ -11,7 +11,7 @@ const featurePills = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-4 pt-8 md:pt-12 pb-16 md:pb-24 overflow-hidden">
+    <section id="home" className="relative min-h-[95vh] flex items-center justify-center px-4 pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden">
       {/* Background base escuro */}
       <div className="absolute inset-0 bg-darker-blue" />
       
@@ -44,19 +44,26 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center font-heading font-bold text-primary-blue mb-6 md:mb-8"
+          className="text-center font-heading font-bold text-primary-blue mb-6 md:mb-8 relative"
           style={{
             fontSize: 'clamp(2rem, 5vw, 4.5rem)',
             lineHeight: '1.1',
           }}
         >
-          <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
-            Arquitetura Digital
+          {/* Efeito de brilho de fundo */}
+          <div className="absolute inset-0 blur-3xl bg-primary-blue/10 rounded-full -z-10 transform scale-150 opacity-50" />
+          
+          <span className="relative inline-block">
+            <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
+              Arquitetura Digital
+            </span>
           </span>{' '}
-          <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
             Completa
           </span>{' '}
-          para Medicina Veterinária
+          <span className="text-light-blue drop-shadow-lg">
+            para Medicina Veterinária
+          </span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -64,12 +71,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center font-body text-light-blue/90 text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-10 md:mb-12"
+          className="text-center font-body text-light-blue/90 text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-10 md:mb-12 relative"
           style={{
             lineHeight: '1.6',
           }}
         >
-          Não é só marketing. Não é apenas tecnologia. É o ecossistema completo que transforma sua clínica em uma máquina de crescimento sustentável — enquanto você cuida do que realmente importa: os pets.
+          Não é só marketing. Não é apenas tecnologia. É o <span className="text-primary-blue font-semibold">ecossistema completo</span> que transforma sua clínica em uma máquina de crescimento sustentável, enquanto você cuida do que realmente importa: os pets.
         </motion.p>
 
         {/* CTAs */}
@@ -79,22 +86,28 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center"
         >
-          <Link href="/diagnostico" className="w-full sm:w-auto">
+          <a href="#diagnostico" className="w-full sm:w-auto" onClick={(e) => {
+             e.preventDefault();
+             document.getElementById('diagnostico')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
             <Button
               variant="primary"
               className="w-full sm:w-auto min-h-[48px] px-6 md:px-8 py-4 md:py-6 text-base md:text-lg"
             >
               Quero um Diagnóstico Gratuito
             </Button>
-          </Link>
-          <Link href="/arquitetura-digital" className="w-full sm:w-auto">
+          </a>
+          <a href="#arquitetura" className="w-full sm:w-auto" onClick={(e) => {
+             e.preventDefault();
+             document.getElementById('arquitetura')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
             <Button
               variant="secondary"
               className="w-full sm:w-auto min-h-[48px] px-6 md:px-8 py-4 md:py-6 text-base md:text-lg"
             >
               Entenda Arquitetura Digital
             </Button>
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
