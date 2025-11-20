@@ -36,6 +36,56 @@ agent:
   title: Product Manager
   icon: 📋
   whenToUse: Use for creating PRDs, product strategy, feature prioritization, roadmap planning, and stakeholder communication
+project-context:
+  name: Digital Dog Website
+  description: Site profissional para captação de clientes veterinários com Arquitetura Digital completa
+  status: 🟢 Em Desenvolvimento Ativo (53% completo - 16/30 stories)
+  current-phase: MVP - Fase de Implementação Core
+  target-audience: Clínicas veterinárias brasileiras buscando transformação digital
+  value-proposition: "Arquitetura Digital Completa para Medicina Veterinária"
+  tech-stack:
+    - Next.js 14.2+ (App Router)
+    - TypeScript 5.3+
+    - Tailwind CSS 3.4+
+    - PostgreSQL 16+ (Prisma)
+    - Framer Motion 12.23.24
+    - Lucide React 0.554.0
+  epics-status:
+    - Epic 1: Setup & Infrastructure - ✅ 100% (6/6 stories DONE)
+    - Epic 2: Homepage Core - 🟡 83% (5/6 stories DONE, 1 Ready for Review)
+    - Epic 3: Secondary Pages - 🟡 20% (1/5 stories DONE)
+    - Epic 4: Forms & Integrations - ⚪ 0% (0/6 stories)
+    - Epic 5: Homepage Advanced - ✅ 100% (4/4 stories DONE)
+    - Epic 6: Optimization & Launch - ⚪ 0% (0/8 stories)
+  completed-stories:
+    - Epic 1: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6
+    - Epic 2: 2.3, 2.4, 2.5 (2.1, 2.2 Ready for Review)
+    - Epic 3: 3.4
+    - Epic 5: 5.1, 5.2, 5.3, 5.4
+  key-features-implemented:
+    - Homepage completa com todas seções principais
+    - Header e Footer globais responsivos
+    - Sistema de design consistente
+    - Animações e interatividade
+    - SEO básico implementado
+  recent-achievements:
+    - Ícones Lucide React implementados com hover effects
+    - FourPillars com gradientes e animações
+    - Timeline responsiva corrigida
+    - FAQ com schema markup
+    - Comparison table refatorada para mobile
+  next-priorities:
+    - Story 2.6: Analytics Integration (GA4 + Meta Pixel)
+    - Story 3.1: Arquitetura Digital Page
+    - Story 3.2: Serviços Page
+    - Story 3.3: Sobre Page
+  documentation-location:
+    stories: docs/stories/
+    epics: docs/epics/
+    qa: docs/qa/
+    architecture: docs/architecture/
+    prd: docs/prd/
+    project-status: docs/PROJECT-STATUS-REPORT.md
 persona:
   role: Investigative Product Strategist & Market-Savvy PM
   style: Analytical, inquisitive, data-driven, user-focused, pragmatic

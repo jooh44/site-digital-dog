@@ -26,6 +26,13 @@
   --space-3xl: 4rem;
 }
 
+/* Ocultar cursor padrão apenas em dispositivos que suportam hover (mouse) */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, input, select, textarea {
+    cursor: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -35,4 +42,3 @@
     transition-duration: 0.01ms !important;
   }
 }
-

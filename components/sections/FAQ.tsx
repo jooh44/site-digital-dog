@@ -15,7 +15,7 @@ const faqItems: FAQItem[] = [
   {
     id: '1',
     question: 'O que é Arquitetura Digital?',
-    answer: 'Arquitetura Digital é um ecossistema completo que integra 4 pilares fundamentais: Arquitetura de Marca (posicionamento estratégico), Arquitetura Digital (sistemas integrados), Estrutura Comercial (funil de conversão) e Inteligência de Dados (métricas e decisões data-driven). Não é apenas marketing ou tecnologia isolada - é a transformação sistêmica da sua clínica veterinária.',
+    answer: 'Arquitetura Digital é um ecossistema completo que integra 4 pilares fundamentais: Arquitetura de Marca (posicionamento estratégico), Arquitetura Digital (sistemas integrados), Estrutura Comercial (funil de conversão) e Inteligência de Dados (métricas e decisões data-driven). Não é apenas marketing ou tecnologia isolada, é a transformação sistêmica da sua clínica veterinária.',
   },
   {
     id: '2',
@@ -35,12 +35,12 @@ const faqItems: FAQItem[] = [
   {
     id: '5',
     question: 'Qual a diferença entre Digital Dog e uma agência tradicional?',
-    answer: 'Agências focam apenas em marketing tático (anúncios, redes sociais). A Digital Dog oferece arquitetura digital completa: marca + tecnologia + marketing + dados integrados. Não vendemos projetos pontuais - construímos um ecossistema que cresce com sua clínica.',
+    answer: 'Agências focam apenas em marketing tático (anúncios, redes sociais). A Digital Dog oferece arquitetura digital completa: marca + tecnologia + marketing + dados integrados. Não vendemos projetos pontuais. Construímos um ecossistema que cresce com sua clínica.',
   },
   {
     id: '6',
     question: 'E se eu já tenho um site ou sistema?',
-    answer: 'Perfeito! Avaliamos o que você já tem e integramos na arquitetura digital. Não descartamos investimentos anteriores - otimizamos e conectamos tudo em um ecossistema unificado. Muitas vezes conseguimos aproveitar 70-80% do que já existe.',
+    answer: 'Perfeito! Avaliamos o que você já tem e integramos na arquitetura digital. Não descartamos investimentos anteriores. Otimizamos e conectamos tudo em um ecossistema unificado. Muitas vezes conseguimos aproveitar 70-80% do que já existe.',
   },
   {
     id: '7',
@@ -55,7 +55,7 @@ const faqItems: FAQItem[] = [
   {
     id: '9',
     question: 'Como é o suporte após a implementação?',
-    answer: 'Oferecemos suporte contínuo mensal que inclui: monitoramento de métricas, otimizações, atualizações, relatórios de performance e suporte técnico. Você não fica sozinho após o lançamento - acompanhamos e otimizamos continuamente para garantir crescimento sustentável.',
+    answer: 'Oferecemos suporte contínuo mensal que inclui: monitoramento de métricas, otimizações, atualizações, relatórios de performance e suporte técnico. Você não fica sozinho após o lançamento. Acompanhamos e otimizamos continuamente para garantir crescimento sustentável.',
   },
   {
     id: '10',

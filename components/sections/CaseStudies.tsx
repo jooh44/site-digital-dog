@@ -154,7 +154,7 @@ export function CaseStudies() {
 
                 {/* Results */}
                 <div className="mt-auto pt-4 border-t border-primary-blue/20">
-                  <h4 className="font-heading font-semibold text-primary-blue text-sm uppercase tracking-wider mb-3">
+                  <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-3 bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
                     Resultados
                   </h4>
                   <div className="grid grid-cols-1 gap-2">

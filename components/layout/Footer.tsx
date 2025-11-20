@@ -8,16 +8,16 @@ import { Button } from '@/components/ui/Button'
 
 const navigation = {
   quickLinks: [
-    { name: 'Home', href: '/' },
-    { name: 'Arquitetura', href: '/arquitetura-digital' },
-    { name: 'Serviços', href: '/servicos' },
-    { name: 'Sobre', href: '/sobre' },
-    { name: 'Diagnóstico', href: '/diagnostico' },
+    { name: 'Home', href: '#home' },
+    { name: 'Arquitetura', href: '#arquitetura' },
+    { name: 'Serviços', href: '#servicos' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Diagnóstico', href: '#diagnostico' },
   ],
   resources: [
-    { name: 'Blog', href: '/blog' }, // Placeholder
-    { name: 'Cases', href: '/#cases' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: 'Blog', href: '#' }, // Placeholder
+    { name: 'Cases', href: '#portfolio' },
+    { name: 'FAQ', href: '#faq' },
   ],
 }
 
@@ -226,18 +226,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Links Legais */}
+          {/* Links Legais */}
         <div className="mt-6 pt-6 border-t border-primary-blue/20">
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs text-light-blue/60 font-body">
-            <Link href="/politica-privacidade" className="hover:text-primary-blue transition-colors">
+            <Link href="#" className="hover:text-primary-blue transition-colors cursor-not-allowed opacity-50">
               Política de Privacidade
             </Link>
             <span>•</span>
-            <Link href="/termos-uso" className="hover:text-primary-blue transition-colors">
+            <Link href="#" className="hover:text-primary-blue transition-colors cursor-not-allowed opacity-50">
               Termos de Uso
             </Link>
             <span>•</span>
-            <Link href="/lgpd" className="hover:text-primary-blue transition-colors">
+            <Link href="#" className="hover:text-primary-blue transition-colors cursor-not-allowed opacity-50">
               LGPD
             </Link>
           </div>
