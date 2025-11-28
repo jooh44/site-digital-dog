@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
-import Image from 'next/image'
 import { ChevronRight } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { Badge } from '@/components/ui/Badge'
+import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 interface PortfolioItem {
   id: number
@@ -125,15 +125,16 @@ export function PortfolioSection() {
             {portfolioItems.map((item, index) => {
                return (
                   <div key={item.id} className="group relative shrink-0 overflow-hidden rounded-2xl bg-white border border-primary-blue/20 hover:border-primary-blue/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,188,212,0.2)] inline-block">
-                     <Image
+                     <ImageWithFallback
                         src={item.image}
                         alt={`Screenshot do site ${item.name}`}
                         width={1920}
                         height={1080}
                         className="h-[550px] w-auto group-hover:scale-[1.02] transition-transform duration-500"
-                        quality={100}
+                        quality={85}
                         priority={index < 2}
-                        unoptimized
+                        fallbackText={`Screenshot ${item.name}`}
+                        showPlaceholder={true}
                      />
                   </div>
                )
@@ -174,15 +175,16 @@ export function PortfolioSection() {
                   >
                      <div className="bg-white rounded-2xl overflow-hidden border border-primary-blue/10 shadow-lg">
                         <div className="relative w-full overflow-hidden">
-                           <Image
+                           <ImageWithFallback
                               src={item.image}
                               alt={`Screenshot do site ${item.name}`}
                               width={0}
                               height={0}
                               sizes="100vw"
                               className="w-full h-auto"
-                              quality={100}
-                              unoptimized
+                              quality={85}
+                              fallbackText={`Screenshot ${item.name}`}
+                              showPlaceholder={true}
                            />
                         </div>
                      </div>

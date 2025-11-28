@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, LayoutGroup } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { Menu, X } from 'lucide-react'
+import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -113,12 +113,15 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group relative z-50" onClick={(e) => handleNavClick(e as any, '#home')}>
             <div className={`relative transition-all duration-300 ${isScrolled ? 'w-36 h-16' : 'w-48 h-20 md:w-64 md:h-24'}`}>
-              <Image
+              <ImageWithFallback
                 src="/images/logo_digital_dog.png"
                 alt="Digital Dog Logo"
                 fill
                 className="object-contain drop-shadow-[0_0_15px_rgba(0,188,212,0.3)]"
                 priority
+                quality={85}
+                fallbackText="Digital Dog"
+                showPlaceholder={true}
               />
             </div>
           </Link>
@@ -160,7 +163,11 @@ export function Header() {
               </LayoutGroup>
             </div>
             
-            <a href="#diagnostico" onClick={(e) => handleNavClick(e as any, '#diagnostico')}>
+            <a 
+              href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button 
                 variant="primary" 
                 className={`transition-all duration-300 ${
@@ -226,11 +233,16 @@ export function Header() {
                   transition={{ delay: 0.5 }}
                   className="pt-8"
                 >
-                  <Link href="/diagnostico" onClick={() => setMobileMenuOpen(false)}>
+                  <a 
+                    href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <Button variant="primary" className="w-full min-h-[56px] text-lg shadow-[0_0_30px_rgba(0,188,212,0.3)]">
                       Diagnóstico Gratuito
                     </Button>
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

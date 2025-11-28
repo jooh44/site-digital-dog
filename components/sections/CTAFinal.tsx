@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -68,16 +67,13 @@ export function CTAFinal() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link 
-              href="#diagnostico" 
-              onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById('diagnostico');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                  trackCTAClick();
-              }}
+            <a 
+              href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackCTAClick()}
               className="inline-block"
-              aria-label="Agendar Diagnóstico Gratuito - Ir para formulário"
+              aria-label="Agendar Diagnóstico Gratuito - Falar no WhatsApp"
             >
               <Button
                 variant="primary"
@@ -85,7 +81,7 @@ export function CTAFinal() {
               >
                 Agendar Diagnóstico Gratuito
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </div>

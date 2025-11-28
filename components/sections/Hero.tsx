@@ -86,10 +86,12 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center"
         >
-          <a href="#diagnostico" className="w-full sm:w-auto" onClick={(e) => {
-             e.preventDefault();
-             document.getElementById('diagnostico')?.scrollIntoView({ behavior: 'smooth' });
-          }}>
+          <a 
+            href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto"
+          >
             <Button
               variant="primary"
               className="w-full sm:w-auto min-h-[48px] px-6 md:px-8 py-4 md:py-6 text-base md:text-lg"
