@@ -1,22 +1,69 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
+
+// Cursor pixelado clássico estilo Windows/gaming - mais definido
+const CURSOR_ARROW = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0],
+  [1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0],
+  [1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0],
+  [1, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0],
+  [1, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0],
+  [1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0],
+  [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0],
+  [1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+  [1, 2, 2, 1, 2, 2, 1, 0, 0, 0, 0],
+  [1, 2, 1, 0, 1, 2, 2, 1, 0, 0, 0],
+  [1, 1, 0, 0, 1, 2, 2, 1, 0, 0, 0],
+  [1, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0],
+  [0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0],
+  [0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+]
+
+// Cursor pointer (mãozinha) - mais compacto e limpo
+const CURSOR_POINTER = [
+  [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 2, 2, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 1, 2, 2, 1, 2, 2, 1, 0, 0],
+  [0, 1, 1, 0, 1, 2, 2, 1, 2, 2, 1, 1, 0],
+  [1, 2, 2, 1, 1, 2, 2, 1, 2, 2, 1, 2, 1],
+  [1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1],
+  [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+  [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+  [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0],
+  [0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0],
+  [0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 1, 0, 0],
+  [0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+]
+
+const PIXEL_SIZE = 2
 
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   const mouseX = useMotionValue(-100)
   const mouseY = useMotionValue(-100)
 
-  // Suavização para o anel externo (atraso elegante)
-  const springConfig = { damping: 25, stiffness: 300 }
-  const cursorX = useSpring(mouseX, springConfig)
-  const cursorY = useSpring(mouseY, springConfig)
+  // Escolhe o cursor baseado no estado
+  const currentCursor = isHovering ? CURSOR_POINTER : CURSOR_ARROW
+  const cols = currentCursor[0]?.length || 11
 
   useEffect(() => {
+    setIsMounted(true)
+    
     const moveCursor = (e: MouseEvent) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
@@ -26,22 +73,22 @@ export function CustomCursor() {
     const handleMouseDown = () => setIsClicking(true)
     const handleMouseUp = () => setIsClicking(false)
 
-    // Detectar hover em elementos interativos
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement
       const isInteractive = 
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
         target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
         target.closest('a') ||
         target.closest('button') ||
         target.closest('[role="button"]') ||
-        target.classList.contains('interactive')
+        target.classList.contains('interactive') ||
+        target.classList.contains('cursor-pointer')
 
       setIsHovering(!!isInteractive)
     }
 
-    // Ocultar cursor quando sair da janela
     const handleMouseLeave = () => setIsVisible(false)
     const handleMouseEnter = () => setIsVisible(true)
 
@@ -62,57 +109,48 @@ export function CustomCursor() {
     }
   }, [isVisible, mouseX, mouseY])
 
-  // Não renderizar em dispositivos touch (detecção simples)
+  if (!isMounted) return null
+  
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
     return null
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
-      {/* Ponto Central (Direto) */}
-      <motion.div
-        className="absolute h-2 w-2 rounded-full bg-primary-blue shadow-[0_0_10px_#00bcd4]"
-        style={{
-          x: mouseX,
-          y: mouseY,
-          translateX: '-50%',
-          translateY: '-50%',
-          opacity: isVisible ? 1 : 0,
-        }}
-      />
-
-      {/* Anel Externo (Com Delay/Spring) */}
-      <motion.div
-        className="absolute rounded-full border border-primary-blue/50"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          translateX: '-50%',
-          translateY: '-50%',
-          opacity: isVisible ? 1 : 0,
-        }}
-        animate={{
-          height: isHovering ? 60 : 32,
-          width: isHovering ? 60 : 32,
-          borderColor: isHovering ? 'rgba(0, 188, 212, 0.8)' : 'rgba(0, 188, 212, 0.3)',
-          backgroundColor: isHovering ? 'rgba(0, 188, 212, 0.05)' : 'transparent',
-          scale: isClicking ? 0.8 : 1,
-        }}
-        transition={{
-          type: 'spring',
-          damping: 25,
-          stiffness: 300,
+    <motion.div 
+      className="pointer-events-none fixed z-[9999]"
+      style={{
+        x: mouseX,
+        y: mouseY,
+        opacity: isVisible ? 1 : 0,
+      }}
+    >
+      <div 
+        style={{ 
+          display: 'grid',
+          gridTemplateColumns: `repeat(${cols}, ${PIXEL_SIZE}px)`,
+          transform: isClicking ? 'scale(0.9)' : 'scale(1)',
+          transition: 'transform 0.08s ease-out',
         }}
       >
-        {/* Efeito de mira Tech (cantos ou cruz) quando hover */}
-        <motion.div 
-            className="absolute inset-0 flex items-center justify-center"
-            animate={{ opacity: isHovering ? 1 : 0 }}
-        >
-            <div className="w-1 h-1 bg-primary-blue/80 rounded-full" />
-        </motion.div>
-      </motion.div>
-    </div>
+        {currentCursor.map((row, y) =>
+          row.map((pixel, x) => (
+            <div
+              key={`${x}-${y}`}
+              style={{
+                width: PIXEL_SIZE,
+                height: PIXEL_SIZE,
+                backgroundColor:
+                  pixel === 1
+                    ? '#000000'
+                    : pixel === 2
+                    ? '#FFFFFF'
+                    : 'transparent',
+              }}
+            />
+          ))
+        )}
+      </div>
+    </motion.div>
   )
 }
 
