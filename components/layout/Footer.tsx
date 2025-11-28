@@ -170,7 +170,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-light-blue/80 text-sm font-body">
-                São Paulo, SP
+                São Bento do Sul - Santa Catarina
               </li>
             </ul>
 
