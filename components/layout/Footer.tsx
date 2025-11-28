@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
+import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 const navigation = {
   quickLinks: [
@@ -91,11 +91,14 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center mb-4 group -m-2 p-0">
               <div className="relative w-40 h-40 md:w-48 md:h-48">
-                <Image
+                <ImageWithFallback
                   src="/images/logo_digital_dog.png"
                   alt="Digital Dog Logo"
                   fill
                   className="object-contain group-hover:opacity-80 transition-opacity"
+                  quality={85}
+                  fallbackText="Digital Dog"
+                  showPlaceholder={true}
                 />
               </div>
             </Link>
@@ -158,7 +161,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/5547988109155"
+                  href="https://api.whatsapp.com/send?phone=5547988109155"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-light-blue/80 hover:text-primary-blue transition-colors text-sm font-body"
