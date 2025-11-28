@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/Card'
+import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 interface Testimonial {
   id: number
@@ -142,19 +142,18 @@ export function Testimonials() {
                 {/* Author Info */}
                 <div className="flex items-center gap-3 mt-auto pt-4 border-t border-primary-blue/20">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden bg-dark-blue flex-shrink-0">
-                    <Image
+                    <ImageWithFallback
                       src={testimonial.photo}
                       alt={testimonial.name}
                       fill
                       className="object-cover"
                       sizes="48px"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
-                      }}
+                      quality={85}
+                      fallbackText={testimonial.name.charAt(0)}
+                      showPlaceholder={false}
                     />
-                    {/* Placeholder se imagem não carregar */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-blue/30 to-primary-blue/20">
+                    {/* Placeholder com inicial se imagem não carregar */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-blue/30 to-primary-blue/20 pointer-events-none">
                       <span className="text-primary-blue/60 font-heading text-lg">
                         {testimonial.name.charAt(0)}
                       </span>

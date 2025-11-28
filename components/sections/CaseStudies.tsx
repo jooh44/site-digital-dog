@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Building2 } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
+import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 interface CaseStudy {
   id: number
@@ -109,17 +109,15 @@ export function CaseStudies() {
               >
                 {/* Photo */}
                 <div className="relative w-full h-48 md:h-56 mb-4 rounded-lg overflow-hidden bg-dark-blue">
-                  <Image
+                  <ImageWithFallback
                     src={caseStudy.photo}
                     alt={caseStudy.clinicName}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    onError={(e) => {
-                      // Fallback para placeholder se imagem não existir
-                      const target = e.target as HTMLImageElement
-                      target.style.display = 'none'
-                    }}
+                    quality={85}
+                    fallbackText={caseStudy.clinicName}
+                    showPlaceholder={true}
                   />
                 </div>
 
