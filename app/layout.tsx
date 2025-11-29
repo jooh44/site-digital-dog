@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { CustomCursor } from '@/components/ui/CustomCursor'
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
 import './globals.css'
 
@@ -34,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="font-body">
-        <CustomCursor />
         <Header />
         {children}
         <Footer />
