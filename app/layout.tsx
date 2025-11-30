@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
+import { MetaPixel } from '@/components/ui/MetaPixel'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,6 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <head>
+        <MetaPixel />
+      </head>
       <body className="font-body">
         <Header />
         {children}
