@@ -6,7 +6,10 @@ import { Button } from '@/components/ui/Button'
 import { AnimatedGradient } from '@/components/ui/AnimatedGradient'
 
 const featurePills = [
-  'Ecosistema Digital'
+  'Sites',
+  'Sistemas',
+  'Branding',
+  'Design'
 ]
 
 export function Hero() {
