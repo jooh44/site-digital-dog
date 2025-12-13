@@ -9,7 +9,6 @@ import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 
 const navigation = [
   { name: 'Home', href: '#home' },
-  { name: 'Arquitetura', href: '#arquitetura' },
   { name: 'Serviços', href: '#servicos' },
   { name: 'Portfólio', href: '#portfolio' },
 ]
@@ -34,7 +33,7 @@ export function Header() {
             const el = document.getElementById(id)
             // Se for portfolio, tenta pegar a versão mobile se a desktop não estiver visível/existente
             if (id === 'portfolio' && (!el || el.offsetParent === null)) {
-               return document.getElementById('portfolio-mobile')
+              return document.getElementById('portfolio-mobile')
             }
             return el
           }
@@ -43,30 +42,30 @@ export function Header() {
         .filter(Boolean) as HTMLElement[]
 
       let current = ''
-      
+
       // Lógica para detectar qual seção está mais visível na tela
       // Encontrar a última seção que já passou pelo ponto de ativação
       let lastActive = ''
-      
+
       for (const section of sections) {
         const sectionTop = section.offsetTop
         // Ajuste fino: ativa a seção quando ela está a 1/3 do topo da tela
         const activationPoint = window.scrollY + (window.innerHeight / 3)
 
         if (activationPoint >= sectionTop) {
-           let id = '#' + section.id
-           if (id === '#portfolio-mobile') id = '#portfolio'
-           lastActive = id
+          let id = '#' + section.id
+          if (id === '#portfolio-mobile') id = '#portfolio'
+          lastActive = id
         }
       }
-      
+
       if (lastActive) {
-         current = lastActive
+        current = lastActive
       }
 
       // Fallback para Home quando estiver bem no topo
       if (window.scrollY < 50) {
-         current = '#home'
+        current = '#home'
       }
 
       setActiveSection(current)
@@ -75,7 +74,7 @@ export function Header() {
     window.addEventListener('scroll', handleScroll)
     // Chamada inicial para definir estado correto ao carregar
     handleScroll()
-    
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -86,7 +85,7 @@ export function Header() {
       // Tenta encontrar a seção desktop ou mobile se for portfolio
       let element = document.getElementById(targetId)
       if (targetId === 'portfolio' && window.innerWidth < 1024) {
-          element = document.getElementById('portfolio-mobile')
+        element = document.getElementById('portfolio-mobile')
       }
 
       if (element) {
@@ -101,12 +100,11 @@ export function Header() {
   }
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isScrolled 
-          ? 'bg-darker-blue/90 border-b border-primary-blue/20 py-2 backdrop-blur-md' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled
+          ? 'bg-darker-blue/90 border-b border-primary-blue/20 py-2 backdrop-blur-md'
           : 'bg-transparent border-b border-transparent py-4'
-      }`}
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -131,48 +129,47 @@ export function Header() {
             <div className="flex items-center bg-darker-blue/40 backdrop-blur-sm rounded-full border border-primary-blue/10 px-2 py-1 mr-4 relative group/nav">
               <div className="absolute inset-0 rounded-full bg-darker-blue/40 -z-20" />
               <LayoutGroup id="navbar-animation">
-                  {navigation.map((item) => {
-                    const isActive = activeSection === item.href
-                    return (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        onClick={(e) => handleNavClick(e, item.href)}
-                        className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 z-10 ${isActive ? 'text-white' : 'text-light-blue hover:text-white'}`}
-                      >
-                        <span className="relative z-10">{item.name}</span>
-                        {/* Active Background */}
-                        {isActive && (
-                            <motion.span
-                                layoutId="activeNav"
-                                className="absolute inset-0 rounded-full bg-primary-blue/20 border border-primary-blue/30 -z-10"
-                                transition={{ 
-                                    type: "spring", 
-                                    stiffness: 350, 
-                                    damping: 30 
-                                }}
-                            />
-                        )}
-                        {/* Hover Background (only if not active) */}
-                        {!isActive && (
-                            <span className="absolute inset-0 rounded-full bg-primary-blue/5 scale-0 transition-transform duration-200 group-hover:scale-100 -z-10" />
-                        )}
-                      </a>
-                    )
-                  })}
+                {navigation.map((item) => {
+                  const isActive = activeSection === item.href
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 z-10 ${isActive ? 'text-white' : 'text-light-blue hover:text-white'}`}
+                    >
+                      <span className="relative z-10">{item.name}</span>
+                      {/* Active Background */}
+                      {isActive && (
+                        <motion.span
+                          layoutId="activeNav"
+                          className="absolute inset-0 rounded-full bg-primary-blue/20 border border-primary-blue/30 -z-10"
+                          transition={{
+                            type: "spring",
+                            stiffness: 350,
+                            damping: 30
+                          }}
+                        />
+                      )}
+                      {/* Hover Background (only if not active) */}
+                      {!isActive && (
+                        <span className="absolute inset-0 rounded-full bg-primary-blue/5 scale-0 transition-transform duration-200 group-hover:scale-100 -z-10" />
+                      )}
+                    </a>
+                  )
+                })}
               </LayoutGroup>
             </div>
-            
-            <a 
+
+            <a
               href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button 
-                variant="primary" 
-                className={`transition-all duration-300 ${
-                  isScrolled ? 'min-h-[40px] px-6' : 'min-h-[48px] px-8 text-base shadow-[0_0_20px_rgba(0,188,212,0.4)]'
-                }`}
+              <Button
+                variant="primary"
+                className={`transition-all duration-300 ${isScrolled ? 'min-h-[40px] px-6' : 'min-h-[48px] px-8 text-base shadow-[0_0_20px_rgba(0,188,212,0.4)]'
+                  }`}
               >
                 Diagnóstico Gratuito
               </Button>
@@ -200,40 +197,40 @@ export function Header() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed inset-0 z-40 bg-darker-blue/95 backdrop-blur-xl lg:hidden flex flex-col items-center justify-center"
             >
-               {/* Background Elements */}
-               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-blue/10 rounded-full blur-[80px]" />
-                  <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#ff6b35]/10 rounded-full blur-[80px]" />
-               </div>
+              {/* Background Elements */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-blue/10 rounded-full blur-[80px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#ff6b35]/10 rounded-full blur-[80px]" />
+              </div>
 
               <div className="w-full max-w-xs space-y-6 text-center relative z-10">
                 {navigation.map((item, index) => {
-                   const isActive = activeSection === item.href
-                   return (
+                  const isActive = activeSection === item.href
+                  return (
                     <motion.div
-                        key={item.name}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                      key={item.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
                     >
-                        <a
+                      <a
                         href={item.href}
                         className={`block text-2xl font-heading font-bold transition-colors py-2 ${isActive ? 'text-primary-blue' : 'text-light-blue hover:text-primary-blue'}`}
                         onClick={(e) => handleNavClick(e, item.href)}
-                        >
+                      >
                         {item.name}
-                        </a>
+                      </a>
                     </motion.div>
-                   )
+                  )
                 })}
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="pt-8"
                 >
-                  <a 
+                  <a
                     href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
                     target="_blank"
                     rel="noopener noreferrer"

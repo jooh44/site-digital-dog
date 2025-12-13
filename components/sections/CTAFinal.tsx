@@ -8,16 +8,16 @@ import { Button } from '@/components/ui/Button'
 function trackCTAClick() {
   // GA4 tracking
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    ;(window as any).gtag('event', 'cta_click', {
+    ; (window as any).gtag('event', 'cta_click', {
       event_category: 'engagement',
       event_label: 'final_cta',
       location: 'homepage_final'
     })
   }
-  
+
   // Meta Pixel tracking (optional)
   if (typeof window !== 'undefined' && (window as any).fbq) {
-    ;(window as any).fbq('track', 'Lead', {
+    ; (window as any).fbq('track', 'Lead', {
       content_name: 'Final CTA - Agendar Diagnóstico Gratuito'
     })
   }
@@ -29,10 +29,10 @@ export function CTAFinal() {
       {/* Linha divisória neon azul */}
       <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
         {/* Glow effect */}
-        <div 
+        <div
           className="absolute inset-0 h-full bg-gradient-to-r from-transparent via-primary-blue to-transparent opacity-60 blur-sm"
-          style={{ 
-            boxShadow: '0 0 20px rgba(0, 188, 212, 0.5), 0 0 40px rgba(0, 188, 212, 0.3)' 
+          style={{
+            boxShadow: '0 0 20px rgba(0, 188, 212, 0.5), 0 0 40px rgba(0, 188, 212, 0.3)'
           }}
         />
         {/* Linha principal */}
@@ -48,16 +48,15 @@ export function CTAFinal() {
         >
           {/* Headline */}
           <h2 className="font-heading font-bold text-primary-blue mb-6 md:mb-8" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
-            Pronto para{' '}
+            Sua Clínica Não Pode Ficar{' '}
             <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
-              Transformar
+              Parada no Tempo
             </span>{' '}
-            Sua Clínica?
           </h2>
-          
+
           {/* Subtitle */}
           <p className="font-body text-light-blue text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto">
-            Agende seu diagnóstico gratuito e descubra como podemos transformar sua clínica em uma máquina de crescimento sustentável.
+            A agenda do próximo mês depende da decisão que você toma hoje.
           </p>
 
           {/* CTA Button */}
@@ -67,19 +66,19 @@ export function CTAFinal() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <a 
-              href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20cl%C3%ADnica%20veterin%C3%A1ria."
+            <a
+              href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20sobre%20o%20site%20da%20minha%20cl%C3%ADnica."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCTAClick()}
               className="inline-block"
-              aria-label="Agendar Diagnóstico Gratuito - Falar no WhatsApp"
+              aria-label="Falar com Especialista no WhatsApp"
             >
               <Button
                 variant="primary"
                 className="min-h-[56px] px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-semibold shadow-2xl hover:shadow-[0_0_30px_rgba(255,107,53,0.6)]"
               >
-                Agendar Diagnóstico Gratuito
+                Falar com Especialista no WhatsApp
               </Button>
             </a>
           </motion.div>
