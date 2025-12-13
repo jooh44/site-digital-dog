@@ -31,6 +31,7 @@ services:
       - "traefik.http.routers.digitaldog.tls=true"
       - "traefik.http.routers.digitaldog.tls.certresolver=letsencrypt"
       - "traefik.http.services.digitaldog.loadbalancer.server.port=3000"
+      - "traefik.http.services.nextjs.loadbalancer.server.port=3000"
       - "traefik.http.routers.digitaldog-http.rule=Host(`digitaldog.pet`) || Host(`www.digitaldog.pet`)"
       - "traefik.http.routers.digitaldog-http.entrypoints=http"
       - "traefik.http.routers.digitaldog-http.middlewares=redirect-to-https"
