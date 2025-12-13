@@ -9,7 +9,6 @@ import { ImageWithFallback } from '@/components/ui/ImageWithFallback'
 const navigation = {
   quickLinks: [
     { name: 'Home', href: '#home' },
-    { name: 'Arquitetura', href: '#arquitetura' },
     { name: 'Serviços', href: '#servicos' },
     { name: 'Sobre', href: '#sobre' },
     { name: 'Diagnóstico', href: '#diagnostico' },
@@ -229,7 +228,7 @@ export function Footer() {
           </div>
         </div>
 
-          {/* Links Legais */}
+        {/* Links Legais */}
         <div className="mt-6 pt-6 border-t border-primary-blue/20">
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs text-light-blue/60 font-body">
             <Link href="#" className="hover:text-primary-blue transition-colors cursor-not-allowed opacity-50">

@@ -23,8 +23,8 @@ const caseStudies: CaseStudy[] = [
     id: 1,
     clinicName: 'Aumivet',
     photo: '/images/portfolio/aumivet.webp',
-    challenge: 'Problemas graves de indexação e posicionamento local. O Google sugeria concorrentes ao buscar pela marca, zerando o alcance orgânico.',
-    solution: 'Auditoria SEO técnica, desenvolvimento de site institucional multi-páginas com blog de conteúdo e reposicionamento total de marca nas redes sociais.',
+    challenge: 'Problemas graves de indexação. O Google sugeria concorrentes ao buscar pela marca, zerando o alcance orgânico.',
+    solution: 'Novo Site Institucional entregue com SEO técnico avançado. Recuperação total da marca nas buscas em menos de 30 dias.',
     results: [
       { metric: 'Busca Orgânica', value: '1ª Posição' },
       { metric: 'Agendamentos', value: '+110%' },
@@ -35,8 +35,8 @@ const caseStudies: CaseStudy[] = [
     id: 2,
     clinicName: 'Morgan & Ted',
     photo: '/images/portfolio/morgan-e-ted.webp',
-    challenge: 'Negócio recém-aberto em mercado saturado (São José dos Pinhais). Baixa visibilidade digital dificultava a atração de novos tutores.',
-    solution: 'Estratégia de SEO Local agressiva, otimização do Google Meu Negócio e site focado em captura para dominar as buscas na região.',
+    challenge: 'Negócio recém-aberto em mercado saturado (SJP). Baixa visibilidade digital para captar clientes.',
+    solution: 'Landing Page de Alta Conversão focada em captura rápida e Sistema de Agendamento otimizado para o Whatsapp.',
     results: [
       { metric: 'Google SJP', value: 'Top 1' },
       { metric: 'Agendamentos', value: '+150%' },
@@ -47,8 +47,8 @@ const caseStudies: CaseStudy[] = [
     id: 3,
     clinicName: 'RZ VET',
     photo: '/images/portfolio/rz-vet.webp',
-    challenge: 'E-commerce com faturamento estagnado, problemas de usabilidade (UX) e campanhas de anúncios que não traziam retorno real (ROI).',
-    solution: 'Redesign completo focado em UX/UI, gestão de tráfego de alta performance (+R$ 1 mi gerenciados) e otimização de conversão.',
+    challenge: 'E-commerce com faturamento estagnado, problemas de usabilidade (UX) e campanhas de anúncios com baixo ROI.',
+    solution: 'Redesign completo da interface de vendas (UX/UI) e otimização do funil de compra para maximizar o tráfego pago.',
     results: [
       { metric: 'ROAS Máximo', value: '40x' },
       { metric: 'Faturamento', value: '+100k/mês' },
@@ -63,10 +63,10 @@ export function CaseStudies() {
       {/* Linha divisória neon azul */}
       <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
         {/* Glow effect */}
-        <div 
+        <div
           className="absolute inset-0 h-full bg-gradient-to-r from-transparent via-primary-blue to-transparent opacity-60 blur-sm"
-          style={{ 
-            boxShadow: '0 0 20px rgba(0, 188, 212, 0.5), 0 0 40px rgba(0, 188, 212, 0.3)' 
+          style={{
+            boxShadow: '0 0 20px rgba(0, 188, 212, 0.5), 0 0 40px rgba(0, 188, 212, 0.3)'
           }}
         />
         {/* Linha principal */}
