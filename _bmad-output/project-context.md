@@ -172,9 +172,10 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 | Lenis | @studio-freight/react-lenis | smooth scroll global |
 | clsx + tailwind-merge | latest | via `lib/utils.ts` |
 | lucide-react | 0.554 | ícones |
-| React Hook Form | a instalar | forms multi-step |
-| Zod | a instalar | validação de schemas |
-| Resend | a instalar | email de notificação de lead |
+| React Hook Form | 7.71 | forms multi-step |
+| Zod | 4.3 | validação de schemas — v4, não v3 |
+| Resend | 6.9 | email de notificação de lead |
+| Vitest | 4.1 | test runner + vite-tsconfig-paths |
 | Vercel | — | deploy, serverless, env vars |
 
 **Dependências a REMOVER antes de qualquer implementação:**
@@ -379,6 +380,8 @@ export async function POST(req: Request) {
 | `RESEND_FROM_EMAIL` | **Server-only** | Usado na API Route |
 | `NOTIFICATION_EMAIL` | **Server-only** | Email destino dos leads |
 
+Ver `.env.example` na raiz do projeto para referência completa.
+
 ---
 
 ### ConsentProvider — Analytics Condicional
@@ -438,7 +441,7 @@ features/
   diagnostico/
     components/           → DiagnosticoForm, Steps, SuccessScreen, FredSVG
     hooks/                → useFormPersistence.ts
-    schemas/              → step1-4.schema.ts (Zod)
+    schemas/              → submit.schema.ts (Zod) + step1-4.schema.ts (futuro)
     services/             → submitDiagnostico.ts
     types/                → diagnostico.types.ts
   portfolio/
@@ -455,9 +458,60 @@ lib/
 app/
   layout.tsx              → RootLayout + ConsentProvider + fonts
   page.tsx                → Homepage
-  api/diagnostico/submit/ → API Route (form submit + Resend)
+  api/diagnostico/submit/ → API Route (form submit + Resend) ✅ implementado
 public/
   portfolio/              → logos dos clientes (.webp)
   fred/                   → fred.svg (⚠️ pendente)
   seo/llms.txt            → AIO/GEO indexação
 ```
+
+---
+
+### Testes — Configuração e Padrões
+
+**Test runner:** Vitest 4.1 (`npm test` / `npm run test:watch`)
+Arquivo de config: `vitest.config.ts` na raiz.
+Arquivos de teste: `.test.ts` junto ao arquivo fonte.
+
+```ts
+// ✅ Mock de constructor (classe) em Vitest — OBRIGATÓRIO usar function keyword
+vi.mock('resend', () => ({
+  Resend: vi.fn().mockImplementation(function () {
+    return { emails: { send: mockSend } }
+  }),
+}))
+
+// ❌ Arrow function não funciona como constructor mock
+vi.mock('resend', () => ({
+  Resend: vi.fn().mockImplementation(() => ({ ... })),  // falha: not a constructor
+}))
+```
+
+```ts
+// ✅ Imports estáticos no topo — compatível com tsc --noEmit do Next.js
+import { POST } from './route'
+vi.mock('@/features/diagnostico/services/submitDiagnostico')
+
+// ❌ Top-level await import — quebra tsc --noEmit (tsconfig do Next.js)
+const { POST } = await import('./route')
+```
+
+---
+
+### Resend v6 — Padrão de Uso
+
+`resend.emails.send()` retorna `{ data, error }` — **não lança exceção automaticamente**.
+Sempre verificar `error` e fazer throw manual no service:
+
+```ts
+const { error } = await resend.emails.send({ ... })
+if (error) throw new Error(error.message)
+```
+
+---
+
+### Zod v4 — Diferenças da v3
+
+- `z.literal(true)` — sem segundo argumento (errorMap removido)
+- `z.string().regex(pattern, message)` — funciona normalmente
+- `z.ZodError` e `error instanceof z.ZodError` — ainda funcionam
