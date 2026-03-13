@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useDiagnosticoModal } from '@/features/diagnostico/context/DiagnosticoModalContext'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -10,6 +11,7 @@ if (typeof window !== 'undefined') {
 
 export function CTAFinal() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const { openModal } = useDiagnosticoModal()
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -112,7 +114,7 @@ export function CTAFinal() {
           <button
             className="inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] text-white flex-shrink-0 min-h-[44px] transition-opacity duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#ff6b35]"
             style={{ background: 'linear-gradient(135deg, #ff6b35, #ff1744)' }}
-            onClick={() => { /* abrir modal diagnóstico — Epic 3 */ }}
+            onClick={openModal}
           >
             Quero meu Diagnóstico Digital
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

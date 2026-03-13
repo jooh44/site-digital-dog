@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { HeroAISimulation } from './HeroAISimulation'
+import { useDiagnosticoModal } from '@/features/diagnostico/context/DiagnosticoModalContext'
 
 const NAV_LINKS = [
   { name: 'Serviços', href: '#servicos' },
@@ -10,6 +11,8 @@ const NAV_LINKS = [
 ]
 
 export function Hero() {
+  const { openModal } = useDiagnosticoModal()
+
   return (
     <section
       className="grid lg:grid-cols-[52fr_48fr] min-h-screen lg:h-screen lg:min-h-[600px] pt-16 lg:pt-0"
@@ -56,12 +59,13 @@ export function Hero() {
                 {link.name}
               </a>
             ))}
-            <a
-              href="#diagnostico"
+            <button
+              type="button"
+              onClick={openModal}
               className="text-sm font-medium px-4 py-2 rounded border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-dark-blue transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-blue"
             >
               Solicitar Diagnóstico
-            </a>
+            </button>
           </nav>
         </div>
 
@@ -127,9 +131,7 @@ export function Hero() {
           <button
             className="inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] text-white w-fit min-h-[44px]"
             style={{ background: 'linear-gradient(135deg, #ff6b35, #ff1744)' }}
-            onClick={() => {
-              /* abrir modal diagnóstico — Epic 3 */
-            }}
+            onClick={openModal}
           >
             Quero meu Diagnóstico Digital
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
