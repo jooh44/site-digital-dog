@@ -1,6 +1,6 @@
 # Story 3.1: API Route de Submissão e Email de Lead
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -19,25 +19,25 @@ para que os dados do lead cheguem com segurança e sem exposição de informaç�
 
 ## Tasks / Subtasks
 
-- [ ] Criar schema Zod completo para validação do formulário (AC: #1, #3)
-  - [ ] Criar `features/diagnostico/schemas/submit.schema.ts`
-  - [ ] Campos: segmento, negocio, desafio (texto livre), nome, email, whatsapp, consentimento (boolean true)
-  - [ ] Validações: email formato válido, whatsapp formato BR, consentimento obrigatório true
-- [ ] Criar service layer de email (AC: #1, #2)
-  - [ ] Criar `features/diagnostico/services/submitDiagnostico.ts`
-  - [ ] Função `sendLeadEmail(data: DiagnosticoData): Promise<void>`
-  - [ ] Usar Resend SDK: `new Resend(process.env.RESEND_API_KEY)`
-  - [ ] Template de email com todos os dados do lead
-- [ ] Criar API Route `app/api/diagnostico/submit/route.ts` (AC: #1, #3, #4, #5)
-  - [ ] Apenas método POST (outras retornam 405)
-  - [ ] Parse do body + validação Zod
-  - [ ] Chamar service de email
-  - [ ] Respostas padronizadas: `{ success: true }` ou `{ success: false, error: string }`
-  - [ ] Nunca expor stack trace ou PII na resposta
-  - [ ] `console.error` servidor para erros inesperados
-- [ ] Verificar que as env vars são server-only (AC: #6)
-  - [ ] `RESEND_API_KEY`: nunca com prefixo `NEXT_PUBLIC_`
-  - [ ] Criar `.env.example` se não existir
+- [x] Criar schema Zod completo para validação do formulário (AC: #1, #3)
+  - [x] Criar `features/diagnostico/schemas/submit.schema.ts`
+  - [x] Campos: segmento, negocio, desafio (texto livre), nome, email, whatsapp, consentimento (boolean true)
+  - [x] Validações: email formato válido, whatsapp formato BR, consentimento obrigatório true
+- [x] Criar service layer de email (AC: #1, #2)
+  - [x] Criar `features/diagnostico/services/submitDiagnostico.ts`
+  - [x] Função `sendLeadEmail(data: DiagnosticoData): Promise<void>`
+  - [x] Usar Resend SDK: `new Resend(process.env.RESEND_API_KEY)`
+  - [x] Template de email com todos os dados do lead
+- [x] Criar API Route `app/api/diagnostico/submit/route.ts` (AC: #1, #3, #4, #5)
+  - [x] Apenas método POST (outras retornam 405)
+  - [x] Parse do body + validação Zod
+  - [x] Chamar service de email
+  - [x] Respostas padronizadas: `{ success: true }` ou `{ success: false, error: string }`
+  - [x] Nunca expor stack trace ou PII na resposta
+  - [x] `console.error` servidor para erros inesperados
+- [x] Verificar que as env vars são server-only (AC: #6)
+  - [x] `RESEND_API_KEY`: nunca com prefixo `NEXT_PUBLIC_`
+  - [x] Criar `.env.example` se não existir
 
 ## Dev Notes
 
@@ -191,6 +191,33 @@ claude-sonnet-4-6
 
 ### Debug Log References
 
+- Zod v4 não suporta `z.literal(true, { errorMap })` — usado `z.literal(true)` sem segundo argumento (comportamento idêntico para validação)
+- Resend v6 retorna `{ data, error }` em vez de lançar exceção — adicionado check explícito de `error` no service e throw manual
+- Mock de constructor (`new Resend(...)`) em Vitest requer `function` keyword, não arrow function
+- Top-level `await import()` em test files causava erros no `tsc --noEmit` (tsconfig do Next.js) — refatorado para imports estáticos no topo
+
 ### Completion Notes List
 
+- Implementados 4 arquivos novos cobrindo 100% dos ACs da story
+- 23 testes unitários passando (11 schema + 4 service + 8 API route)
+- Zero erros TypeScript (`tsc --noEmit` limpo)
+- Zero warnings ESLint (`next lint` limpo)
+- Vitest configurado como test runner do projeto (devDependency)
+- Env vars server-only verificadas — nenhuma prefixada com NEXT_PUBLIC_
+- `.env.example` criado documentando todas as variáveis necessárias
+
 ### File List
+
+- `features/diagnostico/schemas/submit.schema.ts` (criado)
+- `features/diagnostico/schemas/submit.schema.test.ts` (criado)
+- `features/diagnostico/services/submitDiagnostico.ts` (criado)
+- `features/diagnostico/services/submitDiagnostico.test.ts` (criado)
+- `app/api/diagnostico/submit/route.ts` (criado)
+- `app/api/diagnostico/submit/route.test.ts` (criado)
+- `.env.example` (criado)
+- `vitest.config.ts` (criado)
+- `package.json` (modificado — adicionado vitest, vite-tsconfig-paths, scripts test/test:watch)
+
+## Change Log
+
+- 2026-03-13: Story 3.1 implementada — API Route de submissão, schema Zod, service Resend, testes unitários, .env.example, setup Vitest
