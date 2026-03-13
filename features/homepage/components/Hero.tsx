@@ -140,13 +140,21 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Trust strip */}
+        {/* Services strip */}
         <div className="pt-5 pb-7 lg:pb-8 border-t border-white/[0.07] flex items-center gap-4 flex-wrap flex-shrink-0">
-          <span className="text-[10px] tracking-[0.1em] uppercase text-white/[0.16] whitespace-nowrap">Clientes</span>
-          <div className="flex gap-3 flex-wrap">
-            {['Aumivet', 'Morgan & Ted', 'RZ Vet'].map((name) => (
-              <span key={name} className="text-[12px] font-medium text-white/35">
-                {name}
+          <span className="text-[10px] tracking-[0.1em] uppercase text-white/[0.16] whitespace-nowrap">Serviços</span>
+          <div className="flex gap-2 flex-wrap">
+            {['Logo', 'Site', 'Google', 'Automação', 'I.A'].map((s) => (
+              <span
+                key={s}
+                className="text-[11px] font-medium px-2.5 py-1 rounded-md"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.09)',
+                  color: 'rgba(255,255,255,0.45)',
+                }}
+              >
+                {s}
               </span>
             ))}
           </div>
