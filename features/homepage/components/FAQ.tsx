@@ -103,6 +103,23 @@ export function FAQ() {
         }}
       />
 
+      {/* Decorative ? — desktop only */}
+      <div
+        className="absolute right-8 xl:right-14 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:block"
+        aria-hidden="true"
+        style={{
+          fontSize: 'clamp(16rem, 22vw, 24rem)',
+          fontFamily: 'var(--font-heading)',
+          fontWeight: 800,
+          lineHeight: 1,
+          WebkitTextStroke: '1.5px rgba(255,255,255,0.055)',
+          color: 'transparent',
+          letterSpacing: '-0.04em',
+        }}
+      >
+        ?
+      </div>
+
       <div className="relative z-10">
         {/* Eyebrow */}
         <div className="flex items-center gap-2 mb-12 lg:mb-16" data-faq-reveal>
