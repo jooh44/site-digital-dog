@@ -20,8 +20,8 @@ const NAV_EMPRESA = [
 ]
 
 const NAV_PROJETOS = [
-  { label: 'Aumivet', href: '/projetos/aumivet' },
-  { label: 'Morgan & Ted', href: '/projetos/morgan-e-ted' },
+  { label: 'Pet Shop Araucária', href: '/projetos/pet-shop-araucaria' },
+  { label: 'Ponto das Portas', href: '/projetos/ponto-das-portas' },
   { label: 'RZ Vet', href: '/projetos/rz-vet' },
 ]
 

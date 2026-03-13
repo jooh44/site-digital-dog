@@ -23,6 +23,7 @@ const projects = [
       { value: 'Top 3', label: 'AI Overview' },
     ],
     image: '/images/portfolio/case-pet-shop-araucaria.jpeg' as string | null,
+    logo: null as string | null,
     accent: '#00bcd4',
   },
   {
@@ -38,6 +39,7 @@ const projects = [
       { value: 'Top 1', label: 'AI Overview' },
     ],
     image: '/images/portfolio/case-ponto-das-portas.jpeg' as string | null,
+    logo: null as string | null,
     accent: '#7c4dff',
   },
   {
@@ -55,6 +57,7 @@ const projects = [
       { value: 'Top 3', label: 'AI Overview' },
     ],
     image: '/images/portfolio/case-rz-vet.jpeg' as string | null,
+    logo: null as string | null,
     accent: '#ff6b35',
   },
 ]
@@ -253,11 +256,11 @@ export function PortfolioSection() {
 
                 {/* Visual — lado esquerdo, altura total */}
                 <div
-                  className="relative overflow-hidden flex-shrink-0 h-[220px] sm:h-auto sm:w-[42%] border-b border-white/[0.07] sm:border-b-0 sm:border-r sm:border-white/[0.07]"
+                  className="relative flex-shrink-0 h-[220px] sm:h-auto sm:w-[42%] border-b border-white/[0.07] sm:border-b-0 sm:border-r sm:border-white/[0.07] overflow-hidden bg-[#0d0d0d] p-3"
                 >
                   {project.image ? (
                     <div
-                      className="absolute inset-0 cursor-zoom-in"
+                      className="absolute inset-3 cursor-zoom-in overflow-hidden rounded-sm"
                       onClick={() => setLightbox({ src: project.image!, alt: project.client })}
                     >
                       <Image
@@ -293,14 +296,39 @@ export function PortfolioSection() {
                 {/* Info — lado direito */}
                 <div className="relative z-10 flex flex-col gap-4 p-6 lg:p-8 flex-1 min-w-0">
 
-                  {/* Index + Title */}
+                  {/* Index + Title + Logo */}
                   <div>
-                    <span
-                      className="text-[9px] font-semibold tracking-[0.18em] tabular-nums"
-                      style={{ color: project.accent, opacity: 0.5 }}
-                    >
-                      {project.index}
-                    </span>
+                    <div className="flex items-start justify-between gap-3">
+                      <span
+                        className="text-[9px] font-semibold tracking-[0.18em] tabular-nums"
+                        style={{ color: project.accent, opacity: 0.5 }}
+                      >
+                        {project.index}
+                      </span>
+                      {/* Logo da empresa */}
+                      {project.logo ? (
+                        <div className="flex-shrink-0 w-12 h-8 relative">
+                          <Image
+                            src={project.logo}
+                            alt={`Logo ${project.client}`}
+                            fill
+                            className="object-contain object-right"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className="flex-shrink-0 w-14 h-8 rounded flex items-center justify-center"
+                          style={{
+                            border: `1px dashed ${project.accent}30`,
+                            background: `${project.accent}06`,
+                          }}
+                        >
+                          <span className="text-[7px] font-semibold tracking-[0.1em] uppercase" style={{ color: `${project.accent}40` }}>
+                            logo
+                          </span>
+                        </div>
+                      )}
+                    </div>
                     <h3
                       className="font-heading font-extrabold leading-[0.92] tracking-[-0.03em] text-white/90 mt-1.5"
                       style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)' }}
