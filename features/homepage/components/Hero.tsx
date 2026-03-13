@@ -83,7 +83,7 @@ export function Hero() {
               className="w-1.5 h-1.5 rounded-full flex-shrink-0"
               style={{ background: '#ff6b35', animation: 'dd-pin-pulse 2s ease-in-out infinite' }}
             />
-            Trabalho em desenvolvimento
+            Projeto em desenvolvimento
           </span>
         </div>
 
