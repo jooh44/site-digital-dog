@@ -42,7 +42,12 @@
       "WebFetch(domain:www.rzvet.com.br)",
       "Bash(powershell:*)",
       "Bash(git log:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "WebFetch(domain:www.vyrtech.com)",
+      "Bash(npm run build 2>&1)",
+      "Bash(npm run lint 2>&1)",
+      "Bash(npx tsc --noEmit 2>&1 | head -40)",
+      "Bash(npx next lint --file features/homepage/components/PainPoints.tsx --file features/homepage/components/FourPillars.tsx --file app/page.tsx 2>&1)"
     ],
     "deny": [],
     "ask": [],

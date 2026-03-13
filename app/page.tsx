@@ -1,24 +1,17 @@
-import { Hero } from '@/components/sections/Hero'
-import { FourPillars } from '@/components/sections/FourPillars'
-import { HowItWorks } from '@/components/sections/HowItWorks'
-import { CaseStudies } from '@/components/sections/CaseStudies'
-import { PortfolioSection } from '@/components/sections/PortfolioSection'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { FAQ } from '@/components/sections/FAQ'
-import { CTAFinal } from '@/components/sections/CTAFinal'
+import { Hero } from '@/features/homepage/components/Hero'
+import { ServicesEcosystem } from '@/features/homepage/components/ServicesEcosystem'
+import { ThreePillars } from '@/features/homepage/components/ThreePillars'
+import { PortfolioSection } from '@/features/homepage/components/PortfolioSection'
+import { FAQ } from '@/features/homepage/components/FAQ'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-darker-blue">
       <Hero />
-      <FourPillars />
-      <HowItWorks />
-      <CaseStudies />
+      <ServicesEcosystem />
+      <ThreePillars />
       <PortfolioSection />
-      <Testimonials />
       <FAQ />
-      <CTAFinal />
     </main>
   )
 }
-
