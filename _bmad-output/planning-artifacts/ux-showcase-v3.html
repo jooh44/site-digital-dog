@@ -1,0 +1,2927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Dog — UX Showcase v3</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --b2: #0f0f0f;
+      --b3: #141414;
+      --b4: #1c1c1c;
+      --cyan: #00bcd4;
+      --cyan-d: rgba(0, 188, 212, 0.12);
+      --orange: #ff6b35;
+      --pink: #ff1744;
+      --grad: linear-gradient(135deg, #ff6b35, #ff1744);
+      --s0: rgba(255, 255, 255, 0.03);
+      --s1: rgba(255, 255, 255, 0.07);
+      --s2: rgba(255, 255, 255, 0.13);
+      --s3: rgba(255, 255, 255, 0.22);
+      --t1: rgba(255, 255, 255, 0.93);
+      --t2: rgba(255, 255, 255, 0.62);
+      --t3: rgba(255, 255, 255, 0.36);
+      --t4: rgba(255, 255, 255, 0.16);
+      /* Google dark mode palette */
+      --gdark: var(--black);
+      --gdark2: var(--b2);
+      --gdark3: var(--s2);
+      --gt1: rgba(232, 234, 237, 0.87);
+      --gt2: rgba(232, 234, 237, 0.54);
+      --gt3: rgba(232, 234, 237, 0.28);
+      /* ChatGPT dark */
+      --gptdark: var(--black);
+      --gptdark2: var(--b2);
+    }
+
+    body {
+      background: #111;
+      font-family: 'Inter', sans-serif;
+      color: white;
+    }
+
+    /* ═══ SHOWCASE NAV ═══════════════════════════════════ */
+    .sc-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      height: 48px;
+      background: rgba(10, 10, 10, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--s1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .sc-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t1);
+    }
+
+    .sc-ver {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: var(--cyan-d);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .sc-tabs {
+      display: flex;
+      gap: 2px;
+    }
+
+    .sc-tab {
+      padding: 5px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t3);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .sc-tab:hover {
+      color: var(--t2);
+      background: var(--s0);
+    }
+
+    .sc-tab.on {
+      color: var(--t1);
+      background: var(--s1);
+    }
+
+    .sc-tip {
+      font-size: 11px;
+      color: var(--t4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sc-tip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* ═══ SECTIONS ══════════════════════════════════════ */
+    .section {
+      display: none;
+      padding-top: 48px;
+      background: #0d0d0d;
+      min-height: 100vh;
+    }
+
+    .section.on {
+      display: block;
+    }
+
+    /* ── Component wrapper ── */
+    .cw {
+      border-bottom: 1px solid var(--s1);
+    }
+
+    .cw-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 24px;
+      background: var(--b2);
+      border-bottom: 1px solid var(--s1);
+    }
+
+    .cw-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .cw-id-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cw-code {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--black);
+      background: var(--cyan);
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .cw-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t1);
+    }
+
+    .cw-desc {
+      font-size: 12px;
+      color: var(--t3);
+      line-height: 1.5;
+    }
+
+    .cw-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--t4);
+      border: 1px solid var(--s1);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .cw-demo {
+      background: var(--black);
+    }
+
+    /* shared headline helpers */
+    .ey {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    .ey-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 3.4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+      color: var(--t1);
+      margin-bottom: 20px;
+    }
+
+    .gu {
+      background-image: var(--grad);
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 100% 2.5px;
+      padding-bottom: 3px;
+    }
+
+    .grad-t {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      font-size: 1rem;
+      color: var(--t2);
+      line-height: 1.75;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    .cta-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 7px;
+      border: none;
+      background: var(--grad);
+      color: white;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .trust {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--s1);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .trust-lbl {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--t4);
+      white-space: nowrap;
+    }
+
+    .trust-items {
+      display: flex;
+      gap: 12px;
+    }
+
+    .trust-item {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t3);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+   A1 — AI SEARCH HERO  (FULL VIEWPORT, NO GAP)
+═══════════════════════════════════════════════════════ */
+    #a1-hero {
+      display: grid;
+      grid-template-columns: 52fr 48fr;
+      height: calc(100vh - 48px);
+      /* full viewport minus nav */
+      min-height: 600px;
+    }
+
+    /* LEFT */
+    #a1-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px 64px 56px;
+      border-right: 1px solid var(--s1);
+      overflow: hidden;
+    }
+
+    /* RIGHT — Google/GPT simulation fills 100% */
+    #a1-right {
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Browser chrome bar (shared) */
+    .sim-chrome {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      background: var(--b2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .sim-chrome-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .sim-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .sim-dot.r {
+      background: rgba(255, 95, 87, 0.7)
+    }
+
+    .sim-dot.y {
+      background: rgba(255, 189, 46, 0.7)
+    }
+
+    .sim-dot.g {
+      background: rgba(39, 200, 64, 0.7)
+    }
+
+    .sim-url {
+      flex: 1;
+      margin: 0 10px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── Google simulation panel ── */
+    #sim-google {
+      flex: 1;
+      overflow: hidden;
+      background: var(--gdark);
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.4s;
+    }
+
+    /* Google header */
+    .g-search-area {
+      padding: 20px 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .g-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .g-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .g-wordmark span:nth-child(1) {
+      color: #4285F4
+    }
+
+    .g-wordmark span:nth-child(2) {
+      color: #EA4335
+    }
+
+    .g-wordmark span:nth-child(3) {
+      color: #FBBC05
+    }
+
+    .g-wordmark span:nth-child(4) {
+      color: #4285F4
+    }
+
+    .g-wordmark span:nth-child(5) {
+      color: #34A853
+    }
+
+    .g-wordmark span:nth-child(6) {
+      color: #EA4335
+    }
+
+    .g-search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gdark2);
+      border: 1px solid var(--gdark3);
+      border-radius: 24px;
+      padding: 10px 18px;
+      transition: border-color 0.2s;
+    }
+
+    .g-search-bar:focus-within,
+    .g-search-bar.active {
+      border-color: rgba(138, 180, 248, 0.5);
+    }
+
+    .g-search-icon {
+      color: var(--gt2);
+      flex-shrink: 0;
+    }
+
+    #g-query {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gt1);
+      flex: 1;
+    }
+
+    .g-cursor {
+      display: inline-block;
+      width: 1.5px;
+      height: 14px;
+      background: #8ab4f8;
+      vertical-align: middle;
+      margin-left: 1px;
+    }
+
+    .g-search-submit {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--gt2);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .g-search-submit:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* Google nav tabs */
+    .g-nav {
+      display: flex;
+      gap: 0;
+      padding: 0 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 4px;
+    }
+
+    .g-nav-tab {
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--gt2);
+      border-bottom: 3px solid transparent;
+      cursor: default;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .g-nav-tab.act {
+      color: #8ab4f8;
+      border-bottom-color: #8ab4f8;
+    }
+
+    /* Results area */
+    .g-results {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 24px 20px;
+      scrollbar-width: none;
+    }
+
+    .g-results::-webkit-scrollbar {
+      display: none;
+    }
+
+    .g-count {
+      font-size: 11px;
+      color: var(--gt3);
+      margin-bottom: 14px;
+    }
+
+    /* Gemini AI Overview box */
+    .gemini-box {
+      position: relative;
+      background: rgba(138, 180, 248, 0.05);
+      border: 1px solid rgba(138, 180, 248, 0.15);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .gemini-box::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: linear-gradient(to bottom, #4285F4, #A8C7FA, #34A853);
+      border-radius: 0 99px 99px 0;
+    }
+
+    .gemini-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* Gemini star icon */
+    .gemini-star {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .gemini-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8ab4f8;
+      letter-spacing: 0.02em;
+    }
+
+    .gemini-text {
+      font-size: 13px;
+      color: var(--gt1);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      min-height: 56px;
+    }
+
+    /* Business result card inside Gemini box */
+    .g-biz-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px;
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .g-biz-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .g-biz-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--gt1);
+    }
+
+    .g-biz-meta {
+      font-size: 11px;
+      color: var(--gt2);
+      margin-top: 3px;
+    }
+
+    .g-biz-rating {
+      font-size: 12px;
+      font-weight: 600;
+      color: #f9ab00;
+      margin-top: 3px;
+    }
+
+    .g-dd-badge {
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: rgba(0, 188, 212, 0.12);
+      border: 1px solid rgba(0, 188, 212, 0.3);
+      color: #00bcd4;
+    }
+
+    /* Faded regular results below */
+    .g-regular {
+      opacity: 0.35;
+      margin-top: 4px;
+    }
+
+    .g-reg-item {
+      margin-bottom: 16px;
+    }
+
+    .g-reg-url {
+      font-size: 11px;
+      color: #8ab4f8;
+      margin-bottom: 3px;
+    }
+
+    .g-reg-title {
+      font-size: 14px;
+      color: #8ab4f8;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .g-reg-snippet {
+      font-size: 12px;
+      color: var(--gt2);
+      line-height: 1.5;
+    }
+
+    /* ── ChatGPT simulation panel ── */
+    #sim-gpt {
+      flex: 1;
+      overflow: hidden;
+      background: var(--gptdark);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      position: absolute;
+      inset: 40px 0 0;
+      /* below chrome */
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    #sim-gpt.vis {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ChatGPT header */
+    .gpt-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .gpt-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #10a37f;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .gpt-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t1);
+    }
+
+    .gpt-model {
+      font-size: 11px;
+      color: var(--t3);
+      margin-left: auto;
+    }
+
+    /* ChatGPT thread */
+    .gpt-thread {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scrollbar-width: none;
+    }
+
+    .gpt-thread::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gpt-msg {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .gpt-msg.user {
+      flex-direction: row-reverse;
+    }
+
+    .gpt-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .gpt-msg.user .gpt-avatar {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--t2);
+    }
+
+    .gpt-msg.ai .gpt-avatar {
+      background: #10a37f;
+      color: white;
+      font-size: 10px;
+    }
+
+    .gpt-bubble {
+      padding: 12px 16px;
+      border-radius: 12px;
+      max-width: 82%;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .gpt-msg.user .gpt-bubble {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--t2);
+      border-radius: 12px 12px 4px 12px;
+    }
+
+    .gpt-msg.ai .gpt-bubble {
+      background: var(--gptdark2);
+      color: var(--t1);
+      border-radius: 12px 12px 12px 4px;
+    }
+
+    .gpt-typing {
+      display: flex;
+      gap: 4px;
+      padding: 14px 16px;
+    }
+
+    .gpt-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10a37f;
+      opacity: 0;
+    }
+
+    /* GPT business highlight */
+    .gpt-highlight {
+      background: rgba(16, 163, 127, 0.1);
+      border: 1px solid rgba(16, 163, 127, 0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+    }
+
+    .gpt-h-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--t1);
+    }
+
+    .gpt-h-meta {
+      font-size: 11px;
+      color: var(--t2);
+      margin-top: 3px;
+    }
+
+    .gpt-dd {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: rgba(0, 188, 212, 0.12);
+      border: 1px solid rgba(0, 188, 212, 0.25);
+      color: #00bcd4;
+      margin-top: 6px;
+    }
+
+    /* GPT input bar */
+    .gpt-input-row {
+      padding: 12px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .gpt-input-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gptdark2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 16px;
+    }
+
+    .gpt-input-text {
+      font-size: 13px;
+      color: var(--t3);
+      flex: 1;
+    }
+
+    /* ═══ A2 ═══════════════════════════════════════════ */
+    #a2-hero {
+      display: grid;
+      grid-template-columns: 52fr 48fr;
+      height: calc(100vh - 48px);
+      min-height: 600px;
+    }
+
+    #a2-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px;
+      border-right: 1px solid var(--s1);
+    }
+
+    #a2-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--b2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .a2-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--s0) 1px, transparent 1px), linear-gradient(90deg, var(--s0) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .a2-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .a2-ring-system {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .a2-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 188, 212, 0.1);
+    }
+
+    .a2-ring:nth-child(1) {
+      inset: 0;
+      border-color: rgba(0, 188, 212, 0.06)
+    }
+
+    .a2-ring:nth-child(2) {
+      inset: 24px;
+      border-color: rgba(0, 188, 212, 0.10)
+    }
+
+    .a2-ring:nth-child(3) {
+      inset: 48px;
+      border-color: rgba(0, 188, 212, 0.15)
+    }
+
+    .a2-ring:nth-child(4) {
+      inset: 72px;
+      border-color: rgba(0, 188, 212, 0.20)
+    }
+
+    .a2-fred-core {
+      position: relative;
+      z-index: 4;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 188, 212, 0.05);
+      border: 1px solid rgba(0, 188, 212, 0.2);
+      border-radius: 50%;
+    }
+
+    .a2-data-strip {
+      display: flex;
+      gap: 28px;
+      padding: 16px 24px;
+      border: 1px solid var(--s1);
+      border-radius: 8px;
+      background: var(--s0);
+    }
+
+    .a2-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .a2-stat-n {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .a2-stat-l {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    /* ═══ B — CARDS (SEM TILT) ═══════════════════════════ */
+
+    /* ── B1: Standard service cards ── */
+    .b1-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 40px;
+    }
+
+    .svc-card {
+      background: var(--b2);
+      border: 1px solid var(--s2);
+      border-left: 2px solid var(--cyan);
+      border-radius: 12px;
+      padding: 24px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .svc-card:hover {
+      background: var(--b3);
+      border-color: var(--s3);
+      border-left-color: var(--cyan);
+    }
+
+    .svc-idx {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+
+    .svc-icon {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .svc-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 8px;
+    }
+
+    .svc-desc {
+      font-size: 12.5px;
+      color: var(--t3);
+      line-height: 1.7;
+    }
+
+    .svc-foot {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--s1);
+      font-size: 10px;
+      color: var(--t4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .svc-foot-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    /* ── B2: Minimal editorial (Vercel/Linear style) ── */
+    .b2-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--s1);
+      border: 1px solid var(--s1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 40px;
+    }
+
+    .edt-card {
+      background: var(--b2);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      transition: background 0.2s;
+    }
+
+    .edt-card:hover {
+      background: var(--b3);
+    }
+
+    .edt-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      width: 40px;
+      flex-shrink: 0;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .edt-content {
+      flex: 1;
+    }
+
+    .edt-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 6px;
+    }
+
+    .edt-desc {
+      font-size: 13.5px;
+      color: var(--t3);
+      line-height: 1.7;
+    }
+
+    .edt-tags {
+      display: flex;
+      gap: 6px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .edt-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--s2);
+      color: var(--t4);
+    }
+
+    .edt-arrow {
+      color: var(--t4);
+      font-size: 18px;
+      margin-top: 4px;
+      flex-shrink: 0;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .edt-card:hover .edt-arrow {
+      color: var(--t2);
+      transform: translateX(4px);
+    }
+
+    /* ── B3: Gradient border (highlighted/active state) ── */
+    .b3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .grad-card {
+      border-radius: 12px;
+      padding: 2px;
+      /* the "border" is this padding */
+      background: var(--s1);
+      /* default: subtle */
+      transition: background 0.25s;
+      cursor: default;
+    }
+
+    .grad-card.hot {
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.5), rgba(255, 107, 53, 0.5));
+    }
+
+    .grad-card-inner {
+      background: var(--b2);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .gc-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--t4);
+      margin-bottom: 12px;
+    }
+
+    .grad-card.hot .gc-eyebrow {
+      color: var(--cyan);
+    }
+
+    .gc-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--t1);
+      margin-bottom: 8px;
+    }
+
+    .gc-price {
+      font-size: 14px;
+      color: var(--t3);
+      margin-bottom: 16px;
+    }
+
+    .gc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .gc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--t3);
+    }
+
+    .gc-check {
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .gc-cta {
+      width: 100%;
+      padding: 11px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--s2);
+      background: transparent;
+      color: var(--t2);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .grad-card.hot .gc-cta {
+      background: var(--grad);
+      border: none;
+      color: white;
+    }
+
+    /* ── B4: Horizontal feature list (Notion/Linear style) ── */
+    .b4-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--s1);
+      border: 1px solid var(--s1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 40px;
+    }
+
+    .hz-card {
+      background: var(--b2);
+      padding: 20px 28px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      transition: background 0.15s;
+    }
+
+    .hz-card:hover {
+      background: var(--b3);
+    }
+
+    .hz-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hz-icon-wrap.c1 {
+      background: rgba(0, 188, 212, 0.12);
+    }
+
+    .hz-icon-wrap.c2 {
+      background: rgba(255, 107, 53, 0.12);
+    }
+
+    .hz-icon-wrap.c3 {
+      background: rgba(52, 168, 83, 0.12);
+    }
+
+    .hz-icon-wrap.c4 {
+      background: rgba(251, 188, 5, 0.12);
+    }
+
+    .hz-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 3px;
+    }
+
+    .hz-desc {
+      font-size: 12.5px;
+      color: var(--t3);
+    }
+
+    .hz-stat {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .hz-stat-l {
+      font-size: 10px;
+      color: var(--t4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ═══ C — MAPA ══════════════════════════════════════ */
+    .map-wrap {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      min-height: 440px;
+    }
+
+    .map-canvas {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-canvas svg {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+    }
+
+    .map-info {
+      padding: 48px 32px;
+      border-left: 1px solid var(--s1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .map-info-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--t4);
+      margin-bottom: 4px;
+    }
+
+    .map-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .map-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--s1);
+      border-radius: 8px;
+      background: var(--s0);
+    }
+
+    .ms-icon {
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .ms-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t2);
+    }
+
+    .ms-desc {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 2px;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--t4);
+    }
+
+    .leg-line {
+      width: 24px;
+      height: 2px;
+      border-radius: 99px;
+    }
+
+    /* C2 Ecosystem */
+    .eco-wrap {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      min-height: 480px;
+    }
+
+    .eco-canvas {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-canvas svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+    }
+
+    .eco-info {
+      padding: 40px 28px;
+      border-left: 1px solid var(--s1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .eco-node-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--s1);
+      background: var(--s0);
+      transition: all 0.3s;
+    }
+
+    .eco-node-item.pulse {
+      border-color: rgba(0, 188, 212, 0.25);
+      background: var(--cyan-d);
+    }
+
+    .eni-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--s2);
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+
+    .eco-node-item.pulse .eni-dot {
+      background: var(--cyan);
+    }
+
+    .eni-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t2);
+    }
+
+    .eni-desc {
+      font-size: 11px;
+      color: var(--t4);
+      margin-top: 1px;
+    }
+
+    /* ═══ D — MICRO ══════════════════════════════════════ */
+    .fred-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      padding: 56px 40px;
+    }
+
+    .fred-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .fred-stage svg {
+      width: 180px;
+      height: 180px;
+    }
+
+    .fred-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    .fred-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border: 1px solid var(--s2);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--t2);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .fred-btn:hover {
+      border-color: var(--s3);
+      color: var(--t1);
+    }
+
+    .mini-chat-wrap {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .mini-chat {
+      width: 300px;
+      background: var(--b2);
+      border: 1px solid var(--s2);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .mc-head {
+      padding: 10px 14px;
+      background: var(--b4);
+      border-bottom: 1px solid var(--s1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mc-head-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .mc-head-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--t3);
+      letter-spacing: 0.04em;
+    }
+
+    .mc-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 160px;
+    }
+
+    .mc-msg {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .mc-bubble {
+      display: inline-block;
+      padding: 8px 11px;
+      border-radius: 9px;
+      font-size: 12px;
+      line-height: 1.55;
+      max-width: 90%;
+    }
+
+    .mc-msg.user .mc-bubble {
+      background: var(--s1);
+      border: 1px solid var(--s2);
+      color: var(--t3);
+      font-style: italic;
+    }
+
+    .mc-msg.ia .mc-bubble {
+      background: rgba(0, 188, 212, 0.1);
+      border: 1px solid rgba(0, 188, 212, 0.18);
+      color: var(--t2);
+    }
+
+    .mc-dots {
+      display: flex;
+      gap: 4px;
+      padding: 0 2px;
+    }
+
+    .mc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      opacity: 0;
+    }
+
+    .mcd-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .mcd-desc {
+      font-size: 13px;
+      color: var(--t3);
+      line-height: 1.7;
+    }
+
+    .stats-wrap {
+      padding: 48px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--s1);
+      border: 1px solid var(--s1);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .stat-cell {
+      background: var(--b2);
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .stat-n {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-l {
+      font-size: 11.5px;
+      color: var(--t3);
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    .stat-sl {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--t4);
+    }
+
+    /* ═══ MOBILE ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .sc-tip {
+        display: none;
+      }
+
+      .sc-tab {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+
+      #a1-hero,
+      #a2-hero {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      #a1-left,
+      #a2-left {
+        padding: 48px 24px 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--s1);
+        min-height: auto;
+      }
+
+      #a1-right,
+      #a2-right {
+        height: 60vw;
+        min-height: 360px;
+        max-height: 520px;
+      }
+
+      .sub {
+        max-width: 100%;
+      }
+
+      .h1 {
+        font-size: clamp(1.8rem, 6vw, 2.6rem);
+      }
+
+      .b1-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 24px;
+      }
+
+      .b3-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px;
+      }
+
+      .b2-grid {
+        margin: 24px;
+      }
+
+      .b4-list {
+        margin: 24px;
+      }
+
+      .edt-card {
+        flex-wrap: wrap;
+      }
+
+      .map-wrap,
+      .eco-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .map-info,
+      .eco-info {
+        border-left: none;
+        border-top: 1px solid var(--s1);
+      }
+
+      .fred-wrap {
+        flex-direction: column;
+        gap: 32px;
+        padding: 40px 24px;
+      }
+
+      .mini-chat-wrap {
+        flex-direction: column;
+        padding: 32px 24px;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hz-card {
+        grid-template-columns: 44px 1fr;
+        gap: 14px;
+      }
+
+      .hz-stat {
+        display: none;
+      }
+    }
+
+    @media (max-width:560px) {
+      .b1-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .sc-tabs {
+        gap: 0;
+      }
+
+      .sc-tab {
+        padding: 5px 8px;
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAV ══════════════════════════════════════════ -->
+  <nav class="sc-nav">
+    <div class="sc-brand">Digital Dog <span class="sc-ver">UX v3</span></div>
+    <div class="sc-tabs">
+      <button class="sc-tab on" data-s="a">A · Hero</button>
+      <button class="sc-tab" data-s="b">B · Cards</button>
+      <button class="sc-tab" data-s="c">C · Mapa</button>
+      <button class="sc-tab" data-s="d">D · Micro</button>
+    </div>
+    <div class="sc-tip"><span class="sc-tip-dot"></span>Use os códigos [XX] para feedback</div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+     SECTION A — HERO
+═══════════════════════════════════════════════════ -->
+  <section class="section on" id="s-a">
+
+    <!-- ── [A1] GOOGLE + GEMINI / ChatGPT HERO ── -->
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row">
+            <span class="cw-code">A1</span>
+            <span class="cw-title">Hero — Google/Gemini + ChatGPT Simulation</span>
+          </div>
+          <div class="cw-desc">Painel direito ocupa 100% da coluna. Alterna Google (com Gemini AI Overview) + ChatGPT.
+            Loop com 3 queries e 3 clientes.</div>
+          <div class="cw-tags" style="margin-top:6px">
+            <span class="tag">Google Branding</span>
+            <span class="tag">Gemini AI Overview</span>
+            <span class="tag">ChatGPT Interface</span>
+            <span class="tag">GSAP TextPlugin</span>
+            <span class="tag">Full Viewport</span>
+          </div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div id="a1-hero">
+          <!-- LEFT -->
+          <div id="a1-left">
+            <div class="ey">
+              <span class="ey-dot"></span>
+              AIO · GEO · ARQUITETURA DIGITAL
+            </div>
+            <h1 class="h1">
+              Quando seu cliente<br>
+              consultar a IA, o seu<br>
+              negócio vai <span class="gu">aparecer</span>?
+            </h1>
+            <p class="sub">
+              Seus concorrentes já estão sendo indexados. A Digital Dog constrói a infraestrutura que coloca o seu
+              negócio como referência no Google, ChatGPT e Gemini.
+            </p>
+            <button class="cta-main">
+              Quero meu Diagnóstico Digital
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8M8 4l3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="trust">
+              <span class="trust-lbl">Clientes</span>
+              <div class="trust-items">
+                <span class="trust-item">Aumivet</span>
+                <span class="trust-item">Morgan &amp; Ted</span>
+                <span class="trust-item">RZ Vet</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Simulation panel fills 100% -->
+          <div id="a1-right">
+            <!-- Browser chrome -->
+            <div class="sim-chrome">
+              <div class="sim-chrome-dots">
+                <span class="sim-dot r"></span>
+                <span class="sim-dot y"></span>
+                <span class="sim-dot g"></span>
+              </div>
+              <div class="sim-url" id="a1-url">google.com/search?q=</div>
+            </div>
+
+            <!-- Google results page -->
+            <div id="sim-google">
+              <div class="g-search-area">
+                <div class="g-logo-row">
+                  <div class="g-wordmark">
+                    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                  </div>
+                </div>
+                <div class="g-search-bar" id="a1-gbar">
+                  <svg class="g-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.3" />
+                    <path d="M11 11L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+                  </svg>
+                  <span id="g-query"></span><span class="g-cursor" id="g-cur"></span>
+                  <button class="g-search-submit">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <circle cx="7" cy="7" r="5" stroke="rgba(232,234,237,0.4)" stroke-width="1.3" />
+                      <path d="M11 11L14 14" stroke="rgba(232,234,237,0.4)" stroke-width="1.3" stroke-linecap="round" />
+                    </svg>
+                    Pesquisar
+                  </button>
+                </div>
+              </div>
+              <div class="g-nav">
+                <div class="g-nav-tab act">Tudo</div>
+                <div class="g-nav-tab">Imagens</div>
+                <div class="g-nav-tab">Mapas</div>
+                <div class="g-nav-tab">Notícias</div>
+                <div class="g-nav-tab">Vídeos</div>
+              </div>
+              <div class="g-results" id="g-results-area">
+                <div class="g-count" id="g-count" style="opacity:0">Cerca de 142.000 resultados (0,34 segundos)</div>
+
+                <!-- Gemini AI Overview -->
+                <div class="gemini-box" id="gemini-box">
+                  <div class="gemini-header">
+                    <!-- Gemini star SVG -->
+                    <svg class="gemini-star" viewBox="0 0 28 28" fill="none">
+                      <defs>
+                        <linearGradient id="gstar" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#4285F4" />
+                          <stop offset="100%" stop-color="#A8C7FA" />
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#gstar)"
+                        d="M14 3 L15 12.5 Q15.5 14 14 14.5 Q12.5 14 13 12.5 Z M14 25 L13 15.5 Q12.5 14 14 13.5 Q15.5 14 15 15.5 Z M3 14 L12.5 15 Q14 15.5 14.5 14 Q14 12.5 12.5 13 Z M25 14 L15.5 13 Q14 12.5 13.5 14 Q14 15.5 15.5 15 Z" />
+                    </svg>
+                    <span class="gemini-label">Visão geral de IA · Gemini</span>
+                  </div>
+                  <div class="gemini-text" id="gemini-text"></div>
+                  <div class="g-biz-card" id="g-biz">
+                    <span class="g-biz-icon" id="g-biz-icon">🐾</span>
+                    <div>
+                      <div class="g-biz-name" id="g-biz-name">Aumivet Clínicas Veterinárias</div>
+                      <div class="g-biz-meta" id="g-biz-meta">24 horas · Campinas, SP · aumivet.com.br</div>
+                      <div class="g-biz-rating">⭐ <span id="g-biz-rat">4.9</span> (500+ avaliações)</div>
+                    </div>
+                    <span class="g-dd-badge">via Digital Dog</span>
+                  </div>
+                </div>
+
+                <!-- Faded regular results -->
+                <div class="g-regular" id="g-regular" style="opacity:0">
+                  <div class="g-reg-item">
+                    <div class="g-reg-url" id="g-reg-url1">aumivet.com.br › clinica-24h</div>
+                    <div class="g-reg-title" id="g-reg-title1">Aumivet — Atendimento Veterinário 24h em Campinas</div>
+                    <div class="g-reg-snippet">Clínica veterinária referência com atendimento de emergência 24 horas.
+                      Equipe especializada, UTI veterinária e...</div>
+                  </div>
+                  <div class="g-reg-item">
+                    <div class="g-reg-url">outravet.com.br</div>
+                    <div class="g-reg-title" style="color:var(--gt2)">Veterinária em Campinas — 18 opções próximas</div>
+                    <div class="g-reg-snippet">Encontre clínicas veterinárias em Campinas com avaliações, horários e
+                      endereços...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ChatGPT simulation (absolute, shown when cycling) -->
+            <div id="sim-gpt">
+              <div class="gpt-header">
+                <div class="gpt-logo">
+                  <svg width="16" height="16" viewBox="0 0 41 41" fill="white">
+                    <path
+                      d="M37.5 16.5c.9-2.6.7-5.5-.7-7.9-1.9-3.3-5.5-5.1-9.2-4.7C25.7 1.6 23 0 20 0c-3.8 0-7.2 2.5-8.4 6.1C8.8 6.6 6.3 8 4.8 10.5 2.9 13.8 3.2 18 5.4 21c-.9 2.6-.7 5.5.7 7.9 1.9 3.3 5.5 5.1 9.2 4.7C16.3 36.4 19 38 22 38c3.8 0 7.2-2.5 8.4-6.1 2.8-.5 5.3-1.9 6.8-4.4 1.9-3.3 1.6-7.5-.7-11zm-17.5 16c-2.1 0-3.9-1.3-4.7-3.1.2-.1.6-.4.8-.5l7.8-4.5c.4-.2.6-.6.6-1v-11l3.3 1.9c0 .1.1.2.1.3v9.1c0 4.9-3.9 8.8-7.9 8.8z" />
+                  </svg>
+                </div>
+                <span class="gpt-brand">ChatGPT</span>
+                <span class="gpt-model">GPT-4o</span>
+              </div>
+              <div class="gpt-thread" id="gpt-thread">
+                <div class="gpt-msg user" id="gpt-user-msg">
+                  <div class="gpt-avatar">JR</div>
+                  <div class="gpt-bubble" id="gpt-user-text"></div>
+                </div>
+                <div class="gpt-msg ai" id="gpt-ai-msg">
+                  <div class="gpt-avatar">GPT</div>
+                  <div class="gpt-bubble">
+                    <div id="gpt-ai-text"></div>
+                    <div class="gpt-highlight" id="gpt-card" style="opacity:0">
+                      <div class="gpt-h-name" id="gpt-card-name"></div>
+                      <div class="gpt-h-meta" id="gpt-card-meta"></div>
+                      <span class="gpt-dd" id="gpt-card-dd">via Digital Dog ↗</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="gpt-msg ai" id="gpt-typing" style="opacity:0">
+                  <div class="gpt-avatar">GPT</div>
+                  <div class="gpt-typing">
+                    <span class="gpt-dot"></span><span class="gpt-dot"></span><span class="gpt-dot"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="gpt-input-row">
+                <div class="gpt-input-bar">
+                  <span class="gpt-input-text">Enviar uma mensagem</span>
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 17V3M3 10l7-7 7 7" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div><!-- #a1-right -->
+        </div><!-- #a1-hero -->
+      </div>
+    </div>
+
+    <!-- ── [A2] SPLIT MONOLITH + RINGS ── -->
+    <div class="cw" style="margin-top:1px">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row">
+            <span class="cw-code">A2</span>
+            <span class="cw-title">Hero — Split Monolith + Rings</span>
+          </div>
+          <div class="cw-desc">Direção D1 original com Fred, anéis concêntricos, grid técnico e data strip animada.
+          </div>
+          <div class="cw-tags" style="margin-top:6px">
+            <span class="tag">Rings Stagger</span><span class="tag">Orbit Dot</span><span class="tag">Direção D1</span>
+          </div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div id="a2-hero">
+          <div id="a2-left">
+            <div class="ey"><span class="ey-dot"></span>ARQUITETURA DIGITAL · DESDE 2022</div>
+            <h1 class="h1">Infraestrutura digital que coloca o seu negócio<br>no <span class="gu">mapa</span>.</h1>
+            <p class="sub">SEO, AIO, Sites, Google Meu Negócio, Automações — sistema integrado que trabalha enquanto
+              você trabalha.</p>
+            <button class="cta-main">
+              Quero meu Diagnóstico Digital
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8M8 4l3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div id="a2-right">
+            <div class="a2-grid"></div>
+            <div class="a2-visual">
+              <div class="a2-ring-system">
+                <div class="a2-ring" id="a2-r1"></div>
+                <div class="a2-ring" id="a2-r2"></div>
+                <div class="a2-ring" id="a2-r3"></div>
+                <div class="a2-ring" id="a2-r4"></div>
+                <div class="a2-fred-core">
+                  <span style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800"
+                    class="grad-t">F</span>
+                </div>
+              </div>
+              <div class="a2-data-strip">
+                <div class="a2-stat"><span class="a2-stat-n">47+</span><span class="a2-stat-l">Clientes</span></div>
+                <div class="a2-stat"><span class="a2-stat-n">3.2×</span><span class="a2-stat-l">ROI médio</span></div>
+                <div class="a2-stat"><span class="a2-stat-n">89%</span><span class="a2-stat-l">Retenção</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+     SECTION B — CARDS (SEM TILT)
+═══════════════════════════════════════════════════ -->
+  <section class="section" id="s-b">
+
+    <!-- ── [B1] Standard service cards ── -->
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">B1</span><span class="cw-title">Cards de Serviço — Borda Cyan +
+              Anatomia</span></div>
+          <div class="cw-desc">4 cards em grid. Hover: background sobe sutilmente. Borda cyan esquerda + índice + rodapé
+            técnico.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">CSS Hover</span><span class="tag">4
+              Colunas</span><span class="tag">Serviços</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="b1-grid">
+          <div class="svc-card">
+            <div class="svc-idx">01</div>
+            <div class="svc-icon">🔍</div>
+            <div class="svc-name">SEO + AIO</div>
+            <div class="svc-desc">Visibilidade no Google e nas plataformas de IA. Seu negócio como referência quando o
+              cliente busca.</div>
+            <div class="svc-foot"><span class="svc-foot-dot"></span>Google · ChatGPT · Gemini</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-idx">02</div>
+            <div class="svc-icon">💻</div>
+            <div class="svc-name">Sites & Identidade</div>
+            <div class="svc-desc">Design que converte visitante em cliente. Performance, copy e UX alinhados ao negócio.
+            </div>
+            <div class="svc-foot"><span class="svc-foot-dot"></span>Next.js · Vercel · Tailwind</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-idx">03</div>
+            <div class="svc-icon">📍</div>
+            <div class="svc-name">Google Meu Negócio</div>
+            <div class="svc-desc">Presença completa no Maps e busca local. Fotos, posts, respostas e otimização
+              contínua.</div>
+            <div class="svc-foot"><span class="svc-foot-dot"></span>GMN · Maps · Local SEO</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-idx">04</div>
+            <div class="svc-icon">⚙️</div>
+            <div class="svc-name">Automações & Analytics</div>
+            <div class="svc-desc">Processos que trabalham 24h. Dados que revelam onde seu negócio pode crescer mais
+              rápido.</div>
+            <div class="svc-foot"><span class="svc-foot-dot"></span>N8n · Looker · Meta Pixel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── [B2] Editorial/Linear style ── -->
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">B2</span><span class="cw-title">Cards Editoriais — Estilo
+              Vercel/Linear</span></div>
+          <div class="cw-desc">Lista coluna única. Número grande como elemento visual, seta anima no hover. Muito espaço
+            negativo.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">Editorial</span><span class="tag">Número
+              Visual</span><span class="tag">Hover Seta</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="b2-grid">
+          <div class="edt-card">
+            <div class="edt-num">01</div>
+            <div class="edt-content">
+              <div class="edt-name">Diagnóstico Digital gratuito</div>
+              <div class="edt-desc">Analisamos sua presença digital atual — Google, redes, site — e entregamos um
+                relatório com o que está travando o crescimento do seu negócio.</div>
+              <div class="edt-tags"><span class="edt-tag">Gratuito</span><span class="edt-tag">30 minutos</span><span
+                  class="edt-tag">Relatório em PDF</span></div>
+            </div>
+            <div class="edt-arrow">→</div>
+          </div>
+          <div class="edt-card">
+            <div class="edt-num">02</div>
+            <div class="edt-content">
+              <div class="edt-name">Plano de Arquitetura Digital</div>
+              <div class="edt-desc">Com base no diagnóstico, construímos um roadmap personalizado com as alavancas
+                certas para o seu segmento, orçamento e momento de negócio.</div>
+              <div class="edt-tags"><span class="edt-tag">Estratégia</span><span class="edt-tag">Roadmap</span><span
+                  class="edt-tag">Priorizado</span></div>
+            </div>
+            <div class="edt-arrow">→</div>
+          </div>
+          <div class="edt-card">
+            <div class="edt-num">03</div>
+            <div class="edt-content">
+              <div class="edt-name">Execução e acompanhamento mensal</div>
+              <div class="edt-desc">Implementamos, monitoramos e ajustamos. Dashboard em tempo real. Você acompanha cada
+                avanço sem precisar entender de tecnologia.</div>
+              <div class="edt-tags"><span class="edt-tag">Execução</span><span class="edt-tag">Dashboard</span><span
+                  class="edt-tag">Relatório mensal</span></div>
+            </div>
+            <div class="edt-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── [B3] Gradient border / pricing ── -->
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">B3</span><span class="cw-title">Cards com Borda Gradiente —
+              Estado Destacado</span></div>
+          <div class="cw-desc">Card central marcado como "recomendado" com borda gradiente cyan→laranja. Útil para
+            planos ou destaques de serviço.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">Gradient Border</span><span class="tag">Estado
+              Ativo</span><span class="tag">Planos/Destaque</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="b3-grid">
+          <div class="grad-card">
+            <div class="grad-card-inner">
+              <div class="gc-eyebrow">Essencial</div>
+              <div class="gc-name">Presença Local</div>
+              <div class="gc-price">GMN + SEO básico</div>
+              <ul class="gc-list">
+                <li class="gc-item"><span class="gc-check">✓</span>Google Meu Negócio otimizado</li>
+                <li class="gc-item"><span class="gc-check">✓</span>SEO on-page básico</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Relatório mensal</li>
+              </ul>
+              <button class="gc-cta">Começar</button>
+            </div>
+          </div>
+          <div class="grad-card hot">
+            <div class="grad-card-inner">
+              <div class="gc-eyebrow">⭐ Recomendado</div>
+              <div class="gc-name">Arquitetura Digital</div>
+              <div class="gc-price">SEO + AIO + Site + GMN</div>
+              <ul class="gc-list">
+                <li class="gc-item"><span class="gc-check">✓</span>Indexação no Google, ChatGPT, Gemini</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Site de alta conversão</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Google Meu Negócio premium</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Dashboard Analytics</li>
+              </ul>
+              <button class="gc-cta">Solicitar Diagnóstico</button>
+            </div>
+          </div>
+          <div class="grad-card">
+            <div class="grad-card-inner">
+              <div class="gc-eyebrow">Completo</div>
+              <div class="gc-name">Ecossistema Total</div>
+              <div class="gc-price">Tudo + Automações</div>
+              <ul class="gc-list">
+                <li class="gc-item"><span class="gc-check">✓</span>Tudo do Arquitetura Digital</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Automações N8n</li>
+                <li class="gc-item"><span class="gc-check">✓</span>Instagram gerenciado</li>
+              </ul>
+              <button class="gc-cta">Falar com Fred</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── [B4] Horizontal feature list ── -->
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">B4</span><span class="cw-title">Lista Horizontal — Ícone + Stat
+              (Notion/Linear style)</span></div>
+          <div class="cw-desc">Cards horizontais compactos com ícone colorido, descrição e stat de resultado. Ótimo para
+            seção de resultados/prova.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">Horizontal</span><span class="tag">Ícone
+              Colorido</span><span class="tag">Stat</span><span class="tag">Prova Social</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="b4-list">
+          <div class="hz-card">
+            <div class="hz-icon-wrap c1">📍</div>
+            <div>
+              <div class="hz-name">Aumivet Clínicas Veterinárias</div>
+              <div class="hz-desc">Google Meu Negócio + AIO — citada pelo Gemini como referência em Campinas</div>
+            </div>
+            <div>
+              <div class="hz-stat">+340%</div>
+              <div class="hz-stat-l">Buscas org.</div>
+            </div>
+          </div>
+          <div class="hz-card">
+            <div class="hz-icon-wrap c2">⚖️</div>
+            <div>
+              <div class="hz-name">Mendes &amp; Associados</div>
+              <div class="hz-desc">Site + SEO + AIO — primeiro resultado orgânico para "advogado trabalhista SP"</div>
+            </div>
+            <div>
+              <div class="hz-stat">+127%</div>
+              <div class="hz-stat-l">Leads/mês</div>
+            </div>
+          </div>
+          <div class="hz-card">
+            <div class="hz-icon-wrap c3">🐕</div>
+            <div>
+              <div class="hz-name">Morgan &amp; Ted Pet Shop</div>
+              <div class="hz-desc">Instagram + GMN + Automação — 3 plataformas de IA citando o negócio</div>
+            </div>
+            <div>
+              <div class="hz-stat">4.9 ⭐</div>
+              <div class="hz-stat-l">+180 aval.</div>
+            </div>
+          </div>
+          <div class="hz-card">
+            <div class="hz-icon-wrap c4">🏥</div>
+            <div>
+              <div class="hz-name">RZ Vet</div>
+              <div class="hz-desc">SEO + AIO + Automação de agendamento — agenda 80% ocupada via orgânico</div>
+            </div>
+            <div>
+              <div class="hz-stat">80%</div>
+              <div class="hz-stat-l">Agenda org.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ SECTION C / D (mantidas) ══════════════════ -->
+  <section class="section" id="s-c">
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">C1</span><span class="cw-title">Mapa Abstrato — Rota + Pin
+              Animado</span></div>
+          <div class="cw-desc">Rota desenhada progressivamente. Ponto percorre o caminho. Pin destino pulsa em anéis.
+          </div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">stroke-dashoffset</span><span
+              class="tag">MotionPath</span><span class="tag">Pulse Rings</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="map-wrap">
+          <div class="map-canvas">
+            <svg viewBox="0 0 520 360" fill="none" id="c1-svg">
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="0.8">
+                <line x1="0" y1="72" x2="520" y2="72" />
+                <line x1="0" y1="144" x2="520" y2="144" />
+                <line x1="0" y1="216" x2="520" y2="216" />
+                <line x1="0" y1="288" x2="520" y2="288" />
+                <line x1="104" y1="0" x2="104" y2="360" />
+                <line x1="208" y1="0" x2="208" y2="360" />
+                <line x1="312" y1="0" x2="312" y2="360" />
+                <line x1="416" y1="0" x2="416" y2="360" />
+              </g>
+              <g fill="rgba(0,188,212,0.025)" stroke="rgba(0,188,212,0.08)" stroke-width="0.6">
+                <rect x="112" y="80" width="88" height="56" />
+                <rect x="112" y="152" width="88" height="56" />
+                <rect x="216" y="80" width="88" height="56" />
+                <rect x="216" y="224" width="88" height="56" />
+                <rect x="320" y="152" width="88" height="56" />
+                <rect x="320" y="224" width="88" height="56" />
+              </g>
+              <path id="c1-route" d="M 52 310 L 52 216 L 208 216 L 208 144 L 312 144 L 312 108 L 420 108 L 460 108"
+                stroke="#00bcd4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="52" cy="310" r="5" fill="#00bcd4" opacity="0.7" />
+              <circle cx="52" cy="310" r="10" fill="none" stroke="#00bcd4" stroke-width="0.8" opacity="0.3" />
+              <text x="62" y="314" fill="rgba(255,255,255,0.3)" font-size="9" font-family="Inter">Cliente</text>
+              <circle id="c1-ring3" cx="460" cy="108" r="28" fill="rgba(255,103,53,0.04)" />
+              <circle id="c1-ring2" cx="460" cy="108" r="18" fill="rgba(255,103,53,0.07)" />
+              <circle id="c1-ring1" cx="460" cy="108" r="9" fill="rgba(255,103,53,0.12)" />
+              <circle cx="460" cy="108" r="5" fill="#ff6b35" />
+              <text x="472" y="112" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">Seu negócio</text>
+              <circle id="c1-trav" cx="52" cy="310" r="5" fill="#00bcd4" />
+            </svg>
+          </div>
+          <div class="map-info">
+            <div>
+              <div class="map-info-title">Como o cliente chega até você</div>
+              <div class="map-steps">
+                <div class="map-step"><span class="ms-icon">🔍</span>
+                  <div>
+                    <div class="ms-name">Busca no Google ou IA</div>
+                    <div class="ms-desc">O cliente digita o que precisa</div>
+                  </div>
+                </div>
+                <div class="map-step"><span class="ms-icon">📍</span>
+                  <div>
+                    <div class="ms-name">GMN + AIO indexado</div>
+                    <div class="ms-desc">Seu negócio aparece como referência</div>
+                  </div>
+                </div>
+                <div class="map-step"><span class="ms-icon">✅</span>
+                  <div>
+                    <div class="ms-name">Contato direto</div>
+                    <div class="ms-desc">Lead qualificado, sem custo extra</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="map-legend">
+              <div class="leg-item">
+                <div class="leg-line" style="background:#00bcd4"></div>Rota do cliente
+              </div>
+              <div class="leg-item">
+                <div class="leg-line" style="background:#ff6b35"></div>Destino (seu negócio)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">C2</span><span class="cw-title">Ecossistema AIO —
+              Hub-and-Spoke</span></div>
+          <div class="cw-desc">Fred no centro. 6 serviços como nós. Linhas animadas em sequência. Sidebar com items
+            pulsando.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">stroke-dashoffset</span><span
+              class="tag">Stagger</span><span class="tag">Hub-Spoke</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="eco-wrap">
+          <div class="eco-canvas">
+            <svg viewBox="0 0 480 400" fill="none" id="c2-svg">
+              <line id="ec-l1" x1="240" y1="200" x2="240" y2="62" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <line id="ec-l2" x1="240" y1="200" x2="378" y2="120" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <line id="ec-l3" x1="240" y1="200" x2="378" y2="280" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <line id="ec-l4" x1="240" y1="200" x2="240" y2="338" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <line id="ec-l5" x1="240" y1="200" x2="102" y2="280" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <line id="ec-l6" x1="240" y1="200" x2="102" y2="120" stroke="rgba(0,188,212,0.25)" stroke-width="1.2"
+                stroke-dasharray="1000" stroke-dashoffset="1000" />
+              <circle cx="240" cy="200" r="50" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.20)"
+                stroke-width="1.5" />
+              <circle cx="240" cy="200" r="36" fill="rgba(0,188,212,0.04)" stroke="rgba(0,188,212,0.10)"
+                stroke-width="1" />
+              <text x="240" y="196" text-anchor="middle" fill="rgba(0,188,212,0.9)" font-family="Space Grotesk"
+                font-size="20" font-weight="800">DD</text>
+              <text x="240" y="214" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Inter"
+                font-size="9">Fred</text>
+              <g class="eco-node" id="en1" transform="translate(240,62)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="4" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="10"
+                  font-weight="700">SEO</text>
+              </g>
+              <g class="eco-node" id="en2" transform="translate(378,120)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="4" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="10"
+                  font-weight="700">AIO</text>
+              </g>
+              <g class="eco-node" id="en3" transform="translate(378,280)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="4" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="10"
+                  font-weight="700">Site</text>
+              </g>
+              <g class="eco-node" id="en4" transform="translate(240,338)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="4" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="10"
+                  font-weight="700">GMN</text>
+              </g>
+              <g class="eco-node" id="en5" transform="translate(102,280)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="-1" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="9"
+                  font-weight="700">Auto-</text><text text-anchor="middle" y="10" fill="rgba(255,255,255,0.6)"
+                  font-family="Space Grotesk" font-size="9" font-weight="700">mação</text>
+              </g>
+              <g class="eco-node" id="en6" transform="translate(102,120)">
+                <circle r="28" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.15)" stroke-width="1.2" /><text
+                  text-anchor="middle" y="-1" fill="rgba(255,255,255,0.6)" font-family="Space Grotesk" font-size="9"
+                  font-weight="700">Ana-</text><text text-anchor="middle" y="10" fill="rgba(255,255,255,0.6)"
+                  font-family="Space Grotesk" font-size="9" font-weight="700">lytics</text>
+              </g>
+            </svg>
+          </div>
+          <div class="eco-info">
+            <div class="map-info-title">Sistema Integrado</div>
+            <div class="eco-node-item" id="eni1">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">SEO</div>
+                <div class="eni-desc">Orgânico no Google</div>
+              </div>
+            </div>
+            <div class="eco-node-item" id="eni2">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">AIO / GEO</div>
+                <div class="eni-desc">Indexado pelas IAs</div>
+              </div>
+            </div>
+            <div class="eco-node-item" id="eni3">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">Site</div>
+                <div class="eni-desc">Design que converte</div>
+              </div>
+            </div>
+            <div class="eco-node-item" id="eni4">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">GMN</div>
+                <div class="eni-desc">Google Meu Negócio</div>
+              </div>
+            </div>
+            <div class="eco-node-item" id="eni5">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">Automação</div>
+                <div class="eni-desc">Processos 24h</div>
+              </div>
+            </div>
+            <div class="eco-node-item" id="eni6">
+              <div class="eni-dot"></div>
+              <div>
+                <div class="eni-name">Analytics</div>
+                <div class="eni-desc">Dados em tempo real</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s-d">
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">D1</span><span class="cw-title">Fred — Stroke Draw
+              (Pós-submit)</span></div>
+          <div class="cw-desc">Sequência: rosto → orelhas → óculos gradiente. Clique em "Repetir" para rever.</div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">stroke-dashoffset</span><span
+              class="tag">Sequência</span><span class="tag">Pós-Submit</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="fred-wrap">
+          <div class="fred-stage">
+            <svg viewBox="0 0 180 180" fill="none" id="fred-svg">
+              <defs>
+                <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#ff6b35" />
+                  <stop offset="100%" stop-color="#ff1744" />
+                </linearGradient>
+              </defs>
+              <circle id="fr-face" cx="90" cy="95" r="58" stroke="#00bcd4" stroke-width="1.8" />
+              <path id="fr-ear-l" d="M 48 55 L 30 20 L 68 42 Z" stroke="#00bcd4" stroke-width="1.5"
+                stroke-linejoin="round" />
+              <path id="fr-ear-r" d="M 132 55 L 150 20 L 112 42 Z" stroke="#00bcd4" stroke-width="1.5"
+                stroke-linejoin="round" />
+              <rect id="fr-gl-l" x="52" y="84" width="32" height="22" rx="6" stroke="url(#fg)" stroke-width="2" />
+              <line id="fr-gl-b" x1="84" y1="95" x2="96" y2="95" stroke="url(#fg)" stroke-width="2" />
+              <rect id="fr-gl-r" x="96" y="84" width="32" height="22" rx="6" stroke="url(#fg)" stroke-width="2" />
+              <ellipse id="fr-nose" cx="90" cy="116" rx="6" ry="4" stroke="#00bcd4" stroke-width="1.5" />
+              <path id="fr-smile" d="M 72 128 Q 90 142 108 128" stroke="#00bcd4" stroke-width="1.5"
+                stroke-linecap="round" />
+            </svg>
+            <span class="fred-label">Pós-submit</span>
+            <button class="fred-btn" id="fred-replay">↺ Repetir</button>
+          </div>
+          <div style="max-width:280px">
+            <div class="mcd-title">Fred aparece enquanto a confirmação chega</div>
+            <p style="font-size:13px;color:var(--t3);line-height:1.7">Sequência de 2–3 segundos que transforma um
+              "formulário enviado" em um momento memorável. Rosto → orelhas → óculos com gradiente.</p>
+            <p style="margin-top:16px;font-size:13px;color:var(--t3);line-height:1.7;font-style:italic">"Recebi, João.
+              Vou estudar o seu negócio antes de entrar em contato."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">D2</span><span class="cw-title">Mini Chat — Loop para Seção de
+              Features</span></div>
+          <div class="cw-desc">Versão compacta do A1 para usar como widget em grade de features. Mensagens em stagger.
+          </div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">GSAP Stagger</span><span class="tag">Feature
+              Card</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="mini-chat-wrap">
+          <div class="mini-chat">
+            <div class="mc-head"><span class="mc-head-dot"></span><span class="mc-head-title">AI Search</span></div>
+            <div class="mc-body" id="d2-body">
+              <div class="mc-msg user" id="d2-m1">
+                <div class="mc-bubble">&gt; "pet shop com grooming delivery BH"</div>
+              </div>
+              <div class="mc-msg ia" id="d2-m2">
+                <div class="mc-bubble">Morgan &amp; Ted — referência no ChatGPT e Gemini. ⭐ 4.8</div>
+              </div>
+              <div class="mc-msg user" id="d2-m3">
+                <div class="mc-bubble">&gt; "eles fazem atendimento domiciliar?"</div>
+              </div>
+              <div class="mc-dots" id="d2-dots"><span class="mc-dot"></span><span class="mc-dot"></span><span
+                  class="mc-dot"></span></div>
+            </div>
+          </div>
+          <div style="max-width:280px">
+            <div class="mcd-title">Widget de feature para "Como Funciona"</div>
+            <div class="mcd-desc">Mesmo conceito do A1, em formato compacto. Pode ser usado ao lado de copy explicativo
+              numa seção de features.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cw">
+      <div class="cw-head">
+        <div class="cw-meta">
+          <div class="cw-id-row"><span class="cw-code">D3</span><span class="cw-title">Stats Counter —
+              ScrollTrigger</span></div>
+          <div class="cw-desc">Contadores animam ao entrar na viewport. Role para ver o efeito ou troque de aba e volte.
+          </div>
+          <div class="cw-tags" style="margin-top:6px"><span class="tag">GSAP Counter</span><span
+              class="tag">ScrollTrigger</span></div>
+        </div>
+      </div>
+      <div class="cw-demo">
+        <div class="stats-wrap" id="d3-wrap">
+          <div class="stats-row">
+            <div class="stat-cell">
+              <div class="stat-n" id="s1">0</div>
+              <div class="stat-sl">Clientes</div>
+              <div class="stat-l">Negócios transformados</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-n" id="s2">0×</div>
+              <div class="stat-sl">ROI médio</div>
+              <div class="stat-l">Em 6 meses de trabalho</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-n" id="s3">0%</div>
+              <div class="stat-sl">Retenção</div>
+              <div class="stat-l">Renovam anualmente</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-n" id="s4">0</div>
+              <div class="stat-sl">Plataformas IA</div>
+              <div class="stat-l">Citando seus clientes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ JAVASCRIPT ════════════════════════════════ -->
+  <script>
+    gsap.registerPlugin(TextPlugin, ScrollTrigger, MotionPathPlugin);
+
+    /* ─── SECTION TABS ─── */
+    document.querySelectorAll('.sc-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.sc-tab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+        tab.classList.add('on');
+        document.getElementById('s-' + tab.dataset.s).classList.add('on');
+        window.scrollTo({ top: 0 });
+        if (tab.dataset.s === 'c') setTimeout(runC2, 400);
+        if (tab.dataset.s === 'd') { setTimeout(animateFred, 400); setTimeout(runCounters, 400); }
+      });
+    });
+
+    /* ════════════════════════════════════════════════
+       A1 — GOOGLE / GPT SIMULATION
+    ════════════════════════════════════════════════ */
+    const DATA = [
+      {
+        mode: 'google',
+        query: 'melhor clínica veterinária 24h Campinas',
+        urlBar: 'google.com/search?q=melhor+clínica+veterinária+24h+Campinas',
+        geminiText: 'A Aumivet Clínicas Veterinárias é reconhecida como a principal referência para atendimento 24h em Campinas. Fundada em 2008, conta com UTI veterinária, cirurgia de emergência e equipe especializada disponível a qualquer hora.',
+        bizIcon: '🐾', bizName: 'Aumivet Clínicas Veterinárias', bizMeta: '24 horas · Campinas, SP · aumivet.com.br', bizRat: '4.9',
+        regUrl: 'aumivet.com.br › clinica-24h', regTitle: 'Aumivet — Atendimento Veterinário 24h em Campinas'
+      },
+      {
+        mode: 'chatgpt',
+        query: 'Qual o melhor advogado trabalhista em São Paulo?',
+        urlBar: 'chatgpt.com',
+        gptUser: 'Qual o melhor advogado trabalhista em São Paulo com boa reputação?',
+        gptAi: 'Com base nas fontes mais recentes, o escritório ',
+        gptCardName: 'Mendes & Associados', gptCardMeta: 'Direito Trabalhista · São Paulo, SP · ⭐ 5.0'
+      },
+      {
+        mode: 'google',
+        query: 'pet shop com grooming e delivery Belo Horizonte',
+        urlBar: 'google.com/search?q=pet+shop+grooming+delivery+Belo+Horizonte',
+        geminiText: 'O Morgan & Ted Pet Shop se destaca em Belo Horizonte pela combinação de grooming profissional e serviço de delivery. A loja é frequentemente mencionada como referência por clientes que buscam praticidade e qualidade no cuidado com pets.',
+        bizIcon: '🐕', bizName: 'Morgan & Ted Pet Shop', bizMeta: 'Grooming & Delivery · BH, MG · morgan-ted.com.br', bizRat: '4.8',
+        regUrl: 'morgan-ted.com.br › grooming', regTitle: 'Morgan & Ted — Pet Shop Grooming & Delivery em BH'
+      }
+    ];
+
+    let a1Idx = 0, a1TL = null;
+
+    function runA1() {
+      const d = DATA[a1Idx];
+      a1Idx = (a1Idx + 1) % DATA.length;
+
+      if (a1TL) { a1TL.kill(); gsap.killTweensOf('*'); }
+
+      const simGoogle = document.getElementById('sim-google');
+      const simGpt = document.getElementById('sim-gpt');
+      const urlEl = document.getElementById('a1-url');
+
+      a1TL = gsap.timeline({ onComplete: () => gsap.delayedCall(1.5, runA1) });
+
+      if (d.mode === 'google') {
+        // ── GOOGLE MODE ──
+        a1TL.set(simGpt, { className: 'remove:vis' }, 0);
+        a1TL.set(simGoogle, { opacity: 1 }, 0);
+        a1TL.set('#g-query', { text: '' }, 0);
+        a1TL.set('#g-count', { opacity: 0 }, 0);
+        a1TL.set('#gemini-box', { opacity: 0, y: 8 }, 0);
+        a1TL.set('#g-biz', { opacity: 0, y: 6 }, 0);
+        a1TL.set('#g-regular', { opacity: 0 }, 0);
+        a1TL.set('#g-cur', { opacity: 1 }, 0);
+        a1TL.set('#gemini-text', { text: '' }, 0);
+
+        // Update URL
+        a1TL.call(() => { urlEl.textContent = d.urlBar; }, [], 0);
+
+        // Update biz data
+        a1TL.call(() => {
+          document.getElementById('g-biz-icon').textContent = d.bizIcon;
+          document.getElementById('g-biz-name').textContent = d.bizName;
+          document.getElementById('g-biz-meta').textContent = d.bizMeta;
+          document.getElementById('g-biz-rat').textContent = d.bizRat;
+          document.getElementById('g-reg-url1').textContent = d.regUrl;
+          document.getElementById('g-reg-title1').textContent = d.regTitle;
+        }, [], 0);
+
+        // Cursor blink
+        a1TL.to('#g-cur', { opacity: 0, repeat: 3, yoyo: true, duration: 0.4 }, 0.3);
+        // Type query
+        a1TL.to('#g-query', { duration: 2.2, text: d.query, ease: 'none' }, 1.0);
+        // Submit flash
+        a1TL.to('#a1-gbar', { borderColor: 'rgba(138,180,248,0.6)', duration: 0.1, yoyo: true, repeat: 1 }, '+=0.15');
+        a1TL.set('#g-cur', { opacity: 0 });
+        // Results count
+        a1TL.to('#g-count', { opacity: 1, duration: 0.3 }, '+=0.3');
+        // Gemini box appears
+        a1TL.to('#gemini-box', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '+=0.2');
+        // Gemini text streams
+        a1TL.to('#gemini-text', { duration: 3.0, text: d.geminiText, ease: 'none' }, '<+0.2');
+        // Biz card
+        a1TL.to('#g-biz', { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '<+2.0');
+        // Regular results fade in
+        a1TL.to('#g-regular', { opacity: 0.35, duration: 0.5 }, '<+0.3');
+        // Reading time
+        a1TL.to({}, { duration: 3.5 });
+        // Fade out
+        a1TL.to(['#gemini-box', '#g-count', '#g-regular'], { opacity: 0, duration: 0.4 });
+        a1TL.to('#g-query', { opacity: 0, duration: 0.25 }, '<');
+        a1TL.set('#g-query', { opacity: 1 });
+
+      } else {
+        // ── GPT MODE ──
+        a1TL.call(() => { urlEl.textContent = d.urlBar; }, [], 0);
+        a1TL.set(simGoogle, { opacity: 0 }, 0);
+        a1TL.set('#gpt-user-text', { text: '' }, 0);
+        a1TL.set('#gpt-ai-text', { text: '' }, 0);
+        a1TL.set(['#gpt-user-msg', '#gpt-ai-msg'], { opacity: 0, y: 8 }, 0);
+        a1TL.set('#gpt-typing', { opacity: 0 }, 0);
+        a1TL.set('#gpt-card', { opacity: 0, y: 4 }, 0);
+        a1TL.call(() => {
+          simGpt.classList.add('vis');
+          document.getElementById('gpt-card-name').textContent = d.gptCardName;
+          document.getElementById('gpt-card-meta').textContent = d.gptCardMeta;
+        }, [], 0);
+
+        // User message types
+        a1TL.to('#gpt-user-msg', { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0.5);
+        a1TL.to('#gpt-user-text', { duration: 1.8, text: d.gptUser, ease: 'none' }, 0.6);
+        // Typing dots
+        a1TL.to('#gpt-typing', { opacity: 1, duration: 0.2 }, '+=0.3');
+        a1TL.to('.gpt-dot', { opacity: 1, duration: 0.2, stagger: 0.2 }, '<');
+        a1TL.to('.gpt-dot', { opacity: 0.2, duration: 0.2, stagger: 0.2, repeat: 2, yoyo: true }, '<+0.3');
+        a1TL.to('#gpt-typing', { opacity: 0, duration: 0.15 });
+        // AI message
+        a1TL.to('#gpt-ai-msg', { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+        a1TL.to('#gpt-ai-text', { duration: 1.6, text: d.gptAi, ease: 'none' }, '<+0.1');
+        // Highlighted card
+        a1TL.to('#gpt-card', { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '<+1.4');
+        // Reading time
+        a1TL.to({}, { duration: 3.5 });
+        // Fade out
+        a1TL.to(simGpt, { opacity: 0, duration: 0.4 });
+        a1TL.call(() => {
+          simGpt.classList.remove('vis');
+          simGpt.style.opacity = '';
+        });
+        a1TL.to(simGoogle, { opacity: 1, duration: 0.3 });
+      }
+    }
+
+    runA1();
+
+    /* ── A2 Rings ── */
+    gsap.from(['#a2-r1', '#a2-r2', '#a2-r3', '#a2-r4'], {
+      scale: 0.5, opacity: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out',
+      transformOrigin: 'center center', delay: 0.3
+    });
+
+    /* ════════════════════════════════════════════════
+       C1 — MAP
+    ════════════════════════════════════════════════ */
+    (function () {
+      const route = document.getElementById('c1-route');
+      const trav = document.getElementById('c1-trav');
+      if (!route || !trav) return;
+      const len = route.getTotalLength();
+      route.style.strokeDasharray = len;
+      route.style.strokeDashoffset = len;
+      function run() {
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: 2.5 });
+        tl.set(route, { strokeDashoffset: len, opacity: 1 })
+          .set(trav, { opacity: 1 })
+          .to(route, { strokeDashoffset: 0, duration: 3.2, ease: 'power1.inOut' })
+          .to(trav, { duration: 3.2, ease: 'power1.inOut', motionPath: { path: '#c1-route', align: '#c1-route', alignOrigin: [0.5, 0.5], autoRotate: false } }, '<')
+          .to('#c1-ring1', { attr: { r: 22 }, opacity: 0, duration: 0.9, transformOrigin: '460px 108px' })
+          .to('#c1-ring2', { attr: { r: 36 }, opacity: 0, duration: 1.1, transformOrigin: '460px 108px' }, '<+0.2')
+          .to('#c1-ring3', { attr: { r: 48 }, opacity: 0, duration: 1.2, transformOrigin: '460px 108px' }, '<+0.2')
+          .to({}, { duration: 1.5 })
+          .to([route, trav], { opacity: 0, duration: 0.5 })
+          .set('#c1-ring1', { attr: { r: 9 }, opacity: 1 })
+          .set('#c1-ring2', { attr: { r: 18 }, opacity: 1 })
+          .set('#c1-ring3', { attr: { r: 28 }, opacity: 1 });
+      }
+      run();
+    })();
+
+    /* ════════════════════════════════════════════════
+       C2 — ECOSYSTEM
+    ════════════════════════════════════════════════ */
+    function runC2() {
+      const lines = ['#ec-l1', '#ec-l2', '#ec-l3', '#ec-l4', '#ec-l5', '#ec-l6'];
+      const enis = ['#eni1', '#eni2', '#eni3', '#eni4', '#eni5', '#eni6'];
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+      tl.set(lines.map(l => document.querySelector(l)), { strokeDashoffset: 1000, opacity: 0.25 })
+        .set(enis.map(e => document.querySelector(e)), { className: 'eco-node-item' });
+      lines.forEach((l, i) => {
+        tl.to(document.querySelector(l), { strokeDashoffset: 0, opacity: 0.5, duration: 0.5 }, i === 0 ? '+=0.3' : '<+0.15')
+          .to(document.querySelector(enis[i]), { className: 'eco-node-item pulse', duration: 0.01 }, '<+0.3');
+      });
+      tl.to({}, { duration: 3 })
+        .to(enis.map(e => document.querySelector(e)), { className: 'eco-node-item', duration: 0.01, stagger: 0.1 });
+    }
+    ScrollTrigger.create({ trigger: '#c2-svg', start: 'top 80%', onEnter: runC2, once: true });
+
+    /* ════════════════════════════════════════════════
+       D1 — FRED STROKE DRAW
+    ════════════════════════════════════════════════ */
+    const fredParts = ['#fr-face', '#fr-ear-l', '#fr-ear-r', '#fr-gl-l', '#fr-gl-b', '#fr-gl-r', '#fr-nose', '#fr-smile'];
+    function setupFred() {
+      fredParts.forEach(sel => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        const len = el.getTotalLength ? el.getTotalLength() : 60;
+        el.style.strokeDasharray = len;
+        el.style.strokeDashoffset = len;
+      });
+    }
+    function animateFred() {
+      setupFred();
+      const tl = gsap.timeline();
+      tl.to('#fr-face', { strokeDashoffset: 0, duration: 1.0, ease: 'power2.inOut' })
+        .to(['#fr-ear-l', '#fr-ear-r'], { strokeDashoffset: 0, duration: 0.5, stagger: 0.15, ease: 'power2.out' }, '-=0.2')
+        .to(['#fr-gl-l', '#fr-gl-r'], { strokeDashoffset: 0, duration: 0.45, stagger: 0.12, ease: 'power2.out' }, '-=0.1')
+        .to('#fr-gl-b', { strokeDashoffset: 0, duration: 0.2, ease: 'power2.out' }, '-=0.2')
+        .to(['#fr-nose', '#fr-smile'], { strokeDashoffset: 0, duration: 0.4, stagger: 0.15, ease: 'power2.out' }, '-=0.1');
+    }
+    setupFred();
+    document.getElementById('fred-replay').addEventListener('click', animateFred);
+    animateFred();
+
+    /* D2 — Mini Chat */
+    (function () {
+      const msgs = ['#d2-m1', '#d2-m2', '#d2-m3'].map(s => document.querySelector(s));
+      const dots = document.querySelectorAll('#d2-dots .mc-dot');
+      function run() {
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+        tl.set(msgs, { opacity: 0, y: 6 }).set(dots, { opacity: 0 });
+        msgs.forEach(m => { tl.to(m, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '+=0.7'); });
+        tl.to(dots, { opacity: 1, duration: 0.2, stagger: 0.18 }, '+=0.5')
+          .to(dots, { opacity: 0, duration: 0.2, stagger: 0.1 }, '+=1')
+          .to({}, { duration: 1.5 });
+      }
+      run();
+    })();
+
+    /* D3 — Stats Counter */
+    const statsData = [
+      { id: 's1', end: 47, suffix: '+', dur: 1.8 },
+      { id: 's2', end: 3.2, suffix: '×', dur: 1.6, dec: 1 },
+      { id: 's3', end: 89, suffix: '%', dur: 1.7 },
+      { id: 's4', end: 12, suffix: '', dur: 1.5 }
+    ];
+    let countersRan = false;
+    function runCounters() {
+      if (countersRan) return;
+      countersRan = true;
+      statsData.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (!el) return;
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: s.end, duration: s.dur, ease: 'power2.out',
+          onUpdate: () => { el.textContent = (s.dec ? obj.val.toFixed(s.dec) : Math.round(obj.val)) + s.suffix; }
+        });
+      });
+    }
+    ScrollTrigger.create({ trigger: '#d3-wrap', start: 'top 80%', onEnter: runCounters, once: true });
+  </script>
+</body>
+
+</html>

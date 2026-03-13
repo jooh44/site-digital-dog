@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Dog — Technical Brutalism Directions v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #0a0a0a;
+  --black-2:  #0f0f0f;
+  --black-3:  #141414;
+  --black-4:  #1a1a1a;
+  --cyan:     #00bcd4;
+  --cyan-dim: rgba(0,188,212,0.15);
+  --orange:   #ff6b35;
+  --pink:     #ff1744;
+  --grad:     linear-gradient(135deg, #ff6b35, #ff1744);
+  --b0: rgba(255,255,255,0.04);
+  --b1: rgba(255,255,255,0.07);
+  --b2: rgba(255,255,255,0.12);
+  --b3: rgba(255,255,255,0.20);
+  --t1: rgba(255,255,255,0.92);
+  --t2: rgba(255,255,255,0.60);
+  --t3: rgba(255,255,255,0.35);
+  --t4: rgba(255,255,255,0.18);
+}
+
+body { background: #111; font-family: 'Inter', sans-serif; color: white; }
+
+/* ── NAV SWITCHER ── */
+.switcher {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--b1);
+  padding: 0 32px;
+  display: flex; align-items: center; gap: 0;
+  height: 52px;
+}
+.switcher-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--t3);
+  padding-right: 24px; border-right: 1px solid var(--b1);
+  margin-right: 8px; white-space: nowrap;
+}
+.dir-btn {
+  height: 52px; padding: 0 20px;
+  font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif;
+  color: var(--t3); background: transparent; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.dir-btn:hover { color: var(--t2); }
+.dir-btn.active { color: var(--t1); border-bottom-color: var(--cyan); }
+
+.direction { display: none; }
+.direction.active { display: block; }
+
+/* ── SHARED FRED SVG ── */
+.fred-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ── GRAD UNDERLINE UTILITY ── */
+.gu {
+  background-image: linear-gradient(135deg, #ff6b35, #ff1744);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  padding-bottom: 2px;
+}
+.gu-thick { background-size: 100% 3px; }
+
+/* ── GRAD TEXT ── */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   DIRECTION 1 — SPLIT MONOLITH
+   Hero split: headline esquerda, Fred visual direita
+   Anatomia de card: borda cyan + índice + divisor interno
+───────────────────────────────────────────── */
+#d1 { background: var(--black); min-height: 100vh; }
+
+.d1-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  border-bottom: 1px solid var(--b1);
+  background: var(--black);
+  position: sticky; top: 52px; z-index: 100;
+}
+.d1-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 15px; color: var(--t1);
+  letter-spacing: -0.01em;
+}
+.d1-nav-links { display: flex; gap: 32px; }
+.d1-nav-link {
+  font-size: 13px; color: var(--t3); text-decoration: none;
+  transition: color 0.15s; letter-spacing: 0.01em;
+}
+.d1-nav-link:hover { color: var(--t2); }
+.d1-nav-cta {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+  padding: 8px 18px; border: 1px solid var(--b2); border-radius: 6px;
+  background: transparent; color: var(--t2); cursor: pointer;
+  transition: all 0.15s; letter-spacing: 0.01em;
+}
+.d1-nav-cta:hover { border-color: var(--b3); color: var(--t1); }
+
+.d1-hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 116px);
+}
+.d1-hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 64px 80px 48px;
+  border-right: 1px solid var(--b1);
+}
+.d1-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t3); margin-bottom: 28px;
+}
+.d1-eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--cyan);
+  flex-shrink: 0;
+}
+.d1-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;
+  color: var(--t1); margin-bottom: 24px;
+}
+.d1-sub {
+  font-size: 1rem; color: var(--t2); line-height: 1.7;
+  max-width: 420px; margin-bottom: 44px;
+}
+.d1-actions { display: flex; gap: 12px; align-items: center; }
+.d1-btn-main {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  padding: 13px 24px; border-radius: 6px; border: none;
+  background: var(--grad); color: white; cursor: pointer; letter-spacing: 0.01em;
+}
+.d1-btn-ghost {
+  font-size: 13px; color: var(--t3); cursor: pointer;
+  display: flex; align-items: center; gap: 6px; transition: color 0.15s;
+}
+.d1-btn-ghost:hover { color: var(--t2); }
+.d1-trust {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 52px; padding-top: 32px; border-top: 1px solid var(--b1);
+}
+.d1-trust-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t4); }
+.d1-trust-names { display: flex; gap: 16px; }
+.d1-trust-name { font-size: 12px; font-weight: 600; color: var(--t3); }
+
+.d1-hero-right {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--black-2); position: relative; overflow: hidden;
+}
+/* Technical grid overlay */
+.d1-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--b0) 1px, transparent 1px),
+    linear-gradient(90deg, var(--b0) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.d1-visual-center {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 32px;
+}
+.d1-fred-ring {
+  position: relative; width: 220px; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+}
+.d1-ring-outer {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid var(--b1);
+}
+.d1-ring-mid {
+  position: absolute; inset: 20px; border-radius: 50%;
+  border: 1px solid rgba(0,188,212,0.1);
+}
+.d1-ring-inner {
+  position: absolute; inset: 44px; border-radius: 50%;
+  border: 1px solid rgba(0,188,212,0.08);
+}
+.d1-fred-core {
+  position: relative; z-index: 2;
+  width: 110px; height: 110px;
+  background: var(--black-3);
+  border: 1px solid var(--b2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+/* Data readout below fred */
+.d1-data-strip {
+  display: flex; gap: 1px; background: var(--b1); border-radius: 6px; overflow: hidden;
+}
+.d1-data-cell {
+  background: var(--black-3); padding: 12px 20px; text-align: center;
+}
+.d1-data-val {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
+  font-weight: 700; color: var(--t1); letter-spacing: -0.02em;
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.d1-data-key {
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--t4); margin-top: 2px;
+}
+
+/* CARDS section */
+.d1-cards-section {
+  padding: 80px 48px;
+  border-top: 1px solid var(--b1);
+  background: var(--black);
+}
+.d1-section-header {
+  display: flex; align-items: baseline; gap: 20px; margin-bottom: 48px;
+}
+.d1-section-num {
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--t4); letter-spacing: 0.1em;
+}
+.d1-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800; letter-spacing: -0.03em; color: var(--t1);
+}
+
+.d1-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--b1); border-radius: 8px; overflow: hidden; }
+.d1-card {
+  background: var(--black-2);
+  border-left: 2px solid var(--cyan);
+  padding: 28px 24px 24px;
+  display: flex; flex-direction: column;
+  transition: background 0.2s;
+  position: relative;
+}
+.d1-card:hover { background: var(--black-3); }
+.d1-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+.d1-card-idx {
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--cyan); letter-spacing: 0.06em;
+}
+.d1-card-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--t4);
+  border: 1px solid var(--b1); border-radius: 999px; padding: 2px 8px;
+}
+.d1-card-divider { height: 1px; background: var(--b1); margin-bottom: 16px; }
+.d1-card-title {
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.9375rem;
+  font-weight: 700; color: var(--t1); margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.d1-card-body {
+  font-size: 0.8125rem; color: var(--t3); line-height: 1.6; flex: 1;
+}
+.d1-card-divider-2 { height: 1px; background: var(--b1); margin: 16px 0; }
+.d1-card-detail {
+  font-size: 11px; font-weight: 600; color: var(--t4);
+  letter-spacing: 0.04em;
+}
+.d1-card-detail span { color: var(--t2); }
+
+/* ─────────────────────────────────────────────
+   DIRECTION 2 — STATEMENT COLUMN
+   Headline centralizada como arquitetura
+   Tipografia como elemento gráfico dominante
+───────────────────────────────────────────── */
+#d2 { background: var(--black); }
+
+.d2-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  border-bottom: 1px solid var(--b1);
+  position: sticky; top: 52px; z-index: 100;
+  background: var(--black);
+}
+.d2-logo {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: 15px; color: var(--t1); letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 10px;
+}
+.d2-nav-r { display: flex; align-items: center; gap: 28px; }
+.d2-nav-link { font-size: 13px; color: var(--t3); text-decoration: none; }
+.d2-nav-link:hover { color: var(--t2); }
+.d2-nav-cta {
+  font-size: 13px; font-weight: 600; padding: 8px 18px;
+  background: var(--grad); border: none; border-radius: 6px;
+  color: white; cursor: pointer;
+}
+
+.d2-hero {
+  position: relative; min-height: calc(100vh - 116px);
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center;
+  padding: 80px 48px; overflow: hidden;
+}
+/* Huge background word */
+.d2-bg-word {
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(8rem, 18vw, 16rem);
+  font-weight: 800; letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.022);
+  user-select: none; pointer-events: none;
+  top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-2deg);
+  white-space: nowrap;
+}
+/* Fine horizontal lines texture */
+.d2-lines {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 59px, var(--b0) 59px, var(--b0) 60px
+  );
+  pointer-events: none;
+}
+.d2-content { position: relative; max-width: 800px; }
+.d2-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t4); margin-bottom: 32px;
+}
+.d2-label-line { width: 24px; height: 1px; background: var(--b2); }
+.d2-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.035em;
+  color: var(--t1); margin-bottom: 28px;
+}
+.d2-sub {
+  font-size: 1.0625rem; color: var(--t2); line-height: 1.7;
+  max-width: 540px; margin: 0 auto 48px;
+}
+.d2-cta-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.d2-btn {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  padding: 13px 28px; background: var(--grad); border: none;
+  border-radius: 6px; color: white; cursor: pointer;
+}
+.d2-link { font-size: 13px; color: var(--t3); cursor: pointer; }
+.d2-link:hover { color: var(--t2); }
+
+/* Bottom feature strip */
+.d2-strip {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  border-top: 1px solid var(--b1);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--black-2);
+}
+.d2-strip-item {
+  padding: 20px 28px; border-right: 1px solid var(--b1);
+  display: flex; align-items: center; gap: 12px;
+}
+.d2-strip-item:last-child { border-right: none; }
+.d2-strip-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+.d2-strip-text { font-size: 12px; font-weight: 600; color: var(--t3); letter-spacing: 0.02em; }
+
+/* Portfólio section */
+.d2-port-section {
+  padding: 80px 48px;
+  border-top: 1px solid var(--b1);
+}
+.d2-port-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 40px;
+}
+.d2-port-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800; letter-spacing: -0.03em; color: var(--t1);
+}
+.d2-port-link { font-size: 13px; color: var(--t3); cursor: pointer; }
+.d2-port-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--b1); border-radius: 8px; overflow: hidden;
+}
+.d2-port-card {
+  background: var(--black-2); padding: 28px 24px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s; cursor: pointer;
+}
+.d2-port-card:hover { background: var(--black-3); border-left-color: var(--cyan); }
+.d2-port-card-top { display: flex; justify-content: space-between; margin-bottom: 16px; align-items: flex-start; }
+.d2-port-num { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 700; color: var(--t4); letter-spacing: 0.08em; }
+.d2-port-tag { font-size: 10px; color: var(--t4); border: 1px solid var(--b1); border-radius: 999px; padding: 2px 8px; }
+.d2-port-divider { height: 1px; background: var(--b1); margin-bottom: 14px; }
+.d2-port-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.9375rem; font-weight: 700; color: var(--t1); margin-bottom: 6px; letter-spacing: -0.01em; }
+.d2-port-seg { font-size: 12px; color: var(--t3); }
+.d2-port-result { font-size: 11px; font-weight: 600; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--b1); color: var(--t4); }
+.d2-port-result span { color: var(--t2); }
+
+/* ─────────────────────────────────────────────
+   DIRECTION 3 — DATA GRID
+   Cards como fichas técnicas / painel de dados
+   Hero mais compacto, conteúdo é o argumento
+───────────────────────────────────────────── */
+#d3 { background: var(--black); }
+
+.d3-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  border-bottom: 1px solid var(--b1);
+  position: sticky; top: 52px; z-index: 100;
+  background: var(--black);
+}
+.d3-logo {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: 15px; color: var(--t1); letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 10px;
+}
+.d3-nav-r { display: flex; align-items: center; gap: 28px; }
+.d3-nav-link { font-size: 13px; color: var(--t3); text-decoration: none; }
+.d3-nav-cta {
+  font-size: 13px; font-weight: 500; padding: 7px 16px;
+  border: 1px solid var(--b2); border-radius: 6px;
+  background: transparent; color: var(--t2); cursor: pointer;
+}
+.d3-nav-cta:hover { border-color: var(--b3); color: var(--t1); }
+
+.d3-hero {
+  padding: 64px 48px 56px;
+  border-bottom: 1px solid var(--b1);
+  background: var(--black);
+  display: flex; flex-direction: column; align-items: flex-start;
+  max-width: 1280px;
+}
+.d3-tag {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--t4); margin-bottom: 20px;
+}
+.d3-tag-line { width: 20px; height: 1px; background: var(--cyan); }
+.d3-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.035em;
+  color: var(--t1); margin-bottom: 20px; max-width: 720px;
+}
+.d3-sub-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  width: 100%; gap: 40px; flex-wrap: wrap;
+}
+.d3-sub { font-size: 1rem; color: var(--t2); line-height: 1.65; max-width: 480px; }
+.d3-hero-cta {
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-end; flex-shrink: 0;
+}
+.d3-btn {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  padding: 12px 24px; background: var(--grad); border: none;
+  border-radius: 6px; color: white; cursor: pointer; white-space: nowrap;
+}
+.d3-cta-note { font-size: 11px; color: var(--t4); text-align: right; }
+
+/* Main grid */
+.d3-main {
+  display: grid; grid-template-columns: 2fr 1fr;
+  min-height: calc(100vh - 64px - 180px);
+  border-bottom: 1px solid var(--b1);
+}
+.d3-services { border-right: 1px solid var(--b1); }
+.d3-service-row {
+  display: grid; grid-template-columns: 80px 1fr 120px;
+  border-bottom: 1px solid var(--b1);
+  transition: background 0.15s; cursor: pointer;
+}
+.d3-service-row:hover { background: var(--black-2); }
+.d3-service-row:last-child { border-bottom: none; }
+.d3-service-num {
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--b1);
+  font-family: 'Space Grotesk', sans-serif; font-size: 12px;
+  font-weight: 700; color: var(--cyan); letter-spacing: 0.04em;
+}
+.d3-service-body { padding: 28px 32px; }
+.d3-service-name {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+  font-weight: 700; color: var(--t1); margin-bottom: 6px; letter-spacing: -0.01em;
+}
+.d3-service-desc { font-size: 0.8125rem; color: var(--t3); line-height: 1.6; }
+.d3-service-meta {
+  display: flex; align-items: center; justify-content: center;
+  border-left: 1px solid var(--b1); padding: 0 16px;
+  text-align: center;
+}
+.d3-service-meta-val {
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.04em;
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.d3-sidebar { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.d3-sidebar-card {
+  background: var(--black-2); border: 1px solid var(--b1);
+  border-radius: 8px; overflow: hidden;
+}
+.d3-sidebar-header {
+  padding: 14px 18px; border-bottom: 1px solid var(--b1);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--t4);
+  display: flex; align-items: center; gap: 8px;
+}
+.d3-sidebar-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }
+.d3-sidebar-body { padding: 18px; }
+.d3-metric { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--b0); }
+.d3-metric:last-child { border-bottom: none; }
+.d3-metric-label { font-size: 12px; color: var(--t3); }
+.d3-metric-val { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: var(--t1); }
+
+/* Form preview card */
+.d3-form-preview { background: var(--black-2); border: 1px solid var(--b1); border-radius: 8px; overflow: hidden; }
+.d3-form-header {
+  padding: 14px 18px; border-bottom: 1px solid var(--b1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.d3-form-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t4); display: flex; align-items: center; gap: 8px; }
+.d3-progress-mini { display: flex; gap: 3px; }
+.d3-prog { width: 16px; height: 2px; border-radius: 2px; background: var(--b1); }
+.d3-prog.on { background: var(--cyan); }
+.d3-form-body { padding: 18px; }
+.d3-form-q { font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--t1); margin-bottom: 14px; letter-spacing: -0.01em; }
+.d3-form-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.d3-form-card {
+  background: var(--black-3); border: 1px solid var(--b1);
+  border-radius: 6px; padding: 10px 12px;
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; transition: all 0.15s;
+}
+.d3-form-card:hover { border-color: var(--b2); }
+.d3-form-card.sel { border-color: var(--cyan); background: rgba(0,188,212,0.05); }
+.d3-form-card-ico { font-size: 16px; }
+.d3-form-card-label { font-size: 12px; font-weight: 600; color: var(--t2); }
+.d3-form-footer { padding: 12px 18px; border-top: 1px solid var(--b1); display: flex; justify-content: flex-end; }
+.d3-form-next { font-size: 12px; font-weight: 600; padding: 7px 16px; background: var(--grad); border: none; border-radius: 5px; color: white; cursor: pointer; }
+
+/* ─────────────────────────────────────────────
+   DIRECTION 4 — ASYMMETRIC TENSION
+   Grid irregular, headline quebrada em colunas
+   Tipografia como tensão, detalhes grad no texto
+───────────────────────────────────────────── */
+#d4 { background: var(--black); }
+
+.d4-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  border-bottom: 1px solid var(--b1);
+  position: sticky; top: 52px; z-index: 100;
+  background: var(--black);
+}
+.d4-logo {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: 15px; color: var(--t1); letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 10px;
+}
+.d4-nav-r { display: flex; align-items: center; gap: 28px; }
+.d4-nav-link { font-size: 13px; color: var(--t3); text-decoration: none; }
+.d4-nav-cta {
+  font-size: 13px; font-weight: 600; padding: 8px 18px;
+  background: var(--grad); border: none; border-radius: 6px;
+  color: white; cursor: pointer;
+}
+
+.d4-hero {
+  display: grid; grid-template-columns: 3fr 2fr;
+  min-height: calc(100vh - 116px);
+  border-bottom: 1px solid var(--b1);
+}
+.d4-left {
+  padding: 0;
+  display: flex; flex-direction: column;
+  border-right: 1px solid var(--b1);
+}
+.d4-headline-block {
+  flex: 1; padding: 64px 56px 48px 48px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-bottom: 1px solid var(--b1);
+}
+.d4-pre {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t4); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.d4-pre::before { content: ''; display: block; width: 20px; height: 1px; background: var(--b2); }
+.d4-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.04em;
+  color: var(--t1); margin-bottom: 28px;
+}
+.d4-headline-line2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+.d4-sub { font-size: 0.9375rem; color: var(--t2); line-height: 1.7; max-width: 440px; }
+.d4-action-bar {
+  padding: 24px 48px;
+  display: flex; align-items: center; gap: 16px;
+  background: var(--black-2);
+}
+.d4-btn-main {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  padding: 12px 24px; background: var(--grad); border: none;
+  border-radius: 6px; color: white; cursor: pointer;
+}
+.d4-btn-ghost { font-size: 13px; color: var(--t3); cursor: pointer; }
+.d4-note { margin-left: auto; font-size: 11px; color: var(--t4); display: flex; align-items: center; gap: 6px; }
+.d4-note-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); }
+
+.d4-right {
+  display: flex; flex-direction: column;
+  background: var(--black-2);
+}
+.d4-stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--b1); flex-shrink: 0;
+}
+.d4-stat {
+  padding: 28px 24px; border-right: 1px solid var(--b1);
+  border-bottom: 1px solid var(--b1);
+}
+.d4-stat:nth-child(2n) { border-right: none; }
+.d4-stat:nth-child(3), .d4-stat:nth-child(4) { border-bottom: none; }
+.d4-stat-val {
+  font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
+  font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 4px;
+}
+.d4-stat-label { font-size: 11px; color: var(--t4); letter-spacing: 0.04em; }
+
+.d4-pillar-list { flex: 1; display: flex; flex-direction: column; }
+.d4-pillar {
+  flex: 1; padding: 20px 24px;
+  border-bottom: 1px solid var(--b1);
+  display: flex; align-items: center; gap: 16px;
+  transition: background 0.15s; cursor: pointer;
+}
+.d4-pillar:last-child { border-bottom: none; }
+.d4-pillar:hover { background: var(--black-3); }
+.d4-pillar-num {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--black-3); border: 1px solid var(--b1);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Grotesk', sans-serif; font-size: 11px;
+  font-weight: 700; color: var(--cyan); flex-shrink: 0;
+}
+.d4-pillar-info { flex: 1; }
+.d4-pillar-name { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 2px; }
+.d4-pillar-desc { font-size: 11px; color: var(--t4); }
+.d4-pillar-arrow { font-size: 12px; color: var(--t4); }
+
+/* ─────────────────────────────────────────────
+   MODAL OVERLAY PREVIEW (on D1 page)
+───────────────────────────────────────────── */
+.modal-section {
+  padding: 80px 48px;
+  border-top: 1px solid var(--b1);
+  background: var(--black-2);
+}
+.modal-section-header { margin-bottom: 40px; }
+.modal-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t4); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.modal-section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--b2); }
+.modal-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--t1);
+}
+
+.modal-wrap { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+.modal-desc { max-width: 380px; }
+.modal-desc p { font-size: 14px; color: var(--t2); line-height: 1.7; }
+.modal-desc ul { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; list-style: none; }
+.modal-desc li { font-size: 13px; color: var(--t3); display: flex; gap: 10px; align-items: center; }
+.modal-desc li::before { content: '—'; color: var(--cyan); font-weight: 700; }
+
+.modal-box {
+  background: var(--black);
+  border: 1px solid var(--b2);
+  border-radius: 12px; overflow: hidden;
+  width: 440px; flex-shrink: 0;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+}
+.modal-topbar {
+  padding: 16px 20px 0;
+  display: flex; align-items: center; gap: 12px;
+}
+.modal-prog-row { display: flex; gap: 5px; flex: 1; }
+.modal-prog-seg { flex: 1; height: 2px; border-radius: 2px; background: var(--b1); }
+.modal-prog-seg.done { background: var(--cyan); }
+.modal-prog-seg.cur { background: rgba(0,188,212,0.35); }
+.modal-close-btn {
+  width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--b1);
+  background: transparent; color: var(--t4); display: flex; align-items: center;
+  justify-content: center; font-size: 13px; cursor: pointer; flex-shrink: 0;
+}
+.modal-body { padding: 24px 20px 0; }
+.modal-step-info {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--t4); margin-bottom: 6px;
+}
+.modal-q {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.0625rem;
+  font-weight: 700; letter-spacing: -0.015em; color: var(--t1); margin-bottom: 20px;
+}
+.modal-seg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 4px; }
+.modal-seg {
+  background: var(--black-2); border: 1px solid var(--b1);
+  border-radius: 8px; padding: 14px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  cursor: pointer; transition: all 0.15s; text-align: center;
+}
+.modal-seg:hover { border-color: var(--b2); background: var(--black-3); }
+.modal-seg.sel { border-color: var(--cyan); background: rgba(0,188,212,0.06); }
+.modal-seg .ico { font-size: 20px; }
+.modal-seg .lbl { font-size: 11px; font-weight: 600; color: var(--t2); line-height: 1.3; }
+.modal-footer {
+  padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--b1); margin-top: 16px;
+}
+.modal-back { font-size: 12px; color: var(--t4); cursor: pointer; }
+.modal-next {
+  font-size: 13px; font-weight: 600; padding: 9px 20px;
+  background: var(--grad); border: none; border-radius: 6px; color: white; cursor: pointer;
+}
+
+/* ── POST-SUBMIT PREVIEW ── */
+.post-submit-box {
+  background: var(--black);
+  border: 1px solid var(--b2);
+  border-radius: 12px; overflow: hidden;
+  width: 440px; flex-shrink: 0;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 48px 32px 40px; gap: 24px; text-align: center;
+}
+.post-fred {
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+}
+.post-title {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem;
+  font-weight: 700; letter-spacing: -0.02em; color: var(--t1);
+}
+.post-sub { font-size: 0.875rem; color: var(--t2); line-height: 1.65; max-width: 300px; }
+.post-whatsapp {
+  font-size: 12px; color: var(--t4); cursor: pointer;
+  border: 1px solid var(--b1); border-radius: 6px;
+  padding: 8px 16px; transition: all 0.15s; margin-top: 4px;
+}
+.post-whatsapp:hover { border-color: var(--b2); color: var(--t2); }
+
+/* ── UTILITY ── */
+.section-spacer { height: 1px; background: var(--b1); }
+</style>
+</head>
+<body>
+
+<!-- NAV SWITCHER -->
+<div class="switcher">
+  <span class="switcher-label">Technical Brutalism v2</span>
+  <button class="dir-btn active" onclick="show('d1',this)">D1 — Split Monolith</button>
+  <button class="dir-btn" onclick="show('d2',this)">D2 — Statement Column</button>
+  <button class="dir-btn" onclick="show('d3',this)">D3 — Data Grid</button>
+  <button class="dir-btn" onclick="show('d4',this)">D4 — Asymmetric Tension</button>
+  <button class="dir-btn" onclick="show('modal-preview',this)">✦ Modal + Pós-submit</button>
+  <button class="dir-btn" onclick="show('fred-showcase',this)">🐾 Fred Mark</button>
+  <button class="dir-btn" onclick="show('components-showcase',this)">◈ Cards + Botões</button>
+  <button class="dir-btn" onclick="show('gsap-showcase',this); initGSAP()">⚡ Animações GSAP</button>
+</div>
+
+<!-- ═══════════════════════════════════════
+     D1 — SPLIT MONOLITH
+════════════════════════════════════════ -->
+<div class="direction active" id="d1">
+  <nav class="d1-nav">
+    <div class="d1-logo">
+      <!-- Fred SVG mark -->
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <!-- glasses gradient -->
+        <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gf1)" stroke-width="1.5" fill="none"/>
+        <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gf1)" stroke-width="1.5" fill="none"/>
+        <path d="M17.5 20 L22.5 20" stroke="url(#gf1)" stroke-width="1.5"/>
+        <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <defs>
+          <linearGradient id="gf1" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      Digital Dog
+    </div>
+    <div class="d1-nav-links">
+      <a href="#" class="d1-nav-link">Serviços</a>
+      <a href="#" class="d1-nav-link">Portfólio</a>
+      <a href="#" class="d1-nav-link">Sobre</a>
+    </div>
+    <button class="d1-nav-cta">Diagnóstico Gratuito</button>
+  </nav>
+
+  <div class="d1-hero">
+    <!-- LEFT -->
+    <div class="d1-hero-left">
+      <div class="d1-eyebrow"><span class="d1-eyebrow-dot"></span>Arquitetura Digital</div>
+      <h1 class="d1-headline">
+        Seu negócio,<br>
+        visível onde os<br>
+        <span class="gu gu-thick">clientes procuram</span>
+      </h1>
+      <p class="d1-sub">
+        Construímos a infraestrutura digital que transforma pesquisas — no Google, no Instagram, no ChatGPT — em clientes reais. Não agência. Parceiro de crescimento.
+      </p>
+      <div class="d1-actions">
+        <button class="d1-btn-main">Quero meu Diagnóstico Digital</button>
+        <span class="d1-btn-ghost">Ver portfólio →</span>
+      </div>
+      <div class="d1-trust">
+        <span class="d1-trust-label">Clientes</span>
+        <div class="d1-trust-names">
+          <span class="d1-trust-name">RZ Vet</span>
+          <span class="d1-trust-name">Aumivet</span>
+          <span class="d1-trust-name">Morgan e Ted</span>
+          <span class="d1-trust-name">Vet em Casa</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Fred + data strip -->
+    <div class="d1-hero-right">
+      <div class="d1-grid-overlay"></div>
+      <div class="d1-visual-center">
+        <div class="d1-fred-ring">
+          <div class="d1-ring-outer"></div>
+          <div class="d1-ring-mid"></div>
+          <div class="d1-ring-inner"></div>
+          <div class="d1-fred-core">
+            <svg width="72" height="72" viewBox="0 0 40 40" fill="none">
+              <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+              <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+              <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gf2)" stroke-width="1.5" fill="none"/>
+              <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gf2)" stroke-width="1.5" fill="none"/>
+              <path d="M17.5 20 L22.5 20" stroke="url(#gf2)" stroke-width="1.5"/>
+              <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <defs>
+                <linearGradient id="gf2" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="d1-data-strip">
+          <div class="d1-data-cell">
+            <div class="d1-data-val">5+</div>
+            <div class="d1-data-key">Clientes</div>
+          </div>
+          <div class="d1-data-cell">
+            <div class="d1-data-val">3×</div>
+            <div class="d1-data-key">Leads</div>
+          </div>
+          <div class="d1-data-cell">
+            <div class="d1-data-val">48h</div>
+            <div class="d1-data-key">Retorno</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards section -->
+  <div class="d1-cards-section">
+    <div class="d1-section-header">
+      <span class="d1-section-num">§ 01</span>
+      <h2 class="d1-section-title">Quatro pilares, um ecossistema</h2>
+    </div>
+    <div class="d1-cards">
+      <!-- Card 1 -->
+      <div class="d1-card">
+        <div class="d1-card-top">
+          <span class="d1-card-idx">01</span>
+          <span class="d1-card-tag">Fundação</span>
+        </div>
+        <div class="d1-card-divider"></div>
+        <div class="d1-card-title">Site de Alta Conversão</div>
+        <div class="d1-card-body">Infraestrutura de vendas construída para transformar visitantes de Meta Ads em diagnósticos agendados — não portfólio.</div>
+        <div class="d1-card-divider-2"></div>
+        <div class="d1-card-detail">LCP <span>&lt; 2.5s mobile</span></div>
+      </div>
+      <!-- Card 2 -->
+      <div class="d1-card">
+        <div class="d1-card-top">
+          <span class="d1-card-idx">02</span>
+          <span class="d1-card-tag">Visibilidade</span>
+        </div>
+        <div class="d1-card-divider"></div>
+        <div class="d1-card-title">SEO + AIO</div>
+        <div class="d1-card-body">Visível no Google e citado por IAs como o ChatGPT. A fronteira onde a maioria dos concorrentes ainda não chegou.</div>
+        <div class="d1-card-divider-2"></div>
+        <div class="d1-card-detail">GEO-ready <span>desde o dia 1</span></div>
+      </div>
+      <!-- Card 3 -->
+      <div class="d1-card">
+        <div class="d1-card-top">
+          <span class="d1-card-idx">03</span>
+          <span class="d1-card-tag">Tráfego</span>
+        </div>
+        <div class="d1-card-divider"></div>
+        <div class="d1-card-title">Gestão de Tráfego Pago</div>
+        <div class="d1-card-body">Meta Ads e Google Ads com foco em ROI mensurável. Cada real investido rastreado até o lead gerado.</div>
+        <div class="d1-card-divider-2"></div>
+        <div class="d1-card-detail">ROAS médio <span>3.4× nos clientes ativos</span></div>
+      </div>
+      <!-- Card 4 -->
+      <div class="d1-card">
+        <div class="d1-card-top">
+          <span class="d1-card-idx">04</span>
+          <span class="d1-card-tag">Operação</span>
+        </div>
+        <div class="d1-card-divider"></div>
+        <div class="d1-card-title">Automações</div>
+        <div class="d1-card-body">Notificação de lead, CRM e follow-up automático — o negócio responde em minutos mesmo quando você está atendendo.</div>
+        <div class="d1-card-divider-2"></div>
+        <div class="d1-card-detail">Tempo médio de resposta <span>&lt; 5 min</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     D2 — STATEMENT COLUMN
+════════════════════════════════════════ -->
+<div class="direction" id="d2">
+  <nav class="d2-nav">
+    <div class="d2-logo">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+        <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gf3)" stroke-width="1.5" fill="none"/>
+        <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gf3)" stroke-width="1.5" fill="none"/>
+        <path d="M17.5 20 L22.5 20" stroke="url(#gf3)" stroke-width="1.5"/>
+        <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <defs><linearGradient id="gf3" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/></linearGradient></defs>
+      </svg>
+      Digital Dog
+    </div>
+    <div class="d2-nav-r">
+      <a href="#" class="d2-nav-link">Serviços</a>
+      <a href="#" class="d2-nav-link">Portfólio</a>
+      <a href="#" class="d2-nav-link">Sobre</a>
+      <button class="d2-nav-cta">Diagnóstico</button>
+    </div>
+  </nav>
+
+  <div class="d2-hero">
+    <div class="d2-bg-word">DIGITAL</div>
+    <div class="d2-lines"></div>
+    <div class="d2-content">
+      <div class="d2-label">
+        <span class="d2-label-line"></span>
+        Arquitetura Digital para profissionais liberais
+        <span class="d2-label-line"></span>
+      </div>
+      <h1 class="d2-headline">
+        Apareça onde<br>
+        seus clientes<br>
+        <span class="gu gu-thick">já procuram</span>
+      </h1>
+      <p class="d2-sub">
+        Google, Instagram, ChatGPT. Construímos a presença que coloca o seu negócio no caminho de quem já está pronto para contratar — não apenas para navegar.
+      </p>
+      <div class="d2-cta-wrap">
+        <button class="d2-btn">Quero meu Diagnóstico Digital</button>
+        <span class="d2-link">Ver portfólio →</span>
+      </div>
+    </div>
+    <div class="d2-strip">
+      <div class="d2-strip-item"><span class="d2-strip-dot"></span><span class="d2-strip-text">Site de Conversão</span></div>
+      <div class="d2-strip-item"><span class="d2-strip-dot"></span><span class="d2-strip-text">SEO + AIO</span></div>
+      <div class="d2-strip-item"><span class="d2-strip-dot"></span><span class="d2-strip-text">Tráfego Pago</span></div>
+      <div class="d2-strip-item"><span class="d2-strip-dot"></span><span class="d2-strip-text">Automações</span></div>
+    </div>
+  </div>
+
+  <!-- Portfolio -->
+  <div class="d2-port-section">
+    <div class="d2-port-header">
+      <h2 class="d2-port-title">Portfólio</h2>
+      <span class="d2-port-link">Ver todos →</span>
+    </div>
+    <div class="d2-port-grid">
+      <div class="d2-port-card">
+        <div class="d2-port-card-top"><span class="d2-port-num">01</span><span class="d2-port-tag">Vet / Pet</span></div>
+        <div class="d2-port-divider"></div>
+        <div class="d2-port-name">RZ Vet</div>
+        <div class="d2-port-seg">Clínica Veterinária · São Paulo</div>
+        <div class="d2-port-result">Resultado → <span>3× novos clientes via orgânico em 90 dias</span></div>
+      </div>
+      <div class="d2-port-card">
+        <div class="d2-port-card-top"><span class="d2-port-num">02</span><span class="d2-port-tag">Vet / Pet</span></div>
+        <div class="d2-port-divider"></div>
+        <div class="d2-port-name">Aumivet</div>
+        <div class="d2-port-seg">Hospital Veterinário · Rio de Janeiro</div>
+        <div class="d2-port-result">Resultado → <span>Site + SEO local indexado em 30 dias</span></div>
+      </div>
+      <div class="d2-port-card">
+        <div class="d2-port-card-top"><span class="d2-port-num">03</span><span class="d2-port-tag">Vet / Pet</span></div>
+        <div class="d2-port-divider"></div>
+        <div class="d2-port-name">Morgan e Ted</div>
+        <div class="d2-port-seg">Pet Shop · Belo Horizonte</div>
+        <div class="d2-port-result">Resultado → <span>+180% tráfego orgânico em 4 meses</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     D3 — DATA GRID
+════════════════════════════════════════ -->
+<div class="direction" id="d3">
+  <nav class="d3-nav">
+    <div class="d3-logo">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+        <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gf4)" stroke-width="1.5" fill="none"/>
+        <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gf4)" stroke-width="1.5" fill="none"/>
+        <path d="M17.5 20 L22.5 20" stroke="url(#gf4)" stroke-width="1.5"/>
+        <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <defs><linearGradient id="gf4" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/></linearGradient></defs>
+      </svg>
+      Digital Dog
+    </div>
+    <div class="d3-nav-r">
+      <a href="#" class="d3-nav-link">Serviços</a>
+      <a href="#" class="d3-nav-link">Portfólio</a>
+      <button class="d3-nav-cta">Diagnóstico Gratuito</button>
+    </div>
+  </nav>
+
+  <div class="d3-hero">
+    <div class="d3-tag"><span class="d3-tag-line"></span>Arquitetura Digital</div>
+    <h1 class="d3-headline">
+      A infraestrutura que faz<br>
+      <span class="gu gu-thick">o negócio aparecer</span>
+    </h1>
+    <div class="d3-sub-row">
+      <p class="d3-sub">Google, Instagram e ChatGPT trabalhando juntos — um ecossistema construído para converter, não para impressionar.</p>
+      <div class="d3-hero-cta">
+        <button class="d3-btn">Quero meu Diagnóstico →</button>
+        <span class="d3-cta-note">Gratuito · Resposta em 48h</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="d3-main">
+    <!-- Services table -->
+    <div class="d3-services">
+      <div class="d3-service-row">
+        <div class="d3-service-num">01</div>
+        <div class="d3-service-body">
+          <div class="d3-service-name">Site de Alta Conversão</div>
+          <div class="d3-service-desc">Infraestrutura de vendas — não portfólio. Construído para transformar visitas de Meta Ads em diagnósticos agendados. LCP &lt; 2.5s mobile.</div>
+        </div>
+        <div class="d3-service-meta"><div class="d3-service-meta-val">Fundação</div></div>
+      </div>
+      <div class="d3-service-row">
+        <div class="d3-service-num">02</div>
+        <div class="d3-service-body">
+          <div class="d3-service-name">SEO + AIO / GEO</div>
+          <div class="d3-service-desc">Visível no Google e citado pelo ChatGPT. Estrutura técnica + conteúdo semântico que IAs entendem e recomendam.</div>
+        </div>
+        <div class="d3-service-meta"><div class="d3-service-meta-val">Visibilidade</div></div>
+      </div>
+      <div class="d3-service-row">
+        <div class="d3-service-num">03</div>
+        <div class="d3-service-body">
+          <div class="d3-service-name">Gestão de Tráfego Pago</div>
+          <div class="d3-service-desc">Meta Ads e Google Ads com rastreamento completo de ROI. Cada real investido associado ao lead gerado — sem achismo.</div>
+        </div>
+        <div class="d3-service-meta"><div class="d3-service-meta-val">Tráfego</div></div>
+      </div>
+      <div class="d3-service-row">
+        <div class="d3-service-num">04</div>
+        <div class="d3-service-body">
+          <div class="d3-service-name">Automações e CRM</div>
+          <div class="d3-service-desc">Notificação de lead, sequência de follow-up e CRM configurado — o negócio responde em minutos, mesmo fora do horário comercial.</div>
+        </div>
+        <div class="d3-service-meta"><div class="d3-service-meta-val">Operação</div></div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="d3-sidebar">
+      <div class="d3-sidebar-card">
+        <div class="d3-sidebar-header"><span class="d3-sidebar-dot"></span>Métricas médias</div>
+        <div class="d3-sidebar-body">
+          <div class="d3-metric"><span class="d3-metric-label">Leads / mês</span><span class="d3-metric-val">+3×</span></div>
+          <div class="d3-metric"><span class="d3-metric-label">Tempo de indexação</span><span class="d3-metric-val">30 dias</span></div>
+          <div class="d3-metric"><span class="d3-metric-label">Resposta ao lead</span><span class="d3-metric-val">&lt; 5 min</span></div>
+          <div class="d3-metric"><span class="d3-metric-label">LCP mobile</span><span class="d3-metric-val">&lt; 2.5s</span></div>
+        </div>
+      </div>
+
+      <!-- Form preview -->
+      <div class="d3-form-preview">
+        <div class="d3-form-header">
+          <div class="d3-form-title"><span class="d3-sidebar-dot"></span>Diagnóstico Digital</div>
+          <div class="d3-progress-mini">
+            <div class="d3-prog on"></div>
+            <div class="d3-prog on"></div>
+            <div class="d3-prog"></div>
+            <div class="d3-prog"></div>
+          </div>
+        </div>
+        <div class="d3-form-body">
+          <div class="d3-form-q">Qual é o seu tipo de negócio?</div>
+          <div class="d3-form-cards">
+            <div class="d3-form-card sel"><span class="ico">⚖️</span><span class="d3-form-card-label">Advocacia</span></div>
+            <div class="d3-form-card"><span class="ico">🏥</span><span class="d3-form-card-label">Saúde</span></div>
+            <div class="d3-form-card"><span class="ico">🦷</span><span class="d3-form-card-label">Consultório</span></div>
+            <div class="d3-form-card"><span class="ico">✦</span><span class="d3-form-card-label">Outro</span></div>
+          </div>
+        </div>
+        <div class="d3-form-footer">
+          <button class="d3-form-next">Próximo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     D4 — ASYMMETRIC TENSION
+════════════════════════════════════════ -->
+<div class="direction" id="d4">
+  <nav class="d4-nav">
+    <div class="d4-logo">
+      <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+        <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+        <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gf5)" stroke-width="1.5" fill="none"/>
+        <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gf5)" stroke-width="1.5" fill="none"/>
+        <path d="M17.5 20 L22.5 20" stroke="url(#gf5)" stroke-width="1.5"/>
+        <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <defs><linearGradient id="gf5" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/></linearGradient></defs>
+      </svg>
+      Digital Dog
+    </div>
+    <div class="d4-nav-r">
+      <a href="#" class="d4-nav-link">Serviços</a>
+      <a href="#" class="d4-nav-link">Portfólio</a>
+      <a href="#" class="d4-nav-link">Sobre</a>
+      <button class="d4-nav-cta">Diagnóstico</button>
+    </div>
+  </nav>
+
+  <div class="d4-hero">
+    <!-- LEFT -->
+    <div class="d4-left">
+      <div class="d4-headline-block">
+        <div class="d4-pre">Arquitetura Digital</div>
+        <h1 class="d4-headline">
+          Seu negócio,<br>
+          visível onde
+        </h1>
+        <div class="d4-headline-line2">
+          os clientes <span class="gu gu-thick">procuram</span>
+        </div>
+        <p class="d4-sub">Construímos a infraestrutura que transforma pesquisas em clientes reais — Google, Instagram e ChatGPT trabalhando como sistema.</p>
+      </div>
+      <div class="d4-action-bar">
+        <button class="d4-btn-main">Quero meu Diagnóstico Digital</button>
+        <span class="d4-btn-ghost">Ver portfólio →</span>
+        <span class="d4-note"><span class="d4-note-dot"></span>Gratuito · 48h de retorno</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="d4-right">
+      <div class="d4-stats-grid">
+        <div class="d4-stat">
+          <div class="d4-stat-val">5+</div>
+          <div class="d4-stat-label">Clientes ativos</div>
+        </div>
+        <div class="d4-stat">
+          <div class="d4-stat-val">3×</div>
+          <div class="d4-stat-label">Aumento de leads</div>
+        </div>
+        <div class="d4-stat">
+          <div class="d4-stat-val">48h</div>
+          <div class="d4-stat-label">Retorno diagnóstico</div>
+        </div>
+        <div class="d4-stat">
+          <div class="d4-stat-val">&lt;5'</div>
+          <div class="d4-stat-label">Resposta ao lead</div>
+        </div>
+      </div>
+      <div class="d4-pillar-list">
+        <div class="d4-pillar">
+          <div class="d4-pillar-num">01</div>
+          <div class="d4-pillar-info">
+            <div class="d4-pillar-name">Site de Alta Conversão</div>
+            <div class="d4-pillar-desc">Infraestrutura de vendas, não portfólio</div>
+          </div>
+          <span class="d4-pillar-arrow">→</span>
+        </div>
+        <div class="d4-pillar">
+          <div class="d4-pillar-num">02</div>
+          <div class="d4-pillar-info">
+            <div class="d4-pillar-name">SEO + AIO / GEO</div>
+            <div class="d4-pillar-desc">Google e ChatGPT como canais de aquisição</div>
+          </div>
+          <span class="d4-pillar-arrow">→</span>
+        </div>
+        <div class="d4-pillar">
+          <div class="d4-pillar-num">03</div>
+          <div class="d4-pillar-info">
+            <div class="d4-pillar-name">Tráfego Pago</div>
+            <div class="d4-pillar-desc">Meta Ads e Google Ads com ROI rastreado</div>
+          </div>
+          <span class="d4-pillar-arrow">→</span>
+        </div>
+        <div class="d4-pillar">
+          <div class="d4-pillar-num">04</div>
+          <div class="d4-pillar-info">
+            <div class="d4-pillar-name">Automações</div>
+            <div class="d4-pillar-desc">Lead notificado e respondido em minutos</div>
+          </div>
+          <span class="d4-pillar-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MODAL + PÓS-SUBMIT PREVIEW
+════════════════════════════════════════ -->
+<div class="direction" id="modal-preview">
+  <div style="background:var(--black);min-height:calc(100vh - 52px);padding:64px 48px;">
+
+    <div class="modal-section-header">
+      <div class="modal-section-label">Conversão</div>
+      <h2 class="modal-section-title">Modal de Diagnóstico + Pós-submit</h2>
+    </div>
+
+    <div class="modal-wrap">
+      <!-- Description -->
+      <div class="modal-desc">
+        <p>O modal de diagnóstico é a ação central do site — tudo existe para levar o visitante até aqui. Step 1 sem digitar nada: tap no card de segmento, já avança. Zero fricção de entrada.</p>
+        <ul>
+          <li>Step 1 — Segmento (seleção visual)</li>
+          <li>Step 2 — Desafio (textarea livre)</li>
+          <li>Step 3 — Nome + negócio</li>
+          <li>Step 4 — WhatsApp + Email (opcional)</li>
+        </ul>
+        <p style="margin-top:20px;font-size:13px;color:var(--t4);">Após submit, modal fecha e Fred aparece sendo desenhado — momento de pico emocional intencional.</p>
+      </div>
+
+      <!-- Modal Step 1 -->
+      <div class="modal-box">
+        <div class="modal-topbar">
+          <div class="modal-prog-row">
+            <div class="modal-prog-seg cur"></div>
+            <div class="modal-prog-seg"></div>
+            <div class="modal-prog-seg"></div>
+            <div class="modal-prog-seg"></div>
+          </div>
+          <button class="modal-close-btn">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-step-info">Step 1 de 4</div>
+          <div class="modal-q">Qual é o seu tipo de negócio?</div>
+          <div class="modal-seg-grid">
+            <div class="modal-seg sel"><span class="ico">⚖️</span><span class="lbl">Advocacia</span></div>
+            <div class="modal-seg"><span class="ico">🏥</span><span class="lbl">Clínica / Saúde</span></div>
+            <div class="modal-seg"><span class="ico">🦷</span><span class="lbl">Consultório</span></div>
+            <div class="modal-seg"><span class="ico">🐾</span><span class="lbl">Pet / Vet</span></div>
+            <div class="modal-seg"><span class="ico">🏢</span><span class="lbl">Empresa</span></div>
+            <div class="modal-seg"><span class="ico">✦</span><span class="lbl">Outro</span></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="modal-back">← Voltar</span>
+          <button class="modal-next">Próximo →</button>
+        </div>
+      </div>
+
+      <!-- Post-submit -->
+      <div class="post-submit-box">
+        <div class="post-fred">
+          <svg width="96" height="96" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 10 Q10 6 8 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M30 10 Q30 6 32 4" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <ellipse cx="14" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+            <ellipse cx="26" cy="20" rx="5" ry="7" stroke="#00bcd4" stroke-width="1.5"/>
+            <ellipse cx="14" cy="20" rx="3.5" ry="3.5" stroke="url(#gfps)" stroke-width="1.5" fill="none"/>
+            <ellipse cx="26" cy="20" rx="3.5" ry="3.5" stroke="url(#gfps)" stroke-width="1.5" fill="none"/>
+            <path d="M17.5 20 L22.5 20" stroke="url(#gfps)" stroke-width="1.5"/>
+            <path d="M13 29 Q20 33 27 29" stroke="#00bcd4" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <defs>
+              <linearGradient id="gfps" x1="8" y1="18" x2="32" y2="22" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff1744"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="post-title">Recebi, Ricardo.</div>
+        <p class="post-sub">Vou estudar o seu negócio antes de entrar em contato. Você vai ouvir de mim em até 48 horas.</p>
+        <button class="post-whatsapp">Quer antecipar a conversa? → WhatsApp</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FRED MARK SHOWCASE
+════════════════════════════════════════ -->
+<div class="direction" id="fred-showcase">
+<div style="background:var(--black);min-height:calc(100vh - 52px);padding:64px 48px;">
+
+  <div style="margin-bottom:56px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:20px;height:1px;background:var(--b2);"></span>Identidade Visual</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Fred — O símbolo</h2>
+    <p style="font-size:14px;color:var(--t2);margin-top:8px;max-width:560px;line-height:1.65;">Cachorro em perfil (husky/pastor) com óculos estilo ski. Traço em cyan, lentes com gradiente laranja→pink. Desenhado como linha — pronto para animação de stroke com GSAP drawSVG.</p>
+  </div>
+
+  <!-- Grid de usos -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;margin-bottom:64px;">
+
+    <!-- Nav size -->
+    <div style="background:var(--black-2);padding:40px 32px;display:flex;flex-direction:column;gap:24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Nav — 28px</div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--black-3);border-radius:8px;border:1px solid var(--b1);width:fit-content;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="28" height="28" style="object-fit:contain;filter:none;" alt="Fred mark">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--t1);letter-spacing:-0.01em;">Digital Dog</span>
+      </div>
+      <p style="font-size:12px;color:var(--t3);line-height:1.6;">Logo completo em repouso. No scroll (~80px): texto some suavemente, só o Fred permanece.</p>
+      <!-- Só Fred (scroll state) -->
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--black-3);border-radius:8px;border:1px solid var(--b1);width:fit-content;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="28" height="28" style="object-fit:contain;" alt="Fred mark scroll state">
+        <span style="font-size:11px;color:var(--t4);">← estado no scroll</span>
+      </div>
+    </div>
+
+    <!-- Hero size -->
+    <div style="background:var(--black-2);padding:40px 32px;display:flex;flex-direction:column;gap:24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Hero visual — 120px</div>
+      <div style="position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center;">
+        <!-- Rings -->
+        <div style="position:absolute;inset:0;border-radius:50%;border:1px solid var(--b1);"></div>
+        <div style="position:absolute;inset:18px;border-radius:50%;border:1px solid rgba(0,188,212,0.1);"></div>
+        <div style="position:absolute;inset:38px;border-radius:50%;border:1px solid rgba(0,188,212,0.07);"></div>
+        <!-- Grid bg -->
+        <div style="position:absolute;inset:0;border-radius:50%;overflow:hidden;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:20px 20px;"></div>
+        <div style="position:relative;z-index:2;width:90px;height:90px;background:var(--black-3);border:1px solid var(--b2);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="64" height="64" style="object-fit:contain;" alt="Fred hero">
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);line-height:1.6;">Fred centrado em anéis concêntricos. Rings aparecem em stagger no mount com GSAP. Círculo interno com grid técnico.</p>
+    </div>
+
+    <!-- Post-submit size -->
+    <div style="background:var(--black-2);padding:40px 32px;display:flex;flex-direction:column;gap:24px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--orange);"></span>Pós-submit — 96px</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:28px 20px;background:var(--black-3);border:1px solid var(--b1);border-radius:12px;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="96" height="96" style="object-fit:contain;" alt="Fred post-submit" id="fred-ps">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--t1);letter-spacing:-0.02em;text-align:center;">Recebi, Ricardo.</div>
+        <div style="font-size:13px;color:var(--t2);line-height:1.65;text-align:center;max-width:240px;">Vou estudar o seu negócio antes de entrar em contato.</div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);line-height:1.6;">No SVG real: stroke draw com GSAP drawSVG. Contorno → orelhas → óculos (gradiente preenchendo). Duração: 2–3s.</p>
+    </div>
+  </div>
+
+  <!-- Cor + sobre fundo branco -->
+  <div style="margin-bottom:56px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:24px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Comportamento em fundos</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;">
+      <div style="background:var(--black);padding:32px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="64" height="64" style="object-fit:contain;" alt="">
+        <span style="font-size:11px;color:var(--t4);">#0a0a0a — padrão</span>
+      </div>
+      <div style="background:var(--black-3);padding:32px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="64" height="64" style="object-fit:contain;" alt="">
+        <span style="font-size:11px;color:var(--t4);">#141414 — cards</span>
+      </div>
+      <div style="background:#1a1a2e;padding:32px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="64" height="64" style="object-fit:contain;" alt="">
+        <span style="font-size:11px;color:var(--t4);">azul escuro</span>
+      </div>
+      <div style="background:#f5f5f5;padding:32px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="64" height="64" style="object-fit:contain;filter:invert(1) hue-rotate(180deg);" alt="">
+        <span style="font-size:11px;color:#333;">claro (invertido)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anatomia de cor -->
+  <div style="background:var(--black-2);border:1px solid var(--b1);border-radius:8px;padding:40px 32px;display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Anatomia de cor</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:28px;height:3px;background:var(--cyan);border-radius:2px;flex-shrink:0;"></div>
+          <span style="font-size:13px;color:var(--t2);">Contorno do cachorro — <code style="font-size:11px;color:var(--cyan);">#00bcd4</code></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:28px;height:3px;background:linear-gradient(90deg,#ff6b35,#ff1744);border-radius:2px;flex-shrink:0;"></div>
+          <span style="font-size:13px;color:var(--t2);">Lentes dos óculos — gradiente <code style="font-size:11px;color:var(--orange);">#ff6b35</code> → <code style="font-size:11px;color:var(--pink);">#ff1744</code></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:28px;height:3px;background:rgba(255,255,255,0.9);border-radius:2px;flex-shrink:0;"></div>
+          <span style="font-size:13px;color:var(--t2);">Fill interno — white/transparent</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--orange);"></span>Gradiente como assinatura</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.7;">O gradiente dos óculos do Fred é a assinatura visual da marca. Quando aparece em outros elementos (sublinhado de headline, índice de card, stat numérica, CTA primário), cria coerência visual que o visitante percebe sem conseguir articular — confiança por consistência.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     COMPONENTS SHOWCASE — CARDS + BOTÕES
+════════════════════════════════════════ -->
+<div class="direction" id="components-showcase">
+<div style="background:var(--black);min-height:calc(100vh - 52px);padding:64px 48px;">
+
+  <!-- CARDS -->
+  <div style="margin-bottom:80px;">
+    <div style="display:flex;align-items:baseline;gap:20px;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--b1);">
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);">§ 01</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Cards</h2>
+      <span style="font-size:13px;color:var(--t3);">Anatomia de ficha técnica — borda cyan, índice, divisor, dado real</span>
+    </div>
+
+    <!-- Row 1: Service cards (anatomia completa) -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Service Card — anatomia completa</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;margin-bottom:48px;">
+      <!-- Card default -->
+      <div class="comp-card" style="background:var(--black-2);border-left:2px solid var(--cyan);padding:28px 24px;display:flex;flex-direction:column;transition:background 0.2s;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:0.06em;">01</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 9px;">Fundação</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:16px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-0.01em;">Site de Alta Conversão</div>
+        <div style="font-size:0.8125rem;color:var(--t3);line-height:1.6;flex:1;">Infraestrutura de vendas — não portfólio. LCP &lt; 2.5s mobile, Meta Pixel integrado.</div>
+        <div style="height:1px;background:var(--b1);margin:16px 0;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);letter-spacing:0.04em;">LCP <span style="color:var(--t2);">&lt; 2.5s mobile</span></div>
+        <div style="margin-top:10px;font-size:10px;color:var(--t4);">← default</div>
+      </div>
+      <!-- Card hover -->
+      <div style="background:var(--black-3);border-left:2px solid var(--cyan);padding:28px 24px;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px rgba(0,188,212,0.1);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:0.06em;">02</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 9px;">Visibilidade</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:16px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-0.01em;">SEO + AIO / GEO</div>
+        <div style="font-size:0.8125rem;color:var(--t3);line-height:1.6;flex:1;">Visível no Google e citado pelo ChatGPT. Estrutura semântica que IAs recomendam.</div>
+        <div style="height:1px;background:var(--b1);margin:16px 0;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">GEO-ready <span style="color:var(--t2);">desde o dia 1</span></div>
+        <div style="margin-top:10px;font-size:10px;color:var(--cyan);">← hover state</div>
+      </div>
+      <!-- Card with gradient accent -->
+      <div style="background:var(--black-2);border-left:2px solid var(--cyan);padding:28px 24px;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.06em;">03</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 9px;">Tráfego</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:16px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-0.01em;">Tráfego Pago</div>
+        <div style="font-size:0.8125rem;color:var(--t3);line-height:1.6;flex:1;">Meta Ads + Google Ads com ROI rastreado. Cada real até o lead gerado.</div>
+        <div style="height:1px;background:var(--b1);margin:16px 0;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">ROAS médio <span style="color:var(--t2);">3.4×</span></div>
+        <div style="margin-top:10px;font-size:10px;color:var(--orange);">← índice com gradiente Fred</div>
+      </div>
+      <!-- Card minimal -->
+      <div style="background:var(--black-2);border-left:2px solid transparent;padding:28px 24px;display:flex;flex-direction:column;opacity:0.6;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--t4);letter-spacing:0.06em;">04</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 9px;">Operação</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:16px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:8px;letter-spacing:-0.01em;">Automações</div>
+        <div style="font-size:0.8125rem;color:var(--t3);line-height:1.6;flex:1;">CRM + notificações + follow-up automático. Lead respondido em &lt; 5min.</div>
+        <div style="height:1px;background:var(--b1);margin:16px 0;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">Resposta <span style="color:var(--t2);">&lt; 5 min</span></div>
+        <div style="margin-top:10px;font-size:10px;color:var(--t4);">← sem borda (inativo)</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Portfolio card -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Portfolio Card</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;margin-bottom:48px;">
+      <div style="background:var(--black-2);padding:28px 24px;border-left:2px solid transparent;transition:all 0.2s;cursor:pointer;" onmouseenter="this.style.background='var(--black-3)';this.style.borderLeftColor='var(--cyan)';" onmouseleave="this.style.background='var(--black-2)';this.style.borderLeftColor='transparent';">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:var(--t4);letter-spacing:0.08em;">01</span>
+          <span style="font-size:10px;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 8px;">Vet / Pet</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:14px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:-0.01em;">RZ Vet</div>
+        <div style="font-size:12px;color:var(--t3);margin-bottom:16px;">Clínica Veterinária · São Paulo</div>
+        <div style="height:1px;background:var(--b1);margin-bottom:12px;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">→ <span style="color:var(--t2);">3× clientes via orgânico / 90 dias</span></div>
+      </div>
+      <div style="background:var(--black-2);padding:28px 24px;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--black-3)';this.style.borderLeftColor='var(--cyan)';" onmouseleave="this.style.background='var(--black-2)';this.style.borderLeftColor='transparent';">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:var(--t4);letter-spacing:0.08em;">02</span>
+          <span style="font-size:10px;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 8px;">Vet / Pet</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:14px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:-0.01em;">Aumivet</div>
+        <div style="font-size:12px;color:var(--t3);margin-bottom:16px;">Hospital Veterinário · Rio de Janeiro</div>
+        <div style="height:1px;background:var(--b1);margin-bottom:12px;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">→ <span style="color:var(--t2);">Site + SEO indexado em 30 dias</span></div>
+      </div>
+      <div style="background:var(--black-2);padding:28px 24px;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--black-3)';this.style.borderLeftColor='var(--cyan)';" onmouseleave="this.style.background='var(--black-2)';this.style.borderLeftColor='transparent';">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:var(--t4);letter-spacing:0.08em;">03</span>
+          <span style="font-size:10px;color:var(--t4);border:1px solid var(--b1);border-radius:999px;padding:2px 8px;">Vet / Pet</span>
+        </div>
+        <div style="height:1px;background:var(--b1);margin-bottom:14px;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:-0.01em;">Morgan e Ted</div>
+        <div style="font-size:12px;color:var(--t3);margin-bottom:16px;">Pet Shop · Belo Horizonte</div>
+        <div style="height:1px;background:var(--b1);margin-bottom:12px;"></div>
+        <div style="font-size:11px;font-weight:600;color:var(--t4);">→ <span style="color:var(--t2);">+180% tráfego orgânico / 4 meses</span></div>
+      </div>
+    </div>
+
+    <!-- Row 3: Stat cards -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--orange);"></span>Stat Card — métricas com gradiente Fred</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;">
+      <div style="background:var(--black-2);padding:28px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;">5+</div>
+        <div style="font-size:12px;color:var(--t3);">Clientes ativos</div>
+      </div>
+      <div style="background:var(--black-2);padding:28px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;">3×</div>
+        <div style="font-size:12px;color:var(--t3);">Aumento médio de leads</div>
+      </div>
+      <div style="background:var(--black-2);padding:28px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;">48h</div>
+        <div style="font-size:12px;color:var(--t3);">Retorno do diagnóstico</div>
+      </div>
+      <div style="background:var(--black-2);padding:28px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;">&lt;5'</div>
+        <div style="font-size:12px;color:var(--t3);">Resposta ao lead</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÕES -->
+  <div>
+    <div style="display:flex;align-items:baseline;gap:20px;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--b1);">
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);">§ 02</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Botões</h2>
+      <span style="font-size:13px;color:var(--t3);">Sistema com 4 variantes — contenção como regra, gradiente como exceção</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;">
+
+      <!-- Primary -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--orange);"></span>Primary — gradiente Fred</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px;">
+          <button style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border-radius:6px;border:none;background:linear-gradient(135deg,#ff6b35,#ff1744);color:white;cursor:pointer;letter-spacing:0.01em;">Quero meu Diagnóstico Digital</button>
+          <button style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:12px 24px;border-radius:6px;border:none;background:linear-gradient(135deg,#ff6b35,#ff1744);color:white;cursor:pointer;">Diagnóstico →</button>
+          <button style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:6px;border:none;background:linear-gradient(135deg,#ff6b35,#ff1744);color:white;cursor:pointer;">Diagnóstico</button>
+        </div>
+        <p style="font-size:12px;color:var(--t3);line-height:1.6;">Uso: CTA principal da página. Máximo 1 por viewport. Sem glow default — apenas no hover com <code style="font-size:11px;">box-shadow: 0 0 32px rgba(255,107,53,0.3)</code>.</p>
+      </div>
+
+      <!-- Ghost -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--b3);"></span>Ghost — borda sutil</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px;">
+          <button style="font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:13px 22px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:rgba(255,255,255,0.60);cursor:pointer;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.92)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.60)';">Ver portfólio</button>
+          <button style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:8px 18px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:rgba(255,255,255,0.60);cursor:pointer;" onmouseenter="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.92)';" onmouseleave="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.60)';">Serviços</button>
+        </div>
+        <p style="font-size:12px;color:var(--t3);line-height:1.6;">Uso: ações secundárias, nav links, "Ver portfólio". Border <code style="font-size:11px;">rgba(255,255,255,0.12)</code> no default. Sem background fill — só borda fica mais visível no hover.</p>
+      </div>
+
+      <!-- Cyan outline -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--cyan);"></span>Cyan outline — identidade</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px;">
+          <button style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:8px 18px;border-radius:6px;border:1px solid rgba(0,188,212,0.3);background:rgba(0,188,212,0.05);color:rgba(0,188,212,1);cursor:pointer;" onmouseenter="this.style.background='rgba(0,188,212,0.10)';this.style.borderColor='rgba(0,188,212,0.5)';" onmouseleave="this.style.background='rgba(0,188,212,0.05)';this.style.borderColor='rgba(0,188,212,0.3)';">Diagnóstico</button>
+          <button style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:8px 18px;border-radius:6px;border:1px solid rgba(0,188,212,0.3);background:transparent;color:rgba(255,255,255,0.60);cursor:pointer;" onmouseenter="this.style.borderColor='rgba(0,188,212,0.4)';this.style.color='rgba(0,188,212,1)';" onmouseleave="this.style.borderColor='rgba(0,188,212,0.3)';this.style.color='rgba(255,255,255,0.60)';">Saiba mais</button>
+        </div>
+        <p style="font-size:12px;color:var(--t3);line-height:1.6;">Uso: nav CTA (sutil), botões de ação secundária com identidade de marca. Aplicado com parcimônia — cyan como acento, não como cor de fundo.</p>
+      </div>
+
+      <!-- Text link / ghost -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--b3);"></span>Text + link — inline actions</div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin-bottom:20px;">
+          <span style="font-size:14px;color:rgba(255,255,255,0.35);cursor:pointer;display:flex;align-items:center;gap:6px;" onmouseenter="this.style.color='rgba(255,255,255,0.60)';" onmouseleave="this.style.color='rgba(255,255,255,0.35)';">Ver portfólio →</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.35);cursor:pointer;" onmouseenter="this.style.color='rgba(255,255,255,0.60)';" onmouseleave="this.style.color='rgba(255,255,255,0.35)';">← Voltar</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.35);cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.15);" onmouseenter="this.style.color='rgba(255,255,255,0.60)';" onmouseleave="this.style.color='rgba(255,255,255,0.35)';">Saiba mais</span>
+          <span style="font-size:13px;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer;font-weight:600;">Fale agora →</span>
+        </div>
+        <p style="font-size:12px;color:var(--t3);line-height:1.6;">Uso: ações terciárias, links de navegação in-page, pós-submit WhatsApp link. "Fale agora →" em gradiente Fred — único texto colorido da página.</p>
+      </div>
+
+      <!-- Disabled + loading -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--b2);"></span>Disabled + Loading states</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:20px;">
+          <button disabled style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:6px;border:none;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);cursor:not-allowed;">Solicitar Diagnóstico</button>
+          <button style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:6px;border:none;background:linear-gradient(135deg,#ff6b35,#ff1744);color:white;cursor:wait;opacity:0.7;display:flex;align-items:center;gap:10px;">
+            <span style="width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);border-top-color:white;display:inline-block;animation:spin 0.8s linear infinite;"></span>
+            Enviando...
+          </button>
+        </div>
+        <p style="font-size:12px;color:var(--t3);line-height:1.6;">Disabled: background quase invisível, texto <code style="font-size:11px;">0.25</code> de opacidade. Loading: spinner + texto — sem skeleton, sem barra de progresso no botão.</p>
+      </div>
+
+      <!-- Form step next button -->
+      <div style="background:var(--black-2);padding:36px 32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:4px;height:4px;border-radius:50%;background:var(--orange);"></span>Modal — botões do form</div>
+        <div style="background:var(--black-3);border:1px solid var(--b1);border-radius:8px;padding:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;">← Voltar</span>
+            <div style="display:flex;gap:8px;">
+              <button style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 20px;background:linear-gradient(135deg,#ff6b35,#ff1744);border:none;border-radius:6px;color:white;cursor:pointer;">Próximo →</button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;background:var(--black-3);border:1px solid var(--b1);border-radius:8px;padding:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;">← Voltar</span>
+            <button style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:11px 24px;background:linear-gradient(135deg,#ff6b35,#ff1744);border:none;border-radius:6px;color:white;cursor:pointer;">Solicitar Diagnóstico</button>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--t3);margin-top:16px;line-height:1.6;">Step 1–3: "Próximo →" menor. Step 4: "Solicitar Diagnóstico" — maior, mais peso. Ambos com gradiente Fred.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     GSAP ANIMATIONS SHOWCASE
+════════════════════════════════════════ -->
+<div class="direction" id="gsap-showcase">
+<div style="background:var(--black);min-height:calc(100vh - 52px);padding:64px 48px;">
+
+  <div style="margin-bottom:56px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:20px;height:1px;background:var(--b2);"></span>Interatividade</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Micro-interações — demonstrações ao vivo</h2>
+    <p style="font-size:14px;color:var(--t2);margin-top:8px;max-width:640px;line-height:1.65;">GSAP 3 + ScrollTrigger. Cada demo é o código real que vai para produção. Fred SVG com paths nomeados será substituído quando o vetor estiver disponível — slots marcados com <code style="font-size:12px;color:var(--cyan);">// TODO: real SVG paths</code>.</p>
+  </div>
+
+  <!-- legend -->
+  <div style="display:flex;gap:20px;margin-bottom:24px;flex-wrap:wrap;">
+    <span style="font-size:11px;color:var(--t4);display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--cyan);display:inline-block;"></span>Entrada / mount</span>
+    <span style="font-size:11px;color:var(--t4);display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;"></span>Interação contínua</span>
+    <span style="font-size:11px;color:var(--t4);display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);display:inline-block;"></span>Scroll-driven</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--b1);border-radius:8px;overflow:hidden;">
+
+
+    <!-- ── 01 HEADLINE MASK REVEAL ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag cyan">01 — Headline mask reveal</div>
+          <div class="demo-sub">SplitText por linha · clip-path · stagger 0.1s · ease power3.out</div>
+        </div>
+        <button class="play-btn" onclick="demoHeadline()">▶ Play</button>
+      </div>
+      <div class="demo-box" style="flex-direction:column;justify-content:center;padding:40px 36px;gap:0;min-height:200px;">
+        <div style="overflow:hidden;line-height:1.05;"><div id="hl1" class="hl-word">Seu negócio,</div></div>
+        <div style="overflow:hidden;line-height:1.05;"><div id="hl2" class="hl-word">visível onde os</div></div>
+        <div style="overflow:hidden;line-height:1.05;"><div id="hl3" class="hl-word"><span id="hl3-inner" style="display:inline-block;background-image:linear-gradient(135deg,#ff6b35,#ff1744);background-repeat:no-repeat;background-position:0 100%;background-size:0% 3px;padding-bottom:3px;">clientes procuram</span></div></div>
+      </div>
+      <div class="code-block">gsap.set([hl1,hl2,hl3], { yPercent: 110 })
+gsap.timeline()
+  .to([hl1,hl2,hl3], {
+    yPercent: 0, stagger: 0.1,
+    duration: 0.65, ease: 'power3.out'
+  })
+  .to(hl3inner, {
+    backgroundSize: '100% 3px',
+    duration: 0.45, ease: 'power2.out'
+  }, '-=0.2')</div>
+    </div>
+
+    <!-- ── 02 CARD BORDER DRAW-IN ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag cyan">02 — Card border draw-in</div>
+          <div class="demo-sub">scaleY 0→1 · transform-origin bottom · stagger 0.07s</div>
+        </div>
+        <button class="play-btn" onclick="demoBorderDraw()">▶ Play</button>
+      </div>
+      <div class="demo-box" style="gap:8px;padding:28px;">
+        <div class="bd-card" id="bdc1"><div class="bd-bar" id="bdb1"></div><div class="bd-idx">01</div><div class="bd-div"></div><div class="bd-title">Site de Conversão</div><div class="bd-body">LCP &lt; 2.5s mobile</div></div>
+        <div class="bd-card" id="bdc2"><div class="bd-bar" id="bdb2"></div><div class="bd-idx">02</div><div class="bd-div"></div><div class="bd-title">SEO + AIO</div><div class="bd-body">GEO-ready desde dia 1</div></div>
+        <div class="bd-card" id="bdc3"><div class="bd-bar" id="bdb3"></div><div class="bd-idx">03</div><div class="bd-div"></div><div class="bd-title">Tráfego Pago</div><div class="bd-body">ROAS médio 3.4×</div></div>
+        <div class="bd-card" id="bdc4"><div class="bd-bar" id="bdb4"></div><div class="bd-idx">04</div><div class="bd-div"></div><div class="bd-title">Automações</div><div class="bd-body">Lead em &lt; 5 min</div></div>
+      </div>
+      <div class="code-block">// Cards entram com opacity; borda desenha de baixo
+gsap.set('.bd-bar', { scaleY: 0, transformOrigin: 'bottom' })
+gsap.set('.bd-card', { opacity: 0, y: 20 })
+gsap.timeline()
+  .to('.bd-card', {
+    opacity: 1, y: 0,
+    stagger: 0.07, duration: 0.45, ease: 'power2.out'
+  })
+  .to('.bd-bar', {
+    scaleY: 1, stagger: 0.07,
+    duration: 0.35, ease: 'power2.out'
+  }, '-=0.3')</div>
+    </div>
+
+    <!-- ── 03 STATS COUNTER ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag white">03 — Stats counter (scroll-driven)</div>
+          <div class="demo-sub">gsap.to · snap(1) · ScrollTrigger onEnter · ease power2.out</div>
+        </div>
+        <button class="play-btn" onclick="demoCounter()">▶ Play</button>
+      </div>
+      <div class="demo-box" style="gap:1px;padding:0;overflow:hidden;border-radius:8px;">
+        <div class="stat-cell"><div class="stat-val" id="sv1">0</div><div class="stat-lbl">clientes ativos</div></div>
+        <div class="stat-cell"><div class="stat-val" id="sv2" style="font-size:1.75rem;">0×</div><div class="stat-lbl">aumento de leads</div></div>
+        <div class="stat-cell"><div class="stat-val" id="sv3">0h</div><div class="stat-lbl">retorno diagnóstico</div></div>
+        <div class="stat-cell"><div class="stat-val" id="sv4" style="font-size:1.5rem;">&lt;0'</div><div class="stat-lbl">resposta ao lead</div></div>
+      </div>
+      <div class="code-block">// Counters disparam quando seção entra na viewport
+const targets = [
+  { el: '#sv1', from: 0, to: 5, suffix: '+' },
+  { el: '#sv2', from: 0, to: 3, suffix: '×' },
+  { el: '#sv3', from: 0, to: 48, suffix: 'h' },
+  { el: '#sv4', from: 0, to: 5, prefix: '&lt;', suffix: "'" }
+]
+targets.forEach(t => {
+  gsap.fromTo({ val: t.from },
+    { val: t.from },
+    { val: t.to, duration: 1.2,
+      ease: 'power2.out', snap: { val: 1 },
+      onUpdate() { el.textContent = prefix + Math.round(this.targets()[0].val) + suffix }
+    })
+})</div>
+    </div>
+
+    <!-- ── 04 MOUSE GRADIENT TRACKER ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag orange">04 — Mouse gradient tracker</div>
+          <div class="demo-sub">gsap.quickTo · radial-gradient · duration 0.8 · ease power3.out</div>
+        </div>
+        <span style="font-size:11px;color:var(--t4);padding:5px 10px;border:1px solid var(--b1);border-radius:4px;">Mova o mouse</span>
+      </div>
+      <div class="demo-box" id="mouse-track-box" style="min-height:200px;position:relative;overflow:hidden;cursor:crosshair;" onmousemove="trackMouse(event)">
+        <div id="mouse-glow" style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,188,212,0.07) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);left:50%;top:50%;transition:none;"></div>
+        <div style="position:relative;z-index:2;text-align:center;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Arquitetura Digital</div>
+          <div style="font-size:13px;color:var(--t3);margin-top:6px;">Mova o mouse sobre o painel</div>
+        </div>
+      </div>
+      <div class="code-block">// gsap.quickTo para performance máxima (sem re-render layout)
+const xTo = gsap.quickTo('#glow', 'x', { duration: 0.8, ease: 'power3.out' })
+const yTo = gsap.quickTo('#glow', 'y', { duration: 0.8, ease: 'power3.out' })
+
+panel.addEventListener('mousemove', e => {
+  const r = panel.getBoundingClientRect()
+  xTo(e.clientX - r.left)
+  yTo(e.clientY - r.top)
+})</div>
+    </div>
+
+    <!-- ── 05 MAGNETIC BUTTON ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag orange">05 — Magnetic CTA</div>
+          <div class="demo-sub">mousemove → gsap.to x/y ±10px · mouseLeave → elastic back</div>
+        </div>
+        <span style="font-size:11px;color:var(--t4);padding:5px 10px;border:1px solid var(--b1);border-radius:4px;">Mova o mouse</span>
+      </div>
+      <div class="demo-box" style="min-height:160px;justify-content:center;gap:24px;">
+        <div style="position:relative;display:inline-block;" id="mag-wrap" onmousemove="magnetMove(event)" onmouseleave="magnetLeave()">
+          <button id="mag-btn" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:16px 32px;background:linear-gradient(135deg,#ff6b35,#ff1744);border:none;border-radius:6px;color:white;cursor:pointer;display:block;position:relative;will-change:transform;">Quero meu Diagnóstico Digital</button>
+        </div>
+        <div style="position:relative;display:inline-block;" id="mag-ghost-wrap" onmousemove="magnetGhostMove(event)" onmouseleave="magnetGhostLeave()">
+          <button id="mag-ghost" style="font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:13px 24px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;background:transparent;color:rgba(255,255,255,0.60);cursor:pointer;display:block;position:relative;will-change:transform;">Ver portfólio</button>
+        </div>
+      </div>
+      <div class="code-block">el.addEventListener('mousemove', e => {
+  const r = el.getBoundingClientRect()
+  const x = (e.clientX - r.left - r.width / 2) * 0.35
+  const y = (e.clientY - r.top - r.height / 2) * 0.35
+  gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' })
+})
+el.addEventListener('mouseleave', () => {
+  gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' })
+})</div>
+    </div>
+
+    <!-- ── 06 FORM STEP TRANSITION ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag cyan">06 — Form step transition</div>
+          <div class="demo-sub">exit x:-100% → enter x:+100% → center · 0.35s · power2.inOut</div>
+        </div>
+        <button class="play-btn" onclick="demoFormStep()">▶ Avançar step</button>
+      </div>
+      <div class="demo-box" style="min-height:220px;padding:0;overflow:hidden;position:relative;border-radius:8px;">
+        <!-- Progress bar -->
+        <div style="padding:16px 20px 0;background:var(--black-3);position:relative;z-index:2;">
+          <div style="display:flex;gap:5px;margin-bottom:12px;">
+            <div id="fsp1" style="flex:1;height:2px;border-radius:2px;background:var(--cyan);transition:background 0.3s;"></div>
+            <div id="fsp2" style="flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,0.1);transition:background 0.3s;"></div>
+            <div id="fsp3" style="flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,0.1);transition:background 0.3s;"></div>
+            <div id="fsp4" style="flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,0.1);transition:background 0.3s;"></div>
+          </div>
+        </div>
+        <div style="position:relative;overflow:hidden;background:var(--black-3);">
+          <!-- Step 1 -->
+          <div id="fs-step1" class="form-step">
+            <div class="fs-label">Step 1 de 4</div>
+            <div class="fs-q">Qual é o seu tipo de negócio?</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+              <div class="fs-card sel">⚖️<span>Advocacia</span></div>
+              <div class="fs-card">🏥<span>Saúde</span></div>
+              <div class="fs-card">🦷<span>Consultório</span></div>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div id="fs-step2" class="form-step" style="position:absolute;top:0;left:0;width:100%;transform:translateX(100%);">
+            <div class="fs-label">Step 2 de 4</div>
+            <div class="fs-q">Qual é o seu maior desafio digital?</div>
+            <textarea class="fs-textarea" placeholder="Ex: apareço pouco no Google e não sei como mudar isso..."></textarea>
+          </div>
+          <!-- Step 3 -->
+          <div id="fs-step3" class="form-step" style="position:absolute;top:0;left:0;width:100%;transform:translateX(100%);">
+            <div class="fs-label">Step 3 de 4</div>
+            <div class="fs-q">Como você se chama?</div>
+            <input class="fs-input" placeholder="Seu nome" style="margin-bottom:8px;">
+            <input class="fs-input" placeholder="Nome do negócio">
+          </div>
+          <!-- Step 4 -->
+          <div id="fs-step4" class="form-step" style="position:absolute;top:0;left:0;width:100%;transform:translateX(100%);">
+            <div class="fs-label">Step 4 de 4</div>
+            <div class="fs-q">Como envio o diagnóstico?</div>
+            <input class="fs-input" placeholder="WhatsApp (obrigatório)" style="margin-bottom:8px;">
+            <input class="fs-input" placeholder="Email (opcional)">
+          </div>
+        </div>
+        <div style="padding:12px 20px;background:var(--black-3);border-top:1px solid var(--b1);display:flex;justify-content:space-between;align-items:center;">
+          <span id="fs-back" style="font-size:12px;color:var(--t4);cursor:pointer;opacity:0;" onclick="demoFormBack()">← Voltar</span>
+          <button class="play-btn" style="font-size:12px;padding:8px 18px;" onclick="demoFormStep()">Próximo →</button>
+        </div>
+      </div>
+      <div class="code-block">function advance(current, next) {
+  gsap.timeline()
+    .to(current, { x: '-100%', opacity: 0,
+      duration: 0.3, ease: 'power2.inOut' })
+    .fromTo(next,
+      { x: '100%', opacity: 0 },
+      { x: '0%', opacity: 1,
+        duration: 0.35, ease: 'power2.out' },
+      '-=0.15'
+    )
+}</div>
+    </div>
+
+    <!-- ── 07 SECTION DIVIDER DRAW ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag white">07 — Section divider draw</div>
+          <div class="demo-sub">SVG &lt;line&gt; · stroke-dashoffset · ScrollTrigger · 0.6s</div>
+        </div>
+        <button class="play-btn" onclick="demoDivider()">▶ Play</button>
+      </div>
+      <div class="demo-box" style="flex-direction:column;gap:28px;padding:36px;">
+        <div style="text-align:center;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);">Serviços</div>
+        </div>
+        <svg id="divider-svg" width="100%" height="1" viewBox="0 0 400 1" preserveAspectRatio="none" style="overflow:visible;">
+          <line id="div-line" x1="0" y1="0.5" x2="400" y2="0.5" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="400" stroke-dashoffset="400"/>
+          <!-- Dot that travels along the line -->
+          <circle id="div-dot" cx="0" cy="0.5" r="3" fill="#00bcd4" opacity="0"/>
+        </svg>
+        <div style="text-align:center;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);">Portfólio</div>
+        </div>
+        <svg id="divider-svg2" width="100%" height="1" viewBox="0 0 400 1" preserveAspectRatio="none" style="overflow:visible;">
+          <line id="div-line2" x1="0" y1="0.5" x2="400" y2="0.5" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="400" stroke-dashoffset="400"/>
+          <circle id="div-dot2" cx="0" cy="0.5" r="3" fill="#ff6b35" opacity="0"/>
+        </svg>
+      </div>
+      <div class="code-block">// Dot viaja enquanto linha se desenha
+gsap.timeline({
+  scrollTrigger: { trigger: divider, start: 'top 85%' }
+})
+  .fromTo('#dot', { cx: 0, opacity: 1 }, { cx: 400, duration: 0.6 }, 0)
+  .to('#line', { strokeDashoffset: 0, duration: 0.6 }, 0)
+  .to('#dot', { opacity: 0, duration: 0.15 }, 0.5)</div>
+    </div>
+
+    <!-- ── 08 WHATSAPP FLOAT — FRED ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag orange">08 — WhatsApp float com Fred</div>
+          <div class="demo-sub">back.out(2) no hover · tooltip reveal · entrance bounce</div>
+        </div>
+        <button class="play-btn" onclick="demoFloat()">▶ Entrada</button>
+      </div>
+      <div class="demo-box" style="min-height:180px;position:relative;">
+        <div style="font-size:12px;color:var(--t3);text-align:center;">Mova o mouse sobre o botão →</div>
+        <!-- Float button -->
+        <div id="wa-float" style="position:absolute;bottom:20px;right:20px;display:flex;align-items:center;gap:0;cursor:pointer;opacity:0;" onmouseenter="floatHover(true)" onmouseleave="floatHover(false)">
+          <!-- Tooltip -->
+          <div id="wa-tooltip" style="background:var(--black-3);border:1px solid var(--b1);border-radius:6px;padding:8px 14px;margin-right:10px;white-space:nowrap;font-size:12px;font-weight:600;color:var(--t2);opacity:0;transform:translateX(8px);">Fala comigo agora →</div>
+          <!-- Fred button -->
+          <div id="wa-btn" style="width:52px;height:52px;background:var(--black-3);border:1px solid var(--b2);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+            <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="34" height="34" style="object-fit:contain;" alt="Fred">
+          </div>
+        </div>
+      </div>
+      <div class="code-block">// Entrada: sobe com bounce
+gsap.fromTo('#wa-float',
+  { y: 20, opacity: 0 },
+  { y: 0, opacity: 1, delay: 1.5,
+    duration: 0.5, ease: 'back.out(2)' }
+)
+// Hover: Fred sobe
+el.addEventListener('mouseenter', () => {
+  gsap.to('#wa-btn', { y: -4, duration: 0.25, ease: 'back.out(2)' })
+  gsap.to('#tooltip', { opacity: 1, x: 0, duration: 0.2 })
+})</div>
+    </div>
+
+    <!-- ── 09 PARALLAX HERO TEXT ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag white">09 — Parallax hero (scroll)</div>
+          <div class="demo-sub">useScroll + useTransform · bg word 0.08× · headline 0.25× · Framer Motion</div>
+        </div>
+        <span style="font-size:11px;color:var(--t4);padding:5px 10px;border:1px solid var(--b1);border-radius:4px;">Role a página</span>
+      </div>
+      <div class="demo-box" id="parallax-box" style="min-height:200px;overflow:hidden;position:relative;" onscroll="parallaxScroll()">
+        <!-- BG word -->
+        <div id="par-bg" style="position:absolute;font-family:'Space Grotesk',sans-serif;font-size:5rem;font-weight:800;color:rgba(255,255,255,0.02);letter-spacing:-0.04em;top:50%;left:50%;transform:translate(-50%,-50%) translateY(0px);user-select:none;white-space:nowrap;pointer-events:none;">DIGITAL</div>
+        <!-- Headline -->
+        <div id="par-hl" style="position:relative;z-index:2;text-align:center;transform:translateY(0px);">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">Seu negócio,</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;color:var(--t1);">visível onde os</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;"><span style="background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">clientes procuram</span></div>
+        </div>
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--t4);">↕ scroll dentro da caixa</div>
+      </div>
+      <div class="code-block">// Framer Motion — zero bundle extra vs ScrollTrigger
+const { scrollYProgress } = useScroll({ target: heroRef })
+const bgY = useTransform(scrollYProgress, [0,1], ['0%', '8%'])
+const hlY = useTransform(scrollYProgress, [0,1], ['0%', '25%'])
+
+// JSX
+&lt;motion.div style={{ y: bgY }}&gt;DIGITAL&lt;/motion.div&gt;
+&lt;motion.div style={{ y: hlY }}&gt;{headline}&lt;/motion.div&gt;</div>
+    </div>
+
+    <!-- ── 10 FRED NAV WINK ── -->
+    <div style="background:var(--black-2);padding:36px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="demo-tag cyan">10 — Fred nav wink</div>
+          <div class="demo-sub">hover na nav logo · lente gradiente pisca com opacity · 0.2s</div>
+        </div>
+        <span style="font-size:11px;color:var(--t4);padding:5px 10px;border:1px solid var(--b1);border-radius:4px;">Hover no logo</span>
+      </div>
+      <div class="demo-box" style="min-height:160px;flex-direction:column;gap:20px;">
+        <!-- Nav mockup -->
+        <div style="width:100%;background:var(--black-3);border:1px solid var(--b1);border-radius:8px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <!-- Logo com efeito -->
+          <div id="nav-logo-wrap" style="display:flex;align-items:center;gap:10px;cursor:pointer;position:relative;" onmouseenter="fredWink()" onmouseleave="fredWinkOut()">
+            <div style="position:relative;width:28px;height:28px;">
+              <img src="../../public/images/logo_digital_dog-removebg-preview.png" width="28" height="28" style="object-fit:contain;" alt="Fred">
+              <!-- Glasses overlay que pisca -->
+              <div id="fred-wink-overlay" style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,53,0.0),rgba(255,23,68,0.0));border-radius:50%;transition:none;pointer-events:none;"></div>
+            </div>
+            <span id="nav-logo-text-wink" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--t1);letter-spacing:-0.01em;">Digital Dog</span>
+          </div>
+          <div style="display:flex;gap:24px;align-items:center;">
+            <span style="font-size:13px;color:var(--t3);">Serviços</span>
+            <span style="font-size:13px;color:var(--t3);">Portfólio</span>
+            <button style="font-size:12px;font-weight:500;padding:7px 16px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;">Diagnóstico</button>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--t3);text-align:center;line-height:1.6;">No hover do logo, a imagem escala levemente (1.08×) e um overlay cria o "brilho" das lentes, sugerindo o piscar do Fred.</p>
+      </div>
+      <div class="code-block">logo.addEventListener('mouseenter', () => {
+  gsap.to('#fred-img', { scale: 1.08, duration: 0.2,
+    ease: 'back.out(2)' })
+  // Lens glow pulse (simula wink)
+  gsap.timeline()
+    .to('#lens-overlay', { opacity: 0.6, duration: 0.08 })
+    .to('#lens-overlay', { opacity: 0, duration: 0.12 })
+    .to('#lens-overlay', { opacity: 0.4, duration: 0.08 })
+    .to('#lens-overlay', { opacity: 0, duration: 0.15 })
+})
+logo.addEventListener('mouseleave', () => {
+  gsap.to('#fred-img', { scale: 1, duration: 0.3,
+    ease: 'power2.out' })
+})</div>
+    </div>
+
+  </div><!-- end grid -->
+</div>
+</div><!-- end gsap-showcase -->
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Demo shared */
+.demo-tag { font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;display:flex;align-items:center;gap:7px; }
+.demo-tag::before { content:''; display:block; width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+.demo-tag.cyan { color:var(--cyan); } .demo-tag.cyan::before { background:var(--cyan); }
+.demo-tag.orange { color:var(--orange); } .demo-tag.orange::before { background:var(--orange); }
+.demo-tag.white { color:rgba(255,255,255,0.45); } .demo-tag.white::before { background:rgba(255,255,255,0.2); }
+.demo-sub { font-size:11px; color:var(--t3); }
+.play-btn { font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:7px 16px;background:linear-gradient(135deg,#ff6b35,#ff1744);border:none;border-radius:5px;color:white;cursor:pointer;white-space:nowrap;flex-shrink:0; }
+.demo-box { background:var(--black-3);border:1px solid var(--b1);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:28px;gap:8px; }
+.code-block { background:#0a0a0a;border:1px solid var(--b1);border-radius:6px;padding:14px 16px;font-size:10.5px;color:var(--t3);line-height:1.75;white-space:pre;overflow-x:auto;font-family:'Courier New',monospace; }
+
+/* Headline */
+.hl-word { font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;color:var(--t1);line-height:1.05;display:block; }
+
+/* Border draw cards */
+.bd-card { background:var(--black);position:relative;border:1px solid var(--b1);border-radius:4px;padding:16px 14px;flex:1;min-width:0; }
+.bd-bar { position:absolute;top:0;left:0;width:2px;height:100%;background:var(--cyan);transform-origin:bottom;transform:scaleY(0);border-radius:1px; }
+.bd-idx { font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:0.06em;margin-bottom:8px; }
+.bd-div { height:1px;background:var(--b1);margin-bottom:8px; }
+.bd-title { font-size:12px;font-weight:700;color:var(--t1);margin-bottom:3px; }
+.bd-body { font-size:10px;color:var(--t4); }
+
+/* Stats */
+.stat-cell { background:var(--black-2);padding:20px;flex:1;border-right:1px solid var(--b1);text-align:center; }
+.stat-cell:last-child { border-right:none; }
+.stat-val { font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#ff6b35,#ff1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px; }
+.stat-lbl { font-size:10px;color:var(--t4);letter-spacing:0.04em; }
+
+/* Form step */
+.form-step { padding:20px;min-height:160px; }
+.fs-label { font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--t4);margin-bottom:6px; }
+.fs-q { font-family:'Space Grotesk',sans-serif;font-size:0.9375rem;font-weight:700;color:var(--t1);margin-bottom:14px;letter-spacing:-0.01em; }
+.fs-card { background:var(--black);border:1px solid var(--b1);border-radius:6px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;font-size:18px; }
+.fs-card span { font-size:10px;font-weight:600;color:var(--t3); }
+.fs-card.sel { border-color:var(--cyan);background:rgba(0,188,212,0.06); }
+.fs-textarea { width:100%;background:var(--black);border:1px solid var(--b1);border-radius:6px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--t2);resize:none;height:72px;outline:none; }
+.fs-textarea:focus { border-color:rgba(0,188,212,0.4); }
+.fs-input { width:100%;background:var(--black);border:1px solid var(--b1);border-radius:6px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--t2);outline:none;display:block; }
+.fs-input:focus { border-color:rgba(0,188,212,0.4); }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.direction').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.dir-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+function initGSAP() {}
+
+/* ── 01 Headline mask reveal ── */
+function demoHeadline() {
+  const hl1 = document.getElementById('hl1');
+  const hl2 = document.getElementById('hl2');
+  const hl3 = document.getElementById('hl3');
+  const u   = document.getElementById('hl3-inner');
+  gsap.set([hl1,hl2,hl3], { yPercent: 110 });
+  gsap.set(u, { backgroundSize: '0% 3px' });
+  gsap.timeline()
+    .to([hl1,hl2,hl3], { yPercent: 0, stagger: 0.1, duration: 0.65, ease: 'power3.out' })
+    .to(u, { backgroundSize: '100% 3px', duration: 0.45, ease: 'power2.out' }, '-=0.2');
+}
+
+/* ── 02 Card border draw-in ── */
+function demoBorderDraw() {
+  const cards = ['bdc1','bdc2','bdc3','bdc4'].map(id => document.getElementById(id));
+  const bars  = ['bdb1','bdb2','bdb3','bdb4'].map(id => document.getElementById(id));
+  gsap.set(cards, { opacity: 0, y: 20 });
+  gsap.set(bars, { scaleY: 0, transformOrigin: 'bottom' });
+  gsap.timeline()
+    .to(cards, { opacity: 1, y: 0, stagger: 0.07, duration: 0.45, ease: 'power2.out' })
+    .to(bars,  { scaleY: 1, stagger: 0.07, duration: 0.3, ease: 'power2.out' }, '-=0.3');
+}
+
+/* ── 03 Stats counter ── */
+function demoCounter() {
+  const targets = [
+    { id: 'sv1', from: 0, to: 5, suffix: '+' },
+    { id: 'sv2', from: 0, to: 3, suffix: '×', size: '1.75rem' },
+    { id: 'sv3', from: 0, to: 48, suffix: 'h' },
+    { id: 'sv4', from: 0, to: 5, prefix: '<', suffix: "'", size: '1.5rem' }
+  ];
+  targets.forEach(t => {
+    const el = document.getElementById(t.id);
+    const obj = { val: t.from };
+    gsap.to(obj, {
+      val: t.to, duration: 1.2, ease: 'power2.out',
+      onUpdate() {
+        const v = Math.round(obj.val);
+        el.textContent = (t.prefix || '') + v + t.suffix;
+      }
+    });
+  });
+}
+
+/* ── 04 Mouse gradient tracker ── */
+const glowEl = document.getElementById('mouse-glow');
+let xTo, yTo;
+function ensureQuickTo() {
+  if (!xTo && glowEl) {
+    xTo = gsap.quickTo(glowEl, 'x', { duration: 0.8, ease: 'power3.out' });
+    yTo = gsap.quickTo(glowEl, 'y', { duration: 0.8, ease: 'power3.out' });
+  }
+}
+function trackMouse(e) {
+  ensureQuickTo();
+  if (!xTo) return;
+  const box = document.getElementById('mouse-track-box');
+  const r = box.getBoundingClientRect();
+  const cx = r.width / 2, cy = r.height / 2;
+  xTo(e.clientX - r.left - cx);
+  yTo(e.clientY - r.top - cy);
+}
+
+/* ── 05 Magnetic buttons ── */
+function makeMagnetic(wrapId, btnId) {
+  const wrap = document.getElementById(wrapId);
+  const btn  = document.getElementById(btnId);
+  if (!wrap || !btn) return;
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width / 2) * 0.35;
+    const y = (e.clientY - r.top  - r.height / 2) * 0.35;
+    gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
+  });
+  wrap.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
+  });
+}
+makeMagnetic('mag-wrap', 'mag-btn');
+makeMagnetic('mag-ghost-wrap', 'mag-ghost');
+// Keep old function names to avoid errors
+function magnetMove(){}
+function magnetLeave(){}
+function magnetGhostMove(){}
+function magnetGhostLeave(){}
+
+/* ── 06 Form step transition ── */
+let currentStep = 1;
+const totalSteps = 4;
+
+function updateProgressBar(step) {
+  for (let i = 1; i <= totalSteps; i++) {
+    const el = document.getElementById('fsp' + i);
+    if (!el) continue;
+    el.style.background = i <= step ? 'var(--cyan)' : 'rgba(255,255,255,0.1)';
+  }
+}
+
+function demoFormStep() {
+  if (currentStep >= totalSteps) { currentStep = 0; resetForm(); return; }
+  const cur  = document.getElementById('fs-step' + currentStep);
+  const next = document.getElementById('fs-step' + (currentStep + 1));
+  if (!cur || !next) return;
+  gsap.timeline()
+    .to(cur,  { x: '-100%', opacity: 0, duration: 0.3, ease: 'power2.inOut' })
+    .fromTo(next, { x: '100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.15');
+  currentStep++;
+  updateProgressBar(currentStep);
+  const back = document.getElementById('fs-back');
+  if (back) back.style.opacity = currentStep > 1 ? '1' : '0';
+}
+
+function demoFormBack() {
+  if (currentStep <= 1) return;
+  const cur  = document.getElementById('fs-step' + currentStep);
+  const prev = document.getElementById('fs-step' + (currentStep - 1));
+  if (!cur || !prev) return;
+  gsap.timeline()
+    .to(cur,  { x: '100%', opacity: 0, duration: 0.3, ease: 'power2.inOut' })
+    .fromTo(prev, { x: '-100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.15');
+  currentStep--;
+  updateProgressBar(currentStep);
+  const back = document.getElementById('fs-back');
+  if (back) back.style.opacity = currentStep > 1 ? '1' : '0';
+}
+
+function resetForm() {
+  currentStep = 1;
+  updateProgressBar(1);
+  for (let i = 1; i <= totalSteps; i++) {
+    const el = document.getElementById('fs-step' + i);
+    if (el) gsap.set(el, { x: i === 1 ? '0%' : '100%', opacity: i === 1 ? 1 : 0 });
+  }
+  const back = document.getElementById('fs-back');
+  if (back) back.style.opacity = '0';
+}
+
+/* ── 07 Section divider draw ── */
+function demoDivider() {
+  function animLine(lineId, dotId, dotColor) {
+    const line = document.getElementById(lineId);
+    const dot  = document.getElementById(dotId);
+    if (!line || !dot) return;
+    gsap.set(line, { strokeDashoffset: 400 });
+    gsap.set(dot, { cx: 0, opacity: 0 });
+    gsap.timeline()
+      .to(line, { strokeDashoffset: 0, duration: 0.65, ease: 'power2.inOut' }, 0)
+      .to(dot,  { cx: 400, opacity: 1, duration: 0.6, ease: 'power2.inOut' }, 0)
+      .to(dot,  { opacity: 0, duration: 0.15 }, 0.55);
+  }
+  animLine('div-line', 'div-dot', '#00bcd4');
+  setTimeout(() => animLine('div-line2', 'div-dot2', '#ff6b35'), 200);
+}
+
+/* ── 08 WhatsApp float ── */
+function demoFloat() {
+  const el = document.getElementById('wa-float');
+  if (!el) return;
+  gsap.fromTo(el, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'back.out(2)' });
+}
+function floatHover(entering) {
+  const btn     = document.getElementById('wa-btn');
+  const tooltip = document.getElementById('wa-tooltip');
+  if (!btn || !tooltip) return;
+  if (entering) {
+    gsap.to(btn,     { y: -5, scale: 1.08, duration: 0.25, ease: 'back.out(2)' });
+    gsap.to(tooltip, { opacity: 1, x: 0, duration: 0.2, ease: 'power2.out' });
+  } else {
+    gsap.to(btn,     { y: 0, scale: 1, duration: 0.35, ease: 'elastic.out(1, 0.5)' });
+    gsap.to(tooltip, { opacity: 0, x: 8, duration: 0.15 });
+  }
+}
+
+/* ── 09 Parallax (local scroll simulation) ── */
+const parBox = document.getElementById('parallax-box');
+const parBg  = document.getElementById('par-bg');
+const parHl  = document.getElementById('par-hl');
+if (parBox) {
+  parBox.style.overflowY = 'scroll';
+  parBox.style.height = '200px';
+  // Add fake scroll content
+  parBox.insertAdjacentHTML('beforeend', '<div style="height:300px;pointer-events:none;"></div>');
+  parBox.addEventListener('scroll', () => {
+    const s = parBox.scrollTop;
+    if (parBg) gsap.set(parBg, { y: s * 0.08 });
+    if (parHl) gsap.set(parHl, { y: s * -0.25 });
+  });
+}
+
+/* ── 10 Fred wink ── */
+let winkTl = null;
+function fredWink() {
+  const img = document.querySelector('#nav-logo-wrap img');
+  const overlay = document.getElementById('fred-wink-overlay');
+  if (!img) return;
+  gsap.to(img, { scale: 1.1, duration: 0.2, ease: 'back.out(2)' });
+  if (overlay) {
+    if (winkTl) winkTl.kill();
+    winkTl = gsap.timeline()
+      .to(overlay, { background: 'linear-gradient(135deg,rgba(255,107,53,0.35),rgba(255,23,68,0.35))', duration: 0.08 })
+      .to(overlay, { background: 'linear-gradient(135deg,rgba(255,107,53,0.0),rgba(255,23,68,0.0))', duration: 0.12 })
+      .to(overlay, { background: 'linear-gradient(135deg,rgba(255,107,53,0.2),rgba(255,23,68,0.2))', duration: 0.08 })
+      .to(overlay, { background: 'linear-gradient(135deg,rgba(255,107,53,0.0),rgba(255,23,68,0.0))', duration: 0.2 });
+  }
+}
+function fredWinkOut() {
+  const img = document.querySelector('#nav-logo-wrap img');
+  if (!img) return;
+  gsap.to(img, { scale: 1, duration: 0.3, ease: 'power2.out' });
+}
+</script>
+</body>
+</html>

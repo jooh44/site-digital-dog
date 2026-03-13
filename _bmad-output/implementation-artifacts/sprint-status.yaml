@@ -1,0 +1,85 @@
+# generated: 2026-03-11
+# project: digital-dog
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-03-11
+project: digital-dog
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # ─── Epic 1: Fundação — Site Funcional com Identidade Digital Dog ───
+  epic-1: in-progress
+  1-1-setup-tecnico-limpeza-da-base-e-novas-dependencias: done
+  1-2-consentprovider-gerenciamento-de-consentimento-lgpd: review
+  1-3-header-navegacao-global-com-fred: review
+  1-4-footer-rodape-com-link-de-politica-de-privacidade: review
+  1-5-whatsapp-float-botao-de-contato-global: review
+  1-6-metadados-globais-e-open-graph: review
+  epic-1-retrospective: optional
+
+  # ─── Epic 2: Homepage — Jornada Completa de Posicionamento ───
+  epic-2: in-progress
+  2-1-hero-section-proposta-de-valor-acima-da-dobra: review
+  2-2-narrativa-de-posicionamento-pain-points-e-quatro-pilares: review
+  2-3-metodologia-how-it-works-diagrama-de-ecossistema: ready-for-dev
+  2-4-prova-social-cases-depoimentos-e-comparativo: review
+  2-5-portfolio-galeria-de-clientes-com-cms-via-arquivo: review
+  2-6-servicos-faq-e-hub-de-ferramentas: review
+  2-7-cta-final-e-montagem-completa-da-homepage: ready-for-dev
+  epic-2-retrospective: optional
+
+  # ─── Epic 3: Captação — Formulário de Diagnóstico Digital ───
+  epic-3: in-progress
+  3-1-api-route-de-submissao-e-email-de-lead: ready-for-dev
+  3-2-modal-e-formulario-multi-step-steps-1-e-2: ready-for-dev
+  3-3-steps-3-e-4-validacao-em-tempo-real-e-consentimento-lgpd: ready-for-dev
+  3-4-tela-de-sucesso-fred-animado-e-whatsapp-revelado: ready-for-dev
+  epic-3-retrospective: optional
+
+  # ─── Epic 4: Analytics e Rastreamento de Campanhas ───
+  epic-4: in-progress
+  4-1-meta-pixel-pageview-conversao-e-audiencia-de-retargeting: ready-for-dev
+  4-2-ga4-rastreamento-de-origem-e-conversao: ready-for-dev
+  epic-4-retrospective: optional
+
+  # ─── Epic 5: SEO, AIO/GEO, Acessibilidade e Prontidão para Lançamento ───
+  epic-5: in-progress
+  5-1-schema-markup-dados-estruturados-para-seo: ready-for-dev
+  5-2-llms-txt-e-aio-geo-indexacao-por-ias-generativas: ready-for-dev
+  5-3-politica-de-privacidade-pagina-completa-lgpd: ready-for-dev
+  5-4-auditoria-de-acessibilidade-wcag-2-1-aa: ready-for-dev
+  5-5-auditoria-de-performance-e-prontidao-para-lancamento: ready-for-dev
+  epic-5-retrospective: optional
