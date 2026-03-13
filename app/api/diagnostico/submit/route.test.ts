@@ -7,12 +7,11 @@ vi.mock('@/features/diagnostico/services/submitDiagnostico', () => ({
 }))
 
 const validBody = {
-  segmento: 'restaurante',
-  negocio: 'Pizzaria do João',
-  desafio: 'Preciso atrair mais clientes digitalmente com estratégia',
   nome: 'João Silva',
-  email: 'joao@exemplo.com',
-  whatsapp: '(11) 99999-9999',
+  tipoNegocio: 'Pet shop',
+  empresa: 'Pet Shop Araucária',
+  cidade: 'Araucária',
+  whatsapp: '(41) 99999-9999',
   consentimento: true,
 }
 
@@ -46,13 +45,13 @@ describe('POST /api/diagnostico/submit', () => {
 
     expect(sendLeadEmail).toHaveBeenCalledOnce()
     expect(sendLeadEmail).toHaveBeenCalledWith(expect.objectContaining({
-      email: 'joao@exemplo.com',
-      negocio: 'Pizzaria do João',
+      empresa: 'Pet Shop Araucária',
+      cidade: 'Araucária',
     }))
   })
 
-  it('retorna 400 para dados inválidos (email)', async () => {
-    const response = await POST(makeRequest({ ...validBody, email: 'invalido' }))
+  it('retorna 400 para dados inválidos (whatsapp)', async () => {
+    const response = await POST(makeRequest({ ...validBody, whatsapp: 'abc' }))
     const json = await response.json()
 
     expect(response.status).toBe(400)
@@ -86,9 +85,8 @@ describe('POST /api/diagnostico/submit', () => {
     const json = await response.json()
     const body = JSON.stringify(json)
 
-    expect(body).not.toContain('joao@exemplo.com')
     expect(body).not.toContain('João Silva')
-    expect(body).not.toContain('Pizzaria')
+    expect(body).not.toContain('Pet Shop Araucária')
   })
 
   it('não expõe stack trace na resposta de erro 500', async () => {

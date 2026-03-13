@@ -10,12 +10,11 @@ vi.mock('resend', () => ({
 }))
 
 const validData = {
-  segmento: 'restaurante',
-  negocio: 'Pizzaria do João',
-  desafio: 'Preciso atrair mais clientes digitalmente com estratégia',
   nome: 'João Silva',
-  email: 'joao@exemplo.com',
-  whatsapp: '(11) 99999-9999',
+  tipoNegocio: 'Pet shop',
+  empresa: 'Pet Shop do João',
+  cidade: 'Araucária',
+  whatsapp: '(41) 99999-9999',
   consentimento: true as const,
 }
 
@@ -36,8 +35,9 @@ describe('sendLeadEmail', () => {
     const callArg = mockSend.mock.calls[0][0]
     expect(callArg.to).toBe('admin@test.com')
     expect(callArg.from).toBe('noreply@test.com')
-    expect(callArg.subject).toContain('Pizzaria do João')
-    expect(callArg.html).toContain('joao@exemplo.com')
+    expect(callArg.subject).toContain('Pet Shop do João')
+    expect(callArg.subject).toContain('Araucária')
+    expect(callArg.html).toContain('João Silva')
   })
 
   it('resolve sem erro no caminho feliz', async () => {
