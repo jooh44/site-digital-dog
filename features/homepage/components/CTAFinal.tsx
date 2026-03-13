@@ -11,47 +11,25 @@ if (typeof window !== 'undefined') {
 
 export function CTAFinal() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
   const { openModal } = useDiagnosticoModal()
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
 
     const ctx = gsap.context(() => {
-      if (!prefersReduced) {
-        gsap.from('[data-cta-reveal]', {
-          opacity: 0,
-          y: 32,
-          duration: 0.75,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 78%',
-            once: true,
-          },
-        })
-      }
-
-      // Trilhas SVG — stroke-dashoffset draw-in
-      if (!prefersReduced && svgRef.current) {
-        const paths = svgRef.current.querySelectorAll<SVGPathElement>('[data-trail]')
-        paths.forEach((path, i) => {
-          const len = path.getTotalLength()
-          gsap.set(path, { strokeDasharray: len, strokeDashoffset: len })
-          gsap.to(path, {
-            strokeDashoffset: 0,
-            duration: 1.6 + i * 0.15,
-            delay: i * 0.22,
-            ease: 'power2.inOut',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top 80%',
-              once: true,
-            },
-          })
-        })
-      }
+      gsap.from('[data-cta-reveal]', {
+        opacity: 0,
+        y: 32,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 78%',
+          once: true,
+        },
+      })
     }, containerRef)
 
     return () => ctx.revert()
@@ -80,62 +58,6 @@ export function CTAFinal() {
           background: 'linear-gradient(180deg, #0a0a0a 0%, transparent 8%, transparent 92%, #0a0a0a 100%)',
         }}
       />
-
-      {/* Circuit trails — right side, desktop only */}
-      <svg
-        ref={svgRef}
-        viewBox="0 0 400 520"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute right-0 inset-y-0 h-full pointer-events-none hidden lg:block"
-        style={{ width: 'clamp(260px, 30vw, 420px)' }}
-        aria-hidden="true"
-        preserveAspectRatio="xMaxYMid meet"
-      >
-        {/* Trail 1 — cyan, topo */}
-        <path
-          data-trail
-          d="M400,65 L305,65 L305,108 L220,108"
-          stroke="#00bcd4"
-          strokeWidth="0.85"
-          strokeLinecap="square"
-          strokeOpacity="0.38"
-        />
-        <circle cx="220" cy="108" r="2.2" fill="#00bcd4" fillOpacity="0.45" />
-
-        {/* Trail 2 — orange, upper-mid */}
-        <path
-          data-trail
-          d="M400,178 L335,178 L335,220 L248,220 L248,262 L330,262"
-          stroke="#ff6b35"
-          strokeWidth="0.85"
-          strokeLinecap="square"
-          strokeOpacity="0.30"
-        />
-        <circle cx="330" cy="262" r="2.2" fill="#ff6b35" fillOpacity="0.38" />
-
-        {/* Trail 3 — cyan, centro */}
-        <path
-          data-trail
-          d="M400,318 L285,318 L285,358 L358,358 L358,398 L255,398"
-          stroke="#00bcd4"
-          strokeWidth="0.85"
-          strokeLinecap="square"
-          strokeOpacity="0.24"
-        />
-        <circle cx="255" cy="398" r="2.2" fill="#00bcd4" fillOpacity="0.32" />
-
-        {/* Trail 4 — orange, base */}
-        <path
-          data-trail
-          d="M400,448 L320,448 L320,490"
-          stroke="#ff6b35"
-          strokeWidth="0.85"
-          strokeLinecap="square"
-          strokeOpacity="0.18"
-        />
-        <circle cx="320" cy="490" r="2" fill="#ff6b35" fillOpacity="0.25" />
-      </svg>
 
       <div className="relative z-10 max-w-3xl">
 
