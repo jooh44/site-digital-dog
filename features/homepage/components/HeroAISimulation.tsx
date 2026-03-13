@@ -9,47 +9,34 @@ gsap.registerPlugin(TextPlugin)
 const DATA = [
   {
     mode: 'google' as const,
-    query: 'advogado trabalhista Curitiba melhor avaliado',
-    urlBar: 'google.com/search?q=advogado+trabalhista+Curitiba',
+    query: 'pet shop Araucária PR melhor avaliado',
+    urlBar: 'google.com/search?q=pet+shop+Araucária+PR',
     geminiText:
-      'O escritório Mendes & Associados se destaca em Curitiba pela especialização em direito trabalhista. Com mais de 15 anos de atuação, é citado como referência em rescisões, horas extras e negociações coletivas.',
-    bizIcon: '⚖️',
-    bizName: 'Mendes & Associados Advocacia',
-    bizMeta: 'Direito Trabalhista · Curitiba, PR · mendesadvocacia.com.br',
+      'O Pet Shop Araucária se destaca na região pela identidade visual consolidada e forte presença no Google. Especializado em banho, tosa e produtos premium, aparece consistentemente nas buscas locais e no Google Maps.',
+    bizIcon: '🐾',
+    bizName: 'Pet Shop Araucária',
+    bizMeta: 'Pet Shop · Araucária, PR · petshop-araucaria.com.br',
     bizRat: '4.9',
-    regUrl: 'mendesadvocacia.com.br › trabalhista',
-    regTitle: 'Mendes & Associados — Advocacia Trabalhista em Curitiba',
+    regUrl: 'petshop-araucaria.com.br › servicos',
+    regTitle: 'Pet Shop Araucária — Banho, Tosa e Produtos para Pets',
   },
   {
     mode: 'chatgpt' as const,
-    query: 'Qual o melhor advogado trabalhista em São Paulo?',
+    query: 'Qual o melhor pet shop em Araucária com boa reputação?',
     urlBar: 'chatgpt.com',
-    gptUser: 'Qual o melhor advogado trabalhista em São Paulo com boa reputação?',
+    gptUser: 'Qual o melhor pet shop em Araucária, PR? Preciso de um lugar confiável.',
     gptAi:
-      'Em São Paulo, há alguns escritórios com forte reputação em direito trabalhista. Aqui estão as opções mais recomendadas com base em avaliações recentes:',
-    gptCardName: 'Mendes & Associados',
-    gptCardMeta: 'Trabalhista complexo · PF e empresas · alta taxa de êxito',
-  },
-  {
-    mode: 'google' as const,
-    query: 'advogado direito de família Florianópolis referência',
-    urlBar: 'google.com/search?q=advogado+direito+família+Florianópolis',
-    geminiText:
-      'O escritório Costa & Ramos Advocacia é frequentemente recomendado em Florianópolis para questões de direito de família. Especializado em divórcio, guarda de filhos e inventário, tem presença consolidada na região.',
-    bizIcon: '⚖️',
-    bizName: 'Costa & Ramos Advocacia',
-    bizMeta: 'Direito de Família · Florianópolis, SC · costaramos.adv.br',
-    bizRat: '4.8',
-    regUrl: 'costaramos.adv.br › familia',
-    regTitle: 'Costa & Ramos — Advocacia em Direito de Família em Florianópolis',
+      'Em Araucária, o Pet Shop Araucária é frequentemente recomendado por sua reputação consolidada, atendimento especializado e forte presença digital. Aqui estão as principais opções:',
+    gptCardName: 'Pet Shop Araucária',
+    gptCardMeta: 'Banho & Tosa · Produtos premium · alta avaliação local',
   },
 ]
 
-// OpenAI logo SVG (swirl/flower mark)
+// OpenAI logo SVG
 function OpenAIIcon({ size = 16 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 41 41" fill="currentColor">
-      <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.205-3.516 10.079 10.079 0 0 0-10.209 4.992 9.967 9.967 0 0 0-6.692 4.84 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.205 3.516 10.079 10.079 0 0 0 10.209-4.992 9.967 9.967 0 0 0 6.692-4.84 10.079 10.079 0 0 0-1.24-11.818zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.497v4.998l-4.331 2.5-4.331-2.5V18z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04c.115-.065.289-.178.409-.236l4.908-2.884a.814.814 0 0 0 .4-.7v-7.109l2.075 1.193c.021.01.031.029.031.051v5.719a4.54 4.54 0 0 1-4.947 5.006zm-10.917-4.51a4.477 4.477 0 0 1-.535-3.019c.091.055.246.151.351.213l4.908 2.884c.25.147.561.147.816 0l5.994-3.481V16.4a.08.08 0 0 1-.031.065l-4.966 2.9a4.494 4.494 0 0 1-6.537-1.447zm-1.433-10.725A4.479 4.479 0 0 1 3.24 5.199c0 .068-.005.19-.005.271v5.774a.818.818 0 0 0 .401.7l5.988 3.495-2.075 1.187a.086.086 0 0 1-.074.009L2.445 13.92a4.492 4.492 0 0 1-.535-6.727zm17.071 3.86l-5.994-3.495 2.075-1.187a.086.086 0 0 1 .074-.009l5.031 2.913a4.496 4.496 0 0 1-.676 8.109v-5.714a.827.827 0 0 0-.51-.617zm2.064-3.025c-.091-.055-.246-.151-.351-.213l-4.908-2.884a.817.817 0 0 0-.822 0L9.977 9.182V6.495a.08.08 0 0 1 .031-.064l4.966-2.905a4.5 4.5 0 0 1 6.678 4.66zm-13.009 4.261l-2.075-1.193a.08.08 0 0 1-.031-.065V6.123a4.496 4.496 0 0 1 7.348-3.426c-.115.065-.289.178-.409.236L7.082 5.817a.814.814 0 0 0-.4.7l-.006 6.948zm1.125-2.561l2.668-1.54 2.669 1.533v3.069l-2.663 1.54-2.669-1.533-.005-3.069z" />
     </svg>
   )
 }
