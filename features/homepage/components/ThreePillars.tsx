@@ -530,29 +530,23 @@ export function ThreePillars() {
           </p>
         </div>
 
-        {/* ── Three Glassmorphism Cards ── */}
+        {/* ── Three Pillars Grid ── */}
         <div
           data-tp-grid
-          className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5"
+          className="border-l border-t border-white/[0.07]"
         >
+          <div className="grid grid-cols-1 lg:grid-cols-3">
           {pillars.map((pillar) => (
             <div
               key={pillar.num}
               data-tp-card
-              className="relative group flex flex-col rounded-2xl overflow-hidden"
-              style={{
-                background: 'rgba(255,255,255,0.03)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
+              className="relative group flex flex-col border-r border-b border-white/[0.07] overflow-hidden cursor-default"
             >
               {/* Card glow on hover */}
               <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                 style={{
-                  background: `radial-gradient(ellipse at 50% 0%, ${pillar.accent}12 0%, transparent 65%)`,
-                  border: `1px solid ${pillar.accent}22`,
+                  background: `radial-gradient(ellipse at 50% 0%, ${pillar.accent}10 0%, transparent 65%)`,
                 }}
               />
 
@@ -635,6 +629,7 @@ export function ThreePillars() {
               </div>
             </div>
           ))}
+          </div>
         </div>
 
         {/* ── Bottom CTA strip ── */}
