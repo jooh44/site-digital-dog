@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -19,10 +19,10 @@ const projects = [
     summary:
       'Identidade de marca construída do zero com presença local consolidada. Google Meu Negócio otimizado, SEO local e conteúdo que posiciona antes do anúncio.',
     metrics: [
-      { value: '1ª Pos.', label: 'Google Local' },
-      { value: '+120%', label: 'Contatos/mês' },
+      { value: 'Top 1', label: 'Google Local' },
+      { value: 'Top 3', label: 'AI Overview' },
     ],
-    image: null as string | null,
+    image: '/images/portfolio/case-pet-shop-araucaria.jpeg' as string | null,
     accent: '#00bcd4',
   },
   {
@@ -34,10 +34,10 @@ const projects = [
     summary:
       'Presença digital estruturada do zero para empresa de esquadrias. Site focado em captação de orçamentos com posicionamento orgânico em buscas por região.',
     metrics: [
-      { value: 'Top 3', label: 'Busca Local' },
-      { value: '+90%', label: 'Orçamentos' },
+      { value: 'Top 1', label: 'Google Local' },
+      { value: 'Top 1', label: 'AI Overview' },
     ],
-    image: null as string | null,
+    image: '/images/portfolio/case-ponto-das-portas.jpeg' as string | null,
     accent: '#7c4dff',
   },
   {
@@ -51,8 +51,10 @@ const projects = [
     metrics: [
       { value: '40×', label: 'ROAS Máximo' },
       { value: '+R$100k', label: 'Faturamento/mês' },
+      { value: 'Top 1', label: 'Google Curitiba' },
+      { value: 'Top 3', label: 'AI Overview' },
     ],
-    image: null as string | null,
+    image: '/images/portfolio/case-rz-vet.jpeg' as string | null,
     accent: '#ff6b35',
   },
 ]
@@ -110,6 +112,14 @@ function ProjectPlaceholder({ client, accent }: { client: string; accent: string
 
 export function PortfolioSection() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox])
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -149,6 +159,37 @@ export function PortfolioSection() {
   }, [])
 
   return (
+    <>
+    {/* ── Lightbox ── */}
+    {lightbox && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        style={{ background: 'rgba(0,0,0,0.92)' }}
+        onClick={() => setLightbox(null)}
+      >
+        <button
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+          onClick={() => setLightbox(null)}
+          aria-label="Fechar"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        </button>
+        <div
+          className="relative max-h-[90vh] max-w-[90vw]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            style={{ display: 'block' }}
+          />
+        </div>
+      </div>
+    )}
+
     <section
       ref={containerRef}
       id="portfolio"
@@ -202,40 +243,55 @@ export function PortfolioSection() {
               <div
                 key={project.slug}
                 data-pf-row
-                className="group border-r border-b border-white/[0.07] flex flex-col relative overflow-hidden"
+                className="group border-r border-b border-white/[0.07] flex flex-col sm:flex-row relative overflow-hidden"
               >
                 {/* Hover accent */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(ellipse at 50% 0%, ${project.accent}07 0%, transparent 65%)` }}
+                  style={{ background: `radial-gradient(ellipse at 0% 50%, ${project.accent}07 0%, transparent 65%)` }}
                 />
 
-                {/* Visual */}
+                {/* Visual — lado esquerdo, altura total */}
                 <div
-                  className="relative overflow-hidden flex-shrink-0 border-b border-white/[0.07]"
-                  style={{ height: '220px' }}
+                  className="relative overflow-hidden flex-shrink-0 h-[220px] sm:h-auto sm:w-[42%] border-b border-white/[0.07] sm:border-b-0 sm:border-r sm:border-white/[0.07]"
                 >
                   {project.image ? (
-                    <div className="relative w-full h-full">
+                    <div
+                      className="absolute inset-0 cursor-zoom-in"
+                      onClick={() => setLightbox({ src: project.image!, alt: project.client })}
+                    >
                       <Image
                         src={project.image}
                         alt={`${project.client} — projeto Digital Dog`}
                         fill
-                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        quality={92}
+                        className="object-cover object-top"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{ background: 'linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.45) 100%)' }}
-                      />
+                      {/* Hint overlay — hover no desktop, sempre visível no mobile */}
+                      <div className="absolute inset-0 flex items-end justify-center pb-3 pointer-events-none sm:opacity-0 sm:group-hover:opacity-100 sm:transition-opacity sm:duration-300">
+                        <span
+                          className="text-[9px] font-semibold tracking-[0.1em] uppercase px-2.5 py-1.5"
+                          style={{
+                            background: 'rgba(0,0,0,0.72)',
+                            color: 'rgba(255,255,255,0.75)',
+                            backdropFilter: 'blur(4px)',
+                          }}
+                        >
+                          <span className="hidden sm:inline">Clique para ampliar</span>
+                          <span className="sm:hidden">Toque para ver</span>
+                        </span>
+                      </div>
                     </div>
                   ) : (
-                    <ProjectPlaceholder client={project.client} accent={project.accent} />
+                    <div className="absolute inset-0">
+                      <ProjectPlaceholder client={project.client} accent={project.accent} />
+                    </div>
                   )}
                 </div>
 
-                {/* Info */}
-                <div className="relative z-10 flex flex-col gap-4 p-8 lg:p-9 flex-1">
+                {/* Info — lado direito */}
+                <div className="relative z-10 flex flex-col gap-4 p-6 lg:p-8 flex-1 min-w-0">
 
                   {/* Index + Title */}
                   <div>
@@ -285,14 +341,14 @@ export function PortfolioSection() {
                   </p>
 
                   {/* Metrics + CTA */}
-                  <div className="flex items-end justify-between pt-4 border-t border-white/[0.06]">
-                    <div className="flex items-end gap-7">
+                  <div className="flex flex-col gap-3 pt-4 border-t border-white/[0.06]">
+                    <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
                       {project.metrics.map((m) => (
                         <div key={m.label} className="flex flex-col gap-0.5">
                           <span
                             className="font-heading font-extrabold leading-none tabular-nums"
                             style={{
-                              fontSize: 'clamp(1.1rem, 1.8vw, 1.5rem)',
+                              fontSize: 'clamp(1rem, 1.6vw, 1.4rem)',
                               backgroundImage: 'linear-gradient(135deg, #ff6b35, #ff1744)',
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent',
@@ -301,7 +357,7 @@ export function PortfolioSection() {
                             {m.value}
                           </span>
                           <span
-                            className="text-[8.5px] font-semibold tracking-[0.12em] uppercase"
+                            className="text-[8px] font-semibold tracking-[0.12em] uppercase"
                             style={{ color: 'rgba(255,255,255,0.2)' }}
                           >
                             {m.label}
@@ -310,18 +366,12 @@ export function PortfolioSection() {
                       ))}
                     </div>
 
-                    <a
-                      href={`/projetos/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 group/cta flex-shrink-0"
-                      style={{ color: project.accent }}
+                    <span
+                      className="text-[9px] font-semibold tracking-[0.08em] uppercase"
+                      style={{ color: 'rgba(255,255,255,0.18)' }}
                     >
-                      <span className="text-[10px] font-semibold tracking-[0.08em] uppercase border-b border-transparent group-hover/cta:border-current transition-colors duration-200">
-                        Ver projeto
-                      </span>
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover/cta:translate-x-0.5">
-                        <path d="M2 6h8M7 3.5l2.5 2.5L7 8.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
+                      Estudo de caso em breve
+                    </span>
                   </div>
 
                 </div>
@@ -352,5 +402,6 @@ export function PortfolioSection() {
 
       </div>
     </section>
+    </>
   )
 }

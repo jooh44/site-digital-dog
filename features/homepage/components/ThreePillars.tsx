@@ -55,6 +55,11 @@ const KEYFRAMES = `
   0%, 100% { opacity: 0.35; }
   50%       { opacity: 0.7;  }
 }
+@keyframes dd-tag-scan {
+  0%, 100% { opacity: 0.35; box-shadow: none; }
+  10%      { opacity: 1;    box-shadow: 0 0 10px currentColor; }
+  22%      { opacity: 0.35; box-shadow: none; }
+}
 `
 
 /* ─────────────────────────────────────────────
@@ -595,7 +600,7 @@ export function ThreePillars() {
 
                 {/* Animation area */}
                 <div
-                  className="rounded-xl overflow-hidden flex-shrink-0"
+                  className="overflow-hidden flex-shrink-0"
                   style={{
                     background: 'rgba(0,0,0,0.35)',
                     border: '1px solid rgba(255,255,255,0.06)',
@@ -612,19 +617,23 @@ export function ThreePillars() {
 
                 {/* Services included */}
                 <div className="flex flex-wrap gap-1.5 border-t border-white/[0.06] pt-4">
-                  {pillar.services.map((svc) => (
-                    <span
-                      key={svc}
-                      className="text-[9px] font-semibold tracking-[0.1em] uppercase px-2 py-1 rounded"
-                      style={{
-                        color: pillar.accent,
-                        background: `${pillar.accent}10`,
-                        border: `1px solid ${pillar.accent}22`,
-                      }}
-                    >
-                      {svc}
-                    </span>
-                  ))}
+                  {pillar.services.map((svc, i) => {
+                    const total = pillar.services.length * 1.2
+                    return (
+                      <span
+                        key={svc}
+                        className="text-[9px] font-semibold tracking-[0.1em] uppercase px-2 py-1"
+                        style={{
+                          color: pillar.accent,
+                          background: `${pillar.accent}10`,
+                          border: `1px solid ${pillar.accent}22`,
+                          animation: `dd-tag-scan ${total}s ${i * 1.2}s ease-in-out infinite both`,
+                        }}
+                      >
+                        {svc}
+                      </span>
+                    )
+                  })}
                 </div>
               </div>
             </div>

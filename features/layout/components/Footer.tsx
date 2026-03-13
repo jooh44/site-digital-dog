@@ -83,8 +83,8 @@ export function Footer() {
 
           {/* ── Col 1: Brand ── */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="inline-flex items-center gap-2.5 w-fit group" aria-label="Digital Dog — início">
-              <div className="relative w-9 h-9 flex-shrink-0">
+            <Link href="/" className="inline-flex items-center gap-3 w-fit group" aria-label="Digital Dog — início">
+              <div className="relative w-16 h-16 flex-shrink-0">
                 <Image
                   src="/images/logo_digital_dog-removebg-preview.png"
                   alt=""
@@ -93,12 +93,20 @@ export function Footer() {
                   aria-hidden="true"
                 />
               </div>
-              <span
-                className="font-heading font-bold leading-none tracking-[-0.02em] group-hover:text-white transition-colors duration-200"
-                style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.82)' }}
-              >
-                Digital Dog
-              </span>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="font-heading font-bold leading-none tracking-[-0.02em] group-hover:text-white transition-colors duration-200"
+                  style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.82)' }}
+                >
+                  Digital Dog
+                </span>
+                <span
+                  className="font-body leading-none"
+                  style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.28)', letterSpacing: '0.06em' }}
+                >
+                  Arquitetura Digital
+                </span>
+              </div>
             </Link>
 
             <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: 'rgba(255,255,255,0.35)' }}>

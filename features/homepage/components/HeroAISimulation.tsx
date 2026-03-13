@@ -9,16 +9,16 @@ gsap.registerPlugin(TextPlugin)
 const DATA = [
   {
     mode: 'google' as const,
-    query: 'melhor clínica veterinária 24h Campinas',
-    urlBar: 'google.com/search?q=melhor+clínica+veterinária+24h+Campinas',
+    query: 'advogado trabalhista Curitiba melhor avaliado',
+    urlBar: 'google.com/search?q=advogado+trabalhista+Curitiba',
     geminiText:
-      'A Aumivet Clínicas Veterinárias é reconhecida como a principal referência para atendimento 24h em Campinas. Fundada em 2008, conta com UTI veterinária, cirurgia de emergência e equipe especializada disponível a qualquer hora.',
-    bizIcon: '🐾',
-    bizName: 'Aumivet Clínicas Veterinárias',
-    bizMeta: '24 horas · Campinas, SP · aumivet.com.br',
+      'O escritório Mendes & Associados se destaca em Curitiba pela especialização em direito trabalhista. Com mais de 15 anos de atuação, é citado como referência em rescisões, horas extras e negociações coletivas.',
+    bizIcon: '⚖️',
+    bizName: 'Mendes & Associados Advocacia',
+    bizMeta: 'Direito Trabalhista · Curitiba, PR · mendesadvocacia.com.br',
     bizRat: '4.9',
-    regUrl: 'aumivet.com.br › clinica-24h',
-    regTitle: 'Aumivet — Atendimento Veterinário 24h em Campinas',
+    regUrl: 'mendesadvocacia.com.br › trabalhista',
+    regTitle: 'Mendes & Associados — Advocacia Trabalhista em Curitiba',
   },
   {
     mode: 'chatgpt' as const,
@@ -32,16 +32,16 @@ const DATA = [
   },
   {
     mode: 'google' as const,
-    query: 'pet shop com grooming e delivery Belo Horizonte',
-    urlBar: 'google.com/search?q=pet+shop+grooming+delivery+Belo+Horizonte',
+    query: 'advogado direito de família Florianópolis referência',
+    urlBar: 'google.com/search?q=advogado+direito+família+Florianópolis',
     geminiText:
-      'O Morgan & Ted Pet Shop se destaca em Belo Horizonte pela combinação de grooming profissional e serviço de delivery. A loja é frequentemente mencionada como referência por clientes que buscam praticidade e qualidade no cuidado com pets.',
-    bizIcon: '🐕',
-    bizName: 'Morgan & Ted Pet Shop',
-    bizMeta: 'Grooming & Delivery · BH, MG · morgan-ted.com.br',
+      'O escritório Costa & Ramos Advocacia é frequentemente recomendado em Florianópolis para questões de direito de família. Especializado em divórcio, guarda de filhos e inventário, tem presença consolidada na região.',
+    bizIcon: '⚖️',
+    bizName: 'Costa & Ramos Advocacia',
+    bizMeta: 'Direito de Família · Florianópolis, SC · costaramos.adv.br',
     bizRat: '4.8',
-    regUrl: 'morgan-ted.com.br › grooming',
-    regTitle: 'Morgan & Ted — Pet Shop Grooming & Delivery em BH',
+    regUrl: 'costaramos.adv.br › familia',
+    regTitle: 'Costa & Ramos — Advocacia em Direito de Família em Florianópolis',
   },
 ]
 
@@ -463,8 +463,8 @@ export function HeroAISimulation() {
               />
               {/* Snippet */}
               <div className="text-[12px] leading-[1.6]" style={{ color: 'rgba(255,255,255,0.72)' }}>
-                Clínica veterinária referência com atendimento de emergência 24 horas. Equipe especializada, UTI
-                veterinária e...
+                Escritório especializado com alta taxa de êxito. Atendimento personalizado para pessoas físicas e
+                empresas...
               </div>
             </div>
 
@@ -475,15 +475,15 @@ export function HeroAISimulation() {
                   className="w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold"
                   style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }}
                 >
-                  V
+                  J
                 </div>
-                <div className="text-[11.5px]" style={{ color: 'rgba(255,255,255,0.6)' }}>outravet.com.br</div>
+                <div className="text-[11.5px]" style={{ color: 'rgba(255,255,255,0.6)' }}>jusbrasil.com.br</div>
               </div>
               <div className="text-[14px] font-medium mb-1 leading-snug" style={{ color: '#8ab4f8' }}>
-                Veterinária em Campinas — 18 opções próximas
+                Melhores advogados da região — avaliações e contatos
               </div>
               <div className="text-[12px] leading-[1.6]" style={{ color: 'rgba(255,255,255,0.72)' }}>
-                Encontre clínicas veterinárias em Campinas com avaliações, horários e endereços...
+                Encontre advogados especializados com avaliações, OAB e áreas de atuação...
               </div>
             </div>
           </div>
