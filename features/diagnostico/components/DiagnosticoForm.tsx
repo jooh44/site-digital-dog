@@ -4,14 +4,11 @@ import { useState, useEffect } from 'react'
 import { ProgressBar } from './ProgressBar'
 import { Step1Negocio } from './Step1Negocio'
 import { Step2Segmento } from './Step2Segmento'
-import { Step3Desafio } from './Step3Desafio'
-import { Step4Contato } from './Step4Contato'
 import { SuccessScreen } from './SuccessScreen'
 import { useFormPersistence } from '@/features/diagnostico/hooks/useFormPersistence'
 import type { FormState } from '@/features/diagnostico/types/diagnostico.types'
+import type { Step1Data } from '@/features/diagnostico/schemas/step1.schema'
 import type { Step2Data } from '@/features/diagnostico/schemas/step2.schema'
-import type { Step3Data } from '@/features/diagnostico/schemas/step3.schema'
-import type { Step4Data } from '@/features/diagnostico/schemas/step4.schema'
 
 const INITIAL_STATE: FormState = {
   step: 1,
@@ -38,26 +35,17 @@ export function DiagnosticoForm() {
     })
   }
 
-  const handleStep1Next = (segmento: string) => {
-    updateState({ step: 2, data: { ...state.data, segmento } })
+  const handleStep1Next = (data: Step1Data) => {
+    updateState({ step: 2, data: { ...state.data, ...data } })
   }
 
-  const handleStep2Next = (data: Step2Data) => {
-    updateState({ step: 3, data: { ...state.data, ...data } })
-  }
-
-  const handleStep3Next = (data: Step3Data) => {
-    updateState({ step: 4, data: { ...state.data, ...data } })
-  }
-
-  const handleStep4Submit = async (_data: Step4Data) => {
+  const handleStep2Submit = async (data: Step2Data) => {
     const payload = {
-      segmento: state.data.segmento ?? '',
-      negocio: state.data.negocio ?? '',
-      desafio: state.data.desafio ?? '',
       nome: state.data.nome ?? '',
-      email: state.data.email ?? '',
-      whatsapp: state.data.whatsapp ?? '',
+      tipoNegocio: state.data.tipoNegocio ?? '',
+      empresa: state.data.empresa ?? '',
+      cidade: state.data.cidade ?? '',
+      whatsapp: data.whatsapp,
       consentimento: true as const,
     }
 
@@ -90,7 +78,7 @@ export function DiagnosticoForm() {
   }
 
   const handleBack = () => {
-    updateState({ step: (state.step - 1) as FormState['step'], error: null })
+    updateState({ step: 1, error: null })
   }
 
   if (isSuccess) {
@@ -99,31 +87,24 @@ export function DiagnosticoForm() {
 
   return (
     <div>
-      <ProgressBar currentStep={state.step} />
+      <ProgressBar currentStep={state.step} totalSteps={2} />
 
       {state.step === 1 && (
-        <Step1Negocio defaultValue={state.data.segmento} onNext={handleStep1Next} />
+        <Step1Negocio
+          defaultValues={{
+            nome: state.data.nome,
+            tipoNegocio: state.data.tipoNegocio,
+            empresa: state.data.empresa,
+            cidade: state.data.cidade,
+          }}
+          onNext={handleStep1Next}
+        />
       )}
 
       {state.step === 2 && (
         <Step2Segmento
-          defaultValues={{ negocio: state.data.negocio, desafio: state.data.desafio }}
-          onNext={handleStep2Next}
-          onBack={handleBack}
-        />
-      )}
-
-      {state.step === 3 && (
-        <Step3Desafio
-          defaultValues={{ nome: state.data.nome, email: state.data.email, whatsapp: state.data.whatsapp }}
-          onNext={handleStep3Next}
-          onBack={handleBack}
-        />
-      )}
-
-      {state.step === 4 && (
-        <Step4Contato
-          onSubmit={handleStep4Submit}
+          defaultValues={{ whatsapp: state.data.whatsapp }}
+          onSubmit={handleStep2Submit}
           onBack={handleBack}
           isSubmitting={state.isSubmitting}
           error={state.error}

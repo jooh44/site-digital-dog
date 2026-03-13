@@ -7,16 +7,15 @@ export async function sendLeadEmail(data: SubmitData): Promise<void> {
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL!,
     to: process.env.NOTIFICATION_EMAIL!,
-    subject: `Novo Lead — ${data.negocio} (${data.segmento})`,
+    subject: `Novo Lead — ${data.empresa} · ${data.cidade}`,
     html: `
       <h2>Novo Diagnóstico Digital Solicitado</h2>
-      <table>
-        <tr><td><strong>Negócio:</strong></td><td>${data.negocio}</td></tr>
-        <tr><td><strong>Segmento:</strong></td><td>${data.segmento}</td></tr>
-        <tr><td><strong>Nome:</strong></td><td>${data.nome}</td></tr>
-        <tr><td><strong>Email:</strong></td><td>${data.email}</td></tr>
+      <table cellpadding="6" style="border-collapse:collapse">
+        <tr><td><strong>Responsável:</strong></td><td>${data.nome}</td></tr>
+        <tr><td><strong>Empresa:</strong></td><td>${data.empresa}</td></tr>
+        <tr><td><strong>Tipo de negócio:</strong></td><td>${data.tipoNegocio}</td></tr>
+        <tr><td><strong>Cidade:</strong></td><td>${data.cidade}</td></tr>
         <tr><td><strong>WhatsApp:</strong></td><td>${data.whatsapp}</td></tr>
-        <tr><td><strong>Desafio:</strong></td><td>${data.desafio}</td></tr>
       </table>
     `,
   })
