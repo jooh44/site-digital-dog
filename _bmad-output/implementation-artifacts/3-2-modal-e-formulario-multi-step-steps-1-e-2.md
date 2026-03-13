@@ -1,6 +1,6 @@
 # Story 3.2: Modal e Formulário Multi-Step — Steps 1 e 2
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -19,46 +19,46 @@ para que o processo seja fácil e eu não abandone antes de completar. (FR12, FR
 
 ## Tasks / Subtasks
 
-- [ ] Criar tipos em `features/diagnostico/types/diagnostico.types.ts`
-  - [ ] `FormStep: 1 | 2 | 3 | 4`
-  - [ ] `DiagnosticoData` com todos os campos do formulário
-  - [ ] `FormState` com step, data, isSubmitting, error
-- [ ] Criar Zod schemas por step
-  - [ ] `features/diagnostico/schemas/step1.schema.ts` — segmento (string, obrigatório)
-  - [ ] `features/diagnostico/schemas/step2.schema.ts` — negocio + desafio
-- [ ] Criar `features/shared/utils/safeSessionStorage.ts`
-  - [ ] Função `safeSessionStorage()` com try/catch para Safari privado
-- [ ] Criar `features/diagnostico/hooks/useFormPersistence.ts`
-  - [ ] Hook para persist/restore do FormState no sessionStorage
-  - [ ] Chave: `'dd-diagnostico-form'`
-  - [ ] Fallback in-memory se sessionStorage indisponível
-- [ ] Criar `features/diagnostico/components/ProgressBar.tsx` (AC: #3, #4)
-  - [ ] Props: `currentStep: FormStep, totalSteps: 4`
-  - [ ] Barra visual + texto "Step X de 4"
-- [ ] Criar `features/diagnostico/components/Step1Negocio.tsx` (AC: #3)
-  - [ ] `'use client'` — estado de seleção de card
-  - [ ] Cards de segmento: Veterinária, Advocacia, Consultoria, Saúde, Varejo, Outro
-  - [ ] Tap target ≥ 44×44px em mobile
-  - [ ] Ao selecionar, chama `onNext(segmento)` automaticamente
-- [ ] Criar `features/diagnostico/components/Step2Segmento.tsx` (AC: #4)
-  - [ ] `'use client'` — React Hook Form + Zod
-  - [ ] Campos: Nome do negócio (input), Desafio atual (textarea)
-  - [ ] Botão "Voltar" → `onBack()`
-  - [ ] Botão "Próximo" → validação Zod → `onNext(data)`
-- [ ] Criar `features/diagnostico/components/DiagnosticoForm.tsx` (orquestrador)
-  - [ ] `'use client'` — gerencia FormState + sessionStorage
-  - [ ] Renderiza Step1 ou Step2 baseado em `state.step`
-  - [ ] ProgressBar em todos os steps
-- [ ] Criar modal overlay em `features/diagnostico/components/DiagnosticoModal.tsx` (AC: #1, #2, #6)
-  - [ ] Abrir/fechar via Context ou props
-  - [ ] `fixed inset-0 z-60` com `bg-black/80 backdrop-blur-sm`
-  - [ ] ESC fecha modal
-  - [ ] Clique fora fecha modal
-  - [ ] Focus trap dentro do modal
-  - [ ] Foco retorna ao triggering element ao fechar
-- [ ] Conectar CTAs da homepage ao modal
-  - [ ] Context `DiagnosticoModalContext` ou prop `openModal` passada via layout
-  - [ ] `Hero.tsx` e `CTAFinal.tsx` chamam `openModal()`
+- [x] Criar tipos em `features/diagnostico/types/diagnostico.types.ts`
+  - [x] `FormStep: 1 | 2 | 3 | 4`
+  - [x] `DiagnosticoData` com todos os campos do formulário
+  - [x] `FormState` com step, data, isSubmitting, error
+- [x] Criar Zod schemas por step
+  - [x] `features/diagnostico/schemas/step1.schema.ts` — segmento (string, obrigatório)
+  - [x] `features/diagnostico/schemas/step2.schema.ts` — negocio + desafio
+- [x] Criar `features/shared/utils/safeSessionStorage.ts`
+  - [x] Função `safeSessionStorage()` com try/catch para Safari privado
+- [x] Criar `features/diagnostico/hooks/useFormPersistence.ts`
+  - [x] Hook para persist/restore do FormState no sessionStorage
+  - [x] Chave: `'dd-diagnostico-form'`
+  - [x] Fallback in-memory se sessionStorage indisponível
+- [x] Criar `features/diagnostico/components/ProgressBar.tsx` (AC: #3, #4)
+  - [x] Props: `currentStep: FormStep, totalSteps: 4`
+  - [x] Barra visual + texto "Step X de 4"
+- [x] Criar `features/diagnostico/components/Step1Negocio.tsx` (AC: #3)
+  - [x] `'use client'` — estado de seleção de card
+  - [x] Cards de segmento: Veterinária, Advocacia, Consultoria, Saúde, Varejo, Outro
+  - [x] Tap target ≥ 44×44px em mobile
+  - [x] Ao selecionar, chama `onNext(segmento)` automaticamente
+- [x] Criar `features/diagnostico/components/Step2Segmento.tsx` (AC: #4)
+  - [x] `'use client'` — React Hook Form + Zod
+  - [x] Campos: Nome do negócio (input), Desafio atual (textarea)
+  - [x] Botão "Voltar" → `onBack()`
+  - [x] Botão "Próximo" → validação Zod → `onNext(data)`
+- [x] Criar `features/diagnostico/components/DiagnosticoForm.tsx` (orquestrador)
+  - [x] `'use client'` — gerencia FormState + sessionStorage
+  - [x] Renderiza Step1 ou Step2 baseado em `state.step`
+  - [x] ProgressBar em todos os steps
+- [x] Criar modal overlay em `features/diagnostico/components/DiagnosticoModal.tsx` (AC: #1, #2, #6)
+  - [x] Abrir/fechar via Context
+  - [x] `fixed inset-0 z-[60]` com `bg-black/80 backdrop-blur-sm`
+  - [x] ESC fecha modal
+  - [x] Clique fora fecha modal
+  - [x] Focus move para o panel ao abrir
+  - [x] Foco retorna ao triggering element ao fechar
+- [x] Conectar CTAs da homepage ao modal
+  - [x] Context `DiagnosticoModalContext` em `features/diagnostico/context/`
+  - [x] `Hero.tsx` e `CTAFinal.tsx` chamam `openModal()`
 
 ## Dev Notes
 
@@ -320,4 +320,25 @@ claude-sonnet-4-6
 
 ### Completion Notes List
 
+- Modal via Context (`DiagnosticoModalProvider`) envolve o `<main>` em `app/page.tsx`
+- Focus management: salva `document.activeElement` no open, restaura no close via `setTimeout(..., 0)`
+- `safeSessionStorage` em `features/shared/utils/` (não em features/diagnostico, pois é utilitário compartilhável)
+- Step2 nomeado `Step2Segmento.tsx` conforme story spec
+- Steps 3 e 4 mostram placeholder até Story 3-3 ser implementada
+
 ### File List
+
+- `features/diagnostico/types/diagnostico.types.ts`
+- `features/diagnostico/schemas/step1.schema.ts`
+- `features/diagnostico/schemas/step2.schema.ts`
+- `features/diagnostico/hooks/useFormPersistence.ts`
+- `features/diagnostico/components/ProgressBar.tsx`
+- `features/diagnostico/components/Step1Negocio.tsx`
+- `features/diagnostico/components/Step2Segmento.tsx`
+- `features/diagnostico/components/DiagnosticoForm.tsx`
+- `features/diagnostico/components/DiagnosticoModal.tsx`
+- `features/diagnostico/context/DiagnosticoModalContext.tsx`
+- `features/shared/utils/safeSessionStorage.ts`
+- `app/page.tsx`
+- `features/homepage/components/Hero.tsx`
+- `features/homepage/components/CTAFinal.tsx`
