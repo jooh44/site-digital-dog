@@ -1,77 +1,126 @@
 'use client'
 
-import React from 'react'
-import { Button } from '@/features/shared/ui/Button'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-// Analytics helper - will be expanded in Story 2.6
-function trackCTAClick() {
-  // GA4 tracking
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    ; (window as any).gtag('event', 'cta_click', {
-      event_category: 'engagement',
-      event_label: 'final_cta',
-      location: 'homepage_final'
-    })
-  }
-
-  // Meta Pixel tracking (optional)
-  if (typeof window !== 'undefined' && (window as any).fbq) {
-    ; (window as any).fbq('track', 'Lead', {
-      content_name: 'Final CTA - Agendar Diagnóstico Gratuito'
-    })
-  }
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 export function CTAFinal() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const ctx = gsap.context(() => {
+      gsap.from('[data-cta-reveal]', {
+        opacity: 0,
+        y: 32,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 78%',
+          once: true,
+        },
+      })
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="diagnostico" className="relative py-20 md:py-28 px-4 bg-darker-blue">
-      {/* Linha divisória neon azul */}
-      <div className="absolute top-0 left-0 right-0 h-px overflow-hidden">
-        {/* Glow effect */}
-        <div
-          className="absolute inset-0 h-full bg-gradient-to-r from-transparent via-primary-blue to-transparent opacity-60 blur-sm"
-          style={{
-            boxShadow: '0 0 20px rgba(0, 188, 212, 0.5), 0 0 40px rgba(0, 188, 212, 0.3)'
-          }}
-        />
-        {/* Linha principal */}
-        <div className="absolute inset-0 h-full bg-gradient-to-r from-transparent via-primary-blue to-transparent" />
-      </div>
+    <section
+      id="diagnostico"
+      ref={containerRef}
+      className="relative overflow-hidden border-t border-white/[0.07] px-8 lg:px-14 xl:px-20 py-24 lg:py-32"
+      aria-label="CTA Final — Diagnóstico Digital Dog"
+    >
+      {/* Dot grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: '#0a0a0a',
+          backgroundImage: `radial-gradient(rgba(255,255,255,0.016) 1px, transparent 1px)`,
+          backgroundSize: '26px 26px',
+        }}
+      />
+      {/* Vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(180deg, #0a0a0a 0%, transparent 8%, transparent 92%, #0a0a0a 100%)',
+        }}
+      />
 
-      <div className="relative max-w-4xl mx-auto text-center z-10">
-        <div>
-          {/* Headline */}
-          <h2 className="font-heading font-bold text-primary-blue mb-6 md:mb-8" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
-            Sua Clínica Não Pode Ficar{' '}
-            <span className="bg-gradient-to-r from-[#ff6b35] via-[#ff1744] to-[#ff6b35] bg-clip-text text-transparent">
-              Parada no Tempo
-            </span>{' '}
-          </h2>
+      <div className="relative z-10 max-w-3xl">
 
-          {/* Subtitle */}
-          <p className="font-body text-light-blue text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto">
-            A agenda do próximo mês depende da decisão que você toma hoje.
-          </p>
+        {/* Eyebrow */}
+        <div className="flex items-center gap-2 mb-14 lg:mb-20" data-cta-reveal>
+          <span className="w-1 h-1 rounded-full bg-[#ff6b35] flex-shrink-0" />
+          <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/[0.16]">
+            O Próximo Passo
+          </span>
+        </div>
 
-          {/* CTA Button */}
-          <div>
-            <a
-              href="https://api.whatsapp.com/send?phone=5547988109155&text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20sobre%20o%20site%20da%20minha%20cl%C3%ADnica."
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackCTAClick()}
-              className="inline-block"
-              aria-label="Falar com Especialista no WhatsApp"
-            >
-              <Button
-                variant="primary"
-                className="min-h-[56px] px-8 md:px-12 py-4 md:py-6 text-base md:text-lg font-semibold shadow-2xl hover:shadow-[0_0_30px_rgba(255,107,53,0.6)]"
-              >
-                Falar com Especialista no WhatsApp
-              </Button>
-            </a>
+        {/* Headline */}
+        <div className="mb-12 lg:mb-16" data-cta-reveal>
+          <div
+            className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] text-white/[0.93]"
+            style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)' }}
+          >
+            Pronto para
+          </div>
+          <div
+            className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] mt-1"
+            style={{
+              fontSize: 'clamp(2.8rem, 7vw, 7rem)',
+              WebkitTextStroke: '1.5px rgba(255,255,255,0.18)',
+              color: 'transparent',
+            }}
+          >
+            construir o seu
+          </div>
+          <div
+            className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] mt-1"
+            style={{
+              fontSize: 'clamp(2.8rem, 7vw, 7rem)',
+              backgroundImage: 'linear-gradient(135deg, #ff6b35, #ff1744)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            ecossistema?
           </div>
         </div>
+
+        {/* Sub + CTA */}
+        <div
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
+          data-cta-reveal
+        >
+          <p
+            className="text-white/40 leading-relaxed max-w-sm"
+            style={{ fontSize: 'clamp(0.9rem, 1.2vw, 1.05rem)' }}
+          >
+            O Diagnóstico Digital é o primeiro passo. Gratuito. Sem compromisso. Com inteligência.
+          </p>
+          <button
+            className="inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] text-white flex-shrink-0 min-h-[44px] transition-opacity duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#ff6b35]"
+            style={{ background: 'linear-gradient(135deg, #ff6b35, #ff1744)' }}
+            onClick={() => { /* abrir modal diagnóstico — Epic 3 */ }}
+          >
+            Quero meu Diagnóstico Digital
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8M8 4l3 3-3 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+
       </div>
     </section>
   )

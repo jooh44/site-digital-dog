@@ -133,20 +133,17 @@ export function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div className="max-w-2xl mx-auto space-y-3">
+        <div className="lg:w-1/2 border-l border-t border-white/[0.07]">
           {faqs.map((faq) => {
             const isOpen = openId === faq.id
             return (
               <div
                 key={faq.id}
                 data-faq-reveal
-                className="rounded-xl overflow-hidden"
+                className="border-r border-b border-white/[0.07] overflow-hidden"
                 style={{
-                  background: isOpen ? 'rgba(0,188,212,0.04)' : 'rgba(255,255,255,0.03)',
-                  border: isOpen
-                    ? '1px solid rgba(0,188,212,0.16)'
-                    : '1px solid rgba(255,255,255,0.08)',
-                  transition: 'background 0.3s, border-color 0.3s',
+                  background: isOpen ? 'rgba(0,188,212,0.03)' : 'transparent',
+                  transition: 'background 0.3s',
                 }}
               >
                 <button
@@ -155,7 +152,7 @@ export function FAQ() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${faq.id}`}
                   id={`faq-btn-${faq.id}`}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00bcd4] focus-visible:outline-offset-2 rounded-xl"
+                  className="w-full flex items-center justify-between px-6 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00bcd4] focus-visible:outline-offset-2"
                 >
                   <span className="font-heading font-semibold pr-4 text-sm lg:text-base" style={{ color: 'rgba(255,255,255,0.9)' }}>
                     {faq.question}
