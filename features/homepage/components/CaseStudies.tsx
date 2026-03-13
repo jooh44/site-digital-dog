@@ -181,14 +181,23 @@ export function CaseStudies() {
                       {item.client.toLowerCase().replace('&', 'e').replace(' ', '')}...
                     </span>
                   </div>
-                  {/* "1st" hint */}
+                  {/* "em breve" hint */}
                   <div className="flex items-center gap-1.5">
                     <div
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: 'rgba(255,107,53,0.5)' }}
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                      style={{
+                        background: '#00bcd4',
+                        animation: 'dd-cyan-pulse 1.6s ease-in-out infinite',
+                      }}
                     />
-                    <span className="text-[9px] font-semibold tracking-[0.1em] uppercase" style={{ color: 'rgba(255,255,255,0.15)' }}>
-                      Screenshot em preparação
+                    <span
+                      className="text-[9px] font-semibold tracking-[0.1em] uppercase"
+                      style={{
+                        color: '#00bcd4',
+                        animation: 'dd-cyan-pulse 1.6s ease-in-out infinite',
+                      }}
+                    >
+                      Em breve
                     </span>
                   </div>
                 </div>
