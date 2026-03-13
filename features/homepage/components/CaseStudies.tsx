@@ -45,9 +45,9 @@ const cases = [
     challenge: 'E-commerce estagnado, UX problemático e campanhas com ROI negativo.',
     solution: 'Redesign completo do funil de compra e otimização de tráfego pago.',
     metrics: [
-      { label: 'ROAS Máx.', value: '40×' },
+      { label: 'AI Overviews', value: 'Top 3' },
+      { label: 'Alcance', value: 'Nacional' },
       { label: 'Faturamento', value: '+100k' },
-      { label: 'Crescimento', value: '30% a.a.' },
     ],
   },
 ]
