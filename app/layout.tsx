@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     default: 'Digital Dog | Arquitetura Digital',
     template: '%s | Digital Dog',
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
   description: 'Arquitetura Digital completa para PMEs brasileiras — marca, tecnologia e presença digital num único ecossistema com um único ponto de inteligência.',
   keywords: ['arquitetura digital', 'marketing digital', 'branding', 'SEO', 'automações', 'PME'],
   authors: [{ name: 'Digital Dog', url: BASE_URL }],
