@@ -60,8 +60,9 @@ export function Header() {
     <header
       className={cn(
         'lg:hidden fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-        isScrolled && 'bg-dark-blue/80 backdrop-blur-sm border-b border-white/[0.06]'
+        isScrolled && 'backdrop-blur-sm border-b border-white/[0.06]'
       )}
+      style={isScrolled ? { background: 'rgba(10,10,10,0.85)' } : undefined}
     >
       <nav
         className="px-4 sm:px-6 flex items-center justify-between h-16"
