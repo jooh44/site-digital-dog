@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { HeroAISimulation } from './HeroAISimulation'
 import { useDiagnosticoModal } from '@/features/diagnostico/context/DiagnosticoModalContext'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const NAV_LINKS = [
   { name: 'Serviços', href: '#servicos' },
@@ -12,6 +13,15 @@ const NAV_LINKS = [
 
 export function Hero() {
   const { openModal } = useDiagnosticoModal()
+  const lenis = useLenis()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    lenis?.scrollTo(href, {
+      duration: 1.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+    })
+  }
 
   return (
     <section
@@ -55,6 +65,7 @@ export function Hero() {
                 key={link.name}
                 href={link.href}
                 className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-blue rounded"
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
               </a>
