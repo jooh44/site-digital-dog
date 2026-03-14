@@ -2,9 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
 
-gsap.registerPlugin(TextPlugin)
+gsap.registerPlugin(ScrollTrigger, TextPlugin)
 
 const DATA = [
   {
@@ -52,6 +53,7 @@ export function HeroAISimulation() {
   const urlRef = useRef<HTMLDivElement>(null)
   const googleRef = useRef<HTMLDivElement>(null)
   const gptRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const searchBarRef = useRef<HTMLDivElement>(null)
   const queryRef = useRef<HTMLSpanElement>(null)
@@ -83,6 +85,7 @@ export function HeroAISimulation() {
   const idxRef = useRef(0)
   const tlRef = useRef<gsap.core.Timeline | null>(null)
   const mountedRef = useRef(true)
+  const isInViewRef = useRef(true)
 
   useEffect(() => {
     mountedRef.current = true
@@ -107,7 +110,7 @@ export function HeroAISimulation() {
     }
 
     function runLoop() {
-      if (!mountedRef.current) return
+      if (!mountedRef.current || !isInViewRef.current) return
 
       const d = DATA[idxRef.current]
       idxRef.current = (idxRef.current + 1) % DATA.length
@@ -115,7 +118,11 @@ export function HeroAISimulation() {
       if (tlRef.current) tlRef.current.kill()
 
       const tl = gsap.timeline({
-        onComplete: () => { gsap.delayedCall(1.5, runLoop) },
+        onComplete: () => {
+          if (mountedRef.current && isInViewRef.current) {
+            gsap.delayedCall(1.5, runLoop)
+          }
+        },
       })
       tlRef.current = tl
 
@@ -192,16 +199,38 @@ export function HeroAISimulation() {
       }
     }
 
-    runLoop()
+    const st = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top bottom',
+      end: 'bottom top',
+      onEnter: () => {
+        isInViewRef.current = true
+        runLoop()
+      },
+      onLeave: () => {
+        isInViewRef.current = false
+        if (tlRef.current) tlRef.current.kill()
+      },
+      onEnterBack: () => {
+        isInViewRef.current = true
+        runLoop()
+      },
+      onLeaveBack: () => {
+        isInViewRef.current = false
+        if (tlRef.current) tlRef.current.kill()
+      },
+    })
 
     return () => {
       mountedRef.current = false
+      st.kill()
       if (tlRef.current) tlRef.current.kill()
     }
   }, [])
 
   return (
     <div
+      ref={containerRef}
       className="relative overflow-hidden flex flex-col"
       style={{ background: '#0a0a0a', borderLeft: '1px solid rgba(255,255,255,0.07)' }}
       aria-hidden="true"

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { Header } from '@/features/layout/components/Header'
 import { Footer } from '@/features/layout/components/Footer'
-import { WhatsAppFloat } from '@/features/shared/ui/WhatsAppFloat'
 import { ConsentProvider } from '@/features/shared/providers/ConsentProvider'
 import './globals.css'
 
@@ -74,7 +73,6 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          <WhatsAppFloat />
         </ConsentProvider>
       </body>
     </html>
