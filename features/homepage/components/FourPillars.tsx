@@ -79,6 +79,20 @@ export function FourPillars() {
           once: true,
         },
       })
+
+      // Mobile active-on-scroll logic
+      const isMobile = window.innerWidth < 1024
+      if (isMobile) {
+        const items = gsap.utils.toArray<HTMLElement>('[data-pillar]')
+        items.forEach((item) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 75%',
+            end: 'bottom 20%',
+            toggleClass: 'is-active',
+          })
+        })
+      }
     }, containerRef)
 
     return () => ctx.revert()
@@ -150,11 +164,12 @@ export function FourPillars() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.num}
+                data-pillar
                 className="border-r border-b border-white/[0.07] p-8 lg:p-10 group relative overflow-hidden"
               >
                 {/* Número decorativo — grande, fundo */}
                 <div
-                  className="absolute top-6 right-8 font-heading font-extrabold leading-none select-none pointer-events-none transition-opacity duration-500 group-hover:opacity-100"
+                  className="absolute top-6 right-8 font-heading font-extrabold leading-none select-none pointer-events-none transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
                   style={{
                     fontSize: 'clamp(4rem, 6vw, 5.5rem)',
                     WebkitTextStroke: '1px rgba(0,188,212,0.08)',
@@ -170,7 +185,7 @@ export function FourPillars() {
                   {/* Ícone + número pequeno */}
                   <div className="flex items-center gap-3 mb-8">
                     <div
-                      className="p-2 rounded-lg border border-white/[0.07] group-hover:border-primary-blue/25 transition-colors duration-300"
+                      className="p-2 rounded-lg border border-white/[0.07] group-hover:border-primary-blue/25 group-[.is-active]:border-primary-blue/25 transition-colors duration-300"
                       style={{ color: '#00bcd4' }}
                     >
                       {pillar.icon}
@@ -190,14 +205,14 @@ export function FourPillars() {
 
                   {/* Título */}
                   <h3
-                    className="font-heading font-bold text-white/90 leading-snug mb-3 group-hover:text-white transition-colors duration-300"
+                    className="font-heading font-bold text-white/90 leading-snug mb-3 group-hover:text-white group-[.is-active]:text-white transition-colors duration-300"
                     style={{ fontSize: 'clamp(1.1rem, 1.6vw, 1.35rem)' }}
                   >
                     {pillar.title}
                   </h3>
 
                   {/* Subtítulo */}
-                  <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/65 transition-colors duration-300">
+                  <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/65 group-[.is-active]:text-white/65 transition-colors duration-300">
                     {pillar.subtitle}
                   </p>
 
@@ -212,7 +227,7 @@ export function FourPillars() {
 
                 {/* Linha de accent no hover — bottom */}
                 <div
-                  className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500"
+                  className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full group-[.is-active]:w-full transition-all duration-500"
                   style={{ background: 'linear-gradient(90deg, #00bcd4, transparent)' }}
                 />
               </div>

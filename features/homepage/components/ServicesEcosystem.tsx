@@ -134,6 +134,21 @@ export function ServicesEcosystem() {
           once: true,
         },
       })
+
+      // Mobile active-on-scroll logic
+      const isMobile = window.innerWidth < 1024
+      if (isMobile) {
+        const cards = gsap.utils.toArray<HTMLElement>('[data-card]')
+        cards.forEach((card) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 70%',
+            end: 'bottom 15%',
+            toggleClass: 'is-active',
+            // markers: true, // For debugging
+          })
+        })
+      }
     }, containerRef)
 
     return () => ctx.revert()
@@ -209,7 +224,7 @@ export function ServicesEcosystem() {
                 >
                   {/* Hover background accent */}
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 group-[.is-active]:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ background: `radial-gradient(ellipse at 0% 0%, ${color}08 0%, transparent 65%)` }}
                   />
 
@@ -246,7 +261,7 @@ export function ServicesEcosystem() {
                         </span>
                       </div>
                       <span
-                        className="text-[9px] font-semibold tracking-[0.14em] uppercase transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                        className="text-[9px] font-semibold tracking-[0.14em] uppercase transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-[.is-active]:opacity-100"
                         style={{ color }}
                       >
                         {svc.pillar}
@@ -291,7 +306,7 @@ export function ServicesEcosystem() {
 
                   {/* Bottom accent line on hover */}
                   <div
-                    className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500"
+                    className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full group-[.is-active]:w-full transition-all duration-500"
                     style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
                   />
                 </div>

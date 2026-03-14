@@ -465,6 +465,20 @@ export function ThreePillars() {
           once: true,
         },
       })
+
+      // Mobile active-on-scroll logic
+      const isMobile = window.innerWidth < 1024
+      if (isMobile) {
+        const items = gsap.utils.toArray<HTMLElement>('[data-tp-card]')
+        items.forEach((item) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 75%',
+            end: 'bottom 20%',
+            toggleClass: 'is-active',
+          })
+        })
+      }
     }, containerRef)
 
     return () => ctx.revert()
@@ -549,7 +563,7 @@ export function ThreePillars() {
             >
               {/* Card glow on hover */}
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 group-[.is-active]:opacity-100 transition-opacity duration-700 pointer-events-none"
                 style={{
                   background: `radial-gradient(ellipse at 50% 0%, ${pillar.accent}10 0%, transparent 65%)`,
                 }}
@@ -654,24 +668,12 @@ export function ThreePillars() {
           </p>
           <a
             href="#diagnostico"
-            className="flex-shrink-0 inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] transition-all duration-200 focus:outline-none focus:ring-2 min-h-[44px]"
-            style={{
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.7)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)'
-              e.currentTarget.style.color = 'rgba(255,255,255,0.95)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.05)'
-              e.currentTarget.style.color = 'rgba(255,255,255,0.7)'
-            }}
+            className="inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] text-white w-fit min-h-[44px] transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+            style={{ background: 'linear-gradient(135deg, #ff6b35, #ff1744)' }}
           >
             Quero meu diagnóstico
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 7h8M8 4l3 3-3 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         </div>
