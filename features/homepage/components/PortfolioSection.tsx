@@ -268,17 +268,19 @@ export function PortfolioSection() {
                         alt={`${project.client} — projeto Digital Dog`}
                         fill
                         quality={92}
-                        className="object-cover object-top"
+                        className="object-cover object-top transition-all duration-700 group-hover:scale-105 group-hover:blur-[2px]"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
                       {/* Hint overlay — hover no desktop, sempre visível no mobile */}
-                      <div className="absolute inset-0 flex items-end justify-center pb-3 pointer-events-none sm:opacity-0 sm:group-hover:opacity-100 sm:transition-opacity sm:duration-300">
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
                         <span
-                          className="text-[9px] font-semibold tracking-[0.1em] uppercase px-2.5 py-1.5"
+                          className="relative z-10 text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 border border-white/10"
                           style={{
-                            background: 'rgba(0,0,0,0.72)',
-                            color: 'rgba(255,255,255,0.75)',
-                            backdropFilter: 'blur(4px)',
+                            background: 'rgba(0,0,0,0.6)',
+                            color: 'rgba(255,255,255,0.9)',
+                            backdropFilter: 'blur(8px)',
+                            boxShadow: '0 4px 24px -1px rgba(0,0,0,0.5)'
                           }}
                         >
                           <span className="hidden sm:inline">Clique para ampliar</span>
@@ -396,7 +398,10 @@ export function PortfolioSection() {
 
                     <span
                       className="text-[9px] font-semibold tracking-[0.08em] uppercase"
-                      style={{ color: 'rgba(255,255,255,0.18)' }}
+                      style={{ 
+                        color: '#00bcd4',
+                        animation: 'dd-cyan-pulse 2s ease-in-out infinite'
+                      }}
                     >
                       Estudo de caso em breve
                     </span>
