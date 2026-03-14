@@ -114,17 +114,38 @@ export function Footer() {
             </p>
 
             {/* Social */}
-            <div className="flex items-center gap-3 mt-1">
-              {SOCIAL_LINKS.map((s) => (
+            <div className="flex flex-col gap-4 mt-1">
+              <div className="flex items-center gap-3">
+                {SOCIAL_LINKS.map((s) => (
+                  <div
+                    key={s.name}
+                    aria-label={s.name}
+                    title="Em breve"
+                    className="p-2 rounded-lg border border-white/[0.05] text-white/10 cursor-not-allowed transition-all duration-200"
+                  >
+                    {s.icon}
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex items-center gap-2">
                 <div
-                  key={s.name}
-                  aria-label={s.name}
-                  title="Em breve"
-                  className="p-2 rounded-lg border border-white/[0.05] text-white/10 cursor-not-allowed transition-all duration-200"
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{
+                    background: '#00bcd4',
+                    animation: 'dd-cyan-pulse 2s ease-in-out infinite',
+                  }}
+                />
+                <span
+                  className="text-[9px] font-semibold tracking-[0.12em] uppercase"
+                  style={{
+                    color: '#00bcd4',
+                    animation: 'dd-cyan-pulse 2s ease-in-out infinite',
+                  }}
                 >
-                  {s.icon}
-                </div>
-              ))}
+                  Projeto em desenvolvimento
+                </span>
+              </div>
             </div>
           </div>
 
