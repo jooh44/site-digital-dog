@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const NAV_LINKS = [
   { name: 'Serviços', href: '#servicos' },
@@ -16,6 +17,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
+  const lenis = useLenis()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 80)
@@ -23,11 +25,20 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll quando sidebar aberta
+  // Lock body scroll quando sidebar aberta — Integrado com Lenis
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [isMenuOpen])
+    if (isMenuOpen) {
+      lenis?.stop()
+      document.body.style.overflow = 'hidden'
+    } else {
+      lenis?.start()
+      document.body.style.overflow = ''
+    }
+    return () => { 
+      lenis?.start()
+      document.body.style.overflow = '' 
+    }
+  }, [isMenuOpen, lenis])
 
   // Focus trap na sidebar
   useEffect(() => {
@@ -55,6 +66,19 @@ export function Header() {
     sidebar.addEventListener('keydown', handleKeyDown)
     return () => sidebar.removeEventListener('keydown', handleKeyDown)
   }, [isMenuOpen])
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
+    e.preventDefault()
+    setIsMenuOpen(false)
+    
+    // Pequeno delay para a sidebar fechar antes de scrollar (melhor performance visual)
+    setTimeout(() => {
+      lenis?.scrollTo(href, {
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+      })
+    }, 300)
+  }
 
   return (
     <header
@@ -132,6 +156,8 @@ export function Header() {
               background: '#111111',
               borderLeft: '1px solid rgba(255,255,255,0.08)',
               animation: 'slideInRight 0.22s ease-out',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
             {/* Topo da sidebar — logo + fechar */}
@@ -180,7 +206,7 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   className="text-[15px] font-medium text-white/75 hover:text-white hover:bg-white/[0.05] rounded-lg px-3 py-3 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary-blue"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>
@@ -196,7 +222,7 @@ export function Header() {
                   'hover:bg-primary-blue hover:text-dark-blue transition-all duration-200',
                   'focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 focus:ring-offset-[#111]'
                 )}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, '#diagnostico')}
               >
                 Solicitar Diagnóstico
               </a>
