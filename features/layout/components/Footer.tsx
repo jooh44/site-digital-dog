@@ -116,16 +116,14 @@ export function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3 mt-1">
               {SOCIAL_LINKS.map((s) => (
-                <a
+                <div
                   key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="p-2 rounded-lg border border-white/[0.07] text-white/35 hover:text-white/90 hover:border-white/[0.15] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00bcd4]"
+                  title="Em breve"
+                  className="p-2 rounded-lg border border-white/[0.05] text-white/10 cursor-not-allowed transition-all duration-200"
                 >
                   {s.icon}
-                </a>
+                </div>
               ))}
             </div>
           </div>
