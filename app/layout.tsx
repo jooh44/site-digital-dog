@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import { Header } from '@/features/layout/components/Header'
 import { Footer } from '@/features/layout/components/Footer'
 import { ConsentProvider } from '@/features/shared/providers/ConsentProvider'
+import { SmoothScrollProvider } from '@/features/shared/providers/SmoothScrollProvider'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -67,13 +68,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="font-body">
-        <ConsentProvider>
-          {/* MetaPixel e GA4Provider serão adicionados condicionalmente no Epic 4 */}
-          {/* Exemplo: {hasConsent && <MetaPixel />} */}
-          <Header />
-          {children}
-          <Footer />
-        </ConsentProvider>
+        <SmoothScrollProvider>
+          <ConsentProvider>
+            {/* MetaPixel e GA4Provider serão adicionados condicionalmente no Epic 4 */}
+            {/* Exemplo: {hasConsent && <MetaPixel />} */}
+            <Header />
+            {children}
+            <Footer />
+          </ConsentProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   )
