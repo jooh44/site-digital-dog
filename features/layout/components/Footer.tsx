@@ -3,26 +3,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const NAV_SERVICOS = [
-  { label: 'Identidade Visual', href: '/servicos#identidade-visual' },
-  { label: 'Site Estratégico', href: '/servicos#site' },
-  { label: 'SEO + AIO', href: '/servicos#seo-aio' },
-  { label: 'Google Meu Negócio', href: '/servicos#google-meu-negocio' },
-  { label: 'Presença Social', href: '/servicos#social' },
-  { label: 'Automações', href: '/servicos#automacoes' },
+  { label: 'Identidade Visual', href: '/#servicos' },
+  { label: 'Site Estratégico', href: '/#servicos' },
+  { label: 'SEO + AIO', href: '/#servicos' },
+  { label: 'Google Meu Negócio', href: '/#servicos' },
+  { label: 'Presença Social', href: '/#servicos' },
+  { label: 'Automações', href: '/#servicos' },
 ]
 
 const NAV_EMPRESA = [
-  { label: 'Sobre a Digital Dog', href: '/sobre' },
-  { label: 'Arquitetura Digital', href: '/arquitetura-digital' },
   { label: 'Portfólio', href: '/#portfolio' },
   { label: 'Cases', href: '/#cases' },
   { label: 'Diagnóstico Gratuito', href: '/#diagnostico' },
 ]
 
 const NAV_PROJETOS = [
-  { label: 'Pet Shop Araucária', href: '/projetos/pet-shop-araucaria' },
-  { label: 'Ponto das Portas', href: '/projetos/ponto-das-portas' },
-  { label: 'RZ Vet', href: '/projetos/rz-vet' },
+  { label: 'Pet Shop Araucária', href: '/#portfolio' },
+  { label: 'Ponto das Portas', href: '/#portfolio' },
+  { label: 'RZ Vet', href: '/#portfolio' },
 ]
 
 const SOCIAL_LINKS = [
@@ -128,24 +126,6 @@ export function Footer() {
                 ))}
               </div>
               
-              <div className="flex items-center gap-2">
-                <div
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{
-                    background: '#00bcd4',
-                    animation: 'dd-cyan-pulse 2s ease-in-out infinite',
-                  }}
-                />
-                <span
-                  className="text-[9px] font-semibold tracking-[0.12em] uppercase"
-                  style={{
-                    color: '#00bcd4',
-                    animation: 'dd-cyan-pulse 2s ease-in-out infinite',
-                  }}
-                >
-                  Projeto em desenvolvimento
-                </span>
-              </div>
             </div>
           </div>
 
@@ -226,20 +206,18 @@ export function Footer() {
           © {new Date().getFullYear()} Digital Dog. Todos os direitos reservados.
         </p>
         <nav aria-label="Links legais" className="flex items-center gap-6">
-          <Link
-            href="/privacidade"
-            className="text-[11px] transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00bcd4] rounded-sm"
-            style={{ color: 'rgba(255,255,255,0.35)' }}
+          <span
+            className="text-[11px]"
+            style={{ color: 'rgba(255,255,255,0.2)' }}
           >
             Política de Privacidade
-          </Link>
-          <Link
-            href="/termos"
-            className="text-[11px] transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00bcd4] rounded-sm"
-            style={{ color: 'rgba(255,255,255,0.35)' }}
+          </span>
+          <span
+            className="text-[11px]"
+            style={{ color: 'rgba(255,255,255,0.2)' }}
           >
             Termos de Uso
-          </Link>
+          </span>
         </nav>
       </div>
     </footer>

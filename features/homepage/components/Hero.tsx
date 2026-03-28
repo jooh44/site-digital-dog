@@ -80,24 +80,6 @@ export function Hero() {
           </nav>
         </div>
 
-        {/* WIP Banner */}
-        <div className="hidden lg:flex items-center gap-2 mt-6 flex-shrink-0">
-          <span
-            className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1.5 rounded"
-            style={{
-              border: '1px solid rgba(255,107,53,0.25)',
-              color: 'rgba(255,107,53,0.65)',
-              background: 'rgba(255,107,53,0.05)',
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-              style={{ background: '#ff6b35', animation: 'dd-pin-pulse 2s ease-in-out infinite' }}
-            />
-            Projeto em desenvolvimento
-          </span>
-        </div>
-
         {/* Hero content */}
         <div className="flex flex-col justify-center flex-1">
           {/* Eyebrow */}
