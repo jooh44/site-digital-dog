@@ -41,6 +41,7 @@ const projects = [
     metrics: [
       { value: 'Top 1', label: 'Google Local' },
       { value: 'Top 1', label: 'AI Overview' },
+      { value: 'Zero Ads', label: 'Só Orgânico' },
     ],
     image: '/images/portfolio/case-ponto-das-portas.jpeg' as string | null,
     logo: null as string | null,
@@ -58,6 +59,8 @@ const projects = [
     metrics: [
       { value: 'Top 1', label: 'Google Local' },
       { value: 'Top 3', label: 'AI Overview' },
+      { value: '+75%', label: 'Base de Clientes' },
+      { value: 'Prêmio', label: 'Melhores do Ano' },
     ],
     image: '/images/portfolio/case-pet-shop-araucaria.jpeg' as string | null,
     logo: null as string | null,
