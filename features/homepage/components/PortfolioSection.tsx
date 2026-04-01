@@ -213,25 +213,25 @@ export function PortfolioSection() {
             <div data-pf-header>
               <div
                 className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] text-white/[0.93]"
-                style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)' }}
+                style={{ fontSize: 'clamp(2.4rem, 6vw, 5.5rem)' }}
               >
-                Trabalho
+                Funciona pra
               </div>
               <div
                 className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] mt-1"
                 style={{
-                  fontSize: 'clamp(2.8rem, 7vw, 7rem)',
+                  fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
                   WebkitTextStroke: '1.5px rgba(255,255,255,0.18)',
                   color: 'transparent',
                 }}
               >
-                executado.
+                qualquer negócio.
               </div>
             </div>
           </div>
           <div className="pb-1" data-pf-header>
             <p className="text-white/40 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.2vw, 1.05rem)' }}>
-              Cada projeto é um ecossistema digital completo — marca, site, SEO e presença integrados numa única arquitetura.
+              Clínica, pet shop, e-commerce — não importa o segmento. A IA já recomenda nossos clientes em primeiro lugar.
             </p>
           </div>
         </div>
@@ -396,15 +396,6 @@ export function PortfolioSection() {
                       ))}
                     </div>
 
-                    <span
-                      className="text-[9px] font-semibold tracking-[0.08em] uppercase"
-                      style={{ 
-                        color: '#00bcd4',
-                        animation: 'dd-cyan-pulse 2s ease-in-out infinite'
-                      }}
-                    >
-                      Estudo de caso em breve
-                    </span>
                   </div>
 
                 </div>
