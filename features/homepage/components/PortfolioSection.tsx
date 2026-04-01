@@ -422,7 +422,7 @@ export function PortfolioSection() {
             className="flex-shrink-0 inline-flex items-center gap-2.5 font-body text-sm font-semibold px-6 py-[13px] rounded-[7px] text-white min-h-[44px]"
             style={{ background: 'linear-gradient(135deg, #ff6b35, #ff1744)' }}
           >
-            Quero um projeto assim
+            Funciona para o meu?
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
