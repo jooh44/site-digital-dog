@@ -113,28 +113,28 @@ export function CaseStudies() {
             <div className="overflow-hidden">
               <div
                 className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] text-white/[0.93]"
-                style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)' }}
+                style={{ fontSize: 'clamp(2.4rem, 6vw, 5.5rem)' }}
               >
-                Resultados
+                Funciona pra
               </div>
               <div
                 className="font-heading font-extrabold leading-[0.88] tracking-[-0.04em] mt-1"
                 style={{
-                  fontSize: 'clamp(2.8rem, 7vw, 7rem)',
+                  fontSize: 'clamp(2.4rem, 6vw, 5.5rem)',
                   WebkitTextStroke: '1.5px rgba(255,255,255,0.18)',
                   color: 'transparent',
                 }}
               >
-                reais.
+                qualquer negócio.
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-4 pb-1">
             <p className="text-white/40 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.2vw, 1.05rem)' }}>
-              Não são promessas. São arquiteturas digitais construídas para durar — e os números provam isso.
+              Clínica, pet shop, e-commerce — não importa o segmento. A IA já recomenda nossos clientes em primeiro lugar.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Cada case é um ecossistema completo: marca, site, SEO e visibilidade trabalhando em conjunto.
+              Veja os prints. Depois veja os números.
             </p>
           </div>
         </div>
@@ -286,7 +286,7 @@ export function CaseStudies() {
             className="font-heading font-light leading-snug max-w-sm"
             style={{ color: 'rgba(255,255,255,0.45)', fontSize: 'clamp(1rem, 1.4vw, 1.2rem)' }}
           >
-            Seu negócio pode ser o próximo caso de sucesso.
+            Seu segmento é o próximo.
           </p>
           <a
             href="#diagnostico"
