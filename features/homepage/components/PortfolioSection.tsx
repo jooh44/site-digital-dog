@@ -12,24 +12,28 @@ if (typeof window !== 'undefined') {
 const projects = [
   {
     index: '01',
-    slug: 'pet-shop-araucaria',
-    client: 'Pet Shop Araucária',
-    category: 'Identidade Visual · SEO Local',
-    tags: ['Marca', 'Google Meu Negócio', 'Redes Sociais'],
+    slug: 'rz-vet',
+    client: 'RZ Vet',
+    clientSuffix: 'E-Commerce',
+    category: 'E-commerce · Tráfego Pago · UX/UI',
+    tags: ['E-commerce', 'UX Redesign', 'Tráfego Pago'],
     summary:
-      'Identidade de marca construída do zero com presença local consolidada. Google Meu Negócio otimizado, SEO local e conteúdo que posiciona antes do anúncio.',
+      'Redesign completo do funil de compra com otimização de campanhas pagas. Crescimento exponencial em receita com ROAS consistente de 40× e faturamento recorrente.',
     metrics: [
-      { value: 'Top 1', label: 'Google Local' },
+      { value: '40×', label: 'ROAS Máximo' },
+      { value: '+R$100k', label: 'Faturamento/mês' },
+      { value: 'Top 1', label: 'Google Curitiba' },
       { value: 'Top 3', label: 'AI Overview' },
     ],
-    image: '/images/portfolio/case-pet-shop-araucaria.jpeg' as string | null,
+    image: '/images/portfolio/case-rz-vet.jpeg' as string | null,
     logo: null as string | null,
-    accent: '#00bcd4',
+    accent: '#ff6b35',
   },
   {
     index: '02',
     slug: 'ponto-das-portas',
     client: 'Ponto das Portas',
+    clientSuffix: null as string | null,
     category: 'Site Estratégico · Google Meu Negócio',
     tags: ['Site', 'SEO', 'Captação Local'],
     summary:
@@ -44,21 +48,20 @@ const projects = [
   },
   {
     index: '03',
-    slug: 'rz-vet',
-    client: 'RZ Vet',
-    category: 'E-commerce · Tráfego Pago · UX/UI',
-    tags: ['E-commerce', 'UX Redesign', 'Tráfego Pago'],
+    slug: 'pet-shop-araucaria',
+    client: 'Pet Shop Araucária',
+    clientSuffix: null as string | null,
+    category: 'Identidade Visual · SEO Local',
+    tags: ['Marca', 'Google Meu Negócio', 'Redes Sociais'],
     summary:
-      'Redesign completo do funil de compra com otimização de campanhas pagas. Crescimento exponencial em receita com ROAS consistente de 40× e faturamento recorrente.',
+      'Identidade de marca construída do zero com presença local consolidada. Google Meu Negócio otimizado, SEO local e conteúdo que posiciona antes do anúncio.',
     metrics: [
-      { value: '40×', label: 'ROAS Máximo' },
-      { value: '+R$100k', label: 'Faturamento/mês' },
-      { value: 'Top 1', label: 'Google Curitiba' },
+      { value: 'Top 1', label: 'Google Local' },
       { value: 'Top 3', label: 'AI Overview' },
     ],
-    image: '/images/portfolio/case-rz-vet.jpeg' as string | null,
+    image: '/images/portfolio/case-pet-shop-araucaria.jpeg' as string | null,
     logo: null as string | null,
-    accent: '#ff6b35',
+    accent: '#00bcd4',
   },
 ]
 
@@ -307,8 +310,7 @@ export function PortfolioSection() {
                       >
                         {project.index}
                       </span>
-                      {/* Logo da empresa */}
-                      {project.logo ? (
+                      {project.logo && (
                         <div className="flex-shrink-0 w-12 h-8 relative">
                           <Image
                             src={project.logo}
@@ -317,25 +319,25 @@ export function PortfolioSection() {
                             className="object-contain object-right"
                           />
                         </div>
-                      ) : (
-                        <div
-                          className="flex-shrink-0 w-14 h-8 rounded flex items-center justify-center"
-                          style={{
-                            border: `1px dashed ${project.accent}30`,
-                            background: `${project.accent}06`,
-                          }}
-                        >
-                          <span className="text-[7px] font-semibold tracking-[0.1em] uppercase" style={{ color: `${project.accent}40` }}>
-                            logo
-                          </span>
-                        </div>
                       )}
                     </div>
                     <h3
-                      className="font-heading font-extrabold leading-[0.92] tracking-[-0.03em] text-white/90 mt-1.5"
+                      className="font-heading font-extrabold leading-[0.92] tracking-[-0.03em] text-white/90 mt-1.5 flex items-baseline gap-3"
                       style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)' }}
                     >
                       {project.client}
+                      {project.clientSuffix && (
+                        <span
+                          className="text-[10px] font-semibold tracking-[0.12em] uppercase px-2 py-1 rounded"
+                          style={{
+                            background: `${project.accent}15`,
+                            border: `1px solid ${project.accent}30`,
+                            color: project.accent,
+                          }}
+                        >
+                          {project.clientSuffix}
+                        </span>
+                      )}
                     </h3>
                     <p
                       className="text-[10px] font-semibold tracking-[0.14em] uppercase mt-1.5"
