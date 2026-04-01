@@ -8,14 +8,11 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Prints de pesquisa (IA recomendando clientes em 1º lugar) serão adicionados aqui.
-// Cada `image` receberá o path do screenshot quando disponível.
 const cases = [
   {
     id: 'aumivet',
     client: 'Aumivet',
     segment: 'Clínica Veterinária',
-    image: null as string | null, // screenshot IA em preparação
     challenge: 'Google sugeria concorrentes ao buscar pela própria marca — zero alcance orgânico.',
     solution: 'Novo site institucional com SEO técnico avançado. Recuperação completa da marca em 30 dias.',
     metrics: [
@@ -28,7 +25,6 @@ const cases = [
     id: 'morgan',
     client: 'Morgan & Ted',
     segment: 'Pet Shop',
-    image: null as string | null,
     challenge: 'Negócio recém-aberto em mercado saturado. Baixa visibilidade para captar clientes locais.',
     solution: 'Landing page de alta conversão com agendamento via WhatsApp otimizado para móvel.',
     metrics: [
@@ -41,7 +37,6 @@ const cases = [
     id: 'rzvet',
     client: 'RZ Vet',
     segment: 'E-commerce Pet',
-    image: null as string | null,
     challenge: 'E-commerce estagnado, UX problemático e campanhas com ROI negativo.',
     solution: 'Redesign completo do funil de compra e otimização de tráfego pago.',
     metrics: [
@@ -161,47 +156,6 @@ export function CaseStudies() {
                 className="h-px w-full flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(255,107,53,0.6), transparent)' }}
               />
-
-              {/* Evidence placeholder — receberá screenshot da IA */}
-              <div
-                className="relative w-full flex-shrink-0 flex items-center justify-center"
-                style={{ height: '160px', background: 'rgba(0,0,0,0.35)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
-              >
-                <div className="flex flex-col items-center gap-2 px-6 text-center">
-                  {/* Search bar outline — hint visual do que vem aí */}
-                  <div
-                    className="flex items-center gap-2 w-full max-w-[200px] px-3 py-1.5 rounded-md"
-                    style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
-                  >
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true" style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0 }}>
-                      <circle cx="5" cy="5" r="3.5" stroke="currentColor" strokeWidth="1.2" />
-                      <path d="M8 8l2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                    </svg>
-                    <span className="text-[9px] font-mono truncate" style={{ color: 'rgba(255,255,255,0.18)' }}>
-                      {item.client.toLowerCase().replace('&', 'e').replace(' ', '')}...
-                    </span>
-                  </div>
-                  {/* "em breve" hint */}
-                  <div className="flex items-center gap-1.5">
-                    <div
-                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{
-                        background: '#00bcd4',
-                        animation: 'dd-cyan-pulse 1.6s ease-in-out infinite',
-                      }}
-                    />
-                    <span
-                      className="text-[9px] font-semibold tracking-[0.1em] uppercase"
-                      style={{
-                        color: '#00bcd4',
-                        animation: 'dd-cyan-pulse 1.6s ease-in-out infinite',
-                      }}
-                    >
-                      Em breve
-                    </span>
-                  </div>
-                </div>
-              </div>
 
               <div className="flex flex-col p-6 gap-4 flex-1">
 
