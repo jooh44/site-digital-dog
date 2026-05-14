@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-04-24T17:38:03.309Z",
+  "inputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-email-campaign-02.json",
+  "leadCampaignId": "camp-advocacia-trabalhista-curitiba",
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-02",
+  "excludePreviouslyContacted": true,
+  "eligibleCount": 0,
+  "minBatchSize": 1,
+  "status": "waiting_for_batch"
+}

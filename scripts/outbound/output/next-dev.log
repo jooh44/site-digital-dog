@@ -1,0 +1,1026 @@
+
+> site-digital-dog@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.18
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1262ms
+ ○ Compiling /ops/captacao ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ✓ Compiled /ops/captacao in 3s (675 modules)
+(node:1194204) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ HEAD /ops/captacao 200 in 3251ms
+ ✓ Compiled in 419ms (306 modules)
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 79ms
+ GET /ops/captacao 200 in 97ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 101ms
+ GET /ops/captacao 200 in 100ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 85ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 99ms
+ GET /ops/captacao 200 in 120ms
+ GET /ops/captacao 200 in 108ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 103ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 95ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 97ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 85ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 97ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 98ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 95ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 94ms
+ GET /ops/captacao 200 in 96ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 99ms
+ GET /ops/captacao 200 in 102ms
+ GET /ops/captacao 200 in 103ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 100ms
+ GET /ops/captacao 200 in 85ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 92ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 83ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 96ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 85ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 87ms
+ GET /ops/captacao 200 in 93ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 91ms
+ GET /ops/captacao 200 in 89ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 104ms
+ GET /ops/captacao 200 in 90ms
+ GET /ops/captacao 200 in 85ms
+ GET /ops/captacao 200 in 88ms
+ GET /ops/captacao 200 in 86ms
+ GET /ops/captacao 200 in 84ms
+ GET /ops/captacao 200 in 87ms
+ HEAD /ops/captacao 200 in 3003ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1429ms (645 modules)
+ GET /dashboard 404 in 1706ms
+ GET /ops/captacao 200 in 228ms
+ GET /ops/captacao 200 in 190ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 128ms
+ GET /ops/captacao 200 in 130ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 122ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 131ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 121ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 119ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 120ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 121ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 120ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 131ms
+ GET /ops/captacao 200 in 130ms
+ GET /ops/captacao 200 in 128ms
+ GET /ops/captacao 200 in 131ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 121ms
+ GET /ops/captacao 200 in 122ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 129ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 128ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 122ms
+ GET /ops/captacao 200 in 124ms
+ GET /ops/captacao 200 in 130ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 129ms
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 763ms (656 modules)
+ ⨯ app/ops/captacao/page.tsx (712:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2073:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3783494993"
+[0m [90m 710 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 711 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 712 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 713 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 714 |[39m     }[33m,[39m[0m
+[0m [90m 715 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (712:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2073:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "1195333272"
+[0m [90m 710 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 711 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 712 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 713 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 714 |[39m     }[33m,[39m[0m
+[0m [90m 715 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (712:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2073:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "1195333272"
+[0m [90m 710 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 711 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 712 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 713 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 714 |[39m     }[33m,[39m[0m
+[0m [90m 715 |[39m   ][0m
+ GET /ops/captacao 500 in 152ms
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 203ms (350 modules)
+ ⨯ app/ops/captacao/page.tsx (712:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2073:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "1195333272"
+[0m [90m 710 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 711 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 712 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 713 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 714 |[39m     }[33m,[39m[0m
+[0m [90m 715 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (712:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2073:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "1195333272"
+[0m [90m 710 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 711 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 712 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 713 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 714 |[39m     }[33m,[39m[0m
+[0m [90m 715 |[39m   ][0m
+ GET /ops/captacao 500 in 201ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 561ms (656 modules)
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ GET /ops/captacao 500 in 257ms
+ ✓ Compiled in 437ms (656 modules)
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /ops/captacao 500 in 136ms
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ GET /ops/captacao 500 in 99ms
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ HEAD /ops/captacao 500 in 93ms
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ ⨯ app/ops/captacao/page.tsx (777:20) @ reviewSuspicious
+ ⨯ ReferenceError: Cannot access 'reviewSuspicious' before initialization
+    at buildKanbanColumns (./app/ops/captacao/page.tsx:2009:26)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:42:27)
+    at stringify (<anonymous>)
+digest: "3454706325"
+[0m [90m 775 |[39m       description[33m:[39m [32m'Casos suspeitos ou falhas reais de entrega que pedem intervenção.'[39m[33m,[39m[0m
+[0m [90m 776 |[39m       empty[33m:[39m [32m'Sem pendências de revisão.'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m 777 |[39m       footnote[33m:[39m [32m`${reviewSuspicious} suspeitos · ${reviewDeliveryFailures} falhas de email`[39m[33m,[39m[0m
+[0m [90m     |[39m                    [31m[1m^[22m[39m[0m
+[0m [90m 778 |[39m       tone[33m:[39m [32m'rose'[39m[33m,[39m[0m
+[0m [90m 779 |[39m     }[33m,[39m[0m
+[0m [90m 780 |[39m   ][0m
+ GET /ops/captacao 500 in 99ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 446ms (656 modules)
+ GET /ops/captacao 200 in 364ms
+ HEAD /ops/captacao 200 in 118ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 181ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 155ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 198ms
+ GET /ops/captacao 200 in 162ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 149ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 180ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 144ms
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 414ms (656 modules)
+ GET /ops/captacao 200 in 201ms
+ GET /ops/captacao 200 in 213ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 123ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 177ms
+ GET /ops/captacao 200 in 131ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 193ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 158ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 192ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 160ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 177ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 159ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 131ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 196ms
+ GET /ops/captacao 200 in 159ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 149ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 155ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 201ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 164ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 190ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 178ms
+ GET /ops/captacao 200 in 181ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 129ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 164ms
+ GET /ops/captacao 200 in 163ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 161ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 157ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 163ms
+ GET /ops/captacao 200 in 177ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 128ms
+ GET /ops/captacao 200 in 149ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 180ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 170ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 133ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 170ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 129ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 189ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 149ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 138ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 156ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 149ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 168ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 132ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 165ms
+ GET /ops/captacao 200 in 167ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 127ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 193ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 128ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 160ms
+ GET /ops/captacao 200 in 171ms
+ ⨯ lib/outbound/leadEngineStore.ts (85:6) @ exec
+ ⨯ Error: database is locked
+    at openLeadEngineDatabase (./lib/outbound/leadEngineStore.ts:60:8)
+    at getLeadEngineDashboardData (./lib/outbound/dashboard.ts:17:91)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:31:101)
+    at stringify (<anonymous>)
+digest: "3789645487"
+[0m [90m 83 |[39m[0m
+[0m [90m 84 |[39m   [36mconst[39m db [33m=[39m [36mnew[39m [33mDatabaseSync[39m(dbPath)[0m
+[0m[31m[1m>[22m[39m[90m 85 |[39m   db[33m.[39mexec(readFileSync(schemaPath[33m,[39m [32m'utf8'[39m))[0m
+[0m [90m    |[39m      [31m[1m^[22m[39m[0m
+[0m [90m 86 |[39m   migrateLeadEngineDatabase(db)[0m
+[0m [90m 87 |[39m[0m
+[0m [90m 88 |[39m   [36mreturn[39m db[0m
+ ⨯ lib/outbound/leadEngineStore.ts (85:6) @ exec
+ ⨯ Error: database is locked
+    at openLeadEngineDatabase (./lib/outbound/leadEngineStore.ts:60:8)
+    at getLeadEngineDashboardData (./lib/outbound/dashboard.ts:17:91)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:31:101)
+    at stringify (<anonymous>)
+digest: "3789645487"
+[0m [90m 83 |[39m[0m
+[0m [90m 84 |[39m   [36mconst[39m db [33m=[39m [36mnew[39m [33mDatabaseSync[39m(dbPath)[0m
+[0m[31m[1m>[22m[39m[90m 85 |[39m   db[33m.[39mexec(readFileSync(schemaPath[33m,[39m [32m'utf8'[39m))[0m
+[0m [90m    |[39m      [31m[1m^[22m[39m[0m
+[0m [90m 86 |[39m   migrateLeadEngineDatabase(db)[0m
+[0m [90m 87 |[39m[0m
+[0m [90m 88 |[39m   [36mreturn[39m db[0m
+ GET /ops/captacao 500 in 48ms
+ GET /ops/captacao 200 in 176ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 136ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 160ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 164ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 158ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 172ms
+ GET /ops/captacao 200 in 177ms
+ GET /ops/captacao 200 in 135ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 173ms
+ GET /ops/captacao 200 in 212ms
+ ⨯ lib/outbound/leadEngineStore.ts (85:6) @ exec
+ ⨯ Error: database is locked
+    at openLeadEngineDatabase (./lib/outbound/leadEngineStore.ts:60:8)
+    at getLeadEngineDashboardData (./lib/outbound/dashboard.ts:17:91)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:31:101)
+    at stringify (<anonymous>)
+digest: "3789645487"
+[0m [90m 83 |[39m[0m
+[0m [90m 84 |[39m   [36mconst[39m db [33m=[39m [36mnew[39m [33mDatabaseSync[39m(dbPath)[0m
+[0m[31m[1m>[22m[39m[90m 85 |[39m   db[33m.[39mexec(readFileSync(schemaPath[33m,[39m [32m'utf8'[39m))[0m
+[0m [90m    |[39m      [31m[1m^[22m[39m[0m
+[0m [90m 86 |[39m   migrateLeadEngineDatabase(db)[0m
+[0m [90m 87 |[39m[0m
+[0m [90m 88 |[39m   [36mreturn[39m db[0m
+ ⨯ lib/outbound/leadEngineStore.ts (85:6) @ exec
+ ⨯ Error: database is locked
+    at openLeadEngineDatabase (./lib/outbound/leadEngineStore.ts:60:8)
+    at getLeadEngineDashboardData (./lib/outbound/dashboard.ts:17:91)
+    at CaptacaoDashboardPage (./app/ops/captacao/page.tsx:31:101)
+    at stringify (<anonymous>)
+digest: "3789645487"
+[0m [90m 83 |[39m[0m
+[0m [90m 84 |[39m   [36mconst[39m db [33m=[39m [36mnew[39m [33mDatabaseSync[39m(dbPath)[0m
+[0m[31m[1m>[22m[39m[90m 85 |[39m   db[33m.[39mexec(readFileSync(schemaPath[33m,[39m [32m'utf8'[39m))[0m
+[0m [90m    |[39m      [31m[1m^[22m[39m[0m
+[0m [90m 86 |[39m   migrateLeadEngineDatabase(db)[0m
+[0m [90m 87 |[39m[0m
+[0m [90m 88 |[39m   [36mreturn[39m db[0m
+ GET /ops/captacao 500 in 40ms
+ GET /ops/captacao 200 in 205ms
+ GET /ops/captacao 200 in 160ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 166ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 137ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 148ms
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 150ms (350 modules)
+ GET /ops/captacao 200 in 234ms
+ GET /ops/captacao 200 in 156ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 156ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 141ms
+ GET /ops/captacao 200 in 184ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 150ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 129ms
+ GET /ops/captacao 200 in 122ms
+ GET /ops/captacao 200 in 126ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 125ms
+ GET /ops/captacao 200 in 116ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 115ms
+ GET /ops/captacao 200 in 117ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 144ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 161ms
+ GET /ops/captacao 200 in 156ms
+ GET /ops/captacao 200 in 209ms
+ GET /ops/captacao 200 in 148ms
+ GET /ops/captacao 200 in 192ms
+ GET /ops/captacao 200 in 159ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 153ms
+ GET /ops/captacao 200 in 225ms
+ GET /ops/captacao 200 in 143ms
+ GET /ops/captacao 200 in 219ms
+ GET /ops/captacao 200 in 169ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 188ms
+ GET /ops/captacao 200 in 140ms
+ GET /ops/captacao 200 in 147ms
+ GET /ops/captacao 200 in 156ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 145ms
+ GET /ops/captacao 200 in 171ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 154ms
+ GET /ops/captacao 200 in 146ms
+ GET /ops/captacao 200 in 218ms
+ GET /ops/captacao 200 in 160ms
+ GET /ops/captacao 200 in 151ms
+ GET /ops/captacao 200 in 177ms
+ GET /ops/captacao 200 in 158ms
+ GET /ops/captacao 200 in 189ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 175ms
+ GET /ops/captacao 200 in 139ms
+ GET /ops/captacao 200 in 179ms
+ GET /ops/captacao 200 in 142ms
+ GET /ops/captacao 200 in 180ms
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 454ms (656 modules)
+ GET /ops/captacao 200 in 237ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 134ms
+ GET /ops/captacao 200 in 198ms
+ GET /ops/captacao 200 in 174ms
+ GET /ops/captacao 200 in 207ms
+ GET /ops/captacao 200 in 152ms
+ GET /ops/captacao 200 in 200ms
+ GET /ops/captacao 200 in 197ms
+ GET /ops/captacao 200 in 218ms
+ GET /ops/captacao 200 in 201ms
+ GET /ops/captacao 200 in 217ms
+ GET /ops/captacao 200 in 197ms
+ GET /ops/captacao 200 in 197ms
+ GET /ops/captacao 200 in 258ms
+ GET /ops/captacao 200 in 245ms
+ GET /ops/captacao 200 in 230ms
+ GET /ops/captacao 200 in 170ms
+ GET /ops/captacao 200 in 231ms
+ GET /ops/captacao 200 in 242ms
+ GET /ops/captacao 200 in 218ms
+ GET /ops/captacao 200 in 204ms
+ GET /ops/captacao 200 in 215ms
+ GET /ops/captacao 200 in 204ms
+ GET /ops/captacao 200 in 207ms
+ GET /ops/captacao 200 in 204ms
+ GET /ops/captacao 200 in 183ms
+ GET /ops/captacao 200 in 188ms
+ ○ Compiling / ...
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /home/johny/Documentos/projetos/digital-dog/.next/cache/webpack/server-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled / in 5.4s (861 modules)
+ GET / 200 in 6356ms
+[?25h

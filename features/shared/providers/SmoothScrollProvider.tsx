@@ -2,8 +2,15 @@
 
 import { ReactLenis } from '@studio-freight/react-lenis'
 import { ReactNode } from 'react'
+import { usePathname } from 'next/navigation'
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
+
+  if (pathname.startsWith('/ops')) {
+    return <>{children}</>
+  }
+
   return (
     <ReactLenis 
       root 

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Dog - Design System Atual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-canvas: #0a0a0a;
+      --bg-elevated: #0d0d0d;
+      --bg-panel: rgba(255, 255, 255, 0.04);
+      --bg-panel-strong: rgba(255, 255, 255, 0.06);
+      --line-soft: rgba(255, 255, 255, 0.07);
+      --line-mid: rgba(255, 255, 255, 0.12);
+      --text-strong: rgba(255, 255, 255, 0.93);
+      --text-body: rgba(255, 255, 255, 0.60);
+      --text-muted: rgba(255, 255, 255, 0.38);
+      --text-faint: rgba(255, 255, 255, 0.16);
+      --text-ghost: rgba(255, 255, 255, 0.22);
+      --cyan: #00bcd4;
+      --cyan-soft: #4dd0e1;
+      --orange: #ff6b35;
+      --pink: #ff1744;
+      --purple: #7c4dff;
+      --green: #28c840;
+      --off-white: #f0ece4;
+      --gradient-warm: linear-gradient(135deg, #ff6b35 0%, #ff1744 100%);
+      --gradient-tech: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%);
+      --font-heading: "Space Grotesk", sans-serif;
+      --font-body: "Inter", sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 7px;
+      --radius-lg: 8px;
+      --radius-xl: 12px;
+      --radius-2xl: 16px;
+      --shadow-cyan: 0 0 24px rgba(0, 188, 212, 0.18);
+      --shadow-warm: 0 4px 20px rgba(255, 107, 53, 0.28);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(255, 107, 53, 0.07), transparent 26%),
+        radial-gradient(circle at top right, rgba(0, 188, 212, 0.08), transparent 22%),
+        var(--bg-canvas);
+      color: white;
+      font-family: var(--font-body);
+      padding: 40px 24px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    a { color: inherit; }
+
+    .section { margin-bottom: 72px; }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .header {
+      margin-bottom: 72px;
+      padding: 28px 28px 32px;
+      border: 1px solid var(--line-soft);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: var(--text-strong);
+      margin-bottom: 14px;
+      max-width: 10ch;
+    }
+
+    .header p {
+      max-width: 72ch;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .panel {
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .panel h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 8px;
+    }
+
+    .panel p,
+    .panel li {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .panel ul {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .index-link {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.02);
+      text-decoration: none;
+      transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+    }
+
+    .index-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 188, 212, 0.35);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .index-link strong {
+      display: block;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 4px;
+    }
+
+    .index-link span {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.34);
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .swatch-box {
+      height: 84px;
+      border-radius: 14px;
+      border: 1px solid var(--line-soft);
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      letter-spacing: 0.02em;
+    }
+
+    .value {
+      font-size: 11px;
+      color: rgba(255,255,255,0.28);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .type-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .type-sample {
+      border-bottom: 1px solid var(--line-soft);
+      padding-bottom: 20px;
+    }
+
+    .type-sample:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .h-xl,
+    .h-lg,
+    .h-md,
+    .h-sm {
+      font-family: var(--font-heading);
+      color: var(--text-strong);
+    }
+
+    .h-xl {
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .h-lg {
+      font-size: clamp(2.4rem, 6vw, 5.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .h-md {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .h-sm {
+      font-size: 0.8rem;
+      line-height: 1.2;
+      font-weight: 300;
+    }
+
+    .body-lg {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    .body-sm {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.52);
+    }
+
+    .micro {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .outline-word {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.2);
+    }
+
+    .accent-line {
+      background-image: var(--gradient-warm);
+      background-repeat: no-repeat;
+      background-size: 100% 2.5px;
+      background-position: 0 100%;
+      padding-bottom: 3px;
+    }
+
+    .token-bars {
+      display: flex;
+      align-items: end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .token {
+      width: 40px;
+      border-radius: 4px;
+      background: rgba(0, 188, 212, 0.18);
+      border: 1px solid rgba(0, 188, 212, 0.45);
+    }
+
+    .token-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .chip-pill {
+      border-radius: 999px;
+      padding-inline: 12px;
+      color: var(--cyan-soft);
+      border: 2px solid var(--cyan);
+      background: transparent;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 44px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: var(--font-body);
+      transition: transform 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .btn-primary {
+      padding: 13px 24px;
+      border-radius: 7px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: white;
+      background: var(--gradient-warm);
+      box-shadow: var(--shadow-warm);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-secondary {
+      padding: 13px 24px;
+      border-radius: 7px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: transparent;
+      border: 1px solid var(--cyan);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cyan);
+      color: var(--bg-canvas);
+      box-shadow: var(--shadow-cyan);
+    }
+
+    .btn-nav {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--cyan);
+      background: transparent;
+      border: 1px solid var(--cyan);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
+      border-left: 1px solid var(--line-soft);
+    }
+
+    .service-card {
+      position: relative;
+      padding: 28px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      min-height: 250px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, var(--accent-soft), transparent 65%);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .service-card > * { position: relative; z-index: 1; }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--line-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .service-number {
+      font-family: var(--font-heading);
+      font-size: 4.4rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      border: 1px solid var(--line-soft);
+      overflow: hidden;
+      border-radius: 16px;
+      min-height: 260px;
+    }
+
+    .case-media {
+      position: relative;
+      background:
+        radial-gradient(circle at center, rgba(124, 77, 255, 0.10), transparent 62%),
+        var(--bg-elevated);
+      border-right: 1px solid var(--line-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .case-media span {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(124, 77, 255, 0.28);
+    }
+
+    .case-content {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metric {
+      min-width: 96px;
+      padding: 10px 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--text-strong);
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.32);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .motion-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .motion-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .motion-item strong {
+      color: rgba(255,255,255,0.84);
+      font-size: 0.92rem;
+    }
+
+    .motion-item span {
+      color: rgba(255,255,255,0.34);
+      font-size: 0.84rem;
+      text-align: right;
+    }
+
+    .dos-donts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .code-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .code-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.02);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.72);
+      overflow-x: auto;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .list-good,
+    .list-bad {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list-good li,
+    .list-bad li {
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .list-good li::before,
+    .list-bad li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.8em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      transform: translateY(-50%);
+    }
+
+    .list-good li::before { background: var(--green); }
+    .list-bad li::before { background: var(--pink); }
+
+    @media (max-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3,
+      .grid-2,
+      .dos-donts,
+      .case-row { grid-template-columns: 1fr; }
+      .case-media { min-height: 200px; border-right: none; border-bottom: 1px solid var(--line-soft); }
+    }
+
+    @media (max-width: 640px) {
+      body { padding-inline: 16px; }
+      .header { padding: 22px 18px 24px; }
+      .grid-4,
+      .grid-3 { grid-template-columns: 1fr; }
+      .service-card { padding: 22px; min-height: auto; }
+      .button-row { align-items: stretch; }
+      .btn { width: 100%; }
+      .motion-item { flex-direction: column; }
+      .motion-item span { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="eyebrow">Design System Atualizado</div>
+    <h1>Digital Dog agora fala em modo editorial, técnico e cirúrgico.</h1>
+    <p>
+      Este documento substitui o visual anterior baseado em cards neon genéricos. O site atual trabalha com fundo quase preto, tipografia densa, linhas estruturais, acentos por pilar e blocos com linguagem de arquitetura digital. A referência principal foi extraída dos componentes reais da homepage.
+    </p>
+    <div class="status-row">
+      <span class="status-pill" style="color:#28c840;">Em uso</span>
+      <span class="status-pill" style="color:#00bcd4;">Estrutural</span>
+      <span class="status-pill" style="color:#ff6b35;">Ação</span>
+      <span class="status-pill" style="color:#7c4dff;">Contextual</span>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">00 - Leitura Rápida</h2>
+    <div class="index-grid">
+      <a class="index-link" href="#visual-direction">
+        <strong>Direção visual</strong>
+        <span>O que a marca deve transmitir antes de qualquer componente.</span>
+      </a>
+      <a class="index-link" href="#palette">
+        <strong>Paleta</strong>
+        <span>O que é estrutural, o que é ação e o que é só contexto.</span>
+      </a>
+      <a class="index-link" href="#type">
+        <strong>Tipografia</strong>
+        <span>Hierarquia editorial, impacto e legibilidade.</span>
+      </a>
+      <a class="index-link" href="#components">
+        <strong>Componentes</strong>
+        <span>Botões, chips, grades e padrão dos serviços.</span>
+      </a>
+      <a class="index-link" href="#a11y">
+        <strong>Acessibilidade</strong>
+        <span>O que precisa continuar legível e operável no escuro.</span>
+      </a>
+      <a class="index-link" href="#implementation">
+        <strong>Ponte com código</strong>
+        <span>Onde esse sistema nasce hoje dentro do projeto.</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="visual-direction">
+    <h2 class="section-title">01 - Direção Visual</h2>
+    <div class="grid-3">
+      <article class="panel">
+        <h3>Estilo</h3>
+        <p>Editorial-tech dark. A interface é mais próxima de uma grade de estúdio e de um painel estratégico do que de um landing page SaaS comum.</p>
+      </article>
+      <article class="panel">
+        <h3>Estrutura</h3>
+        <p>Seções com bordas contínuas, divisórias finas e grandes títulos quebrados em linhas curtas. A composição usa muito espaço negativo e ritmo vertical amplo.</p>
+      </article>
+      <article class="panel">
+        <h3>Tom visual</h3>
+        <p>Precisão, presença e autoridade. O calor vem dos acentos laranja e rosa; a credibilidade técnica vem do ciano; a segmentação por pilar inclui roxo.</p>
+      </article>
+    </div>
+
+    <div class="panel" style="margin-top:24px;">
+      <h3>A sensação que o usuário deve ter</h3>
+      <p>Quando alguém entra na homepage, não deve sentir “template bonito”. Deve sentir que está diante de uma operação que entende arquitetura, não só execução. O preto quase absoluto segura a cena. As linhas finas organizam. O ciano sugere sistema. O gradiente quente entra como decisão, não como decoração.</p>
+    </div>
+  </section>
+
+  <section class="section" id="palette">
+    <h2 class="section-title">02 - Paleta</h2>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-box" style="background:#0a0a0a;"></div>
+        <div>
+          <div class="label">Canvas Base</div>
+          <div class="value">#0a0a0a · fundo principal do site</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#0d0d0d;"></div>
+        <div>
+          <div class="label">Elevated Surface</div>
+          <div class="value">#0d0d0d · mídia, placeholders, superfícies locais</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#00bcd4;"></div>
+        <div>
+          <div class="label">Primary Cyan</div>
+          <div class="value">#00bcd4 · CTA outline, bullets, foco, tecnologia</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#4dd0e1;"></div>
+        <div>
+          <div class="label">Cyan Soft</div>
+          <div class="value">#4dd0e1 · reforço secundário e textos destacados</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#ff6b35;"></div>
+        <div>
+          <div class="label">Orange</div>
+          <div class="value">#ff6b35 · calor, marca, início do gradiente</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#ff1744;"></div>
+        <div>
+          <div class="label">Pink</div>
+          <div class="value">#ff1744 · fechamento do gradiente e energia</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#7c4dff;"></div>
+        <div>
+          <div class="label">Pillar Purple</div>
+          <div class="value">#7c4dff · marketing e diferenciação entre pilares</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#f0ece4; border-color:rgba(255,255,255,0.16);"></div>
+        <div>
+          <div class="label">Off White</div>
+          <div class="value">#f0ece4 · apoio de marca e contraste quente</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:24px;">
+      <h3>Rampas de opacidade em uso</h3>
+      <div class="swatch-grid" style="margin-top:14px;">
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.93);"></div>
+          <div><div class="label">White 93%</div><div class="value">headlines</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.60);"></div>
+          <div><div class="label">White 60%</div><div class="value">corpo principal</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.38);"></div>
+          <div><div class="label">White 38%</div><div class="value">texto secundário</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.16);"></div>
+          <div><div class="label">White 16%</div><div class="value">eyebrow e microcópia</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.16);"></div>
+          <div><div class="label">White 07%</div><div class="value">divisórias e grids</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.16);"></div>
+          <div><div class="label">White 04%</div><div class="value">chips, painéis leves</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">03 - Gradientes e Acentos</h2>
+    <div class="grid-3">
+      <article class="panel">
+        <div class="swatch-box" style="background:linear-gradient(135deg,#ff6b35 0%, #ff1744 100%); margin-bottom:12px;"></div>
+        <h3>Warm Gradient</h3>
+        <p>Uso prioritário em CTA principal e underline do hero. Evitar espalhar esse gradiente em cards completos.</p>
+      </article>
+      <article class="panel">
+        <div class="swatch-box" style="background:linear-gradient(135deg,#00bcd4 0%, #4dd0e1 100%); margin-bottom:12px;"></div>
+        <h3>Tech Gradient</h3>
+        <p>Secundário. Melhor aplicado como brilho, foco ou transição, não como linguagem dominante.</p>
+      </article>
+      <article class="panel">
+        <div class="swatch-box" style="background:radial-gradient(circle at 0% 0%, rgba(124,77,255,0.14), transparent 60%), #0d0d0d; margin-bottom:12px;"></div>
+        <h3>Ambient Glow</h3>
+        <p>Glow radial sutil por contexto. Serve para reforçar pilares e estados ativos sem virar decoração gratuita.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="type">
+    <h2 class="section-title">04 - Tipografia</h2>
+    <div class="grid-2" style="margin-bottom:24px;">
+      <article class="panel">
+        <h3>Heading Font</h3>
+        <p style="font-family:var(--font-heading); font-size:2rem; color:var(--text-strong); margin-top:8px;">Space Grotesk</p>
+        <p>Família dominante. Usar em títulos, wordmark, métricas e números grandes de seção.</p>
+      </article>
+      <article class="panel">
+        <h3>Body Font</h3>
+        <p style="font-family:var(--font-body); font-size:2rem; color:var(--text-strong); margin-top:8px;">Inter</p>
+        <p>Família utilitária. Usar em corpo, navegação, chips, botões, descrições e metadados.</p>
+      </article>
+    </div>
+
+    <div class="panel">
+      <div class="type-stack">
+        <div class="type-sample">
+          <div class="h-xl">Quando seu cliente <span class="accent-line">aparecer</span>?</div>
+          <div class="value" style="margin-top:8px;">Hero H1 · 2.3rem até 4rem · 800 · line-height 1.07 · tracking -0.03em</div>
+        </div>
+        <div class="type-sample">
+          <div class="h-lg">Funciona pra<br><span class="outline-word">qualquer negócio.</span></div>
+          <div class="value" style="margin-top:8px;">Headline editorial · até 5.5rem · 800 · line-height 0.88 · tracking -0.04em</div>
+        </div>
+        <div class="type-sample">
+          <div class="h-md">Site Estratégico</div>
+          <div class="h-sm" style="color:var(--cyan); opacity:0.8; margin-top:4px;">A vitrine.</div>
+          <div class="value" style="margin-top:8px;">Título de card com subtítulo leve colorido</div>
+        </div>
+        <div class="type-sample">
+          <div class="body-lg">Seus concorrentes já estão sendo indexados. A Digital Dog constrói a infraestrutura que coloca o seu negócio como referência no Google, ChatGPT e Gemini.</div>
+          <div class="value" style="margin-top:8px;">Body · 1rem · line-height 1.75 · white 60%</div>
+        </div>
+        <div class="type-sample">
+          <div class="micro">AIO · GEO · ARQUITETURA DIGITAL</div>
+          <div class="value" style="margin-top:8px;">Microcopy · 11px · 600 · uppercase · tracking 0.14em</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">05 - Espaçamento e Raios</h2>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>Escala base</h3>
+        <div class="token-bars" style="margin-top:18px;">
+          <div class="token-wrap"><div class="token" style="height:16px;"></div><div class="value">16</div></div>
+          <div class="token-wrap"><div class="token" style="height:24px;"></div><div class="value">24</div></div>
+          <div class="token-wrap"><div class="token" style="height:32px;"></div><div class="value">32</div></div>
+          <div class="token-wrap"><div class="token" style="height:48px;"></div><div class="value">48</div></div>
+          <div class="token-wrap"><div class="token" style="height:64px;"></div><div class="value">64</div></div>
+        </div>
+        <p style="margin-top:18px;">A homepage usa intervalos largos. 24, 32 e 48px aparecem o tempo todo na composição de seções.</p>
+      </article>
+      <article class="panel">
+        <h3>Raios em produção</h3>
+        <div class="chip-row" style="margin-top:18px;">
+          <span class="chip" style="border-radius:4px;">4px</span>
+          <span class="chip" style="border-radius:7px;">7px</span>
+          <span class="chip" style="border-radius:8px;">8px</span>
+          <span class="chip" style="border-radius:12px;">12px</span>
+          <span class="chip" style="border-radius:16px;">16px</span>
+          <span class="chip" style="border-radius:999px;">full</span>
+        </div>
+        <p style="margin-top:18px;">7px para CTA principal, 8px para chips e inputs, 12px para cards leves, 16px para frames maiores e cases.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="components">
+    <h2 class="section-title">06 - Componentes Base</h2>
+    <div class="button-row" style="margin-bottom:22px;">
+      <button class="btn btn-primary">Quero meu Diagnóstico Digital</button>
+      <button class="btn btn-secondary">Diagnóstico gratuito</button>
+      <button class="btn btn-nav">Solicitar Diagnóstico</button>
+    </div>
+    <div class="grid-3">
+      <article class="panel">
+        <h3>CTA Principal</h3>
+        <p>Gradiente quente, texto branco, raio 7px, altura mínima 44px. É a peça de maior energia visual.</p>
+      </article>
+      <article class="panel">
+        <h3>CTA Secundário</h3>
+        <p>Borda ciano e reversão para fundo ciano no hover. Melhor para ações de continuidade em seções escuras.</p>
+      </article>
+      <article class="panel">
+        <h3>Nav CTA</h3>
+        <p>Mais contido. Usa borda simples e peso 500 para não competir com a headline.</p>
+      </article>
+    </div>
+
+    <div class="panel" style="margin-top:24px;">
+      <h3>Chips e tags</h3>
+      <div class="chip-row" style="margin-top:14px;">
+        <span class="chip">Logo</span>
+        <span class="chip">Brandbook</span>
+        <span class="chip">Google</span>
+        <span class="chip">ChatGPT</span>
+        <span class="chip">Automação</span>
+        <span class="chip-pill">E-commerce</span>
+      </div>
+      <p style="margin-top:14px;">Existem dois comportamentos: tags técnicas discretas com fundo branco translúcido e badges outline para classificação mais evidente.</p>
+    </div>
+
+    <div class="panel" style="margin-top:24px;">
+      <h3>Regra de decisão para CTAs</h3>
+      <ul>
+        <li>Use CTA quente quando a ação pede compromisso: diagnóstico, contato, avanço de jornada.</li>
+        <li>Use CTA ciano quando a ação é exploratória ou de continuidade dentro da mesma seção.</li>
+        <li>Não coloque dois botões quentes lado a lado. O usuário precisa enxergar a prioridade sem pensar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">07 - Padrão de Cards e Grades</h2>
+    <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+      <article class="service-card" style="--accent:#ff6b35; --accent-soft:rgba(255,107,53,0.06);">
+        <div class="service-top">
+          <div class="icon-box">+</div>
+          <div class="micro" style="color:#ff6b35;">Marca</div>
+        </div>
+        <div class="service-number">01</div>
+        <h3 class="h-md" style="margin-top:10px;">Identidade Visual</h3>
+        <p class="h-sm" style="color:#ff6b35; opacity:0.85; margin-top:4px;">A fundação.</p>
+        <p class="body-sm" style="margin-top:12px;">Cards não usam fundo pesado. A estrutura vem das linhas da grade, do número gigante e do brilho contextual por pilar.</p>
+      </article>
+      <article class="service-card" style="--accent:#00bcd4; --accent-soft:rgba(0,188,212,0.06);">
+        <div class="service-top">
+          <div class="icon-box">&lt;/&gt;</div>
+          <div class="micro" style="color:#00bcd4;">Tecnologia</div>
+        </div>
+        <div class="service-number">02</div>
+        <h3 class="h-md" style="margin-top:10px;">Site Estratégico</h3>
+        <p class="h-sm" style="color:#00bcd4; opacity:0.85; margin-top:4px;">A vitrine.</p>
+        <p class="body-sm" style="margin-top:12px;">O texto fica sempre mais leve que o título. O contraste está na hierarquia tipográfica, não em backgrounds aleatórios.</p>
+      </article>
+      <article class="service-card" style="--accent:#7c4dff; --accent-soft:rgba(124,77,255,0.06);">
+        <div class="service-top">
+          <div class="icon-box">◎</div>
+          <div class="micro" style="color:#7c4dff;">Marketing</div>
+        </div>
+        <div class="service-number">03</div>
+        <h3 class="h-md" style="margin-top:10px;">Presença Social</h3>
+        <p class="h-sm" style="color:#7c4dff; opacity:0.85; margin-top:4px;">A conversa.</p>
+        <p class="body-sm" style="margin-top:12px;">Quando houver destaque de categoria, usar a cor do pilar e manter o resto da superfície neutro.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">08 - Padrão de Case</h2>
+    <div class="case-row">
+      <div class="case-media"><span>RZ</span></div>
+      <div class="case-content">
+        <div class="micro" style="color:#ff6b35;">Portfólio</div>
+        <h3 class="h-md" style="font-size:1.5rem;">RZ Vet</h3>
+        <p class="body-sm">Os cases atuais funcionam como linhas conectadas: bloco visual à esquerda, conteúdo analítico à direita, métricas em células discretas e hover com brilho localizado.</p>
+        <div class="chip-row">
+          <span class="chip">E-commerce</span>
+          <span class="chip">UX Redesign</span>
+          <span class="chip">Tráfego Pago</span>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>40x</strong><span>ROAS Máximo</span></div>
+          <div class="metric"><strong>+R$100k</strong><span>Faturamento/mês</span></div>
+          <div class="metric"><strong>Top 1</strong><span>Google Curitiba</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">09 - Motion</h2>
+    <div class="motion-list">
+      <div class="motion-item">
+        <strong>Reveal de seção</strong>
+        <span>GSAP `power3.out`, 650ms a 850ms, stagger entre 70ms e 120ms</span>
+      </div>
+      <div class="motion-item">
+        <strong>Hover de card</strong>
+        <span>Transições entre 300ms e 500ms para glow, opacidade e linha inferior</span>
+      </div>
+      <div class="motion-item">
+        <strong>Scroll programático</strong>
+        <span>Lenis com duração de 1.5s e curva `easeOutExpo` para navegação por âncora</span>
+      </div>
+      <div class="motion-item">
+        <strong>Responsividade de motion</strong>
+        <span>Em mobile o destaque pode virar estado ativo em scroll; com `prefers-reduced-motion`, animação deve ser removida</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="a11y">
+    <h2 class="section-title">10 - Acessibilidade e Legibilidade</h2>
+    <div class="grid-3">
+      <article class="panel">
+        <h3>Contraste</h3>
+        <p>Em tema escuro, o luxo morre rápido quando o texto vira névoa. Headlines ficam em white 93%, corpo principal em white 60% e metadados só descem para 38% quando não carregam decisão crítica.</p>
+      </article>
+      <article class="panel">
+        <h3>Foco e toque</h3>
+        <p>Todo CTA precisa ter área mínima de 44px e estado de foco visível. O ciano já cumpre bem esse papel; não remova o foco em nome de limpeza visual.</p>
+      </article>
+      <article class="panel">
+        <h3>Motion reduzido</h3>
+        <p>Se a animação some, a interface ainda precisa fazer sentido. A hierarquia visual não pode depender do GSAP para ser compreendida.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="implementation">
+    <h2 class="section-title">11 - Fonte da Verdade no Código</h2>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>Arquivos canônicos</h3>
+        <div class="code-list">
+          <div class="code-item">features/homepage/components/Hero.tsx</div>
+          <div class="code-item">features/homepage/components/ServicesEcosystem.tsx</div>
+          <div class="code-item">features/homepage/components/PortfolioSection.tsx</div>
+          <div class="code-item">features/layout/components/Header.tsx</div>
+          <div class="code-item">features/layout/components/Footer.tsx</div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Como usar este documento</h3>
+        <ul>
+          <li>Se houver conflito entre este HTML e os componentes canônicos, o código vence.</li>
+          <li>Atualize o documento sempre que uma mudança alterar linguagem visual, não apenas implementação.</li>
+          <li>Evite registrar experimentos aqui. Este arquivo deve refletir padrão estabilizado.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">12 - Regras de Uso</h2>
+    <div class="dos-donts">
+      <article class="panel">
+        <h3>Fazer</h3>
+        <ul class="list-good">
+          <li>Usar bordas finas e linhas estruturais como base de composição.</li>
+          <li>Reservar o gradiente quente para CTA principal e pequenos detalhes de ênfase.</li>
+          <li>Manter títulos curtos, grandes e quebrados em linhas de alto impacto.</li>
+          <li>Aplicar cor de pilar como acento contextual, não como tinta espalhada pela página.</li>
+          <li>Usar textos secundários em branco com opacidade, não em cinzas arbitrários.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>Evitar</h3>
+        <ul class="list-bad">
+          <li>Voltar para cards pesados com glow azul em tudo.</li>
+          <li>Misturar muitas superfícies sólidas quando a linguagem atual é mais aberta e linear.</li>
+          <li>Usar cantos muito arredondados fora de chips ou modais pequenos.</li>
+          <li>Aplicar roxo sem relação com o pilar de marketing.</li>
+          <li>Transformar cada bloco em uma peça visual isolada; o sistema depende de continuidade entre seções.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</body>
+</html>

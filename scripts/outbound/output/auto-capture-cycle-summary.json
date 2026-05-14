@@ -1,0 +1,140 @@
+{
+  "startedAt": "2026-05-05T04:19:30.387Z",
+  "finishedAt": "2026-05-05T04:20:41.751Z",
+  "targetOrganizations": 3000,
+  "staleRunSummary": {
+    "failed": 0
+  },
+  "canonicalRepairSummary": {
+    "promoted": 0
+  },
+  "nonIcpSummary": {
+    "quarantined": 0
+  },
+  "cleanupSummary": {
+    "clearedEmail": 0,
+    "clearedInstagram": 0,
+    "clearedWebsite": 0,
+    "downgraded": 0
+  },
+  "readyStateRepairSummary": {
+    "repaired": 0
+  },
+  "initialCounts": {
+    "organizations": 919,
+    "pr": 297,
+    "sp": 279,
+    "rawCount": 72,
+    "readyCount": 224,
+    "manualCount": 425,
+    "withEmail": 339,
+    "withInstagram": 278,
+    "withWhatsapp": 239,
+    "withPhone": 278
+  },
+  "finalCounts": {
+    "organizations": 919,
+    "pr": 297,
+    "sp": 279,
+    "rawCount": 72,
+    "readyCount": 224,
+    "manualCount": 425,
+    "withEmail": 339,
+    "withInstagram": 278,
+    "withWhatsapp": 239,
+    "withPhone": 278
+  },
+  "discoveryBackpressure": {
+    "pauseDiscovery": false,
+    "metrics": {
+      "rawCount": 72,
+      "rawToReviewRatio": 0.11,
+      "reviewBuffer": 649
+    },
+    "thresholds": {
+      "maxRawBacklog": 600,
+      "maxRawToReviewRatio": 15
+    }
+  },
+  "discoverySummary": {
+    "executedPrefixes": [],
+    "reason": "no_prefix_left",
+    "addedOrganizations": 0,
+    "results": []
+  },
+  "directWebDiscoverySummary": {
+    "addedOrUpdated": 0,
+    "candidates": 0,
+    "error": "Google search tool did not return a JSON payload.",
+    "queries": [
+      {
+        "city": "NITEROI",
+        "query": "site:com.br \"advocacia\" \"Niterói\" \"contato\"",
+        "state": "RJ"
+      },
+      {
+        "city": "NITEROI",
+        "query": "site:adv.br \"direito trabalhista\" \"Niterói\" \"contato\"",
+        "state": "RJ"
+      },
+      {
+        "city": "NITEROI",
+        "query": "site:adv.br \"direito previdenciário\" \"Niterói\" \"contato\"",
+        "state": "RJ"
+      },
+      {
+        "city": "NITEROI",
+        "query": "site:adv.br \"sociedade de advogados\" \"Niterói\" \"contato\"",
+        "state": "RJ"
+      },
+      {
+        "city": "BELO HORIZONTE",
+        "query": "site:adv.br \"contato@\" \"Belo Horizonte\" \"advogados\"",
+        "state": "MG"
+      },
+      {
+        "city": "BELO HORIZONTE",
+        "query": "site:com.br \"advocacia\" \"Belo Horizonte\" \"contato\"",
+        "state": "MG"
+      },
+      {
+        "city": "BELO HORIZONTE",
+        "query": "site:adv.br \"direito trabalhista\" \"Belo Horizonte\" \"contato\"",
+        "state": "MG"
+      },
+      {
+        "city": "BELO HORIZONTE",
+        "query": "site:adv.br \"direito previdenciário\" \"Belo Horizonte\" \"contato\"",
+        "state": "MG"
+      }
+    ],
+    "reason": "failed"
+  },
+  "webSearchSummary": {
+    "candidates": 0,
+    "matched": 0,
+    "misses": 0,
+    "reason": "no_seed"
+  },
+  "officialSiteSummary": {
+    "candidates": 8,
+    "enriched": 1,
+    "failures": 7,
+    "reason": "completed"
+  },
+  "officialSiteFastTrackSummary": {
+    "candidates": 0,
+    "enriched": 0,
+    "failures": 0,
+    "reason": "no_fast_track"
+  },
+  "codexFallbackSummary": {
+    "matched": 0,
+    "misses": 0,
+    "model": "gemini-2.5-flash",
+    "reason": "no_seed",
+    "sessionCredits": 0,
+    "sessionId": "codex-fallback-2026-05-05T04:19:30.387Z",
+    "weeklyCredits": 0
+  }
+}

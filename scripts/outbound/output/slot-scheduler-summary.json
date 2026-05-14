@@ -1,0 +1,72 @@
+{
+  "startedAt": "2026-05-05T04:20:49.363Z",
+  "finishedAt": "2026-05-05T04:20:49.939Z",
+  "dryRun": false,
+  "manifestPaths": [
+    "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-multicidades-email-campaign-01.json",
+    "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-email-campaign-02.json",
+    "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-sao-paulo-email-campaign-01.json"
+  ],
+  "sanitizationSummary": {
+    "canceledJobs": 0,
+    "refreshedJobs": 0,
+    "skippedJobs": 0
+  },
+  "requestedSlots": 10,
+  "slotCapacity": 10,
+  "slotHours": [
+    "08:40",
+    "09:30",
+    "10:20",
+    "11:10",
+    "12:00",
+    "13:40",
+    "14:30",
+    "15:20",
+    "16:10",
+    "17:00"
+  ],
+  "scheduledSlots": 0,
+  "allocations": [
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T08:40:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T09:30:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T10:20:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T11:10:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T12:00:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T13:40:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T14:30:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T15:20:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T16:10:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-05-05T17:00:00-03:00"
+    }
+  ]
+}

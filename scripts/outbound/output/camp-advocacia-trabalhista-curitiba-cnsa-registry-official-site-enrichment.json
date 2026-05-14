@@ -1,0 +1,128 @@
+{
+  "campaignId": "camp-advocacia-trabalhista-curitiba",
+  "enrichedLeads": [
+    {
+      "canonicalName": "ROSETTI ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:rosetti-advogados-associados",
+      "officeName": "Rosetti Advogados Associados",
+      "organizationId": "org_2a1e7a93d5cd6dfe",
+      "primaryEmail": null,
+      "primaryPhone": "(41) 3015-5993",
+      "sourceUrl": "https://rosettiadvogados.adv.br/",
+      "websiteUrl": "https://rosettiadvogados.adv.br/"
+    },
+    {
+      "canonicalName": "ESPINOLA TEIXEIRA E BERTIN ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:espinola-teixeira-bertin",
+      "officeName": "Espinola, Teixeira & Bertin Advogados Associados",
+      "organizationId": "org_f35b96b33174b581",
+      "primaryEmail": "contato@etb.adv.br",
+      "primaryPhone": "(41) 3332-4545",
+      "sourceUrl": "https://etb.adv.br/direito-trabalhista/",
+      "websiteUrl": "https://etb.adv.br/"
+    },
+    {
+      "canonicalName": "LUANA CHAVES ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:luana-chaves-advogados-associados",
+      "officeName": "Luana Chaves Advogados Associados",
+      "organizationId": "org_8ba484aa5bc59fc0",
+      "primaryEmail": "contato@lcadvogados.adv.br",
+      "primaryPhone": "(41) 99637-6520",
+      "sourceUrl": "https://www.lcadvogados.adv.br/",
+      "websiteUrl": "https://www.lcadvogados.adv.br/"
+    },
+    {
+      "canonicalName": "FARIA E ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:faria-e-advogados-associados",
+      "officeName": "Faria & Advogados Associados",
+      "organizationId": "org_0ab047b46a36e578",
+      "primaryEmail": "giuliano@fariaeadvogados.com.br",
+      "primaryPhone": "(41) 99157-8051",
+      "sourceUrl": "https://www.fariaeadvogados.com.br/",
+      "websiteUrl": "https://www.fariaeadvogados.com.br/"
+    },
+    {
+      "canonicalName": "ARTMANN ADVOGADOS",
+      "externalId": "PR:SOC:artmann-advogados",
+      "officeName": "Artmann Advogados",
+      "organizationId": "org_769faf79dba85bb8",
+      "primaryEmail": "contato@artmannadvogados.com.br",
+      "primaryPhone": null,
+      "sourceUrl": "https://artmannadvogados.com.br/",
+      "websiteUrl": "https://artmannadvogados.com.br/"
+    },
+    {
+      "canonicalName": "ZILLMANN ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:zillmann-advogados-associados",
+      "officeName": "Zillmann Advogados Associados",
+      "organizationId": "org_a58c874fcfac8d78",
+      "primaryEmail": "contato@zadvocacia.adv.br",
+      "primaryPhone": "(41) 99668-9179",
+      "sourceUrl": "https://www.zadvocacia.adv.br/direitotrabalhista",
+      "websiteUrl": "https://www.zadvocacia.adv.br/"
+    },
+    {
+      "canonicalName": "ZIEGEMANN SEIDEL ADVOGADOS",
+      "externalId": "PR:SOC:ziegemann-seidel-advogados",
+      "officeName": "Ziegemann Seidel Advogados",
+      "organizationId": "org_e62cdb5d0da35c22",
+      "primaryEmail": "juridico@zseidel.adv.br",
+      "primaryPhone": null,
+      "sourceUrl": "https://zseidel.adv.br/",
+      "websiteUrl": "https://zseidel.adv.br/"
+    },
+    {
+      "canonicalName": "KUSTER E LICA ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:kuster-lica-advogados-associados",
+      "officeName": "Kuster e Lica Advogados Associados",
+      "organizationId": "org_5cb52e9e2729b18e",
+      "primaryEmail": "contatocuritiba@kladvogados.com.br",
+      "primaryPhone": "(41) 3076-4498",
+      "sourceUrl": "https://www.kladvogados.com.br/direito-trabalhista.html",
+      "websiteUrl": "https://www.kladvogados.com.br/"
+    },
+    {
+      "canonicalName": "AVILA SOCIEDADE DE ADVOGADOS",
+      "externalId": "PR:SOC:avila-sociedade-de-advogados",
+      "officeName": "Avila Sociedade de Advogados",
+      "organizationId": "org_18d92f885cf75065",
+      "primaryEmail": "contato@avilaadvogados.com.br",
+      "primaryPhone": "(41) 3155-9755",
+      "sourceUrl": "https://www.avilaadvogados.com.br/",
+      "websiteUrl": "https://www.avilaadvogados.com.br/"
+    },
+    {
+      "canonicalName": "LAP ADVOCACIA",
+      "externalId": "PR:SOC:lap-advocacia",
+      "officeName": "LAP Advocacia",
+      "organizationId": "org_ea93c44ebb45343c",
+      "primaryEmail": null,
+      "primaryPhone": "(41) 99626-6933",
+      "sourceUrl": "https://trabalhista.lap-advocacia.adv.br/",
+      "websiteUrl": "https://lap-advocacia.adv.br/"
+    },
+    {
+      "canonicalName": "CARVALHO E ELIAS SOCIEDADE DE ADVOGADOS",
+      "externalId": "PR:SOC:carvalho-elias-sociedade-de-advogados",
+      "officeName": "Carvalho & Elias Sociedade de Advogados",
+      "organizationId": "org_4423c400841572b3",
+      "primaryEmail": "controladoria@carvalhoelias.adv.br",
+      "primaryPhone": "(41) 3046-2259",
+      "sourceUrl": "https://carvalhoelias.adv.br/",
+      "websiteUrl": "https://carvalhoelias.adv.br/"
+    },
+    {
+      "canonicalName": "CARNEIRO E LOPES ADVOGADOS ASSOCIADOS",
+      "externalId": "PR:SOC:carneiro-lopes-advogados-associados",
+      "officeName": "Carneiro & Lopes Advogados Associados",
+      "organizationId": "org_f5e631316a2ed6c4",
+      "primaryEmail": "juridico@carneirolopes.com.br",
+      "primaryPhone": null,
+      "sourceUrl": "https://carneirolopes.com.br/",
+      "websiteUrl": "https://carneirolopes.com.br/"
+    }
+  ],
+  "failures": [],
+  "inputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-cnsa-registry-seeds.json",
+  "searchRunId": 8
+}

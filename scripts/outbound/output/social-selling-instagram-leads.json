@@ -1,0 +1,3825 @@
+[
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/vbdadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_55415fb03341979d",
+    "profileName": "VITALE, BICALHO E DIAS SOCIEDADE DE ADVOGADOS (@vbdadvogados)",
+    "sourceChannels": [
+      "codex_fallback",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 1,
+    "state": "SP",
+    "updatedAt": "2026-04-28T11:42:37.413Z",
+    "websiteUrl": "https://www.vbdlaw.com.br/",
+    "primaryEmail": "contato@vbdlaw.com.br",
+    "primaryPhone": "(11) 3181-8833",
+    "primaryWhatsapp": "+55 (11) 93364-8998"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/machado_associados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_ad6f04a21d3099b3",
+    "profileName": "JOSE MAURICIO MACHADO E ASSOCIADOS ADVOGADOS E CONSULTORES JURIDICOS (@machado_associados)",
+    "sourceChannels": [
+      "codex_fallback",
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 1,
+    "state": "SP",
+    "updatedAt": "2026-04-28T03:31:56.831Z",
+    "websiteUrl": "https://www.machadoassociados.com.br/",
+    "primaryEmail": "machado@machadoassociados.com.br",
+    "primaryPhone": "+55 (11) 3819-4855",
+    "primaryWhatsapp": "+55 (11) 99373-2457"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/nwadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_28bed0ff7a118877",
+    "profileName": "NELSON WILIANS ADVOGADOS (@nwadv)",
+    "sourceChannels": [
+      "codex_fallback",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.96,
+    "state": "SP",
+    "updatedAt": "2026-04-24T02:22:14.494Z",
+    "websiteUrl": "https://nwadv.com.br/",
+    "primaryEmail": "vagner.ambrosio@nwadv.com.br",
+    "primaryPhone": "(11) 99887-9686",
+    "primaryWhatsapp": "(11) 99887-9686"
+  },
+  {
+    "city": "FORTALEZA",
+    "instagramUrl": "https://www.instagram.com/brunoaraujoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c4c30442234c980b",
+    "profileName": "BRUNO ARAÚJO SOCIEDADE DE ADVOGADOS (@brunoaraujoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "CE",
+    "updatedAt": "2026-05-02T01:12:26.142Z",
+    "websiteUrl": "https://brunoaraujo.adv.br/",
+    "primaryEmail": "juridico@brunoaraujo.adv.br",
+    "primaryPhone": "(85) 3051-6677",
+    "primaryWhatsapp": "(85) 98689-8073"
+  },
+  {
+    "city": "FORTALEZA",
+    "instagramUrl": "https://www.instagram.com/osmarcelestinoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e96766d315ecfefb",
+    "profileName": "OSMARCELESTINO.ADV.BR – ADVOCACIA EM FORTALEZA (@osmarcelestinoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "CE",
+    "updatedAt": "2026-05-02T01:11:54.100Z",
+    "websiteUrl": "https://osmarcelestino.adv.br/",
+    "primaryEmail": "atendimento@osmarcelestino.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(85) 3181-7565"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/agsociedadedeadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_85ac2b095e5b6513",
+    "profileName": "AG SOCIEDADE DE ADVOGADOS (@agsociedadedeadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-02T01:10:46.942Z",
+    "websiteUrl": "https://agadvogados.adv.br/",
+    "primaryEmail": "contato@agadvogados.adv.br",
+    "primaryPhone": "(85) 3268-1561",
+    "primaryWhatsapp": "(85) 98774-0201"
+  },
+  {
+    "city": "JOINVILLE",
+    "instagramUrl": "https://www.instagram.com/souzapostaiadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_4a67ebc969ca726b",
+    "profileName": "SOUZA POSTAI – ESCRITÓRIO DE ADVOCACIA (@souzapostaiadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SC",
+    "updatedAt": "2026-05-01T23:06:20.467Z",
+    "websiteUrl": "https://souzapostai.com.br/",
+    "primaryEmail": "advocacia@souzapostai.com.br",
+    "primaryPhone": "(47) 99948-9388",
+    "primaryWhatsapp": "(47) 99948-9388"
+  },
+  {
+    "city": "JOINVILLE",
+    "instagramUrl": "https://www.instagram.com/hargeradvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_ef9201e0563bd115",
+    "profileName": "HARGER ADVOGADOS (@hargeradvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SC",
+    "updatedAt": "2026-05-01T23:06:20.405Z",
+    "websiteUrl": "https://hargeradvogados.com.br/",
+    "primaryEmail": "contato@hargeradvogados.com.br",
+    "primaryPhone": "(47) 3461-9400",
+    "primaryWhatsapp": "(47) 3461-9400"
+  },
+  {
+    "city": "JOINVILLE",
+    "instagramUrl": "https://www.instagram.com/rhafaelcostaadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a9c061815d6cbb8b",
+    "profileName": "RHAFAELCOSTA – SERVIÇOS DE ADVOCACIA E ASSESSORIA JURÍDICA. (@rhafaelcostaadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SC",
+    "updatedAt": "2026-05-01T23:06:01.349Z",
+    "websiteUrl": "https://rhafaelcosta.com.br/",
+    "primaryEmail": "rhafael.costa@rhafaelcosta.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CAXIAS DO SUL",
+    "instagramUrl": "https://www.instagram.com/konigepimentel.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_16beaebcf6f9565e",
+    "profileName": "ADVOGADOS EM CAXIAS DO SUL (@konigepimentel.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:47:04.352Z",
+    "websiteUrl": "https://konigepimentel.adv.br/",
+    "primaryEmail": "contato@konigepimentel.adv.br",
+    "primaryPhone": "(54) 3537-9117",
+    "primaryWhatsapp": "(54) 3537-9117"
+  },
+  {
+    "city": "CAXIAS DO SUL",
+    "instagramUrl": "https://www.instagram.com/vwsadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_697a9556f5dadd9d",
+    "profileName": "VWS ADVOGADOS ASSOCIADOS (@vwsadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:46:01.145Z",
+    "websiteUrl": "http://www.vwsadvogados.adv.br/",
+    "primaryEmail": "vwsadvogados@vwsadvogados.adv.br",
+    "primaryPhone": "(54) 3223-6764",
+    "primaryWhatsapp": "(54) 99636-4991"
+  },
+  {
+    "city": "CAXIAS DO SUL",
+    "instagramUrl": "https://www.instagram.com/gravinaadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_16c9dcd24af4368e",
+    "profileName": "GRAVINA ADVOGADOS (@gravinaadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:46:00.459Z",
+    "websiteUrl": "https://gravina.adv.br/",
+    "primaryEmail": "gravina@gravina.adv.br",
+    "primaryPhone": "(54) 3223-9006",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/bordasadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_bc0898f59483f877",
+    "profileName": "BORDAS – ADVOGADOS ASSOCIADOS (@bordasadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:46.327Z",
+    "websiteUrl": "https://www.bordas.adv.br/",
+    "primaryEmail": "bordas@bordas.adv.br",
+    "primaryPhone": "(51) 3228-9997",
+    "primaryWhatsapp": "(51) 3228-9997"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/lamachia_advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_37a37c246e58c9f0",
+    "profileName": "LAMACHIA ADVOGADOS ASSOCIADOS (@lamachia_advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:40.963Z",
+    "websiteUrl": "https://lamachia.adv.br/",
+    "primaryEmail": "adm@lamachia.adv.br",
+    "primaryPhone": "(51) 3211-3914",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/vilelavianaadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_14a6ebc512edb58c",
+    "profileName": "VILELA, VIANA ADVOCACIA (@vilelavianaadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:35.596Z",
+    "websiteUrl": "https://www.vilelaviana.com.br/",
+    "primaryEmail": "augustovilela@vilelaviana.com.br",
+    "primaryPhone": "(51) 3307-5978",
+    "primaryWhatsapp": "(51) 3273-5342"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/abellaadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_5c81eb4dc15a0bf8",
+    "profileName": "ABELLA ADVOCACIA (@abellaadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:35.595Z",
+    "websiteUrl": "https://abellaadv.com.br/",
+    "primaryEmail": "contato@abellaadv.com.br",
+    "primaryPhone": "(51) 98040-0909",
+    "primaryWhatsapp": "(51) 98040-0909"
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/carvalhoerodriguesadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_82b2dc62625d9db1",
+    "profileName": "CARVALHO & RODRIGUES ADVOGADOS ASSOCIADOS (@carvalhoerodriguesadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:45:25.862Z",
+    "websiteUrl": "http://www.carvalhoerodrigues.adv.br/",
+    "primaryEmail": "contato@carvalhoerodrigues.adv.br",
+    "primaryPhone": "(44) 3041-6440",
+    "primaryWhatsapp": "(44) 3041-6440"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/mellocastroadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_b024a2a2d26e52d8",
+    "profileName": "MELLO & CASTRO ADVOGADOS (@mellocastroadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:41:51.654Z",
+    "websiteUrl": "https://www.mellocastro.com.br/",
+    "primaryEmail": "contato@mellocastro.com.br",
+    "primaryPhone": "(51) 3105-2002",
+    "primaryWhatsapp": "(51) 3105-2002"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/perespereiraadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c4d61865a22dd89f",
+    "profileName": "ADVOGADOS EM PORTO ALEGRE ZONA SUL (@perespereiraadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:41:51.636Z",
+    "websiteUrl": "https://perespereiraadvogados.com.br/",
+    "primaryEmail": "contato@perespereiraadvogados.com.br",
+    "primaryPhone": "(51) 99577-7226",
+    "primaryWhatsapp": "(51) 99577-7226"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/prmartinsadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_01823cf2f0bca633",
+    "profileName": "ADVOGADO PREVIDENCIÁRIO PR MARTINS SOCIEDADE DE ADVOGADOS (@prmartinsadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:11:55.537Z",
+    "websiteUrl": "https://www.prmartins.adv.br/",
+    "primaryEmail": "contato@prmartins.adv.br",
+    "primaryPhone": "(41) 3045-4003",
+    "primaryWhatsapp": "(41) 3045-4003"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/guterresesombrio.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_31cb0dd30bbef88a",
+    "profileName": "ADVOGADOS ESPECIALISTAS DE DIREITO PREVIDENCIÁRIO EM CURITIBA (@guterresesombrio.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:10:52.674Z",
+    "websiteUrl": "https://guterresesombrio.adv.br/",
+    "primaryEmail": "contato@guterresesombrio.adv.br",
+    "primaryPhone": "(41) 99801-1515",
+    "primaryWhatsapp": "(41) 9801-1515"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/prb_advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_4fed85b836856038",
+    "profileName": "PRB ADVOGADOS (@prb_advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:49.367Z",
+    "websiteUrl": "https://prbadvogados.adv.br/",
+    "primaryEmail": "pedro@prbadvogados.adv.br",
+    "primaryPhone": "(43) 3026-3626",
+    "primaryWhatsapp": "(43) 99996-3626"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/ribeirovieiraadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_df6a7fe8e103e75e",
+    "profileName": "RIBEIRO VIEIRA ADVOCACIA (@ribeirovieiraadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:45.000Z",
+    "websiteUrl": "https://ribeirovieira.adv.br/",
+    "primaryEmail": "contato@ribeirovieira.adv.br",
+    "primaryPhone": "(43) 3342-6688",
+    "primaryWhatsapp": "(43) 99993-6525"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/degodoycintra/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_cfe934be2f72e5bb",
+    "profileName": "DE GODOY CINTRA ADVOGADOS — LONDRINA/PR (@degodoycintra)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:40.636Z",
+    "websiteUrl": "https://degodoycintra.adv.br/",
+    "primaryEmail": "eduardo@degodoycintra.adv.br",
+    "primaryPhone": "(43) 3066-2607",
+    "primaryWhatsapp": "(43) 3066-2607"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/paleariadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_edf5efcd4571b79d",
+    "profileName": "PALEARI ADVOCACIA – PALEARIADV.COM.BR (@paleariadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:36.272Z",
+    "websiteUrl": "https://paleariadv.com.br/",
+    "primaryEmail": "contato@paleariadv.com.br",
+    "primaryPhone": "(43) 3367-5797",
+    "primaryWhatsapp": "(43) 3367-5797"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/tomanagaadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_79a6598a594aea65",
+    "profileName": "TOMANAGA ADVOGADOS: HOME (@tomanagaadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:36.271Z",
+    "websiteUrl": "https://tomanagaadvogados.com.br/",
+    "primaryEmail": "contato@tomanagaadvogados.com.br",
+    "primaryPhone": "(43) 3348-3524",
+    "primaryWhatsapp": "(43) 99991-4130"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/zucolottoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1b5653e6c3ec650a",
+    "profileName": "ZUCOLOTTO – SOCIEDADE DE ADVOGADOS (@zucolottoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:04:35.987Z",
+    "websiteUrl": "https://zucolotto.adv.br/",
+    "primaryEmail": "juridico@zucolotto.adv.br",
+    "primaryPhone": "(41) 3335-4555",
+    "primaryWhatsapp": "(41) 3335-4555"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/insscomgustavoquintao/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_fac112edc3b73511",
+    "profileName": "QUINTÃO ADVOCACIA PREVIDENCIÁRIA (@insscomgustavoquintao)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:02:14.241Z",
+    "websiteUrl": "https://www.quintao.adv.br/",
+    "primaryEmail": "contato@quintao.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(41) 99191-1403"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/acsadvocaciaprevidenciaria/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_6a308fbd4c5e48ef",
+    "profileName": "ACS ADVOCACIA PREVIDENCIÁRIA ESPECIALIZADA (@acsadvocaciaprevidenciaria)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T21:00:32.715Z",
+    "websiteUrl": "https://adrianosouza.adv.br/",
+    "primaryEmail": "advocacia@adrianosouza.adv.br",
+    "primaryPhone": "(41) 3322-4617",
+    "primaryWhatsapp": "(41) 3322-4617"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/serafimadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_17b8a6ee042b7427",
+    "profileName": "SERAFIM ADVOGADOS – ESCRITÓRIO DE ADVOCACIA EM CURITIBA ... (@serafimadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T20:38:52.389Z",
+    "websiteUrl": "https://serafimadvogados.com.br/",
+    "primaryEmail": "juridico@serafimadvogados.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/rosettiadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_2a1e7a93d5cd6dfe",
+    "profileName": "ROSETTI ADVOGADOS ASSOCIADOS (@rosettiadvogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T20:38:05.705Z",
+    "websiteUrl": "https://rosettiadvogados.adv.br/",
+    "primaryEmail": "claudio@rosettiadvogados.adv.br",
+    "primaryPhone": "(41) 3015-5993",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/yamamotoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c650453fca3d85c6",
+    "profileName": "YAMAMOTO ADVOGADOS (@yamamotoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T20:37:59.337Z",
+    "websiteUrl": "https://yamamoto.com.br/",
+    "primaryEmail": "yamamoto@yamamoto.com.br",
+    "primaryPhone": "(41) 3224-3890",
+    "primaryWhatsapp": "(41) 3224-3890"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/marcelaguimaraesadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_ac9157cc86e7e204",
+    "profileName": "MARCELA GUIMARÃES SOCIEDADE DE ADVOGADOS (@marcelaguimaraesadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:49.611Z",
+    "websiteUrl": "https://www.marcelaguimaraes.adv.br/",
+    "primaryEmail": "contato@marcelaguimaraes.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(34) 9888-4976"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/professor.crepaldi/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_0a55662ce3156c14",
+    "profileName": "CREPALDI ADVOGADOS (@professor.crepaldi)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:44.244Z",
+    "websiteUrl": "https://www.crepaldi.adv.br/",
+    "primaryEmail": "crepaldi@crepaldi.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(34) 99146-4528"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/sousaadvogadosudia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_aab10f2ed04d80b7",
+    "profileName": "SOUSA NETO ADVOGADOS ⚖️ ESCRITÓRIO DE ADVOCACIA EM ... (@sousaadvogadosudia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:34.514Z",
+    "websiteUrl": "https://sousanetoadvogados.com.br/",
+    "primaryEmail": "contato@sousanetoadvogados.com.br",
+    "primaryPhone": "(34) 3214-6298",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/tamiresluzadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1da6e80b2f334384",
+    "profileName": "TAMIRES LUZ ADVOCACIA (@tamiresluzadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:34.513Z",
+    "websiteUrl": "https://tamiresluzadvocacia.com.br/",
+    "primaryEmail": "contato@tamiresluzadvocacia.com.br",
+    "primaryPhone": "(34) 99713-7226",
+    "primaryWhatsapp": "(34) 99713-7226"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/eloapintaudi/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_818e5f255cb486ef",
+    "profileName": "GOMM ADVOGADOS (@eloapintaudi)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T20:34:29.037Z",
+    "websiteUrl": "https://www.gomm.com.br/",
+    "primaryEmail": "gomm@gomm.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/almeidameloadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_94e88bef99f19ddd",
+    "profileName": "ADVOGADOS EM BELO HORIZONTE (MG) (@almeidameloadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:33:01.771Z",
+    "websiteUrl": "https://almeidamelo.adv.br/",
+    "primaryEmail": "contato@almeidamelo.adv.br",
+    "primaryPhone": "(31) 3658-2176",
+    "primaryWhatsapp": "(31) 3658-2176"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/rabeloeoliveira.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_73c6836acd57833d",
+    "profileName": "RABELO E OLIVEIRA – ADVOGADOS (@rabeloeoliveira.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:33:01.770Z",
+    "websiteUrl": "https://rabeloeoliveira.adv.br/",
+    "primaryEmail": "contato@rabeloeoliveira.adv.br",
+    "primaryPhone": "(31) 99539-4177",
+    "primaryWhatsapp": "(31) 99978-0421"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/mgsr.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c236409fcfdd1fc6",
+    "profileName": "MGSR – SOCIEDADE DE ADVOGADOS (@mgsr.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:33:01.770Z",
+    "websiteUrl": "https://mgsr.adv.br/",
+    "primaryEmail": "atendimento@mgsr.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(31) 93618-2343"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/alexandrefarahprev/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_ea6ef755c04d7818",
+    "profileName": "ALEXANDRE GUALBERTO FARAH ADVOCACIA PREVIDENCIÁRIA E ... (@alexandrefarahprev)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:31.634Z",
+    "websiteUrl": "https://www.alexandrefarahprev.adv.br/",
+    "primaryEmail": "contato@alexandrefarahprev.adv.br",
+    "primaryPhone": "(31) 3654-4004",
+    "primaryWhatsapp": "(31) 99814-3800"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/abiackeladvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_f188d816c8a5ae95",
+    "profileName": "ABIACKELADVOGADOS (@abiackeladvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:20.895Z",
+    "websiteUrl": "https://www.abiackeladvogados.com.br/",
+    "primaryEmail": "compliance@abiackeladvogados.com.br",
+    "primaryPhone": "(31) 3261-8083",
+    "primaryWhatsapp": "(31) 3261-4199"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/muzzieadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_47eaf9e43fd3d66e",
+    "profileName": "MUZZI E ADVOGADOS (@muzzieadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:15.526Z",
+    "websiteUrl": "https://www.muzzi.adv.br/",
+    "primaryEmail": "muzzi@muzzi.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(31) 3281-5010"
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/faiaesaad/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_49fc1e63bd7182ad",
+    "profileName": "FAIA & SAAD ADVOGADOS (@faiaesaad)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:14:10.162Z",
+    "websiteUrl": "https://www.faiaesaad.adv.br/",
+    "primaryEmail": "advogados@faiaesaad.adv.br",
+    "primaryPhone": "(21) 99656-9356",
+    "primaryWhatsapp": "(21) 99656-9356"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/tinocoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8e0f1aa5859bb766",
+    "profileName": "TINOCO ADVOGADOS (@tinocoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:14:05.797Z",
+    "websiteUrl": "https://tinocoadvogados.adv.br/",
+    "primaryEmail": "alex@tinocoadvogados.adv.br",
+    "primaryPhone": "(21) 3587-1557",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/julianamaia.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_bd60a6cda1ad8718",
+    "profileName": "MAIA OLIVEIRA ADVOCACIA (@julianamaia.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:14:00.430Z",
+    "websiteUrl": "https://maiaoliveira.adv.br/",
+    "primaryEmail": "contato@maiaoliveira.adv.br",
+    "primaryPhone": "(21) 97922-0905",
+    "primaryWhatsapp": "(21) 97922-0905"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/_woadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1c0721d5febfd93a",
+    "profileName": "WALTER OLIVEIRA & ADVOGADOS (@_woadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:11:55.179Z",
+    "websiteUrl": "https://walteroliveira.adv.br/",
+    "primaryEmail": "contato@walteroliveira.adv.br",
+    "primaryPhone": "(31) 3272-5151",
+    "primaryWhatsapp": "(31) 3272-5151"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/monteiroportoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_3590ff37314c8967",
+    "profileName": "MONTEIRO PORTO – SOCIEDADE DE ADVOGADOS (@monteiroportoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:05:08.566Z",
+    "websiteUrl": "https://mporto.adv.br/",
+    "primaryEmail": "advocacia@mporto.adv.br",
+    "primaryPhone": "(21) 3173-0023",
+    "primaryWhatsapp": "(21) 97752-0536"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/anaikeda.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_880aab3e71178983",
+    "profileName": "ANA IKEDA ADVOCACIA (@anaikeda.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:29.768Z",
+    "websiteUrl": "https://anaikeda.adv.br/",
+    "primaryEmail": "contato@anaikeda.adv.br",
+    "primaryPhone": "(21) 3197-4400",
+    "primaryWhatsapp": "(21) 98800-7562"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/jmg.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9232fd23c79cd3c1",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA NO CENTRO DO RIO DE JANEIRO RJ (@jmg.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:25.406Z",
+    "websiteUrl": "https://mederogarcia.adv.br/",
+    "primaryEmail": "contato@mederogarcia.adv.br",
+    "primaryPhone": "(21) 99743-9963",
+    "primaryWhatsapp": "(21) 99743-9963"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/beo.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a032ac39cec127e2",
+    "profileName": "B&O ADVOGADOS (@beo.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:20.035Z",
+    "websiteUrl": "https://beoadvogados.com.br/",
+    "primaryEmail": "carlos.bigarel@beoadvogados.com.br",
+    "primaryPhone": "(21) 99946-6864",
+    "primaryWhatsapp": "(21) 99946-6864"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/salomaoadv.com.br/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a6b3821878f3d496",
+    "profileName": "SALOMÃO ADVOGADOS (@salomaoadv.com.br)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:20.033Z",
+    "websiteUrl": "https://salomaoadv.com.br/",
+    "primaryEmail": "contato@salomaoadv.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/manuelvittaadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_84093009ee4cae52",
+    "profileName": "MANUEL & VITTA – SOCIEDADE DE ADVOGADOS SANTOS – SP (@manuelvittaadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:11.307Z",
+    "websiteUrl": "http://manuelvitta.adv.br/",
+    "primaryEmail": "contato@manuelvitta.adv.br",
+    "primaryPhone": "(13) 3221-7712",
+    "primaryWhatsapp": "(13) 99685-9194"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/eckermannsantos.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_854fb12012b47080",
+    "profileName": "ECKERMANN & SANTOS – SOCIEDADE DE ADVOGADOS (@eckermannsantos.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:11.307Z",
+    "websiteUrl": "https://eckermann.adv.br/",
+    "primaryEmail": "vagas@eckermann.adv.br",
+    "primaryPhone": "(11) 3522-9009",
+    "primaryWhatsapp": "(11) 3151-4948"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/medeirossantosadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_adf37a832715b081",
+    "profileName": "MEDEIROS SANTOS ADVOGADOS (@medeirossantosadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:05.941Z",
+    "websiteUrl": "https://www.medeirossantos.adv.br/",
+    "primaryEmail": "contato@medeirossantos.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/advrobertomohamed/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_6e9fe1f499cf1708",
+    "profileName": "ROBERTO MOHAMED ADVOGADOS (@advrobertomohamed)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:05.940Z",
+    "websiteUrl": "https://www.mohamed.adv.br/",
+    "primaryEmail": "fabio.nunes@mohamed.adv.br",
+    "primaryPhone": "(11) 5082-2862",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santosjr.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_afc28fa2d51e3165",
+    "profileName": "SANTOS JR. ADVOCACIA (@santosjr.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:00.576Z",
+    "websiteUrl": "https://santosjradvocacia.adv.br/",
+    "primaryEmail": "contato@santosjradvocacia.adv.br",
+    "primaryPhone": "(67) 99290-8541",
+    "primaryWhatsapp": "(67) 99290-8541"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/advocaciasantosoficial/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_26bcfda4a7adb946",
+    "profileName": "ADVOCACIA SANTOS (@advocaciasantosoficial)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.331Z",
+    "websiteUrl": "http://advocaciasantos.com.br/",
+    "primaryEmail": "contato@advocaciasantos.com.br",
+    "primaryPhone": "(01) 12478-0592",
+    "primaryWhatsapp": "(11) 99588-5979"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/dap.advocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a5183eb973ca6589",
+    "profileName": "DAP ADVOCACIA (@dap.advocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:40:18.841Z",
+    "websiteUrl": "https://dapadvocacia.com.br/",
+    "primaryEmail": "contato@dapadvocacia.com.br",
+    "primaryPhone": "(21) 2018-7918",
+    "primaryWhatsapp": "(21) 98203-8118"
+  },
+  {
+    "city": "RIBEIRAO PRETO",
+    "instagramUrl": "https://www.instagram.com/bindamattoselorenzato/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1df84452993f8420",
+    "profileName": "BML – SOCIEDADE DE ADVOGADOS (@bindamattoselorenzato)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:34:02.164Z",
+    "websiteUrl": "https://bml.adv.br/",
+    "primaryEmail": "raquel.lorenzato@bml.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(16) 3234-1040"
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/hissiebergossi/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_6519c2856499144c",
+    "profileName": "HISSI & BERGOSSI SOCIEDADE DE ADVOGADOS (@hissiebergossi)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:16:30.499Z",
+    "websiteUrl": "https://bergossi.adv.br/",
+    "primaryEmail": "bergossi@bergossi.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/soarespicon/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c3936e3a1f0b8c6b",
+    "profileName": "SOARES PICON SOCIEDADE DE ADVOGADOS – SOCIEDADE DE ... (@soarespicon)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:52.920Z",
+    "websiteUrl": "https://soarespicon.adv.br/",
+    "primaryEmail": "hotline@soarespicon.adv.br",
+    "primaryPhone": "(12) 3924-8999",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/laurentino_advocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_f62c3bf1a1c7c29c",
+    "profileName": "LAURENTINO ADVOCACIA (@laurentino_advocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:42.172Z",
+    "websiteUrl": "https://laurentino.adv.br/",
+    "primaryEmail": "contato@laurentino.adv.br",
+    "primaryPhone": "(12) 98805-5171",
+    "primaryWhatsapp": "(12) 98805-5171"
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/nmmadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_cf8edfd0803f990b",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA EM SÃO JOSÉ DOS CAMPOS (@nmmadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:36.801Z",
+    "websiteUrl": "https://nmmadvogados.com.br/",
+    "primaryEmail": "contato@nmmadvogados.com.br",
+    "primaryPhone": "(12) 3308-5122",
+    "primaryWhatsapp": "(12) 99182-4447"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/paschoalinberger/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_19f76b5632a02c93",
+    "profileName": "ADVOGADOS ESPECIALISTAS EM DIREITO TRABALHISTA EMPRESARIAL (@paschoalinberger)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:32.430Z",
+    "websiteUrl": "https://www.paschoalinberger.adv.br/",
+    "primaryEmail": "contato@paschoalinberger.adv.br",
+    "primaryPhone": "(11) 4306-2945",
+    "primaryWhatsapp": "(11) 98980-8286"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/advocaciatarossi/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_61e5c9311f42bcf9",
+    "profileName": "RODRIGO TAROSSI SOCIEDADE DE ADVOGADOS (@advocaciatarossi)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:27.058Z",
+    "websiteUrl": "https://www.rodrigotarossi.adv.br/",
+    "primaryEmail": "rodrigo@rodrigotarossi.adv.br",
+    "primaryPhone": "(11) 4013-4731",
+    "primaryWhatsapp": "(11) 97296-2644"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/mmendesadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1ea931e8e4c7e7f5",
+    "profileName": "MENDES E MENDES OLIVEIRA ADVOGADOS ASSOCIADOS ... (@mmendesadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:27.057Z",
+    "websiteUrl": "https://mmsadv.adv.br/",
+    "primaryEmail": "contato@mmsadv.adv.br",
+    "primaryPhone": "(15) 3032-3700",
+    "primaryWhatsapp": "(15) 99796-3795"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/lmr.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_67f5cb4e8e54e236",
+    "profileName": "LMR ADVOGADOS (@lmr.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:27.057Z",
+    "websiteUrl": "https://www.lmr.adv.br/",
+    "primaryEmail": "contato@lmr.adv.br",
+    "primaryPhone": "(15) 99749-3599",
+    "primaryWhatsapp": "(15) 99749-3599"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/pradoxavieradvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_d951ad4ea5b42b46",
+    "profileName": "PRADO XAVIER – SOCIEDADE DE ADVOGADOS (@pradoxavieradvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:27.057Z",
+    "websiteUrl": "https://pxf.adv.br/",
+    "primaryEmail": "contato@pxf.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(15) 99187-7330"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/ronaldosociedadeadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_d35d478f575df67a",
+    "profileName": "RONALDO BORGES SOCIEDADE DE ADVOGADOS – SOLUÇÕES EM ... (@ronaldosociedadeadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:27.056Z",
+    "websiteUrl": "https://ronaldoborges.adv.br/",
+    "primaryEmail": "%20contato@ronaldoborges.adv.br",
+    "primaryPhone": "(15) 99165-1200",
+    "primaryWhatsapp": "(15) 99165-1200"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/siqueirasouzaebanietti/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e7d4f7413fac1662",
+    "profileName": "SIQUEIRA SOUZA & BANIETTI ADVOGADOS – PROFISSIONAIS ... (@siqueirasouzaebanietti)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:17.319Z",
+    "websiteUrl": "https://siqueirasouzaebanietti.adv.br/",
+    "primaryEmail": "falecom@siqueirasouzaebanietti.adv.br",
+    "primaryPhone": "(15) 99733-9552",
+    "primaryWhatsapp": "(15) 99733-9552"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/rocha.advogados.associados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_70edbd7cda5c93aa",
+    "profileName": "ROCHA GIBRAN ADVOGADOS – ESPECIALISTA EM DIREITO ... (@rocha.advogados.associados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:17.318Z",
+    "websiteUrl": "https://rochagibran.adv.br/",
+    "primaryEmail": "rochaadvogados@rochagibran.adv.br",
+    "primaryPhone": "(41) 3233-2030",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "RIBEIRAO PRETO",
+    "instagramUrl": "https://www.instagram.com/coletto_adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e6651342c3af56a9",
+    "profileName": "COLETTO SOCIEDADE DE ADVOGADOS (@coletto_adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:04.970Z",
+    "websiteUrl": "https://coletto.adv.br/",
+    "primaryEmail": "contato@coletto.adv.br",
+    "primaryPhone": "(16) 3965-1853",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "RIBEIRAO PRETO",
+    "instagramUrl": "https://www.instagram.com/cosmoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_823df5ac4a5961e9",
+    "profileName": "COSMO SOCIEDADE DE ADVOGADOS (@cosmoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:11.784Z",
+    "websiteUrl": "https://cosmo.adv.br/",
+    "primaryEmail": "contato@cosmo.adv.br",
+    "primaryPhone": "(16) 3237-4020",
+    "primaryWhatsapp": "(16) 99787-4080"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/cjaadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_18d5191fba3dda26",
+    "profileName": "CJA ADVOGADOS (@cjaadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:11.783Z",
+    "websiteUrl": "https://www.cjaadvogados.com.br/",
+    "primaryEmail": "contato@cjaadvogados.com.br",
+    "primaryPhone": "(15) 3231-5407",
+    "primaryWhatsapp": "(15) 99804-8721"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/guazzelli_advocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1ba668f92a670f0b",
+    "profileName": "GUAZZELLI ADVOCACIA EMPRESARIAL: HOME (@guazzelli_advocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "google_web_search_miss",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:02:17.186Z",
+    "websiteUrl": "https://guazzelliadvocacia.com.br/",
+    "primaryEmail": "contato@guazzelliadvocacia.com.br",
+    "primaryPhone": "(11) 3044-1946",
+    "primaryWhatsapp": "(51) 99190-0475"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/torresramonadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_7fa0b5c638900f3f",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA EMPRESARIAL (@torresramonadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:02:17.186Z",
+    "websiteUrl": "https://www.torresramon.com.br/",
+    "primaryEmail": "juridico@torresramon.com.br",
+    "primaryPhone": "(11) 98621-9590",
+    "primaryWhatsapp": "(11) 98621-9590"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/plkcadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_69629b4361e256d2",
+    "profileName": "PLKC ADVOGADOS (@plkcadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:02:17.185Z",
+    "websiteUrl": "https://plkc.com.br/",
+    "primaryEmail": "plkc@plkc.com.br",
+    "primaryPhone": "(11) 3841-3900",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/hmgcadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_84faec93eb09fe89",
+    "profileName": "HMGC ADVOGADOS ▷ ESCRITÓRIO DE ADVOCACIA EMPRESARIAL SP (@hmgcadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:00:33.385Z",
+    "websiteUrl": "https://www.hmgcadvogados.com.br/",
+    "primaryEmail": "renato@hmgcadvogados.com.br",
+    "primaryPhone": "(11) 4242-8552",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/flaviolopes.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1b2d94a21575039e",
+    "profileName": "FLÁVIO LOPES – FLÁVIO LOPES ADVOGADOS CARREGA A ... (@flaviolopes.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:56:52.739Z",
+    "websiteUrl": "https://flaviolopes.adv.br/",
+    "primaryEmail": "contato@flaviolopes.adv.br",
+    "primaryPhone": "(71) 3506-1952",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/cassiano.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_dfbe757ba0e10e95",
+    "profileName": "CASSIANO SOCIEDADE DE ADVOGADOS (@cassiano.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:55:05.813Z",
+    "websiteUrl": "https://cassiano.adv.br/",
+    "primaryEmail": "contato@cassiano.adv.br",
+    "primaryPhone": "(11) 99384-5005",
+    "primaryWhatsapp": "(11) 99384-5005"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/dallaverdeadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_81238bbbf041fd12",
+    "profileName": "DALLA VERDE ADVOCACIA – EM DEFESA DOS SEUS DIREITOS (@dallaverdeadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:43:27.110Z",
+    "websiteUrl": "https://dallaverdeadvocacia.adv.br/",
+    "primaryEmail": "contato@dallaverdeadvocacia.adv.br",
+    "primaryPhone": "(11) 95787-7941",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/bes.adv.br/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8ec1258d8908a753",
+    "profileName": "BURATTO SOCIEDADE DE ADVOGADOS (@bes.adv.br)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:43:13.560Z",
+    "websiteUrl": "https://www.bes.adv.br/",
+    "primaryEmail": "contato@bes.adv.br",
+    "primaryPhone": "(11) 3101-7722",
+    "primaryWhatsapp": "(11) 3101-7722"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/ibrativos_rastreamento/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_96816650614bfdc0",
+    "profileName": "ABRAO CAMARGO ADVOGADOS (@ibrativos_rastreamento)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:43:13.498Z",
+    "websiteUrl": "https://abraocamargo.com.br/",
+    "primaryEmail": "gabriel@abraocamargo.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/artmannadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_769faf79dba85bb8",
+    "profileName": "ARTMANN ADVOGADOS (@artmannadvogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T18:12:04.519Z",
+    "websiteUrl": "https://artmannadvogados.com.br/",
+    "primaryEmail": "contato@artmannadvogados.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/marciorosa.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_aaf94cc96c98bfd8",
+    "profileName": "MÁRCIO ROSA SOCIEDADE DE ADVOGADOS (@marciorosa.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:09:53.429Z",
+    "websiteUrl": "https://mrosa.adv.br/",
+    "primaryEmail": "contato@mrosa.adv.br",
+    "primaryPhone": "(15) 3357-4669",
+    "primaryWhatsapp": "(15) 3357-4669"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/aphoffmannadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_3586014209be2ed2",
+    "profileName": "ALMEIDA PRADO E HOFFMANN ADVOGADOS ASSOCIADOS (@aphoffmannadv)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:09:34.297Z",
+    "websiteUrl": "https://www.aphoffmann.com.br/",
+    "primaryEmail": "aphoffmann@aphoffmann.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/autuoriburmann/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_d955dcc94e7670e6",
+    "profileName": "AUTUORI, BURMANN SOCIEDADE DE ADVOGADOS (@autuoriburmann)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:09:32.252Z",
+    "websiteUrl": "https://www.autuori.com.br/",
+    "primaryEmail": "curriculo@autuori.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/varella.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a6aa8bed8558333a",
+    "profileName": "VARELLA ADVOCACIA (@varella.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-30T20:38:07.063Z",
+    "websiteUrl": "https://ianvarella.adv.br/",
+    "primaryEmail": "contato@ianvarella.adv.br",
+    "primaryPhone": "(11) 2391-9440",
+    "primaryWhatsapp": "(11) 98777-7733"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/dra.mayrathais/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_ba37823bf227d9a6",
+    "profileName": "MAYRA THAIS – ADVOCACIA & CONSULTORIA PREVIDENCIÁRIA (@dra.mayrathais)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-30T16:03:28.256Z",
+    "websiteUrl": "https://mayrathais.adv.br/",
+    "primaryEmail": "contato@mayrathais.adv.br",
+    "primaryPhone": "(11) 99150-6688",
+    "primaryWhatsapp": "(11) 99150-6688"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/harasagrotexas/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a6c161f86db962b6",
+    "profileName": "RENATO FREITAS SOCIEDADE DE ADVOGADOS (@harasagrotexas)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-29T04:58:00.392Z",
+    "websiteUrl": "https://www.renatofreitas.com.br/",
+    "primaryEmail": "escritorio@renatofreitas.com.br",
+    "primaryPhone": "(11) 96343-1000",
+    "primaryWhatsapp": "(11) 96343-1000"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/santosnetoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_170b61c641f13d35",
+    "profileName": "SANTOS NETO ADVOGADOS (@santosnetoadvogados)",
+    "sourceChannels": [
+      "codex_fallback",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-29T04:05:08.937Z",
+    "websiteUrl": "https://www.santosneto.com.br/",
+    "primaryEmail": "contato@santosneto.com.br",
+    "primaryPhone": "+55 (11) 3124-3070",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/avidaladvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8361bffa95360e8c",
+    "profileName": "A. VIDAL – ADVOGADOS (@avidaladvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-29T00:08:55.466Z",
+    "websiteUrl": "https://avidal.com.br/",
+    "primaryEmail": "contato@avidal.com.br",
+    "primaryPhone": "(11) 94150-9767",
+    "primaryWhatsapp": "(11) 94150-9767"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/cortonaeranieri/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_340ca490392fa86e",
+    "profileName": "ADVOCACIA CORTONA E RANIERI (@cortonaeranieri)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-28T08:09:10.292Z",
+    "websiteUrl": "https://www.cortonaeranieri.com.br/",
+    "primaryEmail": "contato@cortonaeranieri.com.br",
+    "primaryPhone": "(11) 3106-0958",
+    "primaryWhatsapp": "(11) 3106-0958"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/frkadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_8ae1c7f4a1af5182",
+    "profileName": "FLEITLICH, ROCHA E KHALIL SOCIEDADE DE ADVOGADOS (@frkadvogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-28T06:44:14.375Z",
+    "websiteUrl": "https://frkadvogados.com.br/",
+    "primaryEmail": "recepcao@frkadvogados.com.br",
+    "primaryPhone": "(11) 3532-3015",
+    "primaryWhatsapp": "(11) 3532-3015"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/kustermachado/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_5cb52e9e2729b18e",
+    "profileName": "KUSTER E LICA ADVOGADOS ASSOCIADOS (@kustermachado)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-28T05:14:51.828Z",
+    "websiteUrl": "https://www.kladvogados.com.br/",
+    "primaryEmail": "contatocuritiba@kladvogados.com.br",
+    "primaryPhone": "(41) 3076-4498",
+    "primaryWhatsapp": "(41) 3076-4498"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/fiorinlonghi_adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_8bdc32a214deb31f",
+    "profileName": "FIORIN LONGHI SOCIEDADE DE ADVOGADOS (@fiorinlonghi_adv)",
+    "sourceChannels": [
+      "codex_fallback",
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-28T04:06:49.800Z",
+    "websiteUrl": "https://fiorinlonghi.com.br/",
+    "primaryEmail": "fiorinlonghi@fiorinlonghi.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(11) 93439-7708"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/hassonadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_c6f8500ec8007af3",
+    "profileName": "ROLAND HASSON (@hassonadvogados)",
+    "sourceChannels": [
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-24T18:47:10.071Z",
+    "websiteUrl": "https://hassonadvogados.com.br/",
+    "primaryEmail": "roland@hassonadvogados.com.br",
+    "primaryPhone": "(41) 3322-2490",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/gcb_adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_df373de7752a01c3",
+    "profileName": "HELIO GOMES COELHO JUNIOR (@gcb_adv)",
+    "sourceChannels": [
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-24T18:46:59.643Z",
+    "websiteUrl": "https://gcb.adv.br/",
+    "primaryEmail": "helio@gcb.adv.br",
+    "primaryPhone": "(41) 3014-4040",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/engholmcapez/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_2b3c959523fe8b90",
+    "profileName": "ENGHOLM CARDOSO & CAPEZ ADVOGADOS ASSOCIADOS (@engholmcapez)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-24T11:15:21.478Z",
+    "websiteUrl": "https://engholm.com.br/",
+    "primaryEmail": "luciano@engholm.com.br",
+    "primaryPhone": "(11) 3885-4230",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/avilaadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_18d92f885cf75065",
+    "profileName": "AVILA SOCIEDADE DE ADVOGADOS (@avilaadvogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-23T18:29:28.027Z",
+    "websiteUrl": "https://www.avilaadvogados.com.br/",
+    "primaryEmail": "contato@avilaadvogados.com.br",
+    "primaryPhone": "(41) 3155-9755",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/zillmannadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_a58c874fcfac8d78",
+    "profileName": "ZILLMANN ADVOGADOS ASSOCIADOS (@zillmannadvogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-23T18:29:15.325Z",
+    "websiteUrl": "https://www.zadvocacia.adv.br/",
+    "primaryEmail": "contato@zadvocacia.adv.br",
+    "primaryPhone": "(41) 99668-9179",
+    "primaryWhatsapp": "(41) 99668-9179"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/lcadvogados.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_8ba484aa5bc59fc0",
+    "profileName": "LUANA CHAVES ADVOGADOS ASSOCIADOS (@lcadvogados.adv)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-23T18:16:22.085Z",
+    "websiteUrl": "https://www.lcadvogados.adv.br/",
+    "primaryEmail": "contato@lcadvogados.adv.br",
+    "primaryPhone": "(41) 99637-6520",
+    "primaryWhatsapp": "(41) 99637-6520"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/espinolateixeiraebertin/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_f35b96b33174b581",
+    "profileName": "ESPINOLA TEIXEIRA E BERTIN ADVOGADOS ASSOCIADOS (@espinolateixeiraebertin)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-04-23T18:16:17.009Z",
+    "websiteUrl": "https://etb.adv.br/",
+    "primaryEmail": "contato@etb.adv.br",
+    "primaryPhone": "(41) 3332-4545",
+    "primaryWhatsapp": "(41) 3332-4545"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/sbs.advocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_d1023576f35e3b20",
+    "profileName": "SBS ADVOCACIA: HOME (@sbs.advocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:50.692Z",
+    "websiteUrl": "https://www.sbsadvocacia.adv.br/",
+    "primaryEmail": "contato@sbsadvocacia.adv.br",
+    "primaryPhone": "(51) 98404-5759",
+    "primaryWhatsapp": "(51) 98404-5759"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/crippareyadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8d0e05cef82fd5f3",
+    "profileName": "CRIPPA REY ADVOGADOS: ADVOCACIA ESTRATÉGICA, OBJETIVA E ... (@crippareyadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:35.595Z",
+    "websiteUrl": "https://crippareyadvogados.com.br/",
+    "primaryEmail": "thiago@crippareyadvogados.com.br",
+    "primaryPhone": "(51) 3273-0015",
+    "primaryWhatsapp": "(51) 3273-0015"
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/gregioadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a435d22b042e44b4",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA (@gregioadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:45:25.861Z",
+    "websiteUrl": "https://gregio.adv.br/",
+    "primaryEmail": "contato@gregio.adv.br",
+    "primaryPhone": "(44) 3226-7358",
+    "primaryWhatsapp": "(44) 99162-4009"
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/martinhagoadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1d6db3b2ae1e9420",
+    "profileName": "ADVOCACIA MARINGÁ (@martinhagoadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:36:47.445Z",
+    "websiteUrl": "https://martinhagoadv.com.br/",
+    "primaryEmail": "contato@martinhagoadv.com.br",
+    "primaryPhone": "(44) 99998-3859",
+    "primaryWhatsapp": "(44) 99998-3859"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/vialle.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_6ca17518d881d7bd",
+    "profileName": "BARALE E BARALE ADVOGADOS ASSOCIADOS (@vialle.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T21:09:45.001Z",
+    "websiteUrl": "https://www.vialleadvogados.adv.br/",
+    "primaryEmail": "ouvidoria@vialleadvogados.adv.br",
+    "primaryPhone": "(45) 3224-1822",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/rivaroliebueno/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_fb8529d458eff973",
+    "profileName": "RIVAROLI E BUENO: ESCRITÓRIO DE ADVOCACIA LOCALIZADO EM ... (@rivaroliebueno)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:36.272Z",
+    "websiteUrl": "https://rivaroliebueno.com.br/",
+    "primaryEmail": "contato@rivaroliebueno.com.br",
+    "primaryPhone": "(43) 99959-8888",
+    "primaryWhatsapp": "(43) 99959-8888"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/bordinassiadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_916dc48cabc6039d",
+    "profileName": "BORDINASSI ADVOCACIA: ESCRITÓRIO DE ADVOCACIA EM LONDRINA (@bordinassiadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:36.271Z",
+    "websiteUrl": "https://bordinassiadvocacia.com.br/",
+    "primaryEmail": "contato@bordinassiadvocacia.com.br",
+    "primaryPhone": "(43) 98805-3888",
+    "primaryWhatsapp": "(43) 98805-3888"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/natividade.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c21f1d65a6228876",
+    "profileName": "NATIVIDADE ADVOGADOS: HOME (@natividade.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:04:35.988Z",
+    "websiteUrl": "https://natividade.adv.br/",
+    "primaryEmail": "negocial@natividade.adv.br",
+    "primaryPhone": "(41) 3089-8585",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/guedesecruz/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_73e7c1a76f8f2569",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA EM SÃO JOSÉ DOS CAMPOS (@guedesecruz)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T20:37:34.513Z",
+    "websiteUrl": "https://guedesecruzadvocacia.com.br/",
+    "primaryEmail": "contato@guedesecruzadvocacia.com.br",
+    "primaryPhone": "(16) 99765-2947",
+    "primaryWhatsapp": "(16) 99765-2947"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/freitasfrancaadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1c4bc8d1f1c77851",
+    "profileName": "FREITAS, FRANÇA ADVOGADOS: ADVOCACIA ESPECIALIZADA (@freitasfrancaadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:15.523Z",
+    "websiteUrl": "https://www.freitasfranca.adv.br/",
+    "primaryEmail": "contato@freitasfranca.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(31) 99557-1055"
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/peresabreuadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_49f20d1874c96538",
+    "profileName": "CONTATO – PERES ABREU ADVOGADOS – ADVOCACIA EM NITERÓI (@peresabreuadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:11:35.707Z",
+    "websiteUrl": "https://peresabreuadv.com.br/",
+    "primaryEmail": "contato@peresabreuadv.com.br",
+    "primaryPhone": "(21) 2620-5055",
+    "primaryWhatsapp": "(21) 96460-9236"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/maraujo.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_6d87d56086906a5d",
+    "profileName": "MAURO ARAUJO E ASSOCIADOS: ADVOGADOS RIO DE JANEIRO (@maraujo.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T20:05:08.568Z",
+    "websiteUrl": "https://maraujo.adv.br/",
+    "primaryEmail": "contato@maraujo.adv.br",
+    "primaryPhone": "(21) 97936-5755",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/wcortesadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9d3157859e59bf55",
+    "profileName": "W. CÔRTES ADVOGADOS: ADVOCACIA NO RIO DE JANEIRO (@wcortesadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:20.034Z",
+    "websiteUrl": "http://wcortesadvogados.com.br/",
+    "primaryEmail": "contato@wcortesadvogados.com.br",
+    "primaryPhone": "(21) 96477-6646",
+    "primaryWhatsapp": "(21) 96477-6646"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/machadodesaadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_fefa17be17bf93c8",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA EM SANTOS (@machadodesaadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:00.577Z",
+    "websiteUrl": "https://www.machadodesa.adv.br/",
+    "primaryEmail": "contato@machadodesa.adv.br",
+    "primaryPhone": "(13) 98156-2004",
+    "primaryWhatsapp": "(13) 98156-2004"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/duartesantos.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_360f89aeec7db871",
+    "profileName": "DUARTE SANTOS ADVOCACIA: INÍCIO (@duartesantos.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.332Z",
+    "websiteUrl": "https://duartesantosadvocacia.com.br/",
+    "primaryEmail": "contato@duartesantosadvocacia.com.br",
+    "primaryPhone": "(47) 98803-8663",
+    "primaryWhatsapp": "(47) 98803-8663"
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/marianiecarvalhoadvogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c241e47bbe15a10a",
+    "profileName": "MARIANI & CARVALHO ADVOGADOS: HOME (@marianiecarvalhoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:47.540Z",
+    "websiteUrl": "https://www.marianiecarvalho.adv.br/",
+    "primaryEmail": "contato@marianiecarvalho.adv.br",
+    "primaryPhone": "(12) 3322-1293",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/advocacia.daniellecazarino/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_bc949335439ea7aa",
+    "profileName": "DIREITO TRABALHISTA – DANIELLE CAZARINO ADVOCACIA (@advocacia.daniellecazarino)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:15:42.172Z",
+    "websiteUrl": "https://daniellecazarino.adv.br/",
+    "primaryEmail": "contato@daniellecazarino.adv.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": "(12) 98809-2897"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/pinheiro_advocacia_/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_4184f4cb36be4ee7",
+    "profileName": "ENTRE EM CONTATO COM A PINHEIRO ADVOCACIA (@pinheiro_advocacia_)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:17.976Z",
+    "websiteUrl": "https://advpinheiro.com.br/",
+    "primaryEmail": "atendimento@advpinheiro.com.br",
+    "primaryPhone": "(15) 99760-6362",
+    "primaryWhatsapp": "(15) 99760-6362"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/advogadodiogoricardo/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e18b89fa59725161",
+    "profileName": "DIOGO RICARDO ADVOCACIA: PÁGINA INICIAL (@advogadodiogoricardo)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:00:28.021Z",
+    "websiteUrl": "https://diogoricardo.adv.br/",
+    "primaryEmail": "adv@diogoricardo.adv.br",
+    "primaryPhone": "(11) 2368-6628",
+    "primaryWhatsapp": "(11) 98043-3385"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/mingroneebrandarizsoc.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_87e7e697ea8fde92",
+    "profileName": "CONTATO – MINGRONE E BRANDARIZ SOCIEDADE DE ADVOGADOS ... (@mingroneebrandarizsoc.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:59:55.804Z",
+    "websiteUrl": "https://mingronebrandariz.com.br/",
+    "primaryEmail": "contato@mingronebrandariz.com.br",
+    "primaryPhone": "(11) 4327-6561",
+    "primaryWhatsapp": "(11) 99614-4008"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/advocaciaoliveiralima/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1c1e486e294bd581",
+    "profileName": "DIREITO PREVIDENCIÁRIO – ADVOCACIA OLIVEIRA LIMA (@advocaciaoliveiralima)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:50:17.679Z",
+    "websiteUrl": "https://advocaciaoliveiralima.adv.br/",
+    "primaryEmail": "contato@advocaciaoliveiralima.adv.br",
+    "primaryPhone": "(11) 2408-6309",
+    "primaryWhatsapp": "(11) 94248-8160"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/julianacohen.adv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1b0c391d7f922292",
+    "profileName": "JCOHEN ADVOCACIA: ADVOGADA EM SÃO PAULO (@julianacohen.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-30T22:08:59.948Z",
+    "websiteUrl": "https://jcohenadvocacia.adv.br/",
+    "primaryEmail": "juliana@jcohenadvocacia.adv.br",
+    "primaryPhone": "(11) 93151-6973",
+    "primaryWhatsapp": "(11) 93151-6973"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/consultor_juridico/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_b423b74ce9fe87bf",
+    "profileName": "WAGMAN & ABUCHAM - SOCIEDADE DE ADVOGADOS (@consultor_juridico)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-30T16:58:07.929Z",
+    "websiteUrl": "https://wagmaneabucham.com.br/",
+    "primaryEmail": "contato@wagmaneabucham.com.br",
+    "primaryPhone": "(11) 3812-1220",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/villemoramaral/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_d14250d6c8431e8f",
+    "profileName": "VILLEMOR, MONTONI, PAIXAO, LOPES E ADVOGADOS ASSOCIADOS (@villemoramaral)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-28T10:53:51.984Z",
+    "websiteUrl": "https://www.villemor.com.br/",
+    "primaryEmail": "villemorrj@villemor.com.br",
+    "primaryPhone": "(21) 3806-3400",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/cma_law/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_10668a5d40219067",
+    "profileName": "CAMPOS MELLO E CAMPOS MELLO SOCIEDADE DE ADVOGADOS (@cma_law)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-28T05:37:44.564Z",
+    "websiteUrl": "https://cmalaw.com/",
+    "primaryEmail": "marketing@cmalaw.com",
+    "primaryPhone": "(21) 3262-3000",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/carvalhoelias.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_4423c400841572b3",
+    "profileName": "CARVALHO E ELIAS SOCIEDADE DE ADVOGADOS (@carvalhoelias.advogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-04-28T04:06:49.792Z",
+    "websiteUrl": "https://carvalhoelias.adv.br/",
+    "primaryEmail": "controladoria@carvalhoelias.adv.br",
+    "primaryPhone": "(41) 3046-2259",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/faria.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_0ab047b46a36e578",
+    "profileName": "FARIA E ADVOGADOS ASSOCIADOS (@faria.advogados)",
+    "sourceChannels": [
+      "cnsa_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-04-28T04:06:49.787Z",
+    "websiteUrl": "https://www.fariaeadvogados.com.br/",
+    "primaryEmail": "giuliano@fariaeadvogados.com.br",
+    "primaryPhone": "(41) 99157-8051",
+    "primaryWhatsapp": "(41) 99157-8051"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/governosp/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_b6ec377359a63d05",
+    "profileName": "NATAL E MANSSUR SOCIEDADE DE ADVOGADOS (@governosp)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-24T20:27:53.672Z",
+    "websiteUrl": "https://www.nmaa.com.br/",
+    "primaryEmail": "contato@nmaa.com.br",
+    "primaryPhone": "(11) 3059-8800",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/bachega.advogados/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_7fb2a90fc5e72f20",
+    "profileName": "BACHEGA SOCIEDADE DE ADVOGADOS (@bachega.advogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-24T08:13:01.194Z",
+    "websiteUrl": "https://www.bachegaadvogados.com.br/",
+    "primaryEmail": "eraldo.junior@bachegaadvogados.com.br",
+    "primaryPhone": "(11) 94173-4946",
+    "primaryWhatsapp": "(11) 94173-4946"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/radaadvocacia/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_7bbe6ed50cf9c5cc",
+    "profileName": "ROBERIO ALVES DIAS SOCIEDADE INDIVIDUAL DE ADVOCACIA (@radaadvocacia)",
+    "sourceChannels": [
+      "codex_fallback",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-24T06:19:40.838Z",
+    "websiteUrl": "https://radaadvocacia.adv.br/",
+    "primaryEmail": "contato@radaadvocacia.adv.br",
+    "primaryPhone": "+55 (11) 99301-1276",
+    "primaryWhatsapp": "(11) 99301-1276"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/lopesdominguesadv/",
+    "leadEngineStatus": "ready_for_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_a851e457e602223f",
+    "profileName": "LOPES, DOMINGUES SOCIEDADE DE ADVOGADOS (@lopesdominguesadv)",
+    "sourceChannels": [
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry"
+    ],
+    "sourceConfidence": 0.84,
+    "state": "SP",
+    "updatedAt": "2026-04-30T14:49:17.056Z",
+    "websiteUrl": "https://ldadv.com.br/",
+    "primaryEmail": "contato@ldadv.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/escritorioasaf/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_db9efe215cc7bacf",
+    "profileName": "ALEX SANTANA ADVOCACIA (@escritorioasaf)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-02T02:44:09.264Z",
+    "websiteUrl": "https://www.asaf.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 2511-2100",
+    "primaryWhatsapp": "(31) 98110-2455"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/daniellafernandesadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_6e7bbbfea7247595",
+    "profileName": "ADVOGADOS BH (@daniellafernandesadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-02T02:38:37.587Z",
+    "websiteUrl": "https://idealadvogadosbh.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 3526-8859",
+    "primaryWhatsapp": "(31) 98883-0330"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/leandrofialhoadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_f0983153dba42dd8",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA (@leandrofialhoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-02T02:33:17.940Z",
+    "websiteUrl": "https://leandrofialhoadvogados.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 99702-2211",
+    "primaryWhatsapp": "(31) 99702-2211"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/agostiniadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_d221760da6488c7b",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA EM BH (@agostiniadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-02T02:27:54.316Z",
+    "websiteUrl": "https://www.agostiniemartiniadvocacia.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 3654-2234",
+    "primaryWhatsapp": "(31) 99666-2234"
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/drarosemagalhaes/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_95ff1d465f930f35",
+    "profileName": "NIZZO & MAGALHÃES – SOCIEDADE DE ADVOGADOS (@drarosemagalhaes)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-02T02:16:48.417Z",
+    "websiteUrl": "https://rosemagalhaes.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 96735-8910",
+    "primaryWhatsapp": "(21) 96735-8910"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/advogadoandrerios/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_7a332e6aa52fcbbd",
+    "profileName": "ANDRÉ RIOS ADVOCACIA PREVIDENCIÁRIA » NITERÓI, RIO DE JANEIRO (@advogadoandrerios)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-02T02:10:39.486Z",
+    "websiteUrl": "https://www.andrerios.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 3617-3543",
+    "primaryWhatsapp": "(21) 98313-6320"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/simonetorresadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9e7a1ae2151a527e",
+    "profileName": "SIMONE TORRES ADVOGADOS (@simonetorresadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-02T02:04:50.404Z",
+    "websiteUrl": "https://simonetorres.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/anelizemoura.adv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_2e4f53b1833e0e7a",
+    "profileName": "DE PAULA MOURA – ADVOCACIA (@anelizemoura.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-02T01:59:49.397Z",
+    "websiteUrl": "https://dpmoura.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 99517-3920",
+    "primaryWhatsapp": "(21) 99517-3920"
+  },
+  {
+    "city": "NITEROI",
+    "instagramUrl": "https://www.instagram.com/elainefeijoadv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_26114f7435b314a6",
+    "profileName": "ELAINE FEIJÓ – ADVOCACIA EM NITERÓI (@elainefeijoadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-02T01:54:25.786Z",
+    "websiteUrl": "https://elainefeijoadvocacia.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 3245-8280",
+    "primaryWhatsapp": "(21) 99179-0117"
+  },
+  {
+    "city": "SAO JOSE DOS CAMPOS",
+    "instagramUrl": "https://www.instagram.com/teixeiraadvogados.associados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_23c42eea1cd3b2ef",
+    "profileName": "TEIXEIRA ADVOGADOS ASSOCIADOS (@teixeiraadvogados.associados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-02T01:48:36.046Z",
+    "websiteUrl": "https://www.teixeiraadvogados.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(12) 99173-0111",
+    "primaryWhatsapp": "(12) 99173-0111"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/killianerodriguesadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9a83729934b44e7d",
+    "profileName": "KILLIAN & RODRIGUES ADVOCACIA – DIREITO PREVIDENCIÁRIO ... (@killianerodriguesadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-02T01:18:16.310Z",
+    "websiteUrl": "https://killianerodrigues.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(15) 3232-2711",
+    "primaryWhatsapp": "(15) 99816-4281"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/trabalhistaempregado/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e623a4b4179d5d52",
+    "profileName": "HILTON MASCARENHAS SOCIEDADE DE ADVOGADOS (@trabalhistaempregado)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-02T01:16:24.340Z",
+    "websiteUrl": "https://www.areadocliente.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(15) 3142-7070",
+    "primaryWhatsapp": "(55) 1531-4270"
+  },
+  {
+    "city": "FORTALEZA",
+    "instagramUrl": "https://www.instagram.com/paulocesarsociedadeadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e55fab1eb0039c4c",
+    "profileName": "PAULO CÉSAR ALENCAR SOCIEDADE DE ADVOGADOS (@paulocesarsociedadeadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "CE",
+    "updatedAt": "2026-05-02T01:11:49.126Z",
+    "websiteUrl": "http://paulocesar.jud.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(16) 3069-6660",
+    "primaryWhatsapp": "(85) 98698-0612"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/borgesadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e428348facb6907e",
+    "profileName": "ADVOCACIA TRABALHISTA BORGES (@borgesadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T23:37:49.665Z",
+    "websiteUrl": "https://advogadotrabalhistaborges.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(11) 3393-3030",
+    "primaryWhatsapp": "(11) 97100-1599"
+  },
+  {
+    "city": "CAXIAS DO SUL",
+    "instagramUrl": "https://www.instagram.com/zucoadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1836f912e430d15a",
+    "profileName": "ZUCO & ZUCO ADVOGADOS: INÍCIO (@zucoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:46:04.308Z",
+    "websiteUrl": "https://www.zuco.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(54) 9966-2315",
+    "primaryWhatsapp": "(54) 9966-2315"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/advogadoandredolcesilva/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1c9c3d657b17657c",
+    "profileName": "ADS SOCIEDADE DE ADVOGADOS – SITE OFICIAL (@advogadoandredolcesilva)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:50.692Z",
+    "websiteUrl": "https://adssociedade.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(51) 98335-0007",
+    "primaryWhatsapp": "(51) 98335-0007"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/pelizzaroadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_94bff4fae619330c",
+    "profileName": "PELIZZARO ADVOCACIA PREVIDENCIÁRIA TRABALHISTA CONSUMIDOR ... (@pelizzaroadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:35.596Z",
+    "websiteUrl": "https://www.pelizzaro.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(51) 98918-4988",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/anacbeluco/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1fd96c4fb4ce37c5",
+    "profileName": "ADVOCACIA PREVIDENCIÁRIA (INSS) EM MARINGÁ (@anacbeluco)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:45:20.493Z",
+    "websiteUrl": "https://belucoecarvalho.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(44) 9925-9258",
+    "primaryWhatsapp": "(44) 99925-9258"
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/valadaresadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8b68446be327b401",
+    "profileName": "VALADARES ADVOGADOS (@valadaresadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:36:47.445Z",
+    "websiteUrl": "https://valadaresadvogados.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(41) 3093-9396",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/castellani.santos/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_fca6f48227a061cb",
+    "profileName": "CASTELLANI SANTOS ADVOCACIA (@castellani.santos)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:40.636Z",
+    "websiteUrl": "https://castellanisantos.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": "(43) 99148-6384"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/vilelavianna/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_1c1f67164f26c391",
+    "profileName": "VILELA VIANNA – ADVOCACIA E CONSULTORIA COM FOCO EM DIREITO ... (@vilelavianna)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:01:50.763Z",
+    "websiteUrl": "https://www.vilelavianna.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": "(41) 3233-5121"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/martins_regina_advocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_21154711acefb472",
+    "profileName": "MARTINS REGINA ESCRITÓRIO DE ADVOCACIA – RIO DE JANEIRO – RJ ... (@martins_regina_advocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T21:00:52.399Z",
+    "websiteUrl": "https://escritoriodeadvocaciarj.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 98777-1186",
+    "primaryWhatsapp": "(21) 98777-1186"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/alaminosilva/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_db4a6fa5e66065b2",
+    "profileName": "ESCRITÓRIO ADVOCACIA PREVIDENCIÁRIA E TRABALHISTA (@alaminosilva)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T20:42:36.814Z",
+    "websiteUrl": "https://www.alaminosilva.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(15) 3326-2261",
+    "primaryWhatsapp": "(15) 98830-4751"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/oquefazeruberlandia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_b1fc8ed36812f2fd",
+    "profileName": "RIBEIRO & RIBEIRO ADVOGADOS ASSOCIADOS (@oquefazeruberlandia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:39:23.575Z",
+    "websiteUrl": "https://advocaciaribeiroeribeiro.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/rochasantosportilhoadv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9d515185e50f368e",
+    "profileName": "ROCHA SANTOS & PORTILHO – ADVOCACIA (@rochasantosportilhoadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:49.612Z",
+    "websiteUrl": "https://rsp.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(27) 99813-7998",
+    "primaryWhatsapp": "(34) 9706-8229"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/advocaciaespindula/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_7ea79e87bde9aea9",
+    "profileName": "ADVOCACIA TRABALHISTA, CONSUMIDOR E FAMÍLIA DRA. VIVIANE ... (@advocaciaespindula)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:38.874Z",
+    "websiteUrl": "https://www.vivianeespindula.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(34) 99102-7524",
+    "primaryWhatsapp": "(34) 99102-7524"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/mengarefedericoadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_ba2ec54ba9d94422",
+    "profileName": "MENGAR E FEDERICO ADVOGADOS E ASSOCIADOS – ESCRITÓRIO ... (@mengarefedericoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "google_web_search_miss",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T20:25:23.907Z",
+    "websiteUrl": "https://mengarfrederico.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(11) 2294-6664",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/bentojradvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_c93c9740afac35f6",
+    "profileName": "BENTO JR ADVOCACIA EMPRESARIAL (@bentojradvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T20:13:56.033Z",
+    "websiteUrl": "https://www.bentojradvocacia.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(11) 95195-6024",
+    "primaryWhatsapp": "(11) 95195-6024"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/advogado_previdenciario_inss/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_bfbabc881cb165d8",
+    "profileName": "MEDEIROS ADVOGADOS (@advogado_previdenciario_inss)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:29.767Z",
+    "websiteUrl": "https://medeirosadv.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(21) 2222-2222",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/harbsantos.adv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a3b10539096891f7",
+    "profileName": "HARBS SANTOS ADVOGADOS (@harbsantos.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:46:05.941Z",
+    "websiteUrl": "https://harbsantos.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": "(47) 98818-8862"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/diasbatistaadv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_bcf03ec4b97f028c",
+    "profileName": "ADVOGADOS SOROCABA (@diasbatistaadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:12:12.530Z",
+    "websiteUrl": "https://www.advogadosorocaba.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(15) 3234-7117",
+    "primaryWhatsapp": "(15) 99138-6106"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/ramalhoadvocaciasp/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9dea356eff4b4cf2",
+    "profileName": "RAMALHO ADVOCACIA SP – SITE PROFISSIONAL DE ADVOGADOS EM ... (@ramalhoadvocaciasp)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.95,
+    "state": "SP",
+    "updatedAt": "2026-04-29T20:40:15.512Z",
+    "websiteUrl": "https://ramalhoadvocaciasp.com.br/",
+    "primaryEmail": "rose@ramalhoadvocaciasp.com.br",
+    "primaryPhone": "(11) 4312-0823",
+    "primaryWhatsapp": "(11) 93430-2929"
+  },
+  {
+    "city": "JOINVILLE",
+    "instagramUrl": "https://www.instagram.com/advocaciafrank/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_da0ad78a2071d4b6",
+    "profileName": "ESCRITÓRIO DE ADVOCACIA (@advocaciafrank)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SC",
+    "updatedAt": "2026-05-01T23:10:57.871Z",
+    "websiteUrl": "https://advocaciafrank.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/rubinadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_40c7e695a31c07cf",
+    "profileName": "RUBIN ADVOGADOS ASSOCIADOS: ADVOGADO EM LONDRINA (@rubinadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:09:40.636Z",
+    "websiteUrl": "https://rubin.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(43) 99982-2542",
+    "primaryWhatsapp": "(43) 99982-2542"
+  },
+  {
+    "city": "LONDRINA",
+    "instagramUrl": "https://www.instagram.com/advogados.mw/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_f19b11876a3673c5",
+    "profileName": "MW ADVOGADOS: HOME (@advogados.mw)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:05:00.822Z",
+    "websiteUrl": "https://mw.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": "(41) 3798-2011"
+  },
+  {
+    "city": "CURITIBA",
+    "instagramUrl": "https://www.instagram.com/farrachadecastroadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_5fc9b929c9121fbf",
+    "profileName": "FARRACHA DE CASTRO ADVOGADOS: HOME (@farrachadecastroadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "PR",
+    "updatedAt": "2026-05-01T20:39:29.160Z",
+    "websiteUrl": "https://farrachadecastro.com.br/",
+    "primaryEmail": "curitiba@farrachadecastro.com.br",
+    "primaryPhone": "(41) 3075-6100",
+    "primaryWhatsapp": "(41) 99514-0048"
+  },
+  {
+    "city": "UBERLANDIA",
+    "instagramUrl": "https://www.instagram.com/advocacialucasaraujo/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_9751a6c01bc928c6",
+    "profileName": "ADVOCACIA TRABALHISTA (@advocacialucasaraujo)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:37:38.876Z",
+    "websiteUrl": "https://lucasaraujo.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(34) 99635-2121",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/ssantos.advogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_42cb69609ca5ccf5",
+    "profileName": "SSANTOS ADVOGADOS: HOME (@ssantos.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:15:40.501Z",
+    "websiteUrl": "https://ssantos.adv.br/",
+    "primaryEmail": "advocacia@ssantos.adv.br",
+    "primaryPhone": "(41) 99114-1498",
+    "primaryWhatsapp": "(41) 99114-1498"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/leandrofialhoadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_4d8d67f6cab3486f",
+    "profileName": "LEANDRO FIALHO ADVOGADOS: ADVOCACIA ESPECIALIZADA EM BH (@leandrofialhoadvogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:20.894Z",
+    "websiteUrl": "https://consultoriojuridico.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 99702-2211",
+    "primaryWhatsapp": "(31) 99702-2211"
+  },
+  {
+    "city": "BELO HORIZONTE",
+    "instagramUrl": "https://www.instagram.com/silvafreireadv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_8d06ce303cb42678",
+    "profileName": "SILVA FREIRE ADVOGADOS BH – HÁ 30 ANOS,UMA TRADICIONAL ... (@silvafreireadv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "MG",
+    "updatedAt": "2026-05-01T20:14:15.525Z",
+    "websiteUrl": "https://silvafreire.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(31) 99237-2543",
+    "primaryWhatsapp": "(31) 99237-2543"
+  },
+  {
+    "city": "RIO DE JANEIRO",
+    "instagramUrl": "https://www.instagram.com/plg.advogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_d8f67da09d4107d4",
+    "profileName": "PLG ADVOGADOS TRABALHISTAS NO RJ – ZONA OESTE (@plg.advogados)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "RJ",
+    "updatedAt": "2026-05-01T19:46:25.406Z",
+    "websiteUrl": "https://plg.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(02) 13986-4177",
+    "primaryWhatsapp": "(21) 2051-7913"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santosadvemanuelle/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e3c34c73e88ba7fc",
+    "profileName": "EMANUELLE SANTOS ADVOCACIA: EMANUELLEHOME (@santosadvemanuelle)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:44:29.545Z",
+    "websiteUrl": "https://emanuellesantos.adv.br/",
+    "primaryEmail": "atendimento@emanuellesantos.adv.br",
+    "primaryPhone": "(41) 3528-3275",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/advogadofabiosantos/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_165542b6e57090c8",
+    "profileName": "DIREITO PREVIDENCIÁRIO – F.SANTOS SOCIEDADE DE ADVOCACIA (@advogadofabiosantos)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:44:29.400Z",
+    "websiteUrl": "http://www.fabiosantos.adv.br/",
+    "primaryEmail": "fabio@fabiosantos.adv.br",
+    "primaryPhone": "(11) 5676-3650",
+    "primaryWhatsapp": "(11) 94732-9169"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santosadvocaciapf/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_2587b62dfcb0249f",
+    "profileName": "SANTOS SOCIEDADE INDIVIDUAL DE ADVOCACIA: INÍCIO (@santosadvocaciapf)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.331Z",
+    "websiteUrl": "https://santossiadv.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": "(11) 98934-4189"
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santos.sadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_27517779cc5f13c8",
+    "profileName": "SANTOS ADVOCACIA: HOME (@santos.sadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.331Z",
+    "websiteUrl": "https://asantosadvocacia.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santosb.adv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_fc2a7e6d0bdf0b9d",
+    "profileName": "SANTOS ADVOCACIA ESPECIALIZADA: ADVOGADO EM SÃO JOSÉ SC (@santosb.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.330Z",
+    "websiteUrl": "https://santosadvo.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(48) 99219-2503",
+    "primaryWhatsapp": "(48) 99219-2503"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/infobelpro/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_09b188033539d43e",
+    "profileName": "PASCHOAL & PASCHOAL SOCIEDADE DE ADVOGADOS (@infobelpro)",
+    "sourceChannels": [
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:23.122Z",
+    "websiteUrl": "https://paschoal.adv.br/",
+    "primaryEmail": "contato@paschoal.adv.br",
+    "primaryPhone": "(11) 99998-8046",
+    "primaryWhatsapp": "(11) 99998-8046"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/gaiga_advocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_99a02a97e73d14a6",
+    "profileName": "JUNIA MARTINS - SOCIEDADE INDIVIDUAL DE ADVOCACIA (@gaiga_advocacia)",
+    "sourceChannels": [
+      "codex_fallback",
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:22.231Z",
+    "websiteUrl": "https://www.azevedosette.com.br/",
+    "primaryEmail": "faleconosco@azevedosette.com.br",
+    "primaryPhone": "(51) 2200-1000",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/portalmigalhas/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_0a37e9162208d994",
+    "profileName": "DUARTE GARCIA, SERRA NETTO E TERRA SOCIEDADE DE ADVOGADOS (@portalmigalhas)",
+    "sourceChannels": [
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:22.230Z",
+    "websiteUrl": "https://www.migalhas.com.br/",
+    "primaryEmail": "migalhas@migalhas.com.br",
+    "primaryPhone": "(16) 3917-1008",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/flh.advogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_94aaaa9e972e3898",
+    "profileName": "FRANCO, LEUTEWILER, HENRIQUES SOCIEDADE DE ADVOGADOS (@flh.advogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:22.230Z",
+    "websiteUrl": "https://www.flha.com.br/",
+    "primaryEmail": "contato@flha.com.br",
+    "primaryPhone": "(11) 3016-1888",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/aga.oficial/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_026bb0e2643e673c",
+    "profileName": "BOAVENTURA RIBEIRO SOCIEDADE DE ADVOGADOS (@aga.oficial)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:22.228Z",
+    "websiteUrl": "https://grupoalliance.com.br/",
+    "primaryEmail": "comercial2@grupoalliance.com.br",
+    "primaryPhone": "(11) 5078-3019",
+    "primaryWhatsapp": "(11) 5078-3019"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/tatiane.adv/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_7d85a306111bf36c",
+    "profileName": "RODRIGUES E FELIX ADVOGADOS: ADVOGADO EM PIRITUBA (@tatiane.adv)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:18.308Z",
+    "websiteUrl": "https://www.rodriguesefelix.adv.br/",
+    "primaryEmail": "tato@rodriguesefelix.adv.br",
+    "primaryPhone": "(11) 3456-7890",
+    "primaryWhatsapp": "(11) 94523-5361"
+  },
+  {
+    "city": "SOROCABA",
+    "instagramUrl": "https://www.instagram.com/tangiadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_a20f583c53a158da",
+    "profileName": "TANGI ADVOCACIA: ADVOCACIA CIVIL, TRABALHISTA, PREVIDENCIÁRIO ... (@tangiadvocacia)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:13:10.310Z",
+    "websiteUrl": "https://tangiadvocacia.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(15) 3232-7679",
+    "primaryWhatsapp": "(15) 3232-7679"
+  },
+  {
+    "city": "RIBEIRAO PRETO",
+    "instagramUrl": "https://www.instagram.com/advocaciagoncalvesemanella/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_069ca126e961f5a9",
+    "profileName": "GONÇALVES & MANELLA SOCIEDADE DE ADVOGADOS: GM (@advocaciagoncalvesemanella)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:11:23.769Z",
+    "websiteUrl": "https://goncalvesemanella.adv.br/",
+    "primaryEmail": null,
+    "primaryPhone": "(16) 3635-1864",
+    "primaryWhatsapp": "(16) 98876-0800"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/magalhaesadvocacia.oficial/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_38124b8286325d9e",
+    "profileName": "MAGALHAES BUCKUP - SOCIEDADE INDIVIDUAL DE ADVOCACIA (@magalhaesadvocacia.oficial)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:18:19.950Z",
+    "websiteUrl": null,
+    "primaryEmail": null,
+    "primaryPhone": "(14) 3815-2222",
+    "primaryWhatsapp": "(14) 3815-2222"
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/martinelliadvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_763025c773915fe5",
+    "profileName": "BARBARA ALBUQUERQUE SOCIEDADE INDIVIDUAL DE ADVOCACIA (@martinelliadvogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:13:58.584Z",
+    "websiteUrl": null,
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/plbradvogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_01f3bf25177c186a",
+    "profileName": "RIBEIRO PINTO ADVOGADOS ASSOCIADOS (@plbradvogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:12:01.252Z",
+    "websiteUrl": "https://ribeiropintoadvogados.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/rbragaadvocacia/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_622ff54f8a33f0ee",
+    "profileName": "R. BRAGA SOCIEDADE INDIVIDUAL DE ADVOCACIA (@rbragaadvocacia)",
+    "sourceChannels": [
+      "google_web_search",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-05-01T18:09:37.061Z",
+    "websiteUrl": "https://rbragaadvocacia.com.br/",
+    "primaryEmail": "advogados@rbragaadvocacia.com.br",
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/fz_fundacao/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_37ddc5d4692c6140",
+    "profileName": "AZULAY SOCIEDADE DE ADVOGADOS (@fz_fundacao)",
+    "sourceChannels": [
+      "codex_fallback",
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-29T20:38:57.843Z",
+    "websiteUrl": "https://www.dsmaazulay.com.br/",
+    "primaryEmail": "contato@dsmaazulay.com.br",
+    "primaryPhone": "+55 (11) 3280-0250",
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SAO PAULO",
+    "instagramUrl": "https://www.instagram.com/viseu_advogados/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_5f89beebc3597162",
+    "profileName": "VISEU SOCIEDADE DE ADVOGADOS (@viseu_advogados)",
+    "sourceChannels": [
+      "google_web_search",
+      "google_web_search_miss",
+      "oab_registry",
+      "official_site"
+    ],
+    "sourceConfidence": 0.92,
+    "state": "SP",
+    "updatedAt": "2026-04-29T18:33:26.293Z",
+    "websiteUrl": "https://viseu.com.br/",
+    "primaryEmail": "recrutamento@viseu.com.br",
+    "primaryPhone": "(11) 3185-0185",
+    "primaryWhatsapp": "(11) 99521-5422"
+  },
+  {
+    "city": "PORTO ALEGRE",
+    "instagramUrl": "https://www.instagram.com/meisteremarder/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_e59f17adf80fd14e",
+    "profileName": "MEISTER & MARDER ADVOCACIA (@meisteremarder)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search"
+    ],
+    "sourceConfidence": 0.7,
+    "state": "RS",
+    "updatedAt": "2026-05-01T21:45:35.596Z",
+    "websiteUrl": "https://meistermarder.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "MARINGA",
+    "instagramUrl": "https://www.instagram.com/sheylaborgesdeliz/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_12310de2ca464e4d",
+    "profileName": "SOUSA BORGES DE LIZ ADVOGADOS (@sheylaborgesdeliz)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search"
+    ],
+    "sourceConfidence": 0.7,
+    "state": "PR",
+    "updatedAt": "2026-05-01T21:07:57.246Z",
+    "websiteUrl": "https://www.sbdl.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  },
+  {
+    "city": "SANTOS",
+    "instagramUrl": "https://www.instagram.com/santosadvogadosbr/",
+    "leadEngineStatus": "needs_manual_review",
+    "notionStage": "Seguir",
+    "organizationId": "org_web_123957b6c7cc6db5",
+    "profileName": "A SANTOS ADVOGADOS ASSOCIADOS (@santosadvogadosbr)",
+    "sourceChannels": [
+      "google_web_discovery",
+      "google_web_search"
+    ],
+    "sourceConfidence": 0.7,
+    "state": "SP",
+    "updatedAt": "2026-05-01T19:43:09.332Z",
+    "websiteUrl": "https://s.migalhas.com.br/",
+    "primaryEmail": null,
+    "primaryPhone": null,
+    "primaryWhatsapp": null
+  }
+]

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLenis } from '@studio-freight/react-lenis'
@@ -18,6 +19,8 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const lenis = useLenis()
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 80)
@@ -79,6 +82,8 @@ export function Header() {
       })
     }, 300)
   }
+
+  const resolveHref = (href: string) => (isHomePage ? href : `/${href}`)
 
   return (
     <header
@@ -204,9 +209,9 @@ export function Header() {
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={resolveHref(link.href)}
                   className="text-[15px] font-medium text-white/75 hover:text-white hover:bg-white/[0.05] rounded-lg px-3 py-3 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary-blue"
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={isHomePage ? (e) => handleNavClick(e, link.href) : () => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </a>
@@ -216,13 +221,13 @@ export function Header() {
             {/* CTA */}
             <div className="px-4 pb-8 flex-shrink-0">
               <a
-                href="#diagnostico"
+                href={resolveHref('#diagnostico')}
                 className={cn(
                   'block text-center text-[14px] font-semibold px-6 py-3 rounded-lg border border-primary-blue text-primary-blue',
                   'hover:bg-primary-blue hover:text-dark-blue transition-all duration-200',
                   'focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 focus:ring-offset-[#111]'
                 )}
-                onClick={(e) => handleNavClick(e, '#diagnostico')}
+                onClick={isHomePage ? (e) => handleNavClick(e, '#diagnostico') : () => setIsMenuOpen(false)}
               >
                 Solicitar Diagnóstico
               </a>

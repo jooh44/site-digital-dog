@@ -1,0 +1,114 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - paragraph [ref=e4]: Aceite e cadastre-se no LinkedIn
+      - paragraph [ref=e5]:
+        - text: Ao clicar em Continuar para se cadastrar ou entrar, você aceita o
+        - link "Contrato do Usuário" [ref=e6] [cursor=pointer]:
+          - /url: /legal/user-agreement?trk=linkedin-tc_auth-button_user-agreement
+        - text: ", a"
+        - link "Política de Privacidade" [ref=e7] [cursor=pointer]:
+          - /url: /legal/privacy-policy?trk=linkedin-tc_auth-button_privacy-policy
+        - text: e a
+        - link "Política de Cookies" [ref=e8] [cursor=pointer]:
+          - /url: /legal/cookie-policy?trk=linkedin-tc_auth-button_cookie-policy
+        - text: do LinkedIn.
+    - iframe [active] [ref=e11]:
+      - dialog "Fazer Login com o Google" [active] [ref=f12e4]:
+        - generic [ref=f12e5]:
+          - img [ref=f12e7]
+          - generic [ref=f12e13]: Conectando
+        - 'link "Conta do Google: foto do perfil de Johny Oliveira, Johny Oliveira, joohxd123@gmail.com" [ref=f12e19]':
+          - generic [ref=f12e20]:
+            - img [ref=f12e23]
+            - generic [ref=f12e24]:
+              - generic [ref=f12e25]: Johny Oliveira
+              - generic [ref=f12e26]: joohxd123@gmail.com
+            - button "Cancel" [ref=f12e27] [cursor=pointer]
+  - generic [ref=e12]:
+    - link "Pular para conteúdo principal" [ref=e13] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e14]:
+      - navigation "Principal" [ref=e15]:
+        - link "LinkedIn" [ref=e16] [cursor=pointer]:
+          - /url: /?trk=seo-authwall-base_nav-header-logo
+          - generic [ref=e17]: LinkedIn
+          - img [ref=e19]
+    - main [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "Cadastre-se no LinkedIn" [level=1] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]:
+                - textbox "E-mail" [ref=e37]:
+                  - /placeholder: " "
+                - generic: E-mail
+              - generic [ref=e38]:
+                - textbox "Senha (+ de 6 caracteres)" [ref=e39]:
+                  - /placeholder: " "
+                - generic: Senha (+ de 6 caracteres)
+            - paragraph [ref=e40]:
+              - text: Ao clicar em Aceite e cadastre-se, você aceita o
+              - link "Contrato do Usuário" [ref=e41] [cursor=pointer]:
+                - /url: https://www.linkedin.com/legal/user-agreement?trk=seo-authwall-base_join-form-user-agreement
+              - text: ", a"
+              - link "Política de Privacidade" [ref=e42] [cursor=pointer]:
+                - /url: https://www.linkedin.com/legal/privacy-policy?trk=seo-authwall-base_join-form-privacy-policy
+              - text: e a
+              - link "Política de Cookies" [ref=e43] [cursor=pointer]:
+                - /url: https://www.linkedin.com/legal/cookie-policy?trk=seo-authwall-base_join-form-cookie-policy
+              - text: do LinkedIn.
+            - button "Aceite e cadastre-se" [ref=e44] [cursor=pointer]
+            - generic [ref=e45]:
+              - generic [ref=e49]: ou
+              - button "Prosseguir com o Google" [ref=e50]:
+                - iframe [ref=e52]:
+                  - button "Continuar como Johny, joohxd123@gmail.com. Abre em uma nova guia" [ref=f9e3] [cursor=pointer]:
+                    - generic [ref=f9e5]:
+                      - img "Imagem do perfil de Johny" [ref=f9e6]
+                      - generic [ref=f9e7]:
+                        - generic [ref=f9e8]: Continuar como Johny
+                        - generic [ref=f9e10]: joohxd123@gmail.com
+                      - img [ref=f9e12]
+          - paragraph [ref=e53]:
+            - text: Já faz parte do LinkedIn?
+            - button "Entre" [ref=e54]
+        - button [ref=e56]
+    - contentinfo [ref=e57]:
+      - list [ref=e58]:
+        - listitem [ref=e59]:
+          - generic [ref=e60]: LinkedIn
+          - img [ref=e62]
+          - generic [ref=e65]: © 2026
+        - listitem [ref=e66]:
+          - link "Sobre" [ref=e67] [cursor=pointer]:
+            - /url: https://about.linkedin.com?trk=seo-authwall-base_footer-about
+        - listitem [ref=e68]:
+          - link "Acessibilidade" [ref=e69] [cursor=pointer]:
+            - /url: https://www.linkedin.com/accessibility?trk=seo-authwall-base_footer-accessibility
+        - listitem [ref=e70]:
+          - link "Contrato do Usuário" [ref=e71] [cursor=pointer]:
+            - /url: https://www.linkedin.com/legal/user-agreement?trk=seo-authwall-base_footer-user-agreement
+        - listitem [ref=e72]:
+          - link "Política de Privacidade do LinkedIn" [ref=e73] [cursor=pointer]:
+            - /url: https://www.linkedin.com/legal/privacy-policy?trk=seo-authwall-base_footer-privacy-policy
+        - listitem [ref=e74]:
+          - link "Política de Cookies" [ref=e75] [cursor=pointer]:
+            - /url: https://www.linkedin.com/legal/cookie-policy?trk=seo-authwall-base_footer-cookie-policy
+        - listitem [ref=e76]:
+          - link "Política de Direitos Autorais" [ref=e77] [cursor=pointer]:
+            - /url: https://www.linkedin.com/legal/copyright-policy?trk=seo-authwall-base_footer-copyright-policy
+        - listitem [ref=e78]:
+          - link "Política da Marca" [ref=e79] [cursor=pointer]:
+            - /url: https://brand.linkedin.com/policies?trk=seo-authwall-base_footer-brand-policy
+        - listitem [ref=e80]:
+          - link "Controles de visitantes" [ref=e81] [cursor=pointer]:
+            - /url: https://www.linkedin.com/psettings/guest-controls?trk=seo-authwall-base_footer-guest-controls
+        - listitem [ref=e82]:
+          - link "Diretrizes da Comunidade" [ref=e83] [cursor=pointer]:
+            - /url: https://www.linkedin.com/legal/professional-community-policies?trk=seo-authwall-base_footer-community-guide
+        - listitem [ref=e84]:
+          - button "Idioma" [ref=e86]:
+            - text: Idioma
+            - img [ref=e88]

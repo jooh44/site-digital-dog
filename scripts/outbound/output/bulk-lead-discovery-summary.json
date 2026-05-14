@@ -1,0 +1,165 @@
+{
+  "startedAt": "2026-04-23T15:53:23.386Z",
+  "includeSp": true,
+  "prMaxPerCity": 20,
+  "spPrefixes": [
+    "ALME",
+    "ANDR",
+    "ANTO",
+    "BRUN",
+    "CARL",
+    "COST",
+    "DANI",
+    "EDUA",
+    "FERN",
+    "GABR",
+    "JOSE",
+    "MARI",
+    "PAUL",
+    "PEDR",
+    "RAFA",
+    "RODR",
+    "SANT",
+    "SILV",
+    "SOUZ"
+  ],
+  "targetOrganizations": 200,
+  "initialOrganizations": 40,
+  "prRuns": [
+    {
+      "campaignId": "camp-advocacia-trabalhista-curitiba",
+      "city": "CURITIBA",
+      "resultCount": 15,
+      "searchRunId": 51,
+      "source": "oab_pr",
+      "organizationsAfter": 40,
+      "organizationsBefore": 40
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-londrina",
+      "city": "LONDRINA",
+      "resultCount": 15,
+      "searchRunId": 52,
+      "source": "oab_pr",
+      "organizationsAfter": 54,
+      "organizationsBefore": 40
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-maringa",
+      "city": "MARINGA",
+      "resultCount": 15,
+      "searchRunId": 53,
+      "source": "oab_pr",
+      "organizationsAfter": 68,
+      "organizationsBefore": 54
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-cascavel",
+      "city": "CASCAVEL",
+      "resultCount": 15,
+      "searchRunId": 54,
+      "source": "oab_pr",
+      "organizationsAfter": 82,
+      "organizationsBefore": 68
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-ponta-grossa",
+      "city": "PONTA GROSSA",
+      "resultCount": 15,
+      "searchRunId": 55,
+      "source": "oab_pr",
+      "organizationsAfter": 96,
+      "organizationsBefore": 82
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-foz-do-iguacu",
+      "city": "FOZ DO IGUACU",
+      "resultCount": 15,
+      "searchRunId": 56,
+      "source": "oab_pr",
+      "organizationsAfter": 110,
+      "organizationsBefore": 96
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-sao-jose-dos-pinhais",
+      "city": "SAO JOSE DOS PINHAIS",
+      "resultCount": 15,
+      "searchRunId": 57,
+      "source": "oab_pr",
+      "organizationsAfter": 124,
+      "organizationsBefore": 110
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-colombo",
+      "city": "COLOMBO",
+      "resultCount": 15,
+      "searchRunId": 58,
+      "source": "oab_pr",
+      "organizationsAfter": 138,
+      "organizationsBefore": 124
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-guarapuava",
+      "city": "GUARAPUAVA",
+      "resultCount": 15,
+      "searchRunId": 59,
+      "source": "oab_pr",
+      "organizationsAfter": 152,
+      "organizationsBefore": 138
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-paranagua",
+      "city": "PARANAGUA",
+      "resultCount": 15,
+      "searchRunId": 60,
+      "source": "oab_pr",
+      "organizationsAfter": 167,
+      "organizationsBefore": 152
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-toledo",
+      "city": "TOLEDO",
+      "resultCount": 15,
+      "searchRunId": 61,
+      "source": "oab_pr",
+      "organizationsAfter": 182,
+      "organizationsBefore": 167
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-umuarama",
+      "city": "UMUARAMA",
+      "resultCount": 15,
+      "searchRunId": 62,
+      "source": "oab_pr",
+      "organizationsAfter": 197,
+      "organizationsBefore": 182
+    },
+    {
+      "campaignId": "camp-advocacia-trabalhista-apucarana",
+      "city": "APUCARANA",
+      "resultCount": 15,
+      "searchRunId": 63,
+      "source": "oab_pr",
+      "organizationsAfter": 212,
+      "organizationsBefore": 197
+    }
+  ],
+  "spRuns": [
+    {
+      "campaignId": "camp-advocacia-sao-paulo-oabsp",
+      "city": "SAO PAULO",
+      "prefix": "ALME",
+      "resultCount": 5,
+      "searchRunId": 64,
+      "source": "oab_sp",
+      "organizationsAfter": 217,
+      "organizationsBefore": 212
+    }
+  ],
+  "organizations": 217,
+  "withEmail": 12,
+  "withInstagram": 0,
+  "withWhatsapp": 0,
+  "finishedAt": "2026-04-23T15:54:05.109Z",
+  "summaryPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/output/bulk-lead-discovery-summary.json"
+}

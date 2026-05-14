@@ -1,0 +1,23 @@
+{
+  "campaignId": "ops-auto-capture",
+  "matched": 1,
+  "matches": [
+    {
+      "canonicalName": "JOSE MAURICIO MACHADO E ASSOCIADOS ADVOGADOS E CONSULTORES JURIDICOS",
+      "estimatedCredits": 0,
+      "externalId": "SP:SOC:jose-mauricio-machado-e-associados-advogados-e-consultores-juridicos",
+      "instagramUrl": "https://www.instagram.com/machado_associados/",
+      "organizationId": "org_ad6f04a21d3099b3",
+      "primaryPhone": "+55 (11) 3819-4855",
+      "primaryWhatsapp": "+55 (11) 99373-2457",
+      "websiteUrl": "https://www.machadoassociados.com.br/"
+    }
+  ],
+  "misses": [],
+  "model": "gemini-2.5-flash",
+  "outputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/output/ops-auto-capture-codex-fallback-enrichment.json",
+  "searchRunId": 730,
+  "sessionCredits": 0,
+  "sessionId": "codex-fallback-2026-04-28T03:10:59.945Z",
+  "weeklyCredits": 15.1702
+}

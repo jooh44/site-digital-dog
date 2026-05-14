@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-04-23T01:58:16.358Z",
+  "inputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-email-campaign.json",
+  "leadCampaignId": "camp-advocacia-trabalhista-curitiba",
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-01",
+  "selectedCount": 10,
+  "draftJobs": [
+    {
+      "id": 1,
+      "city": "CURITIBA",
+      "officeName": "Artmann Advogados",
+      "organizationId": "org_769faf79dba85bb8",
+      "primaryEmail": "contato@artmannadvogados.com.br",
+      "subject": "Artmann Advogados em Curitiba",
+      "websiteDomain": "artmannadvogados.com.br"
+    },
+    {
+      "id": 2,
+      "city": "CURITIBA",
+      "officeName": "Avila Sociedade de Advogados",
+      "organizationId": "org_18d92f885cf75065",
+      "primaryEmail": "contato@avilaadvogados.com.br",
+      "subject": "Avila Sociedade de Advogados em Curitiba",
+      "websiteDomain": "avilaadvogados.com.br"
+    },
+    {
+      "id": 3,
+      "city": "CURITIBA",
+      "officeName": "Espinola, Teixeira & Bertin Advogados Associados",
+      "organizationId": "org_f35b96b33174b581",
+      "primaryEmail": "contato@etb.adv.br",
+      "subject": "Espinola, Teixeira & Bertin Advogados Associados em Curitiba",
+      "websiteDomain": "etb.adv.br"
+    },
+    {
+      "id": 4,
+      "city": "CURITIBA",
+      "officeName": "GOMES COELHO E BORDIN - Sociedade de Advogados",
+      "organizationId": "org_df373de7752a01c3",
+      "primaryEmail": "helio@gcb.adv.br",
+      "subject": "GOMES COELHO E BORDIN - Sociedade de Advogados em Curitiba",
+      "websiteDomain": "gcb.adv.br"
+    },
+    {
+      "id": 5,
+      "city": "CURITIBA",
+      "officeName": "Kuster e Lica Advogados Associados",
+      "organizationId": "org_5cb52e9e2729b18e",
+      "primaryEmail": "contatocuritiba@kladvogados.com.br",
+      "subject": "Kuster e Lica Advogados Associados em Curitiba",
+      "websiteDomain": "kladvogados.com.br"
+    },
+    {
+      "id": 6,
+      "city": "CURITIBA",
+      "officeName": "Luana Chaves Advogados Associados",
+      "organizationId": "org_8ba484aa5bc59fc0",
+      "primaryEmail": "contato@lcadvogados.adv.br",
+      "subject": "Luana Chaves Advogados Associados em Curitiba",
+      "websiteDomain": "lcadvogados.adv.br"
+    },
+    {
+      "id": 7,
+      "city": "CURITIBA",
+      "officeName": "Hasson Advogados",
+      "organizationId": "org_c6f8500ec8007af3",
+      "primaryEmail": "roland@hassonadvogados.com.br",
+      "subject": "Hasson Advogados em Curitiba",
+      "websiteDomain": "hassonadvogados.com.br"
+    },
+    {
+      "id": 8,
+      "city": "CURITIBA",
+      "officeName": "Ziegemann Seidel Advogados",
+      "organizationId": "org_e62cdb5d0da35c22",
+      "primaryEmail": "juridico@zseidel.adv.br",
+      "subject": "Ziegemann Seidel Advogados em Curitiba",
+      "websiteDomain": "zseidel.adv.br"
+    },
+    {
+      "id": 9,
+      "city": "CURITIBA",
+      "officeName": "Zillmann Advogados Associados",
+      "organizationId": "org_a58c874fcfac8d78",
+      "primaryEmail": "contato@zadvocacia.adv.br",
+      "subject": "Zillmann Advogados Associados em Curitiba",
+      "websiteDomain": "zadvocacia.adv.br"
+    },
+    {
+      "id": 10,
+      "city": "CURITIBA",
+      "officeName": "Carneiro & Lopes Advogados Associados",
+      "organizationId": "org_f5e631316a2ed6c4",
+      "primaryEmail": "juridico@carneirolopes.com.br",
+      "subject": "Carneiro & Lopes Advogados Associados em Curitiba",
+      "websiteDomain": "carneirolopes.com.br"
+    }
+  ]
+}

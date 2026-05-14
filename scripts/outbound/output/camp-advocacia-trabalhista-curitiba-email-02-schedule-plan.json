@@ -1,0 +1,20 @@
+{
+  "dryRun": false,
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-02",
+  "generatedAt": "2026-04-23T19:09:53.563Z",
+  "jobs": [
+    {
+      "jobId": 11,
+      "scheduledAt": "2026-04-24T16:00:00.000Z",
+      "subject": "um ponto novo sobre Carvalho & Elias Sociedade de Advogados",
+      "toEmail": "controladoria@carvalhoelias.adv.br"
+    },
+    {
+      "jobId": 12,
+      "scheduledAt": "2026-04-24T16:10:00.000Z",
+      "subject": "um ponto novo sobre Faria & Advogados Associados",
+      "toEmail": "giuliano@fariaeadvogados.com.br"
+    }
+  ],
+  "startAt": "2026-04-24T13:00:00-03:00"
+}

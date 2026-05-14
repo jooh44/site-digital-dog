@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-04-24T17:38:03.486Z",
+  "inputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-sao-paulo-email-campaign-01.json",
+  "leadCampaignId": "camp-advocacia-sao-paulo-oabsp",
+  "emailCampaignId": "camp-advocacia-sao-paulo-email-01",
+  "excludePreviouslyContacted": true,
+  "eligibleCount": 0,
+  "minBatchSize": 1,
+  "status": "waiting_for_batch"
+}

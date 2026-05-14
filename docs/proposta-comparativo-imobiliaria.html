@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Explicativa | Site + CMS para Imobiliária</title>
+  <meta
+    name="description"
+    content="Comparativo entre WordPress + Elementor e Astro + React + headless CMS para uma imobiliária decidir entre uma solução conservadora e uma solução moderna."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg-canvas: #0a0a0a;
+      --bg-elevated: #0d0d0d;
+      --bg-panel: rgba(255, 255, 255, 0.04);
+      --bg-panel-strong: rgba(255, 255, 255, 0.06);
+      --line-soft: rgba(255, 255, 255, 0.07);
+      --line-mid: rgba(255, 255, 255, 0.14);
+      --text-strong: rgba(255, 255, 255, 0.93);
+      --text-body: rgba(255, 255, 255, 0.62);
+      --text-muted: rgba(255, 255, 255, 0.38);
+      --text-faint: rgba(255, 255, 255, 0.16);
+      --cyan: #00bcd4;
+      --cyan-soft: #4dd0e1;
+      --orange: #ff6b35;
+      --pink: #ff1744;
+      --green: #28c840;
+      --warm-gradient: linear-gradient(135deg, #ff6b35 0%, #ff1744 100%);
+      --tech-gradient: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%);
+      --font-heading: "Space Grotesk", sans-serif;
+      --font-body: "Inter", sans-serif;
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-panel: 0 24px 80px rgba(0, 0, 0, 0.28);
+      --shadow-glow: 0 0 32px rgba(0, 188, 212, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(255, 107, 53, 0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(0, 188, 212, 0.12), transparent 22%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 30%),
+        var(--bg-canvas);
+      color: var(--text-strong);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(100% - 32px, 1180px);
+      margin: 0 auto;
+      padding: 28px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0 24px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 18px rgba(0, 188, 212, 0.45);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-copy span {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .topbar-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.78fr);
+      gap: 24px;
+      padding: 34px;
+      margin-top: 26px;
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.01);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-panel);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(0, 188, 212, 0.12), transparent 24%),
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.12), transparent 26%);
+      pointer-events: none;
+    }
+
+    .hero-copy,
+    .hero-side {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      flex: 0 0 auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      font-family: var(--font-heading);
+      letter-spacing: -0.04em;
+    }
+
+    strong {
+      color: var(--text-strong);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 5.6rem);
+      line-height: 0.94;
+      max-width: 9ch;
+    }
+
+    .hero-accent {
+      background: var(--warm-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      max-width: 62ch;
+      margin-top: 20px;
+      font-size: 1.03rem;
+      line-height: 1.85;
+      color: var(--text-body);
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .hero-point i {
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 14px rgba(0, 188, 212, 0.3);
+      flex: 0 0 auto;
+    }
+
+    .hero-point strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.94rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-point span {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .side-panel {
+      height: 100%;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        rgba(3, 5, 10, 0.9);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .side-panel h2 {
+      font-size: 1.05rem;
+      letter-spacing: -0.03em;
+    }
+
+    .side-panel p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .signal-card {
+      min-height: 122px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .signal-card strong {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1;
+      margin-bottom: 10px;
+      font-family: var(--font-heading);
+    }
+
+    .signal-card span {
+      display: block;
+      font-size: 0.83rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .signal-card.is-warm strong {
+      background: var(--warm-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .signal-card.is-cyan strong {
+      color: var(--cyan-soft);
+    }
+
+    .signal-card.is-label strong {
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .section {
+      margin-top: 78px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1;
+    }
+
+    .section-header p {
+      max-width: 60ch;
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 12px;
+    }
+
+    .section-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stack-card {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        rgba(255,255,255,0.01);
+      overflow: hidden;
+    }
+
+    .stack-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      filter: blur(64px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .stack-card.is-conservative::after {
+      background: rgba(255, 107, 53, 0.22);
+    }
+
+    .stack-card.is-modern::after {
+      background: rgba(0, 188, 212, 0.22);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-body);
+    }
+
+    .chip.is-warm {
+      border-color: rgba(255, 107, 53, 0.2);
+      color: #ffd0bf;
+      background: rgba(255, 107, 53, 0.08);
+    }
+
+    .chip.is-cyan {
+      border-color: rgba(0, 188, 212, 0.22);
+      color: #b7f5fb;
+      background: rgba(0, 188, 212, 0.08);
+    }
+
+    .stack-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .stack-top h3 {
+      font-size: clamp(1.55rem, 2.3vw, 2.15rem);
+      line-height: 0.98;
+    }
+
+    .stack-top p {
+      margin: 10px 0 0;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .price-badge {
+      display: grid;
+      gap: 4px;
+      align-content: start;
+      min-width: 132px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line-mid);
+      background: rgba(255, 255, 255, 0.04);
+      text-align: right;
+    }
+
+    .price-badge span {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .price-badge strong {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .stack-card.is-conservative .price-badge strong {
+      background: var(--warm-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .stack-card.is-modern .price-badge strong {
+      color: var(--cyan-soft);
+    }
+
+    .stack-list,
+    .stack-columns ul,
+    .signal-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stack-list li,
+    .stack-columns li,
+    .signal-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .stack-list li::before,
+    .stack-columns li::before,
+    .signal-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 9px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 188, 212, 0.26);
+      flex: 0 0 auto;
+    }
+
+    .stack-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stack-subpanel {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .stack-subpanel h4 {
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .comparison-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.55fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .comparison-topic,
+    .comparison-cell {
+      border-radius: 18px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.025);
+      padding: 18px;
+    }
+
+    .comparison-topic {
+      display: grid;
+      align-content: center;
+    }
+
+    .comparison-topic strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .comparison-topic span {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: var(--text-faint);
+    }
+
+    .comparison-cell h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .comparison-cell p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.72;
+      color: var(--text-body);
+    }
+
+    .comparison-cell.is-wordpress h3 {
+      color: #ffd0bf;
+    }
+
+    .comparison-cell.is-astro h3 {
+      color: var(--cyan-soft);
+    }
+
+    .cms-grid,
+    .signal-blocks,
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        rgba(255,255,255,0.01);
+    }
+
+    .panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .panel p {
+      margin: 0 0 18px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    .panel .mini-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .panel .mini-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .signal-block {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .signal-block h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .signal-block p {
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      line-height: 1.78;
+      color: var(--text-body);
+    }
+
+    .decision-card {
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        rgba(255,255,255,0.01);
+    }
+
+    .decision-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .decision-card p {
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    .decision-card.is-modern {
+      box-shadow: var(--shadow-glow);
+    }
+
+    .decision-card.is-modern h3 {
+      color: var(--cyan-soft);
+    }
+
+    .decision-card.is-conservative h3 {
+      color: #ffd0bf;
+    }
+
+    .footer-note {
+      margin-top: 78px;
+      padding: 24px;
+      border-top: 1px solid var(--line-soft);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-note p {
+      margin: 0;
+      max-width: 72ch;
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .footer-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 188, 212, 0.2);
+      background: rgba(0, 188, 212, 0.08);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b7f5fb;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .stack-grid,
+      .cms-grid,
+      .signal-blocks,
+      .decision-grid,
+      .stack-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 26px;
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header,
+      .footer-note,
+      .stack-top {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .price-badge {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 18px;
+        padding-bottom: 56px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        margin-top: 18px;
+        padding: 22px 18px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        max-width: 11ch;
+      }
+
+      .hero-lead,
+      .section-header p,
+      .panel p,
+      .decision-card p,
+      .signal-block p,
+      .comparison-cell p {
+        font-size: 0.92rem;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-card,
+      .panel,
+      .decision-card,
+      .signal-block {
+        padding: 20px 18px;
+      }
+
+      .comparison-topic,
+      .comparison-cell {
+        padding: 16px;
+      }
+
+      .chip,
+      .footer-pill,
+      .panel .mini-tag {
+        min-height: 44px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Minimal brutalist / swiss override */
+    :root {
+      --bg-canvas: #f3f0e8;
+      --bg-panel: #ffffff;
+      --bg-subtle: #ebe7dc;
+      --line-soft: rgba(17, 17, 17, 0.18);
+      --line-mid: rgba(17, 17, 17, 0.35);
+      --line-strong: #111111;
+      --text-strong: #111111;
+      --text-body: rgba(17, 17, 17, 0.78);
+      --text-muted: rgba(17, 17, 17, 0.58);
+      --text-faint: rgba(17, 17, 17, 0.42);
+      --cyan: #00bcd4;
+      --cyan-soft: #00bcd4;
+      --orange: #ff6b35;
+      --pink: #ff1744;
+      --warm-gradient: none;
+      --shadow-panel: none;
+      --shadow-glow: none;
+      --radius-xl: 0;
+      --radius-lg: 0;
+      --radius-md: 0;
+    }
+
+    body {
+      background: var(--bg-canvas);
+      color: var(--text-strong);
+    }
+
+    .page {
+      width: min(100% - 28px, 1120px);
+      padding: 22px 0 56px;
+    }
+
+    .topbar {
+      padding: 0 0 18px;
+      border-bottom: 2px solid var(--line-strong);
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 0;
+      background: var(--text-strong);
+      box-shadow: none;
+    }
+
+    .brand-copy strong {
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-copy span,
+    .topbar-note,
+    .eyebrow,
+    .section-tag,
+    .chip,
+    .panel .mini-tag,
+    .price-badge span,
+    .footer-pill {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .brand-copy span {
+      color: var(--text-faint);
+    }
+
+    .topbar-note {
+      color: var(--text-faint);
+      text-align: right;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.65;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--text-strong);
+      letter-spacing: -0.06em;
+    }
+
+    strong {
+      color: var(--text-strong);
+    }
+
+    .document-heading {
+      max-width: 920px;
+      margin-top: 22px;
+      padding: 0;
+    }
+
+    .eyebrow {
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--text-faint);
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 0;
+      background: var(--cyan);
+    }
+
+    .document-heading h1 {
+      max-width: 12ch;
+      font-size: clamp(2.35rem, 6vw, 5.25rem);
+      line-height: 0.9;
+    }
+
+    .document-lead {
+      max-width: 72ch;
+      margin: 18px 0 0;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .summary-item {
+      min-height: 100%;
+      padding: 18px;
+      border: 2px solid var(--line-strong);
+      background: var(--bg-panel);
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .summary-item span {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .summary-item.is-wordpress {
+      border-top: 10px solid var(--orange);
+    }
+
+    .summary-item.is-astro {
+      border-top: 10px solid var(--cyan);
+    }
+
+    .section {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line-strong);
+    }
+
+    .section-header {
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.9rem, 4vw, 3.15rem);
+      line-height: 0.94;
+    }
+
+    .section-header p {
+      max-width: 54ch;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    .section-tag {
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: var(--text-faint);
+    }
+
+    .section-tag::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 0;
+      background: var(--text-strong);
+    }
+
+    .stack-grid,
+    .cms-grid,
+    .signal-blocks,
+    .decision-grid {
+      gap: 14px;
+    }
+
+    .stack-card,
+    .panel,
+    .signal-block,
+    .decision-card,
+    .comparison-topic,
+    .comparison-cell {
+      border: 2px solid var(--line-strong);
+      border-radius: 0;
+      background: var(--bg-panel);
+      box-shadow: none;
+    }
+
+    .stack-card {
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .stack-card::after,
+    .hero::before {
+      display: none;
+    }
+
+    .stack-card.is-conservative {
+      border-top: 10px solid var(--orange);
+    }
+
+    .stack-card.is-modern {
+      border-top: 10px solid var(--cyan);
+    }
+
+    .chip-row {
+      gap: 8px;
+    }
+
+    .chip {
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 0;
+      background: transparent;
+      color: var(--text-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    .chip.is-warm {
+      background: var(--orange);
+      border-color: var(--line-strong);
+      color: var(--line-strong);
+    }
+
+    .chip.is-cyan {
+      background: var(--cyan);
+      border-color: var(--line-strong);
+      color: var(--line-strong);
+    }
+
+    .stack-top {
+      gap: 12px;
+      align-items: start;
+    }
+
+    .stack-top h3 {
+      font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+      line-height: 0.96;
+    }
+
+    .stack-top p,
+    .panel p,
+    .signal-block p,
+    .decision-card p,
+    .comparison-cell p {
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+
+    .price-badge {
+      min-width: 138px;
+      padding: 12px 14px;
+      border: 2px solid var(--line-strong);
+      border-radius: 0;
+      background: var(--bg-subtle);
+      text-align: left;
+    }
+
+    .price-badge span {
+      color: var(--text-faint);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    .price-badge strong {
+      font-size: 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      background: none;
+      color: var(--text-strong);
+    }
+
+    .stack-card.is-conservative .price-badge {
+      background: rgba(255, 107, 53, 0.2);
+    }
+
+    .stack-card.is-modern .price-badge {
+      background: rgba(0, 188, 212, 0.2);
+    }
+
+    .stack-card.is-conservative .price-badge strong,
+    .stack-card.is-modern .price-badge strong {
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: border-box;
+      color: var(--text-strong);
+    }
+
+    .stack-list li,
+    .stack-columns li,
+    .signal-list li {
+      gap: 10px;
+      font-size: 0.93rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .stack-list li::before,
+    .stack-columns li::before,
+    .signal-list li::before {
+      width: 8px;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 0;
+      background: var(--text-strong);
+      box-shadow: none;
+    }
+
+    .stack-subpanel {
+      padding: 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 0;
+      background: var(--bg-subtle);
+    }
+
+    .stack-subpanel h4 {
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .comparison-grid {
+      gap: 10px;
+    }
+
+    .comparison-row {
+      gap: 10px;
+    }
+
+    .comparison-topic,
+    .comparison-cell {
+      padding: 16px;
+    }
+
+    .comparison-topic {
+      background: var(--bg-subtle);
+    }
+
+    .comparison-topic strong {
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+      color: var(--text-strong);
+    }
+
+    .comparison-topic span {
+      color: var(--text-body);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    .comparison-cell h3 {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding-bottom: 2px;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--line-strong);
+      color: var(--text-strong);
+    }
+
+    .comparison-cell.is-wordpress {
+      background: #fff7f2;
+    }
+
+    .comparison-cell.is-astro {
+      background: #eefcff;
+    }
+
+    .comparison-cell.is-wordpress h3,
+    .comparison-cell.is-astro h3 {
+      color: var(--text-strong);
+    }
+
+    .panel,
+    .signal-block,
+    .decision-card {
+      padding: 20px;
+    }
+
+    .panel h3,
+    .signal-block h3,
+    .decision-card h3 {
+      font-size: 1.35rem;
+      line-height: 0.98;
+      margin-bottom: 12px;
+    }
+
+    .panel .mini-tag {
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 0;
+      background: var(--bg-subtle);
+      color: var(--text-faint);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+    }
+
+    .panel .mini-tag::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 0;
+      background: var(--text-strong);
+    }
+
+    .decision-card.is-conservative {
+      border-top: 10px solid var(--orange);
+    }
+
+    .decision-card.is-modern {
+      border-top: 10px solid var(--cyan);
+      box-shadow: none;
+    }
+
+    .decision-card.is-modern h3,
+    .decision-card.is-conservative h3 {
+      color: var(--text-strong);
+    }
+
+    .footer-note {
+      margin-top: 48px;
+      padding: 18px 0 0;
+      border-top: 2px solid var(--line-strong);
+      gap: 18px;
+    }
+
+    .footer-note p {
+      color: var(--text-body);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .footer-pill {
+      min-height: 40px;
+      padding: 0 12px;
+      border: 2px solid var(--line-strong);
+      border-radius: 0;
+      background: var(--cyan);
+      color: var(--line-strong);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 1080px) {
+      .summary-strip,
+      .stack-grid,
+      .cms-grid,
+      .signal-blocks,
+      .decision-grid,
+      .stack-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header,
+      .footer-note,
+      .stack-top {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 18px, 1120px);
+        padding-top: 18px;
+        padding-bottom: 40px;
+      }
+
+      .topbar {
+        gap: 10px;
+        padding-bottom: 14px;
+      }
+
+      .document-heading {
+        margin-top: 18px;
+      }
+
+      .document-lead,
+      .summary-item span,
+      .section-header p,
+      .stack-top p,
+      .panel p,
+      .signal-block p,
+      .decision-card p,
+      .comparison-cell p {
+        font-size: 0.9rem;
+      }
+
+      .summary-item,
+      .stack-card,
+      .panel,
+      .signal-block,
+      .decision-card,
+      .comparison-topic,
+      .comparison-cell {
+        padding: 16px;
+      }
+
+      .chip,
+      .footer-pill,
+      .panel .mini-tag {
+        min-height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>Proposta Comparativa</strong>
+          <span>Site + CMS</span>
+        </div>
+      </div>
+      <div class="topbar-note">
+        Documento de apoio comercial<br />
+        Site + CMS para imobiliária
+      </div>
+    </header>
+
+    <section class="document-heading" aria-labelledby="proposta-title">
+      <div class="eyebrow">SEO · AIO · Catálogo Gerenciável</div>
+      <h1 id="proposta-title">Comparativo de soluções para site + CMS de imobiliária</h1>
+      <p class="document-lead">
+        As duas soluções resolvem o básico: site institucional, catálogo de imóveis e autonomia para o cliente gerenciar os anúncios.
+        A diferença está no tipo de base digital construída desde o início: uma rota mais conservadora e familiar, ou uma rota moderna,
+        mais forte para performance, SEO técnico e presença orgânica em buscadores e respostas de IA.
+      </p>
+    </section>
+
+    <section class="summary-strip" aria-label="Resumo da comparação">
+      <article class="summary-item is-wordpress">
+        <strong>WordPress + Elementor</strong>
+        <span>Painel nativo, ecossistema conhecido e uma rota mais conservadora para colocar o projeto no ar.</span>
+      </article>
+      <article class="summary-item is-astro">
+        <strong>Astro + CMS separado</strong>
+        <span>Site moderno, hospedagem em VPS e dashboard administrativo desacoplado para catálogo e conteúdo.</span>
+      </article>
+      <article class="summary-item">
+        <strong>SEO</strong>
+        <span>As duas opções podem rankear. A stack moderna costuma entregar mais performance e mais controle técnico.</span>
+      </article>
+      <article class="summary-item">
+        <strong>AIO / GEO</strong>
+        <span>Hoje o novo ouro do orgânico é ser entendido e recomendado por IA. Aqui a stack moderna sai na frente.</span>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="solucoes-title">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">Comparativo das Soluções</div>
+          <h2 id="solucoes-title">Conservadora ou moderna</h2>
+        </div>
+        <p>
+          Abaixo está a leitura prática das duas rotas. O objetivo não é vender “complexidade”, e sim deixar claro
+          o que cada solução entrega, onde cada uma ganha, e qual compromisso técnico existe em cada escolha.
+        </p>
+      </div>
+
+      <div class="stack-grid">
+        <article class="stack-card is-conservative">
+          <div class="chip-row">
+            <span class="chip is-warm">Solução conservadora</span>
+            <span class="chip">WordPress</span>
+            <span class="chip">Elementor</span>
+            <span class="chip">Plugins</span>
+          </div>
+
+          <div class="stack-top">
+            <div>
+              <h3>WordPress + Elementor + CMS nativo</h3>
+              <p>
+                Caminho mais conhecido do mercado. A construção tende a ser mais rápida e há um ecossistema
+                grande de plugins para blog, SEO, formulários e gestão do catálogo imobiliário.
+              </p>
+            </div>
+            <div class="price-badge">
+              <span>Perfil</span>
+              <strong>Conservador</strong>
+            </div>
+          </div>
+
+          <ul class="stack-list">
+            <li>Ideal para colocar o projeto no ar com mais agilidade e com uma estrutura amplamente conhecida pelo mercado.</li>
+            <li>O próprio cliente consegue administrar conteúdo e imóveis pelo painel tradicional do WordPress.</li>
+            <li>Existe mais dependência de plugins para alcançar recursos, SEO técnico e manutenção de longo prazo.</li>
+            <li>É uma solução segura para começar, mas com mais risco de acúmulo de “dívida de plugin” ao crescer.</li>
+          </ul>
+
+          <div class="stack-columns">
+            <div class="stack-subpanel">
+              <h4>Pontos fortes</h4>
+              <ul>
+                <li>Menor barreira de entrada.</li>
+                <li>Painel já conhecido por muitas equipes.</li>
+                <li>Boa velocidade para MVP e operação inicial.</li>
+              </ul>
+            </div>
+            <div class="stack-subpanel">
+              <h4>Trade-offs</h4>
+              <ul>
+                <li>Mais peso técnico e dependência do ecossistema WordPress.</li>
+                <li>Mais cuidado com atualizações, compatibilidade e segurança.</li>
+                <li>Menor liberdade estrutural para performance extrema.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="stack-card is-modern">
+          <div class="chip-row">
+            <span class="chip is-cyan">Solução moderna</span>
+            <span class="chip">Astro</span>
+            <span class="chip">React</span>
+            <span class="chip">Directus CMS</span>
+          </div>
+
+          <div class="stack-top">
+            <div>
+              <h3>Astro + React + headless CMS</h3>
+              <p>
+                Caminho mais moderno e estratégico. A sugestão aqui é usar <strong>Directus</strong> como CMS, porque entrega um painel
+                muito bom para catálogo, mídia e estrutura de conteúdo, sem prender o site a um construtor visual pesado.
+                Na prática, fica um site rápido em <strong>Astro</strong>, hospedado em <strong>VPS</strong>, com um <strong>dashboard separado</strong> para gestão.
+              </p>
+            </div>
+            <div class="price-badge">
+              <span>Perfil</span>
+              <strong>Moderno</strong>
+            </div>
+          </div>
+
+          <ul class="stack-list">
+            <li>Front-end mais leve, melhor performance e maior controle técnico sobre SEO, schema e arquitetura de conteúdo.</li>
+            <li>Base mais preparada para AIO/GEO, Core Web Vitals e páginas pensadas para serem entendidas por buscadores e IA.</li>
+            <li>O cliente continua com autonomia para gerenciar imóveis via painel administrativo separado do site público.</li>
+            <li>É uma solução menos dependente de atalhos prontos e mais orientada a qualidade estrutural, controle técnico e crescimento.</li>
+          </ul>
+
+          <div class="stack-columns">
+            <div class="stack-subpanel">
+              <h4>Pontos fortes</h4>
+              <ul>
+                <li>Melhor teto para orgânico e performance.</li>
+                <li>Estrutura mais limpa e escalável.</li>
+                <li>Maior liberdade para crescer sem “remendos”.</li>
+              </ul>
+            </div>
+            <div class="stack-subpanel">
+              <h4>Trade-offs</h4>
+              <ul>
+                <li>Demanda mais estruturação técnica inicial.</li>
+                <li>Menos “plug and play” do que WordPress.</li>
+                <li>Parte dos recursos é construída com mais intenção técnica.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="criterios-title">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">Leitura objetiva</div>
+          <h2 id="criterios-title">Critérios que realmente importam</h2>
+        </div>
+        <p>
+          Este quadro traduz a decisão em linguagem executiva. Não é uma discussão sobre tecnologia por tecnologia,
+          e sim sobre implantação, operação, força orgânica e potencial real de evolução digital.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Perfil da solução</strong>
+            <span>Como cada rota se posiciona.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Mais conservador, mais familiar e com fluxo amplamente conhecido por quem já viu o ecossistema WordPress.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Mais moderno, mais técnico e mais orientado a construir uma base digital forte para SEO, IA e expansão futura.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Velocidade de implantação</strong>
+            <span>Quanto mais rápido entra em produção.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Tende a ser o caminho mais rápido, principalmente quando se aproveita plugins e fluxo pronto de CMS.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Leva mais cuidado de estruturação, porque a solução é mais “sob medida” do ponto de vista técnico.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Facilidade de gestão</strong>
+            <span>Autonomia do cliente no dia a dia.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Painel tradicional, conhecido e muito difundido. Excelente para quem quer familiaridade imediata.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Com Directus, a gestão continua simples: imóveis, fotos, campos, status e conteúdos ficam organizados em coleções.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Performance técnica</strong>
+            <span>Velocidade, leveza e experiência.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Consegue performar bem, mas normalmente exige mais ajustes, cache e cuidado com excesso de plugins.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Nasce mais leve. Isso costuma ajudar em carregamento, Core Web Vitals e estabilidade estrutural do site.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>SEO e arquitetura orgânica</strong>
+            <span>Capacidade de construir autoridade.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Atende bem SEO tradicional com plugin e boa configuração. É suficiente para muitas operações em estágio inicial.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Entrega mais controle fino sobre HTML semântico, schema, taxonomias, páginas programáticas e performance orgânica.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>AIO / GEO</strong>
+            <span>Ser lido e recomendado por IA.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Pode ser bem trabalhado, mas a estrutura costuma depender mais do que o tema e os plugins conseguem entregar.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>É a melhor base para desenhar páginas claras, enxutas e semanticamente fortes, algo cada vez mais relevante para IA.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Escalabilidade</strong>
+            <span>O que acontece quando o projeto cresce.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Escala, mas frequentemente com mais plugin, mais ajustes e mais camadas para manter sob controle.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Escala com uma base mais limpa e menos dependente de remendos, o que facilita evoluções futuras.</p>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-topic">
+            <strong>Manutenção</strong>
+            <span>Quanto esforço técnico acumula.</span>
+          </div>
+          <div class="comparison-cell is-wordpress">
+            <h3>WordPress</h3>
+            <p>Mais atenção em atualização de plugins, compatibilidade entre extensões e hardening de segurança.</p>
+          </div>
+          <div class="comparison-cell is-astro">
+            <h3>Astro + CMS</h3>
+            <p>Manutenção mais previsível no front-end. O CMS fica desacoplado e a operação tende a ser mais controlada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cms-title">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">CMS e Catálogo</div>
+          <h2 id="cms-title">Como o cliente vai gerir os imóveis</h2>
+        </div>
+        <p>
+          O medo comum aqui é perder autonomia. Isso não acontece em nenhuma das duas opções.
+          O cliente continuará com controle do catálogo, mudando apenas a experiência do painel.
+        </p>
+      </div>
+
+      <div class="cms-grid">
+        <article class="panel">
+          <div class="mini-tag">WordPress CMS</div>
+          <h3>Fluxo conhecido e direto</h3>
+          <p>
+            O cadastro acontece dentro do próprio WordPress, com tipos de post, campos personalizados e plugins adequados para imóveis.
+            Para quem já conhece esse ambiente, a operação é muito natural.
+          </p>
+          <ul class="signal-list">
+            <li>Publicar imóvel, tirar do ar, alterar preço e atualizar imagens.</li>
+            <li>Gerenciar páginas, blog, banners, formulários e conteúdos institucionais.</li>
+            <li>Centralizar tudo em um único painel já conhecido pelo mercado.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <div class="mini-tag">Headless CMS sugerido</div>
+          <h3>Directus como painel administrativo</h3>
+          <p>
+            A recomendação é usar Directus porque ele funciona muito bem para organizar coleções como imóveis, bairros,
+            tipos, corretores, imagens, status e conteúdos editoriais. O cliente edita tudo em um painel limpo e objetivo,
+            enquanto o site público roda separado, com mais liberdade técnica.
+          </p>
+          <ul class="signal-list">
+            <li>Estrutura mais organizada para catálogo, mídia e campos personalizados.</li>
+            <li>Mais liberdade para o site crescer sem ficar preso ao construtor visual.</li>
+            <li>Combina bem com hospedagem VPS e arquitetura mais estável para performance.</li>
+            <li>Mesma autonomia operacional, com uma base técnica mais moderna.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="organic-title">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">Orgânico e IA</div>
+          <h2 id="organic-title">Por que a stack moderna fortalece SEO e AIO</h2>
+        </div>
+        <p>
+          Hoje o tráfego orgânico não depende apenas de “aparecer no Google”. Ele depende também de ser entendido por sistemas de IA
+          que resumem, recomendam e apontam negócios, serviços e até imóveis.
+        </p>
+      </div>
+
+      <div class="signal-blocks">
+        <article class="signal-block">
+          <h3>1. Estrutura semântica mais limpa</h3>
+          <p>
+            Com Astro, o HTML tende a sair mais enxuto e mais previsível. Isso ajuda tanto motores de busca quanto sistemas de IA
+            a interpretar melhor entidades, localização, tipos de imóvel, contexto comercial e intenção da página.
+          </p>
+          <ul class="signal-list">
+            <li>Mais controle sobre headings, schema e taxonomias.</li>
+            <li>Menos ruído técnico causado por builders pesados.</li>
+            <li>Melhor leitura do conteúdo por crawlers e modelos de IA.</li>
+          </ul>
+        </article>
+
+        <article class="signal-block">
+          <h3>2. Performance vira vantagem competitiva</h3>
+          <p>
+            Velocidade não é só experiência do usuário. Ela influencia indexação, retenção e percepção de qualidade.
+            Em projetos orgânicos, esse detalhe técnico acumula vantagem ao longo do tempo.
+          </p>
+          <ul class="signal-list">
+            <li>Mais leveza para Core Web Vitals.</li>
+            <li>Menos dependência de camadas extras para carregar rápido.</li>
+            <li>Mais espaço para crescer sem inflar a estrutura.</li>
+          </ul>
+        </article>
+
+        <article class="signal-block">
+          <h3>3. Base melhor para conteúdo local e programático</h3>
+          <p>
+            Imobiliária cresce muito com páginas por bairro, tipo de imóvel, intenção de compra e localização. Em uma stack moderna,
+            fica mais fácil criar essa arquitetura de maneira organizada e escalável.
+          </p>
+          <ul class="signal-list">
+            <li>Páginas de bairros, cidades e categorias com mais controle.</li>
+            <li>Catálogo e conteúdo editorial funcionando juntos.</li>
+            <li>Mais força para SEO local e discoverability por IA.</li>
+          </ul>
+        </article>
+
+        <article class="signal-block">
+          <h3>4. Menos dívida de plugin no longo prazo</h3>
+          <p>
+            O ponto não é demonizar WordPress. O ponto é que, quando a operação cresce, plugins demais tendem a cobrar a conta.
+            A stack moderna nasce menos dependente desses remendos.
+          </p>
+          <ul class="signal-list">
+            <li>Mais previsibilidade técnica.</li>
+            <li>Menos conflito entre extensões.</li>
+            <li>Melhor capacidade de evolução sem refazer a base.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="decisao-title">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">Recomendação</div>
+          <h2 id="decisao-title">Qual caminho faz mais sentido</h2>
+        </div>
+        <p>
+          A escolha certa depende do que se quer priorizar agora: velocidade e familiaridade, ou construção de um ativo digital mais forte.
+        </p>
+      </div>
+
+      <div class="decision-grid">
+        <article class="decision-card is-conservative">
+          <h3>Escolha WordPress se...</h3>
+          <p>
+            a prioridade é entrar no ar com mais rapidez e usar uma base mais conhecida pelo mercado.
+            Para um início com poucos imóveis, é uma decisão perfeitamente racional.
+          </p>
+          <ul class="signal-list">
+            <li>Agilidade e familiaridade operacional pesam mais.</li>
+            <li>O projeto precisa ir ao ar com mais agilidade.</li>
+            <li>O cliente valoriza um painel já muito popular.</li>
+          </ul>
+        </article>
+
+        <article class="decision-card is-modern">
+          <h3>Escolha Astro + Directus se...</h3>
+          <p>
+            a meta é construir um ativo digital mais preparado para SEO, AIO/GEO, performance e crescimento orgânico no médio e longo prazo.
+            É a rota mais estratégica quando se pensa além do lançamento, com site em VPS e dashboard separado para operação.
+          </p>
+          <ul class="signal-list">
+            <li>O orgânico será um canal importante de aquisição.</li>
+            <li>Existe visão de longo prazo para autoridade digital.</li>
+            <li>Vale investir mais agora para evitar limitações futuras.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <p>
+        Leitura final: <strong>WordPress é a opção pragmática e conservadora.</strong> <strong>Astro + headless CMS é a opção moderna e estratégica.</strong>
+        As duas resolvem a operação inicial, mas a stack moderna entrega uma base mais alinhada com o novo cenário de busca,
+        em que SEO tradicional e recomendação por IA caminham juntos.
+      </p>
+      <div class="footer-pill">Decisão entre base rápida ou base mais forte</div>
+    </footer>
+  </main>
+</body>
+</html>

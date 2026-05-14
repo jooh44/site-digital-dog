@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Briefing — Call Caio Gioia · Agrofloresta Surucuá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1411;
+    --bg-elev: #131a16;
+    --surface: #182019;
+    --surface-2: #1f2922;
+    --border: #2a352d;
+    --border-strong: #3a4940;
+    --text: #ecebe4;
+    --text-soft: #aab1a7;
+    --text-mute: #6b7670;
+    --green: #7cc28f;
+    --green-soft: #1f3a28;
+    --gold: #d4b574;
+    --gold-soft: #3a2f1a;
+    --red: #d68a7a;
+    --red-soft: #3a2422;
+    --blue: #8eb4d4;
+    --blue-soft: #1d2b38;
+    --shadow: 0 1px 0 rgba(255,255,255,0.04), 0 12px 32px -16px rgba(0,0,0,0.5);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  [data-theme="light"] {
+    --bg: #f6f3ec;
+    --bg-elev: #fbf9f3;
+    --surface: #ffffff;
+    --surface-2: #f0ece2;
+    --border: #e3dccc;
+    --border-strong: #c9bfa9;
+    --text: #1a221d;
+    --text-soft: #4f5851;
+    --text-mute: #82897f;
+    --green: #2d6b41;
+    --green-soft: #dfeede;
+    --gold: #8a6a2c;
+    --gold-soft: #f4ead2;
+    --red: #a8463a;
+    --red-soft: #f5e1da;
+    --blue: #345d80;
+    --blue-soft: #d9e5ee;
+    --shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14.5px;
+  }
+  ::selection { background: var(--green-soft); color: var(--text); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+
+  /* ─────────── Layout ─────────── */
+  .app {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr) 320px;
+    grid-template-rows: 64px 1fr;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header.topbar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-mark {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--gold) 100%);
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-family: var(--serif);
+    font-weight: 600;
+    color: var(--bg);
+    font-size: 14px;
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-text strong { font-size: 13px; font-weight: 600; }
+  .brand-text small { font-size: 11px; color: var(--text-mute); }
+
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .timer-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px 12px;
+  }
+  .timer-display {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    min-width: 64px;
+    letter-spacing: 0.02em;
+  }
+  .timer-display.warn { color: var(--gold); }
+  .timer-display.over { color: var(--red); }
+  .timer-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--sans);
+  }
+  .timer-btn:hover { background: var(--surface-2); color: var(--text); }
+  .timer-btn.primary { background: var(--green-soft); color: var(--green); border-color: var(--green); }
+
+  .btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 7px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 12.5px;
+    font-family: var(--sans);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .btn:hover { background: var(--surface-2); color: var(--text); border-color: var(--border-strong); }
+  .btn.solid {
+    background: var(--green-soft);
+    color: var(--green);
+    border-color: transparent;
+  }
+  .btn.solid:hover { background: var(--green); color: var(--bg); }
+
+  /* ─────────── Sidebar ─────────── */
+  aside.sidebar {
+    background: var(--bg-elev);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px 12px;
+  }
+  .sidebar-title {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    padding: 0 12px 10px;
+    font-weight: 600;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-bottom: 2px;
+    transition: background 0.12s;
+    position: relative;
+  }
+  .nav-item:hover { background: var(--surface); }
+  .nav-item.active { background: var(--surface-2); }
+  .nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px; bottom: 8px;
+    width: 3px;
+    background: var(--green);
+    border-radius: 0 3px 3px 0;
+  }
+  .nav-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--surface-2);
+    color: var(--text-mute);
+    width: 22px; height: 22px;
+    border-radius: 5px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .nav-item.active .nav-num { background: var(--green); color: var(--bg); }
+  .nav-text { flex: 1; min-width: 0; }
+  .nav-label { font-size: 13px; color: var(--text); line-height: 1.2; }
+  .nav-meta { font-size: 11px; color: var(--text-mute); margin-top: 2px; }
+  .nav-progress {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .nav-progress-fill {
+    height: 100%;
+    background: var(--green);
+    transition: width 0.3s;
+  }
+
+  /* ─────────── Main ─────────── */
+  main.content {
+    overflow-y: auto;
+    padding: 32px 40px 80px;
+  }
+  .block-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .block-meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .block-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .block-desc {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .block-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-mute);
+    flex-shrink: 0;
+  }
+  .block-timer .live { color: var(--text); font-size: 15px; }
+  .block-timer .live.over { color: var(--gold); }
+
+  /* ─────────── Questions ─────────── */
+  .question {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .question:hover { border-color: var(--border-strong); }
+  .question.checked { background: var(--bg-elev); border-color: var(--border); }
+  .question.checked .q-text { color: var(--text-mute); text-decoration: line-through; text-decoration-thickness: 1px; text-decoration-color: var(--border-strong); }
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .q-check {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: grid; place-items: center;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .question.checked .q-check {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .q-check svg {
+    opacity: 0;
+    transition: opacity 0.15s;
+    width: 12px; height: 12px;
+  }
+  .question.checked .q-check svg { opacity: 1; }
+  .q-text {
+    flex: 1;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .q-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-mute);
+    margin-right: 8px;
+  }
+  .q-note-btn {
+    background: transparent;
+    border: 1px dashed var(--border-strong);
+    color: var(--text-mute);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .q-note-btn:hover { background: var(--surface-2); color: var(--text-soft); }
+  .q-note-btn.has-note {
+    border-style: solid;
+    border-color: var(--gold);
+    color: var(--gold);
+    background: var(--gold-soft);
+  }
+  .q-note-area {
+    display: none;
+    padding: 0 16px 16px 46px;
+    border-top: 1px solid var(--border);
+  }
+  .q-note-area.open { display: block; }
+  .q-note-area textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 70px;
+    margin-top: 12px;
+    transition: border-color 0.15s;
+  }
+  .q-note-area textarea:focus {
+    outline: none;
+    border-color: var(--green);
+  }
+
+  /* ─────────── Ammo cards ─────────── */
+  .ammo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .ammo {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    border-left: 3px solid var(--blue);
+  }
+  .ammo.green { border-left-color: var(--green); }
+  .ammo.gold { border-left-color: var(--gold); }
+  .ammo.red { border-left-color: var(--red); }
+  .ammo-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .ammo-value {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .ammo-note {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+
+  /* ─────────── Context panel ─────────── */
+  aside.context {
+    background: var(--bg-elev);
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .context-section {
+    margin-bottom: 24px;
+  }
+  .context-section h3 {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .kv {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    font-size: 12.5px;
+  }
+  .kv dt { color: var(--text-mute); white-space: nowrap; }
+  .kv dd { margin: 0; color: var(--text); word-break: break-word; font-family: var(--mono); font-size: 12px; }
+  .alert {
+    background: var(--red-soft);
+    border: 1px solid var(--red);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .alert strong { color: var(--red); }
+  .quick-link {
+    display: block;
+    padding: 8px 10px;
+    color: var(--text-soft);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    transition: all 0.12s;
+    border: 1px solid transparent;
+  }
+  .quick-link:hover { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .quick-link span { font-family: var(--mono); font-size: 10.5px; color: var(--text-mute); }
+
+  /* ─────────── Modal ─────────── */
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px 32px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+  .modal h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .modal h2 small { font-family: var(--sans); font-size: 12px; color: var(--text-mute); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; display: block; margin-bottom: 4px;}
+  .modal-close {
+    float: right;
+    background: transparent;
+    border: none;
+    color: var(--text-mute);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    margin-top: -4px;
+  }
+  .modal-close:hover { color: var(--text); }
+  .modal-section { margin-top: 20px; }
+  .modal-section h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+    margin: 0 0 8px;
+  }
+  .modal-section p { font-size: 13.5px; color: var(--text-soft); line-height: 1.6; margin: 0 0 8px; }
+  .modal-section ul { font-size: 13.5px; color: var(--text-soft); line-height: 1.6; margin: 0; padding-left: 20px; }
+  .modal-section li { margin-bottom: 4px; }
+  .phase {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .phase-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .phase-name { font-weight: 600; font-size: 14px; }
+  .phase-price { font-family: var(--mono); font-size: 12.5px; color: var(--gold); }
+  .phase-desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.55; }
+
+  /* ─────────── Opening line ─────────── */
+  .opening-pitch {
+    background: linear-gradient(135deg, var(--green-soft) 0%, var(--gold-soft) 100%);
+    border: 1px solid var(--green);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .opening-pitch p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .opening-pitch::before {
+    content: '"';
+    position: absolute;
+    top: 2px; left: 14px;
+    font-family: var(--serif);
+    font-size: 60px;
+    color: var(--green);
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  /* ─────────── Persona table ─────────── */
+  .persona-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12.5px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .persona-table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--surface-2);
+    color: var(--text-mute);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  .persona-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-soft);
+  }
+  .persona-table tr:last-child td { border-bottom: none; }
+  .persona-table tr:hover td { background: var(--surface); color: var(--text); }
+
+  /* ─────────── Tags ─────────── */
+  .tag {
+    display: inline-block;
+    background: var(--surface-2);
+    color: var(--text-soft);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: var(--mono);
+    margin-right: 4px;
+  }
+  .tag.green { background: var(--green-soft); color: var(--green); }
+  .tag.gold { background: var(--gold-soft); color: var(--gold); }
+  .tag.red { background: var(--red-soft); color: var(--red); }
+  .tag.blue { background: var(--blue-soft); color: var(--blue); }
+
+  /* ─────────── Footer cta ─────────── */
+  .end-cta {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .end-cta p { margin: 0; color: var(--text-soft); font-size: 13.5px; }
+  .end-cta strong { color: var(--text); }
+
+  kbd {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-soft);
+  }
+
+  /* ─────────── Print ─────────── */
+  @media print {
+    .sidebar, .context, .topbar, .end-cta { display: none; }
+    .app { display: block; height: auto; }
+    main.content { padding: 0; overflow: visible; }
+    .question { page-break-inside: avoid; }
+    .q-note-area { display: block !important; }
+  }
+
+  /* ─────────── Smaller screens ─────────── */
+  @media (max-width: 1200px) {
+    .app { grid-template-columns: 220px minmax(0, 1fr) 280px; }
+    main.content { padding: 24px 28px 60px; }
+  }
+  @media (max-width: 980px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: 64px auto 1fr; }
+    aside.sidebar, aside.context { display: none; }
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">DD</div>
+      <div class="brand-text">
+        <strong>Briefing · Call Caio Gioia</strong>
+        <small>Agrofloresta Surucuá · 2026-05-13</small>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="timer-block">
+        <span class="timer-display" id="globalTimer">00:00</span>
+        <button class="timer-btn primary" id="timerStart">Iniciar</button>
+        <button class="timer-btn" id="timerReset">Reset</button>
+      </div>
+      <button class="btn" id="openOpening">Abertura</button>
+      <button class="btn" id="openRisks">Riscos</button>
+      <button class="btn" id="openProposal">Proposta</button>
+      <button class="btn solid" id="exportNotes">Exportar</button>
+      <button class="btn" id="themeToggle" title="Alternar tema">☾</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Roteiro · 40 min</div>
+    <nav id="navBlocks"></nav>
+    <div class="sidebar-title" style="margin-top:24px;">Atalhos</div>
+    <div style="padding: 0 12px; font-size: 12px; color: var(--text-soft); line-height: 1.9;">
+      <div><kbd>1</kbd>–<kbd>9</kbd> blocos</div>
+      <div><kbd>Espaço</kbd> play/pause</div>
+      <div><kbd>R</kbd> reset timer</div>
+      <div><kbd>E</kbd> exportar notas</div>
+    </div>
+  </aside>
+
+  <main class="content" id="mainContent"></main>
+
+  <aside class="context">
+    <div class="context-section">
+      <h3>Dados-chave Surucuá</h3>
+      <dl class="kv">
+        <dt>Tel site</dt><dd>11 98827-0157</dd>
+        <dt>E-mail</dt><dd>agroflorestasurucua@gmail.com</dd>
+        <dt>Sítio</dt><dd>Est. da Torre, Itariri-SP</dd>
+        <dt>Distância SP</dt><dd>~145 km</dd>
+      </dl>
+    </div>
+    <div class="context-section">
+      <h3>CNPJ encontrado</h3>
+      <dl class="kv">
+        <dt>CNPJ</dt><dd>32.998.955/0001-76</dd>
+        <dt>Razão</dt><dd>Gioia Com. Eletrônicos</dd>
+        <dt>Sócios</dt><dd>Caio + Celso (pai)</dd>
+        <dt>Pai entrou</dt><dd>27/09/2024</dd>
+        <dt>Tel cad.</dt><dd>11 4728-1126</dd>
+        <dt>E-mail cad.</dt><dd>d2ssolucoes.com.br</dd>
+        <dt>CNAE agro?</dt><dd style="color:var(--red);">Não</dd>
+      </dl>
+    </div>
+    <div class="context-section">
+      <h3>Alertas críticos</h3>
+      <div class="alert"><strong>CNPJ não opera Surucuá hoje.</strong> Sem CNAE de fertilizantes/insumos. Primeiro item da call.</div>
+      <div class="alert"><strong>Biofertilizante exige SIPEAGRO + SFA-SP</strong> (meses+1ano). Não vender Ads disso antes.</div>
+      <div class="alert"><strong>"Surucuá" tem homônimo</strong> (Agrofl. Morada do Surucuá – Gravataí/RS). Validar INPI.</div>
+    </div>
+    <div class="context-section">
+      <h3>Munição rápida</h3>
+      <dl class="kv">
+        <dt>PIB ornament.</dt><dd>R$ 21,23 bi</dd>
+        <dt>SP do total</dt><dd>40% (R$ 8,49 bi)</dd>
+        <dt>Subst. SE</dt><dd>53,5% vendas</dd>
+        <dt>Biofert esp.</dt><dd>+1,4% (24)</dd>
+        <dt>Bioins. agro</dt><dd>R$ 6,2 bi (≠ ele)</dd>
+      </dl>
+    </div>
+    <div class="context-section">
+      <h3>Links</h3>
+      <a class="quick-link" href="https://agroflorestasurucua.odoo.com/" target="_blank">Site Surucuá <span>↗</span></a>
+      <a class="quick-link" href="https://publica.cnpj.ws/cnpj/32998955000176" target="_blank">CNPJ.ws <span>↗</span></a>
+      <a class="quick-link" href="https://www.linkedin.com/in/caio-matheus-gioia-160981191/" target="_blank">LinkedIn Caio <span>↗</span></a>
+      <a class="quick-link" href="https://www.gov.br/agricultura/pt-br/assuntos/registro-de-produtos-e-estabelecimentos/fertilizantes-inoculantes-e-corretivos" target="_blank">MAPA · Registro <span>↗</span></a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ─────────── Modals ─────────── -->
+<div class="modal-bg" id="modalOpening" data-modal>
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h2><small>Frase de Abertura</small>Pisar com firmeza nos primeiros 60 segundos</h2>
+    <div class="opening-pitch" style="margin-top: 20px;">
+      <p>Caio, antes da gente falar de site e Google, queria entender três coisas: qual CNPJ vai operar a Surucuá oficialmente, em que pé está o cadastro no SIPEAGRO, e quem é o cliente dos seus sonhos. A partir disso eu te mostro onde a Digital Dog acelera de verdade — e onde, se a gente acelerar agora, queima dinheiro. Pode ser?</p>
+    </div>
+    <div class="modal-section">
+      <h3>Por que essa abertura funciona</h3>
+      <ul>
+        <li><strong>Inverte o frame:</strong> ele veio comprar site, você se posiciona como consultor estratégico.</li>
+        <li><strong>Mostra preparo:</strong> as três perguntas provam que você fez pesquisa.</li>
+        <li><strong>Reduz risco:</strong> "queima dinheiro" sinaliza que você está do lado dele.</li>
+        <li><strong>Pede permissão:</strong> "pode ser?" gera comprometimento (yes-set).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalRisks" data-modal>
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h2><small>Riscos · NÃO prometer</small>Blindagem da proposta</h2>
+    <div class="modal-section">
+      <h3>1. Ads de biofertilizante antes do registro MAPA</h3>
+      <p>Comercializar biofertilizante sem SIPEAGRO + SFA-SP = apreensão + multa. Substrato pode ir antes (registro automático).</p>
+    </div>
+    <div class="modal-section">
+      <h3>2. Claims agronômicos sem laudo</h3>
+      <p>"Cura praga", "controla doença", "fortifica frutificação" sem prova técnica é propaganda enganosa. Risco jurídico.</p>
+    </div>
+    <div class="modal-section">
+      <h3>3. Terminologia regulada</h3>
+      <p>"Organomineral" deve atender IN MAPA 25/2009. Validar fórmula antes de usar no marketing.</p>
+    </div>
+    <div class="modal-section">
+      <h3>4. CNAE inadequado</h3>
+      <p>Emitir NF como "serviço técnico-científico" vendendo fertilizante = passivo fiscal. Resolver antes de qualquer venda formal.</p>
+    </div>
+    <div class="modal-section">
+      <h3>5. Nome no INPI</h3>
+      <p>"Agrofloresta Morada do Surucuá" (Gravataí-RS) já existe. Validar busca de marca antes de investir em identidade.</p>
+    </div>
+    <div class="modal-section">
+      <h3>6. Pacote de SEO/site genérico</h3>
+      <p>Nicho exige conteúdo técnico real, não template. Comprometer-se a pesquisa por persona, não wordpress padrão.</p>
+    </div>
+    <div class="modal-section">
+      <h3>7. Promessa de venda em 30 dias</h3>
+      <p>B2B premium tem ciclo de 60-120 dias. Trabalhar com expectativa de pipeline, não receita imediata.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalProposal" data-modal>
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h2><small>Proposta · 3 fases</small>Estrutura sugerida de venda</h2>
+
+    <div class="modal-section">
+      <h3>Quick wins · Semana 1</h3>
+      <ul>
+        <li>Reclamar Google Business Profile no nome correto</li>
+        <li>Substituir copy template do site Odoo (ponte enquanto novo site não existe)</li>
+        <li>Criar contas Instagram + LinkedIn empresa</li>
+        <li>1 post LinkedIn Caio: "químico abandona petroquímica para fazer biofertilizante"</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><span class="phase-name">Fase 0 · Diagnóstico estratégico</span><span class="phase-price">R$ 2,5k – 4k · 1-2 sem.</span></div>
+      <p class="phase-desc">Mapa regulatório (CNAE + SIPEAGRO + RT + INPI). Posicionamento B2B/D2C. ICP + lista de 50 alvos. Entregável palpável mesmo se não fechar Fase 1.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><span class="phase-name">Fase 1 · Fundação digital</span><span class="phase-price">R$ 6k – 12k · 4-6 sem.</span></div>
+      <p class="phase-desc">Identidade + site novo (não Odoo) com 10 páginas (SEO + AIO + schema). 2-3 catálogos PDF. WhatsApp Business + GBP + 10-15 diretórios setoriais. 6 artigos pilar.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><span class="phase-name">Fase 2 · Parcerias e canal</span><span class="phase-price">R$ 2,5k – 4k/mês · recorrente</span></div>
+      <p class="phase-desc">Prospecção ativa B2B (paisagistas, designers, gardens, condomínios). Programa de parceria + kit prova. Editorial LinkedIn + 1 release imprensa. KPI: leads B2B, parcerias ativas, fechamentos.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head"><span class="phase-name">Fase 3 · Ads + escala</span><span class="phase-price">após registro MAPA</span></div>
+      <p class="phase-desc">Google Ads (substrato pode iniciar antes). Meta Ads B2C plant lovers (secundário). SEO escalável + content mensal.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalExport" data-modal>
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h2><small>Notas exportadas</small>Copie ou salve as anotações da call</h2>
+    <div class="modal-section">
+      <textarea id="exportArea" style="width:100%; min-height: 360px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; color: var(--text); font-family: var(--mono); font-size: 12.5px; line-height: 1.6; resize: vertical;"></textarea>
+      <div style="margin-top: 12px; display: flex; gap: 8px;">
+        <button class="btn solid" id="copyExport">Copiar texto</button>
+        <button class="btn" id="downloadExport">Baixar .md</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ──────────────────────────────────────────────────────────────
+// Data: blocos do roteiro
+// ──────────────────────────────────────────────────────────────
+const BLOCKS = [
+  {
+    id: 'b1',
+    title: 'Realidade do negócio',
+    desc: 'Onde ele REALMENTE está — receita, capacidade, runway. Sem isso, qualquer proposta é chute.',
+    minutes: 5,
+    questions: [
+      'Você já vendeu algum lote da Surucuá em 2025? Para quem? Qual ticket?',
+      'Existe receita recorrente hoje ou é pré-operacional?',
+      'Capacidade real instalada: quanto substrato/mês (m³ ou sacos)? Quanto biofertilizante (litros)?',
+      'Produz sob encomenda firme ou tem estoque?',
+      'A All-Joy ainda banca seu salário pessoal enquanto a Surucuá não fatura?',
+      'Quanto pode investir em marketing/site nos próximos 3 meses?'
+    ],
+    ammo: [
+      { label: 'Cluster ornamentais SP', value: 'Holambra · Atibaia · Mogi · Ibiúna', note: 'Itariri não é cluster. Logística pesa.', tone: 'gold' },
+      { label: 'Mercado real (especialidade)', value: '+1,4% biofert especiais', note: 'Crescimento real é modesto. Margem precisa vir de posicionamento, não volume.', tone: 'blue' }
+    ]
+  },
+  {
+    id: 'b2',
+    title: 'Estrutura jurídica',
+    desc: 'CNPJ atual não tem CNAE adequado e endereço é da capital. Pai entrou como sócio em 27/09/2024.',
+    minutes: 5,
+    questions: [
+      'O CNPJ 32.998.955/0001-76 vai operar a Surucuá oficialmente?',
+      'O que é a "D2S Soluções" (e-mail cadastral do CNPJ)?',
+      'Já abriu / vai abrir CNAE de fertilizantes/insumos? Ou vai abrir um segundo CNPJ?',
+      'Tem responsável técnico agrônomo definido?',
+      'O endereço de Itariri é seu, arrendado, da família?',
+      'Já checou "Surucuá" no INPI? Tem ciência da empresa homônima no RS?'
+    ],
+    ammo: [
+      { label: 'CNAEs hoje', value: 'Eletrônicos + serviços', note: 'Nenhum CNAE rural/fertilizante. Bloqueio fiscal pra emitir NF de insumo.', tone: 'red' },
+      { label: 'Marca homônima', value: 'Agrofl. Morada do Surucuá', note: 'Existe em Gravataí/RS. Validar INPI antes de identidade visual.', tone: 'gold' }
+    ]
+  },
+  {
+    id: 'b3',
+    title: 'Regulatório MAPA',
+    desc: 'Substrato é registro automático (dias). Biofertilizante exige pesquisa de eficiência (meses+).',
+    minutes: 4,
+    questions: [
+      'Já iniciou cadastro de Estabelecimento Produtor no SIPEAGRO?',
+      'Substrato e biofertilizante estão registrados ou em fase de registro?',
+      'Sabe que biofertilizante exige pesquisa de eficiência agronômica + SFA-SP?',
+      'Tem laudo de composição (matéria orgânica, NPK, micros, pH, granulometria)?',
+      'Tem rótulo, composição garantida, lote e validade definidos?'
+    ],
+    ammo: [
+      { label: 'Substrato no MAPA', value: 'Registro automático', note: 'Pode entrar no mercado em semanas.', tone: 'green' },
+      { label: 'Biofertilizante no MAPA', value: 'Não automático', note: 'Exige pesquisa de eficiência + aprovação SFA-SP. Pode levar 1 ano.', tone: 'red' }
+    ]
+  },
+  {
+    id: 'b4',
+    title: 'Produto, prova e diferencial',
+    desc: 'Em substrato ele perde no preço. Diferencial real precisa ser técnico + sob medida.',
+    minutes: 5,
+    questions: [
+      'O que é REAL diferente do substrato Carolina Soil / Tropstrato hoje?',
+      'Em quais culturas/plantas você já testou e funcionou?',
+      'Tem antes/depois, cases ou cliente piloto que possamos usar?',
+      'Quer competir contra commodity (Carolina Soil) ou contra especialidade (Biomix)?',
+      'O "químico que formula" é discurso técnico (B2B) ou artesanal (D2C)?',
+      'Embalagem hoje: saco kraft, big bag, granel, anônimo?'
+    ],
+    ammo: [
+      { label: 'Benchmark especialidade', value: 'Biomix (1993)', note: 'Líder histórico em organominerais. Referência de credibilidade.', tone: 'blue' },
+      { label: 'Benchmark commodity', value: 'Carolina Soil · Tropstrato · Plantmax', note: 'Preço + escala. Não competir aqui.', tone: 'gold' }
+    ]
+  },
+  {
+    id: 'b5',
+    title: 'Canal e cliente ideal',
+    desc: 'B2B premium banca a operação. B2C entra como subproduto. B2B2C (vender via paisagista) é o atalho.',
+    minutes: 8,
+    questions: [
+      'Quem é seu cliente dos sonhos? Descreve pra mim.',
+      'Quer priorizar paisagista (B2B), garden (revenda), condomínio (recorrência) ou consumidor final (B2C)?',
+      'Conhece pessoalmente algum paisagista, arquiteto, designer ou administrador que abriria a porta?',
+      'Já pensou em parcerias com empresas de lagos ornamentais e piscinas naturais?',
+      'Estaria aberto a vender marca branca para garden premium?',
+      'Foco geográfico: SP capital, Vale do Ribeira, Holambra/Mogi (cluster), ou Brasil via e-commerce?',
+      'Topa testar parceria com designers de interiores que entregam projetos com horta urbana?'
+    ],
+    ammo: [
+      { label: 'B2B alvo (ABAP/AsBEA/ABD)', value: 'Paisagistas · Arquitetos · Designers', note: 'Alto ticket, ciclo 60-120d, baixo custo de aquisição se entrar por indicação.', tone: 'green' },
+      { label: 'B2B2C (atalho de escala)', value: 'Gardens · Paisagistas premium', note: 'Eles vendem ao consumidor final. Você é fornecedor. Comissão / marca branca.', tone: 'green' },
+      { label: 'Cluster B2B SP', value: 'Holambra · CEAGESP · Mogi · Atibaia', note: 'Compradores naturais. Visitas presenciais valem.', tone: 'blue' }
+    ],
+    table: {
+      title: 'Personas B2B premium · onde encontrar',
+      head: ['Persona', 'Onde está', 'Gatilho'],
+      rows: [
+        ['Paisagista premium', 'ABAP, Casa Cor, Expoflora, IG', 'Insumo diferenciado para projeto alto padrão'],
+        ['Designer de interiores', 'ABD, CAU, Casa Vogue', 'Plantas grandes + substrato premium indoor'],
+        ['Arquiteto residencial', 'CAU, AsBEA, IG', 'Fornecedor confiável para jardim/horta urbana'],
+        ['Adm. de condomínio', 'AABIC, SECOVI', 'Manutenção áreas verdes recorrente'],
+        ['Construtora alto padrão', 'SECOVI, sindicato', 'Paisagismo de entrega de obra'],
+        ['Garden / floricultura', 'CEAGESP, CEAFLOR, Holambra', 'Marca branca diferenciada'],
+        ['Viveirista (cluster SP)', 'Cooperativas, sindicatos', 'Insumo profissional volume'],
+        ['Lagos/piscinas naturais', 'Players SP (Art Lagos, Western, Viva Casa)', 'Cobranding, fornecimento de insumo']
+      ]
+    }
+  },
+  {
+    id: 'b6',
+    title: 'Marca e narrativa',
+    desc: 'Discurso "químico de carreira" precisa de RT agrônomo para virar prova. Marca ainda fluida.',
+    minutes: 4,
+    questions: [
+      '"Surucuá" tem história no sítio ou foi afinidade?',
+      'A marca final é Agrofloresta Surucuá, Surucuá ou ainda está em definição?',
+      'Que identidade você quer projetar: técnico-laboratorial, natural-artesanal ou híbrido premium?',
+      'Tem nome/PJ separado para o braço paisagismo/lagos ou vai unificar?'
+    ],
+    ammo: [
+      { label: 'Caio = químico petroquímico', value: '12+ anos commodities', note: 'Não é químico agro de carreira. Combina com narrativa "técnico migra para agro premium".', tone: 'blue' },
+      { label: 'Pai sócio', value: 'Entrou 27/09/2024', note: 'Sinal de reestruturação. Possível narrativa familiar/legado.', tone: 'gold' }
+    ]
+  },
+  {
+    id: 'b7',
+    title: 'Redes sociais, SEO/AIO e parcerias',
+    desc: 'Janela rara de SEO/AIO + estratégia social por canal (cada rede tem função distinta nesse nicho).',
+    minutes: 8,
+    questions: [
+      'Já tentou Google Ads ou Meta Ads alguma vez? Qual foi o resultado?',
+      'Quais redes sociais você usa hoje (pessoal ou da empresa)? Posta com regularidade?',
+      'Topa aparecer pessoalmente no LinkedIn como porta-voz técnico ("químico que migrou para agro")?',
+      'Topa Instagram da marca focado em estética premium (antes/depois, bastidor, parcerias com paisagistas)?',
+      'Tem material visual hoje (fotos do sítio, do processo, antes/depois)?',
+      'Topa entrar com força no Pinterest (designers e arquitetos usam para banco de referência)?',
+      'YouTube faz sentido? 1 vídeo longo/mês + shorts? Caio toparia gravar?',
+      'Como você quer atender o lead: WhatsApp Business com catálogo, telefone, ou e-mail?',
+      'Aceitaria mandar kit de prova para 3-5 micro-influenciadoras de plant content (5k-50k seguidores)?',
+      'Tem orçamento para Hortitec, Expoflora ou Casa Cor como estratégia de presença?',
+      'Topa parceria com universidade (ESALQ, UNESP, IAC) para validar eficiência agronômica?'
+    ],
+    ammo: [
+      { label: 'SEO/AIO local + nicho', value: 'Janela rara · concorrência fraca', note: 'Termos como "biofertilizante organomineral sob encomenda" têm SERP praticamente vazio.', tone: 'green' },
+      { label: 'LinkedIn — canal #1', value: 'B2B autoridade', note: 'Onde paisagista/arquiteto/designer decide. Caio já tem 3k seguidores + 500 conexões. Aproveitar.', tone: 'green' },
+      { label: 'Instagram — canal #2', value: 'Vitrine + parceria', note: 'Onde gardens, paisagistas, plant lovers premium consomem. Foco em estética + repost de parceiros.', tone: 'green' },
+      { label: 'Pinterest — subestimado', value: 'SEO visual perene', note: 'Designers e arquitetos pesquisam aqui. 1 pin dura anos. Custo baixo, reaproveita IG.', tone: 'blue' },
+      { label: 'YouTube — autoridade técnica', value: '2º buscador do mundo', note: 'Vídeo "como fazer biofertilizante caseiro" vira lead magnet pro produto pronto. SEO perene.', tone: 'blue' },
+      { label: 'WhatsApp Business', value: 'Conversão real do nicho', note: 'Catálogo + lista transmissão + grupo VIP de paisagistas parceiros.', tone: 'green' },
+      { label: 'TikTok — opcional B2C', value: 'Reaproveitamento de Reels', note: 'Não criar exclusivo. Cortar do Instagram. Custo marginal mínimo.', tone: 'gold' },
+      { label: 'Comunidades de nicho', value: 'Bonsai · orquídea · suculenta', note: 'Públicos pequenos mas ticket alto e altíssima recompra. Infiltração relacional.', tone: 'blue' },
+      { label: 'Diretórios B2B nicho', value: 'Agrofy · MFRURAL · Houzz · Casa Cor · Solo Pleno', note: 'Distribuição barata e durável de marca.', tone: 'green' },
+      { label: 'Parceria com universidade', value: 'ESALQ · UNESP · IAC · Embrapa', note: 'Valida eficiência (acelera SIPEAGRO) + autoridade + conteúdo + funil acadêmico.', tone: 'blue' }
+    ],
+    table: {
+      title: 'Mapa de redes sociais por função',
+      head: ['Canal', 'Função', 'Persona', 'Prioridade'],
+      rows: [
+        ['LinkedIn', 'Autoridade B2B (Caio porta-voz)', 'Paisagista, arquiteto, designer, comprador corporativo', '1 (autoridade)'],
+        ['Instagram', 'Vitrine + parceria com criadores', 'Garden, paisagista, plant lover premium', '2 (vitrine)'],
+        ['Pinterest', 'SEO visual perene', 'Designer de interiores, arquiteto, consumidor final', '3 (SEO indireto)'],
+        ['YouTube', 'Autoridade técnica + SEO de busca', 'Plant lover sério, agrônomo, paisagista', '4 (longo prazo)'],
+        ['WhatsApp Business', 'Conversão e relacionamento', 'Todos os personas, especial B2B', '1 (conversão)'],
+        ['TikTok', 'Teste B2C com reuso de Reels', 'Plant lover jovem', '5 (opcional)'],
+        ['Comunidades / fóruns', 'Infiltração relacional', 'Bonsai / orquídea / suculenta / paisagismo', '4 (orgânico)']
+      ]
+    }
+  },
+  {
+    id: 'b8',
+    title: 'Expectativa com Digital Dog',
+    desc: 'Ancorar definição de sucesso. Evitar prometer venda imediata. Posicionar como estratégico.',
+    minutes: 4,
+    questions: [
+      'Quando você pede "site + Google", o que sucesso significa em 90 dias? Em 12 meses?',
+      'Você quer um site que vende ou um site que faz você parecer sério em reunião?',
+      'Tem referência de marca/empresa que você ache que deveria parecer com a Surucuá?',
+      'Já contratou agência antes? Como foi?',
+      'Topa começar pela Fase 0 (diagnóstico estratégico) antes do site?'
+    ],
+    ammo: [
+      { label: 'Ancoragem certa', value: 'Pipeline > Receita imediata', note: 'B2B premium fecha em 60-120 dias. Vender expectativa correta protege relação.', tone: 'gold' }
+    ]
+  },
+  {
+    id: 'b9',
+    title: 'Fechamento + próximos passos',
+    desc: 'Não fechar contrato a quente. Fechar o próximo passo (Fase 0 diagnóstico).',
+    minutes: 3,
+    questions: [
+      'Resumir 3 prioridades que ele mencionou.',
+      'Propor Fase 0 (diagnóstico estratégico) como próximo passo concreto.',
+      'Combinar prazo para envio de proposta formal (até 48h após call).',
+      'Pedir e-mail e WhatsApp oficiais para envio da proposta.',
+      'Pedir autorização para incluí-lo em newsletter / canal de conteúdo Digital Dog.'
+    ],
+    ammo: [
+      { label: 'Próximo passo concreto', value: 'Fase 0: R$ 2,5k – 4k · 1-2 sem.', note: 'Baixa fricção, entrega palpável, abre porta para Fase 1+.', tone: 'green' }
+    ]
+  }
+];
+
+// ──────────────────────────────────────────────────────────────
+// State + storage
+// ──────────────────────────────────────────────────────────────
+const STORAGE_KEY = 'briefing-caio-gioia-v1';
+let state = loadState();
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return { active: 'b1', checks: {}, notes: {}, openNotes: {}, theme: 'dark', timer: { elapsed: 0, blockTimes: {} } };
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+// ──────────────────────────────────────────────────────────────
+// Timer (global + per-block)
+// ──────────────────────────────────────────────────────────────
+let timerInterval = null;
+let timerRunning = false;
+let timerStartedAt = 0;
+let savedElapsed = state.timer.elapsed || 0;
+let blockEnterAt = Date.now();
+
+function fmtTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function totalSec() {
+  return savedElapsed + (timerRunning ? (Date.now() - timerStartedAt)/1000 : 0);
+}
+function updateTimerUI() {
+  const tot = totalSec();
+  const el = document.getElementById('globalTimer');
+  el.textContent = fmtTime(tot);
+  el.classList.toggle('warn', tot > 30*60 && tot <= 40*60);
+  el.classList.toggle('over', tot > 40*60);
+
+  // per-block timer
+  const blockEl = document.getElementById('blockLive');
+  if (blockEl) {
+    const blockTotal = (state.timer.blockTimes[state.active] || 0) + (timerRunning ? (Date.now()-blockEnterAt)/1000 : 0);
+    const sug = BLOCKS.find(b => b.id === state.active).minutes * 60;
+    blockEl.textContent = fmtTime(blockTotal);
+    blockEl.classList.toggle('over', blockTotal > sug);
+  }
+}
+function startTimer() {
+  if (timerRunning) return;
+  timerRunning = true;
+  timerStartedAt = Date.now();
+  blockEnterAt = Date.now();
+  timerInterval = setInterval(updateTimerUI, 500);
+  document.getElementById('timerStart').textContent = 'Pausar';
+}
+function pauseTimer() {
+  if (!timerRunning) return;
+  timerRunning = false;
+  savedElapsed = totalSec();
+  state.timer.blockTimes[state.active] = (state.timer.blockTimes[state.active] || 0) + (Date.now()-blockEnterAt)/1000;
+  state.timer.elapsed = savedElapsed;
+  saveState();
+  clearInterval(timerInterval);
+  document.getElementById('timerStart').textContent = 'Retomar';
+  updateTimerUI();
+}
+function resetTimer() {
+  if (!confirm('Resetar todos os tempos?')) return;
+  timerRunning = false;
+  savedElapsed = 0;
+  state.timer = { elapsed: 0, blockTimes: {} };
+  saveState();
+  clearInterval(timerInterval);
+  document.getElementById('timerStart').textContent = 'Iniciar';
+  updateTimerUI();
+}
+
+// ──────────────────────────────────────────────────────────────
+// Render
+// ──────────────────────────────────────────────────────────────
+function blockProgress(b) {
+  const total = b.questions.length;
+  const done = b.questions.filter((_, i) => state.checks[`${b.id}-${i}`]).length;
+  return { total, done, pct: total ? done/total*100 : 0 };
+}
+
+function renderSidebar() {
+  const nav = document.getElementById('navBlocks');
+  nav.innerHTML = '';
+  BLOCKS.forEach((b, idx) => {
+    const p = blockProgress(b);
+    const div = document.createElement('div');
+    div.className = 'nav-item' + (state.active === b.id ? ' active' : '');
+    div.dataset.id = b.id;
+    div.innerHTML = `
+      <div class="nav-num">${idx+1}</div>
+      <div class="nav-text">
+        <div class="nav-label">${b.title}</div>
+        <div class="nav-meta">${b.minutes} min · ${p.done}/${p.total}</div>
+        <div class="nav-progress"><div class="nav-progress-fill" style="width:${p.pct}%"></div></div>
+      </div>
+    `;
+    div.addEventListener('click', () => switchBlock(b.id));
+    nav.appendChild(div);
+  });
+}
+
+function renderMain() {
+  const b = BLOCKS.find(x => x.id === state.active);
+  const main = document.getElementById('mainContent');
+  const idx = BLOCKS.indexOf(b) + 1;
+  const p = blockProgress(b);
+
+  const tableHTML = b.table ? `
+    <h3 style="margin: 32px 0 12px; font-family: var(--serif); font-size: 18px; font-weight: 600;">${b.table.title}</h3>
+    <table class="persona-table">
+      <thead><tr>${b.table.head.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${b.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+    </table>
+  ` : '';
+
+  const ammoHTML = b.ammo && b.ammo.length ? `
+    <div class="ammo-grid">
+      ${b.ammo.map(a => `
+        <div class="ammo ${a.tone||''}">
+          <div class="ammo-label">${a.label}</div>
+          <div class="ammo-value">${a.value}</div>
+          ${a.note ? `<div class="ammo-note">${a.note}</div>` : ''}
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  const questionsHTML = b.questions.map((q, i) => {
+    const key = `${b.id}-${i}`;
+    const checked = !!state.checks[key];
+    const note = state.notes[key] || '';
+    const open = !!state.openNotes[key];
+    return `
+      <div class="question ${checked?'checked':''}" data-q="${key}">
+        <div class="q-header">
+          <div class="q-check" data-check>
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3.5" stroke="#0d1411" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="q-text"><span class="q-num">${idx}.${i+1}</span>${q}</div>
+          <button class="q-note-btn ${note?'has-note':''}" data-note-toggle>${note ? 'Nota' : '+ Nota'}</button>
+        </div>
+        <div class="q-note-area ${open?'open':''}" data-note-area>
+          <textarea data-note-input placeholder="Anote a resposta dele aqui…">${note.replace(/</g,'&lt;')}</textarea>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const isLast = idx === BLOCKS.length;
+  const next = isLast ? null : BLOCKS[idx];
+  const prev = idx === 1 ? null : BLOCKS[idx-2];
+
+  main.innerHTML = `
+    <div class="block-header">
+      <div>
+        <div class="block-meta">Bloco ${idx} de ${BLOCKS.length}</div>
+        <h1 class="block-title">${b.title}</h1>
+        <p class="block-desc">${b.desc}</p>
+      </div>
+      <div class="block-timer">
+        <div>tempo no bloco</div>
+        <div class="live" id="blockLive">00:00</div>
+        <div>sugerido: ${b.minutes} min</div>
+      </div>
+    </div>
+
+    ${idx === 1 ? `
+      <div class="opening-pitch">
+        <p>Caio, antes da gente falar de site e Google, queria entender três coisas: qual CNPJ vai operar a Surucuá oficialmente, em que pé está o cadastro no SIPEAGRO, e quem é o cliente dos seus sonhos. A partir disso eu te mostro onde a Digital Dog acelera de verdade — e onde, se a gente acelerar agora, queima dinheiro.</p>
+      </div>
+    ` : ''}
+
+    ${ammoHTML}
+    ${tableHTML}
+
+    <div style="margin-top: 28px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;">
+        <h2 style="font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0;">Perguntas</h2>
+        <span style="font-size: 12px; color: var(--text-mute); font-family: var(--mono);">${p.done} / ${p.total}</span>
+      </div>
+      ${questionsHTML}
+    </div>
+
+    <div class="end-cta">
+      <p>${prev ? `<strong>Anterior:</strong> ${prev.title}` : '<strong>Início do roteiro.</strong>'}</p>
+      <div style="display: flex; gap: 8px;">
+        ${prev ? `<button class="btn" data-nav="${prev.id}">← Anterior</button>` : ''}
+        ${next ? `<button class="btn solid" data-nav="${next.id}">Próximo: ${next.title} →</button>` : `<button class="btn solid" id="finalExport">Encerrar · Exportar notas</button>`}
+      </div>
+    </div>
+  `;
+
+  // bind question events
+  main.querySelectorAll('.question').forEach(qEl => {
+    const key = qEl.dataset.q;
+    qEl.querySelector('[data-check]').addEventListener('click', e => {
+      e.stopPropagation();
+      state.checks[key] = !state.checks[key];
+      saveState();
+      qEl.classList.toggle('checked', state.checks[key]);
+      renderSidebar();
+      const num = main.querySelector(`[data-q="${key}"]`);
+      // update header counter
+      const countSpan = main.querySelector('h2 + span, [style*="font-mono"]');
+    });
+    qEl.querySelector('.q-header').addEventListener('click', e => {
+      if (e.target.closest('[data-note-toggle]')) return;
+      if (e.target.closest('[data-check]')) return;
+      state.checks[key] = !state.checks[key];
+      saveState();
+      qEl.classList.toggle('checked', state.checks[key]);
+      renderSidebar();
+    });
+    qEl.querySelector('[data-note-toggle]').addEventListener('click', e => {
+      e.stopPropagation();
+      state.openNotes[key] = !state.openNotes[key];
+      saveState();
+      qEl.querySelector('[data-note-area]').classList.toggle('open', state.openNotes[key]);
+      if (state.openNotes[key]) qEl.querySelector('textarea').focus();
+    });
+    const ta = qEl.querySelector('[data-note-input]');
+    ta.addEventListener('input', () => {
+      state.notes[key] = ta.value;
+      saveState();
+      const btn = qEl.querySelector('[data-note-toggle]');
+      btn.classList.toggle('has-note', !!ta.value.trim());
+      btn.textContent = ta.value.trim() ? 'Nota' : '+ Nota';
+    });
+  });
+
+  main.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', () => switchBlock(b.dataset.nav)));
+  const fe = document.getElementById('finalExport');
+  if (fe) fe.addEventListener('click', openExport);
+}
+
+function switchBlock(id) {
+  if (state.active === id) return;
+  if (timerRunning) {
+    state.timer.blockTimes[state.active] = (state.timer.blockTimes[state.active] || 0) + (Date.now()-blockEnterAt)/1000;
+    blockEnterAt = Date.now();
+  }
+  state.active = id;
+  saveState();
+  renderSidebar();
+  renderMain();
+  updateTimerUI();
+  document.getElementById('mainContent').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ──────────────────────────────────────────────────────────────
+// Modals
+// ──────────────────────────────────────────────────────────────
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(el) { el.classList.remove('open'); }
+document.querySelectorAll('[data-modal]').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) closeModal(m); });
+  m.querySelectorAll('[data-close]').forEach(c => c.addEventListener('click', () => closeModal(m)));
+});
+document.getElementById('openOpening').addEventListener('click', () => openModal('modalOpening'));
+document.getElementById('openRisks').addEventListener('click', () => openModal('modalRisks'));
+document.getElementById('openProposal').addEventListener('click', () => openModal('modalProposal'));
+
+// ──────────────────────────────────────────────────────────────
+// Export
+// ──────────────────────────────────────────────────────────────
+function buildExport() {
+  let md = `# Notas da call · Caio Gioia · Agrofloresta Surucuá\n`;
+  md += `Data: ${new Date().toISOString().split('T')[0]}\n`;
+  md += `Duração total: ${fmtTime(totalSec())}\n\n`;
+  BLOCKS.forEach((b, idx) => {
+    const blockTime = state.timer.blockTimes[b.id] || 0;
+    md += `## ${idx+1}. ${b.title}\n`;
+    md += `_Tempo: ${fmtTime(blockTime)} · Sugerido: ${b.minutes} min_\n\n`;
+    b.questions.forEach((q, i) => {
+      const key = `${b.id}-${i}`;
+      const checked = state.checks[key] ? 'x' : ' ';
+      const note = state.notes[key];
+      md += `- [${checked}] **${q}**\n`;
+      if (note && note.trim()) {
+        md += `  > ${note.replace(/\n/g,'\n  > ')}\n`;
+      }
+    });
+    md += `\n`;
+  });
+  return md;
+}
+function openExport() {
+  document.getElementById('exportArea').value = buildExport();
+  openModal('modalExport');
+}
+document.getElementById('exportNotes').addEventListener('click', openExport);
+document.getElementById('copyExport').addEventListener('click', () => {
+  const ta = document.getElementById('exportArea');
+  ta.select();
+  navigator.clipboard.writeText(ta.value).then(() => {
+    const btn = document.getElementById('copyExport');
+    const orig = btn.textContent;
+    btn.textContent = 'Copiado!';
+    setTimeout(() => btn.textContent = orig, 1500);
+  });
+});
+document.getElementById('downloadExport').addEventListener('click', () => {
+  const blob = new Blob([buildExport()], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `notas-call-caio-gioia-${new Date().toISOString().split('T')[0]}.md`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ──────────────────────────────────────────────────────────────
+// Theme
+// ──────────────────────────────────────────────────────────────
+document.body.setAttribute('data-theme', state.theme || 'dark');
+document.getElementById('themeToggle').textContent = state.theme === 'light' ? '☼' : '☾';
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = state.theme === 'light' ? 'dark' : 'light';
+  state.theme = next;
+  saveState();
+  document.body.setAttribute('data-theme', next);
+  document.getElementById('themeToggle').textContent = next === 'light' ? '☼' : '☾';
+});
+
+// ──────────────────────────────────────────────────────────────
+// Timer buttons
+// ──────────────────────────────────────────────────────────────
+document.getElementById('timerStart').addEventListener('click', () => {
+  if (timerRunning) pauseTimer(); else startTimer();
+});
+document.getElementById('timerReset').addEventListener('click', resetTimer);
+
+// ──────────────────────────────────────────────────────────────
+// Keyboard shortcuts
+// ──────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+  if (e.key >= '1' && e.key <= '9') {
+    const idx = parseInt(e.key) - 1;
+    if (BLOCKS[idx]) switchBlock(BLOCKS[idx].id);
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    if (timerRunning) pauseTimer(); else startTimer();
+  } else if (e.key.toLowerCase() === 'r') {
+    resetTimer();
+  } else if (e.key.toLowerCase() === 'e') {
+    openExport();
+  } else if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-bg.open').forEach(m => closeModal(m));
+  }
+});
+
+// ──────────────────────────────────────────────────────────────
+// Boot
+// ──────────────────────────────────────────────────────────────
+renderSidebar();
+renderMain();
+updateTimerUI();
+if (state.timer.elapsed > 0) {
+  document.getElementById('timerStart').textContent = 'Retomar';
+}
+</script>
+</body>
+</html>

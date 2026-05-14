@@ -1,0 +1,12 @@
+{
+  "resendEmailsSeen": 100,
+  "matchedEmails": 100,
+  "unmatchedEmails": 0,
+  "statusUpdates": 0,
+  "inboundEmailsSeen": 6,
+  "matchMethods": {
+    "resend_id": 100
+  },
+  "unmatchedOutputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/output/sync-resend-unmatched-emails.json",
+  "syncedAt": "2026-05-05T04:20:47.580Z"
+}

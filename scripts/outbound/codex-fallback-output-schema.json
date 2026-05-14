@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "office_name": { "type": ["string", "null"] },
+    "website_url": { "type": ["string", "null"] },
+    "instagram_url": { "type": ["string", "null"] },
+    "contact_page_url": { "type": ["string", "null"] },
+    "primary_phone": { "type": ["string", "null"] },
+    "primary_whatsapp": { "type": ["string", "null"] },
+    "confidence": { "type": "number" },
+    "rationale": { "type": ["string", "null"] },
+    "source_url": { "type": ["string", "null"] }
+  },
+  "required": [
+    "office_name",
+    "website_url",
+    "instagram_url",
+    "contact_page_url",
+    "primary_phone",
+    "primary_whatsapp",
+    "confidence",
+    "rationale",
+    "source_url"
+  ],
+  "additionalProperties": false
+}

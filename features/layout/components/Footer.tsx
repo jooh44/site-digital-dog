@@ -13,12 +13,12 @@ const NAV_SERVICOS = [
 
 const NAV_EMPRESA = [
   { label: 'Portfólio', href: '/#portfolio' },
-  { label: 'Cases', href: '/#cases' },
+  { label: 'Case Gioia', href: '/portfolio/gioia' },
   { label: 'Diagnóstico Gratuito', href: '/#diagnostico' },
 ]
 
 const NAV_PROJETOS = [
-  { label: 'Pet Shop Araucária', href: '/#portfolio' },
+  { label: 'Gioia', href: '/portfolio/gioia' },
   { label: 'Ponto das Portas', href: '/#portfolio' },
   { label: 'RZ Vet', href: '/#portfolio' },
 ]

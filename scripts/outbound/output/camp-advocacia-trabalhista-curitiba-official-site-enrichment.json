@@ -1,0 +1,30 @@
+{
+  "campaignId": "camp-advocacia-trabalhista-curitiba",
+  "enrichedLeads": [
+    {
+      "canonicalName": "HELIO GOMES COELHO JUNIOR",
+      "externalId": "PR:A:7007",
+      "officeName": "GOMES COELHO E BORDIN - Sociedade de Advogados",
+      "organizationId": "org_df373de7752a01c3",
+      "primaryEmail": "helio@gcb.adv.br",
+      "primaryPhone": "(41) 3014-4040",
+      "primaryWhatsapp": null,
+      "sourceUrl": "https://gcb.adv.br/helio-gomes-coelho-junior/",
+      "websiteUrl": "https://gcb.adv.br/"
+    },
+    {
+      "canonicalName": "ROLAND HASSON",
+      "externalId": "PR:A:9120",
+      "officeName": "Hasson Advogados",
+      "organizationId": "org_c6f8500ec8007af3",
+      "primaryEmail": "roland@hassonadvogados.com.br",
+      "primaryPhone": "(41) 3322-2490",
+      "primaryWhatsapp": null,
+      "sourceUrl": "https://hassonadvogados.com.br/advogados/roland-hasson/",
+      "websiteUrl": "https://hassonadvogados.com.br/"
+    }
+  ],
+  "failures": [],
+  "inputPath": "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-official-site-seeds.json",
+  "searchRunId": 668
+}

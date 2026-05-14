@@ -1,0 +1,30 @@
+{
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-02",
+  "baseEmailCampaignId": "camp-advocacia-trabalhista-curitiba-email-01",
+  "leadCampaignId": "camp-advocacia-trabalhista-curitiba",
+  "name": "Advocacia Trabalhista Curitiba - follow-up 1",
+  "fromEmail": "Johny <johny@digitaldog.pet>",
+  "replyToEmail": "johny@digitaldog.pet",
+  "timezone": "America/Sao_Paulo",
+  "cadenceMinutes": 12,
+  "minimumHoursAfterPreviousEmail": 96,
+  "notes": "Follow-up 1 sem link, reforçando o fator novidade da busca e das respostas de IA. Gerado apenas para leads sem resposta registrada.",
+  "subjectTemplate": "{{officeName}}",
+  "introLines": [
+    "Retomando meu email anterior porque esse ponto ainda passa batido por muito escritório."
+  ],
+  "bodyLines": [
+    "A primeira leitura do cliente já não acontece só no site ou no anúncio. Ela começa também na busca local e, cada vez mais, nas respostas geradas por IA.",
+    "Se fizer sentido, eu posso te mandar por aqui 3 observações objetivas sobre como {{officeName}} aparece hoje nesse cenário em {{city}}.",
+    "Nada de apresentação longa nem proposta comercial nessa etapa."
+  ],
+  "closingLines": [
+    "Se preferir, me responde só com um ok que eu te envio."
+  ],
+  "signature": {
+    "name": "Johny",
+    "role": "Digital Dog",
+    "phone": "47 98810-9155",
+    "email": "johny@digitaldog.pet"
+  }
+}

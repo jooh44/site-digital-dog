@@ -1,0 +1,32 @@
+{
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-01",
+  "leadCampaignId": "camp-advocacia-trabalhista-curitiba",
+  "name": "Advocacia Trabalhista Curitiba - onda 1",
+  "fromEmail": "Johny <johny@digitaldog.pet>",
+  "replyToEmail": "johny@digitaldog.pet",
+  "timezone": "America/Sao_Paulo",
+  "cadenceMinutes": 10,
+  "plannedStartAt": "2026-04-23T13:00:00-03:00",
+  "notes": "Campanha inicial inbox-first, com copy orientada a curiosidade sobre recomendacao por IA. HTML leve e remetente pessoal. WhatsApp continua manual.",
+  "subjectTemplate": "a IA indicaria {{officeName}}?",
+  "introLines": [
+    "Olhei a presença pública de {{officeName}} em {{city}} com uma pergunta bem objetiva: se alguém descreve um caso para uma IA e pede indicação de escritório, ela teria bons sinais para citar vocês?"
+  ],
+  "bodyLines": [
+    "Isso já virou comportamento normal: a pessoa conta o problema, pergunta quais caminhos existem e, em seguida, pede nomes confiáveis para conversar.",
+    "Nessa hora, a IA não depende só de um site. Ela cruza sinais públicos: clareza das áreas atendidas, presença local, consistência do nome do escritório, menções e facilidade de contato.",
+    "Quando esses sinais ficam fracos ou espalhados, o escritório pode ser bom, mas fica menos encontrável e menos recomendável nesse novo tipo de busca."
+  ],
+  "closingLines": [
+    "Eu estou montando essa camada para escritórios: deixar a presença pública mais fácil de ser entendida, encontrada e recomendada quando a consulta começa por IA.",
+    "Se fizer sentido, eu te mando 3 pontos rápidos sobre o que hoje ajudaria {{officeName}} a aparecer melhor nesse cenário.",
+    "Se não for prioridade agora, sem problema, eu não insisto."
+  ],
+  "limit": 10,
+  "signature": {
+    "name": "Johny",
+    "role": "Digital Dog",
+    "phone": "47 98810-9155",
+    "email": "johny@digitaldog.pet"
+  }
+}

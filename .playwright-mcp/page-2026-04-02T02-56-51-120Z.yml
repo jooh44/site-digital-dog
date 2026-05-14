@@ -1,0 +1,160 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Digital Dog — Layouts sem Imagem" [level=1] [ref=e3]
+    - paragraph [ref=e4]:
+      - text: 5 diagramações · 1080 × 1440 px · Você adiciona a imagem por cima
+      - text: Clique para ver em tamanho real ·
+      - code [ref=e5]: ESC
+      - text: fecha
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e9] [cursor=pointer]:
+        - generic: "?"
+        - generic [ref=e11]:
+          - generic [ref=e12]: AIO · GEO · SEO
+          - generic [ref=e14]:
+            - text: Sua
+            - text: empresa
+            - text: já aparece
+            - text: na I.A?
+          - generic [ref=e16]:
+            - text: Seus concorrentes já são recomendados.
+            - text: Faça o diagnóstico e descubra onde você está.
+        - generic [ref=e17]:
+          - generic [ref=e20]:
+            - generic [ref=e21]: Digital Dog
+            - generic [ref=e22]: digitaldog.pet
+          - generic [ref=e23]: Diagnóstico Grátis →
+      - generic [ref=e24]:
+        - generic [ref=e25]: Layout 01
+        - text: Tipografia Máxima
+        - generic [ref=e26] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e27]:
+      - generic [ref=e29] [cursor=pointer]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: VOCÊ SABIA?
+          - generic [ref=e34]:
+            - text: dos clientes pesquisam a IA
+            - text: antes de escolher um negócio local
+          - generic [ref=e35]: 72%
+          - generic [ref=e37]:
+            - text: Sua empresa
+            - text: aparece
+            - text: quando importa?
+          - generic [ref=e38]:
+            - generic [ref=e39]: Google AI
+            - generic [ref=e40]: ChatGPT
+            - generic [ref=e41]: Gemini
+        - generic [ref=e42]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Digital Dog
+            - generic [ref=e47]: digitaldog.pet
+          - generic [ref=e48]: Diagnóstico Grátis →
+      - generic [ref=e49]:
+        - generic [ref=e50]: Layout 02
+        - text: Dado em Destaque
+        - generic [ref=e51] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e52]:
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: ARQUITETURA DIGITAL
+          - generic [ref=e59]:
+            - text: Sua empresa
+            - text: existe para
+            - text: a I.A?
+          - generic [ref=e60]:
+            - text: Três plataformas decidem quem aparece
+            - text: "quando seus clientes pesquisam:"
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: G
+              - generic [ref=e64]:
+                - generic [ref=e65]: Google AI
+                - generic [ref=e66]: Visão geral gerada por IA nos resultados
+            - generic [ref=e68]:
+              - generic [ref=e69]: ✦
+              - generic [ref=e70]:
+                - generic [ref=e71]: ChatGPT
+                - generic [ref=e72]: Respostas diretas com recomendações
+            - generic [ref=e74]:
+              - generic [ref=e75]: ◇
+              - generic [ref=e76]:
+                - generic [ref=e77]: Gemini
+                - generic [ref=e78]: Busca integrada ao ecossistema Google
+          - generic [ref=e80]:
+            - generic [ref=e81]: A Digital Dog garante sua presença nas três.
+            - generic [ref=e82]: Diagnóstico em 30 minutos · Resultado em 90 dias
+        - generic [ref=e83]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: Digital Dog
+            - generic [ref=e88]: digitaldog.pet
+          - generic [ref=e89]: Diagnóstico Grátis →
+      - generic [ref=e90]:
+        - generic [ref=e91]: Layout 03
+        - text: Três Plataformas
+        - generic [ref=e92] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e93]:
+      - generic [ref=e95] [cursor=pointer]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: VOCÊ HOJE
+          - generic [ref=e101]:
+            - text: Seus concorrentes
+            - text: aparecem.
+            - text: E você não.
+          - generic [ref=e102]:
+            - generic [ref=e103]: Empresa Concorrente A
+            - generic [ref=e105]: Empresa Concorrente B
+            - generic [ref=e107]: Seu negócio — não encontrado pela IA
+        - generic [ref=e109]: Com a Digital Dog →
+        - generic [ref=e110]:
+          - generic [ref=e111]: SEU NEGÓCIO
+          - generic [ref=e113]:
+            - text: Você aparece
+            - text: primeiro.
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: "90"
+              - generic [ref=e117]: dias
+            - generic [ref=e119]:
+              - generic [ref=e120]: "3"
+              - generic [ref=e121]: plataformas
+            - generic [ref=e123]:
+              - generic [ref=e124]: 1ª
+              - generic [ref=e125]: posição
+        - generic [ref=e126]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: Digital Dog
+            - generic [ref=e131]: digitaldog.pet
+          - generic [ref=e132]: Diagnóstico Grátis →
+      - generic [ref=e133]:
+        - generic [ref=e134]: Layout 04
+        - text: Contraste Antes/Depois
+        - generic [ref=e135] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e136]:
+      - generic [ref=e138] [cursor=pointer]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: CLIENTE DIGITAL DOG · CASO REAL
+          - generic [ref=e143]:
+            - text: Resultados de aparecer
+            - text: "primeiro na I.A:"
+          - generic [ref=e144]:
+            - generic [ref=e145]: R$250k+
+            - generic [ref=e146]: faturamento mensal · e-commerce
+          - generic [ref=e147]:
+            - generic [ref=e148]: 3 anos
+            - generic [ref=e149]: cliente recorrente · R$2.500/mês
+          - generic [ref=e150]:
+            - generic [ref=e151]: 1ª posição
+            - generic [ref=e152]: nas buscas por IA em Curitiba
+          - generic [ref=e153]:
+            - generic [ref=e154]: "\"A Digital Dog transformou nossa presença digital. Hoje a IA recomenda a RZ Vet automaticamente.\""
+            - generic [ref=e155]: — Renato Zanoni · RZ Vet Curitiba
+        - generic [ref=e156]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: Digital Dog
+            - generic [ref=e161]: digitaldog.pet
+          - generic [ref=e162]: Quero o mesmo →
+      - generic [ref=e163]:
+        - generic [ref=e164]: Layout 05
+        - text: Resultado Numérico
+        - generic [ref=e165] [cursor=pointer]: ↗ Ver tamanho real

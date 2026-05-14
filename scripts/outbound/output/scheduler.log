@@ -1,0 +1,54 @@
+
+> site-digital-dog@0.1.0 outbound:slot-scheduler-loop
+> while true; do npm run outbound:sync-email-state; npm run outbound:slot-scheduler; echo 'Sleeping 60s...'; sleep 60; done
+
+
+> site-digital-dog@0.1.0 outbound:sync-email-state
+> node --env-file=.env.local --experimental-strip-types --experimental-default-type=module scripts/outbound/sync-resend-email-state.ts
+
+Fetching all emails from Resend...
+(node:522818) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Found 20 emails in Resend. Syncing with local DB...
+{
+  "resendEmailsSeen": 20,
+  "statusUpdates": 0,
+  "inboundEmailsSeen": 1,
+  "syncedAt": "2026-04-24T17:48:55.064Z"
+}
+
+> site-digital-dog@0.1.0 outbound:slot-scheduler
+> node --env-file=.env.local --experimental-strip-types --experimental-default-type=module scripts/outbound/run-slot-scheduler.ts
+
+{
+  "startedAt": "2026-04-24T17:48:56.235Z",
+  "finishedAt": "2026-04-24T17:48:56.239Z",
+  "dryRun": false,
+  "manifestPaths": [
+    "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-trabalhista-curitiba-email-campaign-02.json",
+    "/home/johny/Documentos/projetos/digital-dog/scripts/outbound/input/camp-advocacia-sao-paulo-email-campaign-01.json"
+  ],
+  "requestedSlots": 4,
+  "scheduledSlots": 0,
+  "allocations": [
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-04-24T16:00:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-04-25T09:00:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-04-25T11:00:00-03:00"
+    },
+    {
+      "reason": "no_batch_ready",
+      "slot": "2026-04-25T13:00:00-03:00"
+    }
+  ]
+}
+(node:522875) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Sleeping 60s...

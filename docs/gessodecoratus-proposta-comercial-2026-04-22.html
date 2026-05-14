@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposta Comercial | Gesso Decoratus</title>
+    <meta
+      name="description"
+      content="Proposta comercial da Digital Dog para estruturação de captação de obras da Gesso Decoratus."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+
+      :root {
+        --bg: #111111;
+        --bg-soft: #181818;
+        --paper: #f3efe8;
+        --paper-2: #ebe2d4;
+        --ink: #181614;
+        --ink-soft: #5f584f;
+        --line: rgba(24, 22, 20, 0.12);
+        --line-dark: rgba(255, 255, 255, 0.1);
+        --gold: #b18a4d;
+        --gold-soft: #d5b98c;
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.2);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top, rgba(177, 138, 77, 0.12), transparent 28%),
+          linear-gradient(180deg, #151515 0%, #0f0f0f 100%);
+        color: #fff;
+        font-family: "Source Sans 3", sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(circle at center, black 22%, transparent 82%);
+        opacity: 0.32;
+      }
+
+      .progress {
+        position: fixed;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 3px;
+        z-index: 80;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .progress__bar {
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+        box-shadow: 0 0 16px rgba(177, 138, 77, 0.5);
+      }
+
+      .rail {
+        position: fixed;
+        right: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 70;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rail button {
+        width: 12px;
+        height: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: transparent;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .rail button.active {
+        background: var(--gold);
+        border-color: var(--gold);
+        box-shadow: 0 0 12px rgba(177, 138, 77, 0.55);
+      }
+
+      .section {
+        padding: 28px 20px;
+      }
+
+      .sheet {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.74), transparent 22%),
+          linear-gradient(180deg, rgba(243, 239, 232, 0.99), rgba(235, 226, 212, 0.97));
+        color: var(--ink);
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: var(--radius-xl);
+        box-shadow:
+          26px 26px 60px rgba(94, 79, 54, 0.12),
+          -18px -18px 38px rgba(255, 255, 255, 0.65),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.82),
+          inset -1px -1px 0 rgba(177, 138, 77, 0.12),
+          var(--shadow);
+        overflow: hidden;
+      }
+
+      .sheet--dark {
+        background:
+          radial-gradient(circle at top right, rgba(177, 138, 77, 0.14), transparent 28%),
+          linear-gradient(180deg, #1b1b1b 0%, #121212 100%);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow:
+          24px 24px 54px rgba(0, 0, 0, 0.34),
+          -14px -14px 28px rgba(255, 255, 255, 0.018),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.06),
+          inset -1px -1px 0 rgba(0, 0, 0, 0.32);
+      }
+
+      .sheet__meta,
+      .sheet__foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 58px;
+        padding: 0 28px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .sheet__meta {
+        border-bottom: 1px solid var(--line);
+        color: rgba(24, 22, 20, 0.58);
+      }
+
+      .sheet__foot {
+        border-top: 1px solid var(--line);
+        color: rgba(24, 22, 20, 0.56);
+      }
+
+      .sheet--dark .sheet__meta,
+      .sheet--dark .sheet__foot {
+        border-color: var(--line-dark);
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .sheet__body {
+        padding: 38px 42px 44px;
+      }
+
+      .cover-layout {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .brand-box {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border: 1px solid rgba(24, 22, 20, 0.12);
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(242, 236, 227, 0.9));
+        box-shadow:
+          10px 10px 22px rgba(94, 79, 54, 0.1),
+          -8px -8px 18px rgba(255, 255, 255, 0.74),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.9),
+          inset -1px -1px 0 rgba(177, 138, 77, 0.08);
+        margin-bottom: 24px;
+      }
+
+      .brand-box img {
+        height: 54px;
+        width: auto;
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .headline {
+        margin: 0;
+        font-family: "Lexend", sans-serif;
+        font-size: clamp(1.95rem, 3.8vw, 3.45rem);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        font-weight: 600;
+      }
+
+      .headline .accent {
+        color: var(--gold);
+      }
+
+      .lead {
+        margin: 20px 0 0;
+        max-width: 60ch;
+        font-size: 1.12rem;
+        line-height: 1.58;
+        color: var(--ink-soft);
+      }
+
+      .sheet--dark .lead {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .summary-grid,
+      .metric-grid,
+      .cards-3,
+      .timeline,
+      .pricing-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cards-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 26px;
+        align-items: start;
+      }
+
+      .card,
+      .metric,
+      .feature,
+      .timeline-card,
+      .price-card,
+      .aside-card {
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(244, 239, 231, 0.88));
+        padding: 24px;
+        box-shadow:
+          14px 14px 32px rgba(94, 79, 54, 0.08),
+          -10px -10px 22px rgba(255, 255, 255, 0.72),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.86),
+          inset -2px -2px 6px rgba(177, 138, 77, 0.07);
+      }
+
+      .sheet--dark .card,
+      .sheet--dark .metric,
+      .sheet--dark .feature,
+      .sheet--dark .timeline-card,
+      .sheet--dark .price-card,
+      .sheet--dark .aside-card {
+        border-color: rgba(255, 255, 255, 0.08);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.03));
+        box-shadow:
+          14px 14px 30px rgba(0, 0, 0, 0.22),
+          -8px -8px 18px rgba(255, 255, 255, 0.014),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.05),
+          inset -1px -1px 0 rgba(0, 0, 0, 0.26);
+      }
+
+      .card h3,
+      .metric h3,
+      .feature h3,
+      .timeline-card h3,
+      .price-card h3,
+      .aside-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.34rem;
+      }
+
+      .card p,
+      .metric p,
+      .feature p,
+      .timeline-card p,
+      .price-card p,
+      .aside-card p {
+        margin: 0;
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+
+      .sheet--dark .card p,
+      .sheet--dark .metric p,
+      .sheet--dark .feature p,
+      .sheet--dark .timeline-card p,
+      .sheet--dark .price-card p,
+      .sheet--dark .aside-card p {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .summary-label {
+        color: rgba(24, 22, 20, 0.56);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .sheet--dark .summary-label {
+        color: rgba(255, 255, 255, 0.52);
+      }
+
+      .summary-title,
+      .metric-number,
+      .price-number,
+      .roi-number {
+        font-family: "Lexend", sans-serif;
+        color: var(--ink);
+      }
+
+      .summary-title {
+        font-size: 1.28rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .metric-number,
+      .roi-number {
+        font-size: clamp(1.8rem, 2.8vw, 2.45rem);
+        line-height: 1;
+        color: var(--gold);
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .list {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        line-height: 1.5;
+      }
+
+      .list li::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--gold);
+        margin-top: 0.55em;
+        flex: 0 0 7px;
+      }
+
+      .competitor-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .competitor-list span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(24, 22, 20, 0.08);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(243, 237, 228, 0.9));
+        box-shadow:
+          10px 10px 22px rgba(94, 79, 54, 0.06),
+          -6px -6px 14px rgba(255, 255, 255, 0.7),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(177, 138, 77, 0.12);
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .timeline-step {
+        color: var(--gold);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 11px;
+        margin-bottom: 10px;
+      }
+
+      .pricing-note {
+        font-size: 0.98rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+
+      .sheet--dark .pricing-note {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .price-card.recommended {
+        background:
+          linear-gradient(180deg, rgba(177, 138, 77, 0.18), rgba(255, 255, 255, 0.06)),
+          rgba(255, 255, 255, 0.5);
+        border-color: rgba(177, 138, 77, 0.32);
+      }
+
+      .sheet--dark .price-card.recommended {
+        background:
+          linear-gradient(180deg, rgba(177, 138, 77, 0.18), rgba(255, 255, 255, 0.03)),
+          rgba(255, 255, 255, 0.05);
+      }
+
+      .price-number {
+        font-size: clamp(1.85rem, 3vw, 2.55rem);
+        line-height: 1;
+        margin: 10px 0 8px;
+        font-weight: 700;
+        white-space: nowrap;
+        word-break: keep-all;
+        overflow-wrap: normal;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 18px;
+      }
+
+      .table th,
+      .table td {
+        text-align: left;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(24, 22, 20, 0.08);
+      }
+
+      .table th {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(24, 22, 20, 0.52);
+      }
+
+      .table td {
+        color: var(--ink-soft);
+      }
+
+      .sheet--dark .table th,
+      .sheet--dark .table td {
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .sheet--dark .table th {
+        color: rgba(255, 255, 255, 0.52);
+      }
+
+      .sheet--dark .table td {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 220px;
+        padding: 15px 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        transition: 0.2s ease;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+        color: var(--ink);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #fff;
+      }
+
+      .footnote {
+        margin-top: 18px;
+        color: rgba(24, 22, 20, 0.52);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .sheet--dark .footnote {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .links {
+        display: grid;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .links a {
+        color: inherit;
+      }
+
+      @media (max-width: 1040px) {
+        .rail {
+          display: none;
+        }
+
+        .cover-layout,
+        .split,
+        .summary-grid,
+        .metric-grid,
+        .cards-3,
+        .timeline,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .section {
+          padding: 18px 14px;
+        }
+
+        .sheet__meta,
+        .sheet__foot {
+          padding: 0 18px;
+          font-size: 11px;
+          letter-spacing: 0.14em;
+        }
+
+        .sheet__body {
+          padding: 28px 20px 30px;
+        }
+
+        .brand-box {
+          padding: 12px 14px;
+        }
+
+        .brand-box img {
+          height: 42px;
+        }
+
+        .headline {
+          line-height: 1;
+        }
+      }
+
+      @media print {
+        .progress,
+        .rail {
+          display: none !important;
+        }
+
+        body {
+          background: #111 !important;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+
+        .section:not(:first-child) {
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
+    <nav class="rail" aria-label="Navegação da proposta">
+      <button data-target="abertura" class="active" aria-label="Abertura"></button>
+      <button data-target="contexto" aria-label="Contexto"></button>
+      <button data-target="vazamento" aria-label="Vazamento"></button>
+      <button data-target="solucao" aria-label="Solução"></button>
+      <button data-target="roadmap" aria-label="Roadmap"></button>
+      <button data-target="retorno" aria-label="Retorno"></button>
+      <button data-target="investimento" aria-label="Investimento"></button>
+      <button data-target="fechamento" aria-label="Fechamento"></button>
+    </nav>
+
+    <section class="section" id="abertura">
+      <article class="sheet">
+        <div class="sheet__meta">
+          <span>01 • proposta comercial</span>
+          <span>22 abr 2026</span>
+        </div>
+        <div class="sheet__body">
+          <div class="cover-layout">
+            <div>
+              <div class="brand-box">
+                <img
+                  src="https://www.gessodecoratus.com.br/templates/default/images/logo.png"
+                  alt="Gesso Decoratus"
+                />
+              </div>
+              <div class="eyebrow">Captação de obras • Blumenau e região</div>
+              <h1 class="headline">
+                Uma proposta para transformar presença digital em
+                <span class="accent">orçamento</span>.
+              </h1>
+              <p class="lead">
+                A Gesso Decoratus já tem nome, portfólio e experiência de obra.
+                O que falta agora não é começar do zero. É organizar a base
+                digital para capturar melhor a demanda que já existe.
+              </p>
+            </div>
+
+            <aside class="aside-card">
+              <h3>Leitura central</h3>
+              <p>
+                O problema relatado foi direto: faltam obras. A proposta abaixo
+                foi desenhada para atacar isso pela raiz, em vez de só entregar
+                uma peça isolada como um site ou um perfil mais bonito.
+              </p>
+              <ul class="list">
+                <li>Reposicionamento e base institucional mais forte.</li>
+                <li>Estrutura de captação e conversão em 90 dias.</li>
+                <li>Camada premium de tecnologia como próximo passo.</li>
+              </ul>
+            </aside>
+          </div>
+
+          <div class="summary-grid">
+            <article class="card">
+              <div class="summary-label">Base</div>
+              <div class="summary-title">Marca + site</div>
+              <p>Identidade, estrutura digital e presença preparada para busca.</p>
+            </article>
+            <article class="card">
+              <div class="summary-label">Operação</div>
+              <div class="summary-title">Growth de 90 dias</div>
+              <p>Captação, leitura de mercado, criativos e otimização contínua.</p>
+            </article>
+            <article class="card">
+              <div class="summary-label">Escala</div>
+              <div class="summary-title">Tecnologia opcional</div>
+              <p>Automação e IA como camada premium para a próxima fase.</p>
+            </article>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>Gesso Decoratus</span>
+          <span>Digital Dog</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="contexto">
+      <article class="sheet sheet--dark">
+        <div class="sheet__meta">
+          <span>02 • contexto</span>
+          <span>mercado e demanda</span>
+        </div>
+        <div class="sheet__body">
+          <div class="eyebrow">O mercado não está parado</div>
+          <h2 class="headline">
+            Existe <span class="accent">demanda</span>. O problema é como ela
+            está sendo capturada hoje.
+          </h2>
+          <p class="lead">
+            Os dados públicos mostram um cenário ativo para construção civil,
+            obras, reformas e sistemas leves. Isso significa que a oportunidade
+            existe. O que decide quem ganha essa demanda é posicionamento,
+            clareza comercial e capacidade de conversão.
+          </p>
+
+          <div class="metric-grid" style="margin-top: 28px;">
+            <article class="metric">
+              <div class="metric-number">11,5 mil</div>
+              <h3>vagas formais</h3>
+              <p>
+                Construção civil liderando a geração de empregos na indústria de
+                SC em 2025, segundo a FIESC.
+              </p>
+            </article>
+            <article class="metric">
+              <div class="metric-number">1.300+</div>
+              <h3>alvarás</h3>
+              <p>
+                Projetos de edificação emitidos em Blumenau em 2025, indicando
+                fluxo real de obras no município.
+              </p>
+            </article>
+            <article class="metric">
+              <div class="metric-number">27,7%</div>
+              <h3>alta no steel frame</h3>
+              <p>
+                Crescimento do mercado de Light Steel Frame no relatório setorial
+                do CBCA.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>SC ativa</span>
+          <span>Blumenau em movimento</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="vazamento">
+      <article class="sheet">
+        <div class="sheet__meta">
+          <span>03 • vazamento atual</span>
+          <span>onde a demanda escapa</span>
+        </div>
+        <div class="sheet__body">
+          <div class="split">
+            <div>
+              <div class="eyebrow">Problema real</div>
+              <h2 class="headline">
+                Hoje a Gesso Decoratus não concorre só com outras empresas.
+                Ela concorre com quem sabe <span class="accent">captar</span>.
+              </h2>
+              <p class="lead">
+                A busca local já está sendo disputada por concorrentes e por
+                páginas hiperlocais montadas especificamente para gerar leads.
+                Quando a presença institucional não está calibrada, a empresa
+                perde espaço antes mesmo da conversa começar.
+              </p>
+              <div class="competitor-list">
+                <span><strong>LF Gesso</strong> <small>concorrência local visível</small></span>
+                <span><strong>JJA Divisórias</strong> <small>captura de demanda corporativa</small></span>
+                <span><strong>Gesseiro Blumenau</strong> <small>página SEO com foco explícito em lead</small></span>
+                <span><strong>Gesso em Blumenau</strong> <small>modelo de captação hiperlocal</small></span>
+              </div>
+            </div>
+
+            <aside class="aside-card">
+              <h3>Os 3 vazamentos mais claros</h3>
+              <ul class="list">
+                <li>Site antigo para o nível de disputa atual.</li>
+                <li>Oferta espalhada, em vez de páginas orientadas por serviço e intenção.</li>
+                <li>Falta de estrutura para transformar visita em pedido de orçamento.</li>
+              </ul>
+              <p style="margin-top: 18px;">
+                Em resumo: o mercado existe, mas parte dele está ficando na mesa
+                por ausência de arquitetura comercial digital.
+              </p>
+            </aside>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>concorrência ativa</span>
+          <span>captura antes do orçamento</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="solucao">
+      <article class="sheet">
+        <div class="sheet__meta">
+          <span>04 • solução</span>
+          <span>as 3 frentes</span>
+        </div>
+        <div class="sheet__body">
+          <div class="eyebrow">Arquitetura da proposta</div>
+          <h2 class="headline">
+            A solução não é só “fazer marketing”. É montar uma
+            <span class="accent">máquina mais coerente</span>.
+          </h2>
+          <p class="lead">
+            A mesma lógica da Gioia continua aqui, mas calibrada para um ciclo
+            mais acessível e orientado a captação de obras. Primeiro se organiza
+            a base. Depois se faz o mercado responder. Só então se sobe a régua
+            tecnológica. Cada frente abaixo já nasce com entregas claras, para
+            o projeto não parecer abstrato.
+          </p>
+
+          <div class="cards-3" style="margin-top: 28px;">
+            <article class="feature">
+              <div class="chip">Arquitetura base</div>
+              <h3>Reposicionamento e base institucional</h3>
+              <p>
+                Refinamento da identidade e um site novo ou refeito para
+                sustentar percepção profissional, confiança e busca local.
+              </p>
+              <ul class="list">
+                <li>Refinamento da identidade visual e direção estética da marca.</li>
+                <li>Revisão da mensagem comercial, headlines e proposta de valor.</li>
+                <li>Site novo ou refeito com home, serviços e página de orçamento.</li>
+                <li>Páginas específicas para gesso, drywall, steel frame e soluções-chave.</li>
+                <li>Base técnica de SEO local e AIO para buscas por IA em 2026.</li>
+                <li>Integração com WhatsApp, formulário e pontos de conversão.</li>
+                <li>Estrutura inicial de prova social, portfólio e confiança comercial.</li>
+              </ul>
+            </article>
+            <article class="feature">
+              <div class="chip">Aceleração</div>
+              <h3>Growth contínuo para gerar tração</h3>
+              <p>
+                Operação mensal de crescimento para tirar a marca da estagnação
+                e transformar o ativo digital em fluxo de orçamento.
+              </p>
+              <ul class="list">
+                <li>Planejamento mensal de captação com foco em obras.</li>
+                <li>Gestão de ads voltada para intenção local e geração de orçamento.</li>
+                <li>Criativos e campanhas de oferta alinhados aos serviços prioritários.</li>
+                <li>Social media com linha visual coerente com o novo posicionamento.</li>
+                <li>Conteúdo de autoridade, prova social e presença recorrente.</li>
+                <li>Leitura de performance e ajustes de growth ao longo do ciclo.</li>
+                <li>Otimização contínua de páginas, CTA e caminhos de conversão.</li>
+              </ul>
+            </article>
+            <article class="feature">
+              <div class="chip">Inovação</div>
+              <h3>Camada premium para escalar depois</h3>
+              <p>
+                Automação, IA e rotinas operacionais entram como próximo degrau,
+                não como travamento para começar.
+              </p>
+              <ul class="list">
+                <li>Organização de leads, pedidos de orçamento e retomadas.</li>
+                <li>Automação de triagem e qualificação inicial de contatos.</li>
+                <li>Fluxos de follow-up para não perder oportunidades mornas.</li>
+                <li>Apoio de IA para resposta, rotina e ganho operacional.</li>
+                <li>Estruturação de processos para comercial e atendimento.</li>
+                <li>Mais previsibilidade quando o volume justificar escala.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>base → tração → escala</span>
+          <span>sem pular etapas</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="roadmap">
+      <article class="sheet sheet--dark">
+        <div class="sheet__meta">
+          <span>05 • roadmap</span>
+          <span>projeto de 90 dias</span>
+        </div>
+        <div class="sheet__body">
+          <div class="eyebrow">Execução</div>
+          <h2 class="headline">
+            O projeto foi desenhado para fazer a marca
+            <span class="accent">entrar em operação</span>.
+          </h2>
+          <p class="lead">
+            O objetivo não é simplesmente “subir algo”. É criar base, colocar
+            a máquina no ar e ajustar com dados reais do mercado durante 3
+            meses.
+          </p>
+
+          <div class="timeline">
+            <article class="timeline-card">
+              <div class="timeline-step">Mês 1</div>
+              <h3>Setup e reposicionamento</h3>
+              <p>
+                Identidade refinada, copy comercial, estrutura de páginas e
+                base nova para conversão.
+              </p>
+              <ul class="list">
+                <li>Refino visual da marca e padronização estética.</li>
+                <li>Home, páginas por serviço e página de orçamento.</li>
+                <li>WhatsApp, formulário, prova social e portfólio estruturado.</li>
+                <li>SEO local, indexação e preparação para busca.</li>
+              </ul>
+            </article>
+            <article class="timeline-card">
+              <div class="timeline-step">Mês 2</div>
+              <h3>Growth e testes</h3>
+              <p>
+                Entrada das campanhas, criativos e observação inicial do que
+                responde melhor no mercado local.
+              </p>
+              <ul class="list">
+                <li>Ads com foco em intenção e captação de orçamento.</li>
+                <li>Conteúdo social orientado a autoridade e demanda.</li>
+                <li>Criativos, ofertas e testes de CTA.</li>
+                <li>Ajustes iniciais de mensagem e páginas.</li>
+              </ul>
+            </article>
+            <article class="timeline-card">
+              <div class="timeline-step">Mês 3</div>
+              <h3>Otimização e decisão</h3>
+              <p>
+                Consolidação da operação, leitura de retorno e decisão sobre
+                continuidade e elevação da stack.
+              </p>
+              <ul class="list">
+                <li>Refino de conversão, posicionamento e funil.</li>
+                <li>Reforço de prova social e ativos comerciais.</li>
+                <li>Leitura do que virou orçamento e oportunidade real.</li>
+                <li>Avaliação de upgrade para a frente de inovação.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>3 meses</span>
+          <span>execução progressiva</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="retorno">
+      <article class="sheet">
+        <div class="sheet__meta">
+          <span>06 • retorno</span>
+          <span>racional econômico</span>
+        </div>
+        <div class="sheet__body">
+          <div class="pricing-grid">
+            <div>
+              <div class="eyebrow">Justificativa econômica</div>
+              <h2 class="headline">
+                O investimento faz sentido porque pode voltar com
+                <span class="accent">poucos fechamentos</span>.
+              </h2>
+              <p class="lead">
+                O argumento não é volume. É retorno por projeto. Se a estrutura
+                nova trouxer 1 ou 2 obras extras por mês, o cenário já muda de
+                patamar.
+              </p>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Cenário</th>
+                    <th>Receita</th>
+                    <th>Leitura</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1 obra extra com ticket de R$ 6 mil</td>
+                    <td>R$ 6.000</td>
+                    <td>Paga praticamente o ciclo inicial inteiro.</td>
+                  </tr>
+                  <tr>
+                    <td>2 obras extras com ticket de R$ 6 mil</td>
+                    <td>R$ 12.000</td>
+                    <td>O projeto deixa de ser custo e vira alavanca.</td>
+                  </tr>
+                  <tr>
+                    <td>2 obras extras com ticket de R$ 8 mil</td>
+                    <td>R$ 16.000</td>
+                    <td>Abre espaço para reinvestimento e escala.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="cards-3" style="grid-template-columns: 1fr;">
+              <article class="card">
+                <div class="roi-number">R$ 72 mil/ano</div>
+                <h3>1 obra extra por mês</h3>
+                <p>
+                  Em um ticket médio de R$ 6 mil, uma única obra adicional por
+                  mês já representa uma mudança importante de receita.
+                </p>
+              </article>
+              <article class="card">
+                <div class="roi-number">R$ 144 mil/ano</div>
+                <h3>2 obras extras por mês</h3>
+                <p>
+                  Com dois fechamentos extras mensais, a base digital passa a
+                  operar como um multiplicador de resultado.
+                </p>
+              </article>
+              <article class="card">
+                <div class="roi-number">Baixo ponto de equilíbrio</div>
+                <h3>Esse é o ponto-chave</h3>
+                <p>
+                  A proposta foi estruturada para se pagar em poucos projetos,
+                  justamente para viabilizar a decisão agora.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>retorno em poucos projetos</span>
+          <span>não depende de volume alto</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="investimento">
+      <article class="sheet">
+        <div class="sheet__meta">
+          <span>07 • investimento</span>
+          <span>entrada e continuidade</span>
+        </div>
+        <div class="sheet__body">
+          <div class="eyebrow">Agora sim: a proposta financeira</div>
+          <h2 class="headline">
+            Primeiro faz sentido. Depois entra o
+            <span class="accent">valor</span>.
+          </h2>
+          <p class="lead">
+            O desenho abaixo respeita a lógica de entrada acessível, operação
+            contínua e stack premium opcional. É uma forma de começar sem travar
+            a evolução futura.
+          </p>
+
+          <div class="cards-3" style="margin-top: 28px;">
+            <article class="price-card">
+              <h3>Arquitetura Base</h3>
+              <div class="price-number">R$ 1.800</div>
+              <p class="pricing-note">
+                Setup inicial para reorganizar percepção, presença e estrutura
+                de conversão.
+              </p>
+              <ul class="list">
+                <li>Refino da identidade visual e direção estética.</li>
+                <li>Revisão de posicionamento e copy comercial.</li>
+                <li>Site novo ou refeito com foco em captação.</li>
+                <li>Páginas por serviço e intenção local.</li>
+                <li>Base técnica de SEO local e AIO.</li>
+                <li>Integração com WhatsApp, formulário e prova social.</li>
+              </ul>
+            </article>
+
+            <article class="price-card">
+              <h3>Aceleração</h3>
+              <div class="price-number">R$ 1.200/mês</div>
+              <p class="pricing-note">
+                Frente recorrente para colocar a operação comercial em
+                movimento, gerar demanda e aprender com o mercado.
+              </p>
+              <ul class="list">
+                <li>Gestão contínua de growth por 3 meses.</li>
+                <li>Ads focado em demanda local e orçamento.</li>
+                <li>Social media e criativos de oferta.</li>
+                <li>Leitura de performance e ajustes mensais.</li>
+                <li>Otimização de páginas, CTA e mensagem.</li>
+                <li>Construção de presença ativa e coerente.</li>
+              </ul>
+            </article>
+
+            <article class="price-card">
+              <h3>Inovação</h3>
+              <div class="price-number">R$ 2.500/mês</div>
+              <p class="pricing-note">
+                Camada premium para quando fizer sentido subir a operação para
+                uma lógica mais automatizada e previsível.
+              </p>
+              <ul class="list">
+                <li>Automação de triagem e organização de leads.</li>
+                <li>Follow-up e apoio operacional com IA.</li>
+                <li>Estruturação de rotinas internas.</li>
+                <li>Melhor aproveitamento das oportunidades captadas.</li>
+                <li>Camada opcional, pensada para a fase seguinte.</li>
+              </ul>
+            </article>
+          </div>
+
+        </div>
+        <div class="sheet__foot">
+          <span>entrada viável</span>
+          <span>camada premium como upgrade</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="fechamento">
+      <article class="sheet sheet--dark">
+        <div class="sheet__meta">
+          <span>08 • fechamento</span>
+          <span>próximo passo</span>
+        </div>
+        <div class="sheet__body">
+          <div class="eyebrow">Conclusão</div>
+          <h2 class="headline">
+            A oportunidade não é só ter mais presença. É ter uma presença que
+            <span class="accent">gera obra</span>.
+          </h2>
+          <p class="lead">
+            A Gesso Decoratus já tem histórico e capacidade operacional. O que
+            esta proposta organiza é a parte que falta para transformar isso em
+            captação mais previsível.
+          </p>
+
+          <div class="cta-row">
+            <a class="button primary" href="https://wa.me/5547988109155" target="_blank" rel="noreferrer">
+              Aprovar e iniciar
+            </a>
+            <a class="button secondary" href="https://www.digitaldog.pet/" target="_blank" rel="noreferrer">
+              Ver Digital Dog
+            </a>
+          </div>
+
+          <div class="footnote">
+            Dados públicos usados nesta proposta foram levantados em 22 de abril
+            de 2026 para sustentar a leitura de demanda, concorrência e retorno.
+          </div>
+          <div class="links">
+            <a href="https://fiesc.com.br/pt-br/imprensa/construcao-lidera-geracao-de-empregos-na-industria-em-2025" target="_blank" rel="noreferrer">
+              FIESC • Construção lidera geração de empregos em 2025
+            </a>
+            <a href="https://www.blumenau.sc.gov.br/secretarias/secretaria-de-desenvolvimento-urbano/seplan/sistema-digital-acelera-em-30-aprovaacaao-de-projetos-de-edificaacaao-na-prefeitura-de-blumenau90" target="_blank" rel="noreferrer">
+              Prefeitura de Blumenau • Alvarás e projetos de edificação
+            </a>
+            <a href="https://www.cbca-acobrasil.org.br/upfiles/downloads/relatorios/CBCA_Relatorio-de-Atividades_2024.pdf" target="_blank" rel="noreferrer">
+              CBCA • Relatório setorial de drywall e steel frame
+            </a>
+          </div>
+        </div>
+        <div class="sheet__foot">
+          <span>Digital Dog</span>
+          <span>arquitetura digital para crescimento</span>
+        </div>
+      </article>
+    </section>
+
+    <script>
+      const sections = [...document.querySelectorAll(".section")];
+      const dots = [...document.querySelectorAll(".rail button")];
+      const progressBar = document.getElementById("progressBar");
+
+      function updateState() {
+        const scrollTop = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = maxScroll > 0 ? scrollTop / maxScroll : 0;
+        progressBar.style.width = `${ratio * 100}%`;
+
+        let activeId = sections[0]?.id;
+        const marker = scrollTop + window.innerHeight * 0.42;
+
+        sections.forEach((section) => {
+          if (marker >= section.offsetTop) {
+            activeId = section.id;
+          }
+        });
+
+        dots.forEach((dot) => {
+          dot.classList.toggle("active", dot.dataset.target === activeId);
+        });
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const section = document.getElementById(dot.dataset.target);
+          if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      window.addEventListener("scroll", updateState, { passive: true });
+      window.addEventListener("load", updateState);
+      updateState();
+    </script>
+  </body>
+</html>

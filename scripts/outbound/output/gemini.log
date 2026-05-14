@@ -1,0 +1,24 @@
+
+> site-digital-dog@0.1.0 outbound:gemini-email-loop
+> while true; do npm run outbound:gemini-email; echo 'Sleeping 30s...'; sleep 30; done
+
+
+> site-digital-dog@0.1.0 outbound:gemini-email
+> node --env-file=.env.local --experimental-strip-types --experimental-default-type=module scripts/outbound/run-gemini-email-enricher.ts
+
+{
+  "reason": "no_seed"
+}
+(node:522820) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Sleeping 30s...
+
+> site-digital-dog@0.1.0 outbound:gemini-email
+> node --env-file=.env.local --experimental-strip-types --experimental-default-type=module scripts/outbound/run-gemini-email-enricher.ts
+
+{
+  "reason": "no_seed"
+}
+(node:523127) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Sleeping 30s...

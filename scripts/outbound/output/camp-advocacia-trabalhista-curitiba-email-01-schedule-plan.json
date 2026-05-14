@@ -1,0 +1,68 @@
+{
+  "dryRun": false,
+  "emailCampaignId": "camp-advocacia-trabalhista-curitiba-email-01",
+  "generatedAt": "2026-04-23T02:05:18.687Z",
+  "jobs": [
+    {
+      "jobId": 1,
+      "scheduledAt": "2026-04-23T16:00:00.000Z",
+      "subject": "Artmann Advogados em Curitiba",
+      "toEmail": "contato@artmannadvogados.com.br"
+    },
+    {
+      "jobId": 2,
+      "scheduledAt": "2026-04-23T16:10:00.000Z",
+      "subject": "Avila Sociedade de Advogados em Curitiba",
+      "toEmail": "contato@avilaadvogados.com.br"
+    },
+    {
+      "jobId": 3,
+      "scheduledAt": "2026-04-23T16:20:00.000Z",
+      "subject": "Espinola, Teixeira & Bertin Advogados Associados em Curitiba",
+      "toEmail": "contato@etb.adv.br"
+    },
+    {
+      "jobId": 4,
+      "scheduledAt": "2026-04-23T16:30:00.000Z",
+      "subject": "GOMES COELHO E BORDIN - Sociedade de Advogados em Curitiba",
+      "toEmail": "helio@gcb.adv.br"
+    },
+    {
+      "jobId": 5,
+      "scheduledAt": "2026-04-23T16:40:00.000Z",
+      "subject": "Kuster e Lica Advogados Associados em Curitiba",
+      "toEmail": "contatocuritiba@kladvogados.com.br"
+    },
+    {
+      "jobId": 6,
+      "scheduledAt": "2026-04-23T16:50:00.000Z",
+      "subject": "Luana Chaves Advogados Associados em Curitiba",
+      "toEmail": "contato@lcadvogados.adv.br"
+    },
+    {
+      "jobId": 7,
+      "scheduledAt": "2026-04-23T17:00:00.000Z",
+      "subject": "Hasson Advogados em Curitiba",
+      "toEmail": "roland@hassonadvogados.com.br"
+    },
+    {
+      "jobId": 8,
+      "scheduledAt": "2026-04-23T17:10:00.000Z",
+      "subject": "Ziegemann Seidel Advogados em Curitiba",
+      "toEmail": "juridico@zseidel.adv.br"
+    },
+    {
+      "jobId": 9,
+      "scheduledAt": "2026-04-23T17:20:00.000Z",
+      "subject": "Zillmann Advogados Associados em Curitiba",
+      "toEmail": "contato@zadvocacia.adv.br"
+    },
+    {
+      "jobId": 10,
+      "scheduledAt": "2026-04-23T17:30:00.000Z",
+      "subject": "Carneiro & Lopes Advogados Associados em Curitiba",
+      "toEmail": "juridico@carneirolopes.com.br"
+    }
+  ],
+  "startAt": "2026-04-23T13:00:00-03:00"
+}

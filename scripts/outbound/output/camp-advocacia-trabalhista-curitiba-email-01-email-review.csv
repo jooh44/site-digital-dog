@@ -1,0 +1,11 @@
+id,city,officeName,organizationId,primaryEmail,subject,websiteDomain
+"1","CURITIBA","Artmann Advogados","org_769faf79dba85bb8","contato@artmannadvogados.com.br","Artmann Advogados em Curitiba","artmannadvogados.com.br"
+"2","CURITIBA","Avila Sociedade de Advogados","org_18d92f885cf75065","contato@avilaadvogados.com.br","Avila Sociedade de Advogados em Curitiba","avilaadvogados.com.br"
+"3","CURITIBA","Espinola, Teixeira & Bertin Advogados Associados","org_f35b96b33174b581","contato@etb.adv.br","Espinola, Teixeira & Bertin Advogados Associados em Curitiba","etb.adv.br"
+"4","CURITIBA","GOMES COELHO E BORDIN - Sociedade de Advogados","org_df373de7752a01c3","helio@gcb.adv.br","GOMES COELHO E BORDIN - Sociedade de Advogados em Curitiba","gcb.adv.br"
+"5","CURITIBA","Kuster e Lica Advogados Associados","org_5cb52e9e2729b18e","contatocuritiba@kladvogados.com.br","Kuster e Lica Advogados Associados em Curitiba","kladvogados.com.br"
+"6","CURITIBA","Luana Chaves Advogados Associados","org_8ba484aa5bc59fc0","contato@lcadvogados.adv.br","Luana Chaves Advogados Associados em Curitiba","lcadvogados.adv.br"
+"7","CURITIBA","Hasson Advogados","org_c6f8500ec8007af3","roland@hassonadvogados.com.br","Hasson Advogados em Curitiba","hassonadvogados.com.br"
+"8","CURITIBA","Ziegemann Seidel Advogados","org_e62cdb5d0da35c22","juridico@zseidel.adv.br","Ziegemann Seidel Advogados em Curitiba","zseidel.adv.br"
+"9","CURITIBA","Zillmann Advogados Associados","org_a58c874fcfac8d78","contato@zadvocacia.adv.br","Zillmann Advogados Associados em Curitiba","zadvocacia.adv.br"
+"10","CURITIBA","Carneiro & Lopes Advogados Associados","org_f5e631316a2ed6c4","juridico@carneirolopes.com.br","Carneiro & Lopes Advogados Associados em Curitiba","carneirolopes.com.br"

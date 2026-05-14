@@ -1,0 +1,409 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Digital Dog — Layouts sem Imagem" [level=1] [ref=e3]
+    - paragraph [ref=e4]:
+      - text: 5 diagramações · 1080 × 1440 px · Você adiciona a imagem por cima
+      - text: Clique para ver em tamanho real ·
+      - code [ref=e5]: ESC
+      - text: fecha
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e9] [cursor=pointer]:
+        - generic: "?"
+        - generic [ref=e11]:
+          - generic [ref=e12]: AIO · GEO · SEO
+          - generic [ref=e14]:
+            - text: Sua
+            - text: empresa
+            - text: já aparece
+            - text: na I.A?
+          - generic [ref=e16]:
+            - text: Seus concorrentes já são recomendados.
+            - text: Faça o diagnóstico e descubra onde você está.
+        - generic [ref=e17]:
+          - generic [ref=e20]:
+            - generic [ref=e21]: Digital Dog
+            - generic [ref=e22]: digitaldog.pet
+          - generic [ref=e23]: Diagnóstico Grátis →
+      - generic [ref=e24]:
+        - generic [ref=e25]: Layout 01
+        - text: Tipografia Máxima
+        - generic [ref=e26] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e27]:
+      - generic [ref=e29] [cursor=pointer]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: VOCÊ SABIA?
+          - generic [ref=e34]:
+            - text: dos clientes pesquisam a IA
+            - text: antes de escolher um negócio local
+          - generic [ref=e35]: 72%
+          - generic [ref=e37]:
+            - text: Sua empresa
+            - text: aparece
+            - text: quando importa?
+          - generic [ref=e38]:
+            - generic [ref=e39]: Google AI
+            - generic [ref=e40]: ChatGPT
+            - generic [ref=e41]: Gemini
+        - generic [ref=e42]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: Digital Dog
+            - generic [ref=e47]: digitaldog.pet
+          - generic [ref=e48]: Diagnóstico Grátis →
+      - generic [ref=e49]:
+        - generic [ref=e50]: Layout 02
+        - text: Dado em Destaque
+        - generic [ref=e51] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e52]:
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: ARQUITETURA DIGITAL
+          - generic [ref=e59]:
+            - text: Sua empresa
+            - text: existe para
+            - text: a I.A?
+          - generic [ref=e60]:
+            - text: Três plataformas decidem quem aparece
+            - text: "quando seus clientes pesquisam:"
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: G
+              - generic [ref=e64]:
+                - generic [ref=e65]: Google AI
+                - generic [ref=e66]: Visão geral gerada por IA nos resultados
+            - generic [ref=e68]:
+              - generic [ref=e69]: ✦
+              - generic [ref=e70]:
+                - generic [ref=e71]: ChatGPT
+                - generic [ref=e72]: Respostas diretas com recomendações
+            - generic [ref=e74]:
+              - generic [ref=e75]: ◇
+              - generic [ref=e76]:
+                - generic [ref=e77]: Gemini
+                - generic [ref=e78]: Busca integrada ao ecossistema Google
+          - generic [ref=e80]:
+            - generic [ref=e81]: A Digital Dog garante sua presença nas três.
+            - generic [ref=e82]: Diagnóstico em 30 minutos · Resultado em 90 dias
+        - generic [ref=e83]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: Digital Dog
+            - generic [ref=e88]: digitaldog.pet
+          - generic [ref=e89]: Diagnóstico Grátis →
+      - generic [ref=e90]:
+        - generic [ref=e91]: Layout 03
+        - text: Três Plataformas
+        - generic [ref=e92] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e93]:
+      - generic [ref=e95] [cursor=pointer]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: VOCÊ HOJE
+          - generic [ref=e101]:
+            - text: Seus concorrentes
+            - text: aparecem.
+            - text: E você não.
+          - generic [ref=e102]:
+            - generic [ref=e103]: Empresa Concorrente A
+            - generic [ref=e105]: Empresa Concorrente B
+            - generic [ref=e107]: Seu negócio — não encontrado pela IA
+        - generic [ref=e109]: Com a Digital Dog →
+        - generic [ref=e110]:
+          - generic [ref=e111]: SEU NEGÓCIO
+          - generic [ref=e113]:
+            - text: Você aparece
+            - text: primeiro.
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: "90"
+              - generic [ref=e117]: dias
+            - generic [ref=e119]:
+              - generic [ref=e120]: "3"
+              - generic [ref=e121]: plataformas
+            - generic [ref=e123]:
+              - generic [ref=e124]: 1ª
+              - generic [ref=e125]: posição
+        - generic [ref=e126]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: Digital Dog
+            - generic [ref=e131]: digitaldog.pet
+          - generic [ref=e132]: Diagnóstico Grátis →
+      - generic [ref=e133]:
+        - generic [ref=e134]: Layout 04
+        - text: Contraste Antes/Depois
+        - generic [ref=e135] [cursor=pointer]: ↗ Ver tamanho real
+    - generic [ref=e136]:
+      - generic [ref=e138] [cursor=pointer]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: CLIENTE DIGITAL DOG · CASO REAL
+          - generic [ref=e143]:
+            - text: Resultados de aparecer
+            - text: "primeiro na I.A:"
+          - generic [ref=e144]:
+            - generic [ref=e145]: R$250k+
+            - generic [ref=e146]: faturamento mensal · e-commerce
+          - generic [ref=e147]:
+            - generic [ref=e148]: 3 anos
+            - generic [ref=e149]: cliente recorrente · R$2.500/mês
+          - generic [ref=e150]:
+            - generic [ref=e151]: 1ª posição
+            - generic [ref=e152]: nas buscas por IA em Curitiba
+          - generic [ref=e153]:
+            - generic [ref=e154]: "\"A Digital Dog transformou nossa presença digital. Hoje a IA recomenda a RZ Vet automaticamente.\""
+            - generic [ref=e155]: — Renato Zanoni · RZ Vet Curitiba
+        - generic [ref=e156]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: Digital Dog
+            - generic [ref=e161]: digitaldog.pet
+          - generic [ref=e162]: Quero o mesmo →
+      - generic [ref=e163]:
+        - generic [ref=e164]: Layout 05
+        - text: Resultado Numérico
+        - generic [ref=e165] [cursor=pointer]: ↗ Ver tamanho real
+  - generic [ref=e166]:
+    - generic [ref=e167]:
+      - heading "Instagram — Conteúdo de Valor" [level=2] [ref=e168]
+      - paragraph [ref=e169]: 9 posts · 1080 × 1440 px · Fundo preto · Desperta curiosidade, gera valor e seguidores
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - generic [ref=e174] [cursor=pointer]:
+          - generic [ref=e175]: FAÇA ESSE TESTE
+          - generic [ref=e177]:
+            - text: Abra o
+            - text: ChatGPT
+            - text: agora.
+          - generic [ref=e178]:
+            - generic [ref=e179]: "Digite exatamente:"
+            - generic [ref=e180]:
+              - text: "\"melhores [seu nicho]"
+              - text: em [sua cidade]"
+          - generic [ref=e181]:
+            - text: Seu negócio apareceu?
+            - text: Se não, você tem um problema.
+          - generic [ref=e182]:
+            - generic [ref=e183]: Digital Dog
+            - generic [ref=e185]: 💾 salva esse post
+        - generic [ref=e186]:
+          - generic [ref=e187]: IG 01
+          - text: Teste — Ação imediata
+          - generic [ref=e188] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e189]:
+        - generic [ref=e192] [cursor=pointer]:
+          - generic [ref=e193]: PESQUISA · 2025
+          - generic [ref=e195]: das buscas no Google já retornam resposta de IA antes dos links
+          - generic [ref=e196]: 40%
+          - generic [ref=e198]:
+            - text: E esse número cresce
+            - text: a cada mês.
+          - generic [ref=e199]:
+            - generic [ref=e200]: Digital Dog
+            - generic [ref=e202]: "@digitaldog.pet"
+        - generic [ref=e203]:
+          - generic [ref=e204]: IG 02
+          - text: Dado — Estatística impactante
+          - generic [ref=e205] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e206]:
+        - generic [ref=e209] [cursor=pointer]:
+          - generic [ref=e210]: VOCÊ SABIA?
+          - generic [ref=e212]:
+            - text: 3 motivos que
+            - text: a I.A ignora
+            - text: sua empresa
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - generic [ref=e215]: "1"
+              - generic [ref=e216]:
+                - generic [ref=e217]: Sem dados estruturados
+                - generic [ref=e218]: A IA não sabe categorizar seu negócio sem schema markup
+            - generic [ref=e219]:
+              - generic [ref=e220]: "2"
+              - generic [ref=e221]:
+                - generic [ref=e222]: Sem citações externas
+                - generic [ref=e223]: Você não é mencionado nas fontes que a IA usa para aprender
+            - generic [ref=e224]:
+              - generic [ref=e225]: "3"
+              - generic [ref=e226]:
+                - generic [ref=e227]: Sem autoridade digital
+                - generic [ref=e228]: A IA só recomenda quem ela reconhece como referência
+          - generic [ref=e229]:
+            - generic [ref=e230]: Digital Dog
+            - generic [ref=e232]: 💾 salva
+        - generic [ref=e233]:
+          - generic [ref=e234]: IG 03
+          - text: Lista — 3 motivos educacional
+          - generic [ref=e235] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e236]:
+        - generic [ref=e238] [cursor=pointer]:
+          - generic [ref=e240]:
+            - generic [ref=e241]:
+              - generic [ref=e242]:
+                - generic [ref=e243]: ❌
+                - generic [ref=e244]: MITO
+              - generic [ref=e245]:
+                - text: "\"Ter um site"
+                - text: bem feito é
+                - text: suficiente."
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - generic [ref=e248]: ✓
+                - generic [ref=e249]: REALIDADE
+              - generic [ref=e250]:
+                - text: A I.A não lê
+                - text: sites. Ela lê
+                - text: citações.
+              - generic [ref=e251]: Quem não é citado, não existe.
+          - generic [ref=e252]:
+            - generic [ref=e253]: Digital Dog
+            - generic [ref=e255]: "@digitaldog.pet"
+        - generic [ref=e256]:
+          - generic [ref=e257]: IG 04
+          - text: Mito vs Realidade
+          - generic [ref=e258] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e259]:
+        - generic [ref=e261] [cursor=pointer]:
+          - generic: AIO
+          - generic [ref=e262]:
+            - generic [ref=e263]: CONCEITO
+            - generic [ref=e265]:
+              - text: O que é
+              - text: AIO?
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - strong [ref=e268]: AI Optimization
+                - text: é a prática de otimizar sua presença digital para aparecer nas respostas de inteligências artificiais.
+              - generic [ref=e269]:
+                - generic [ref=e270]:
+                  - generic [ref=e271]: →
+                  - text: Google AI Overview
+                - generic [ref=e272]:
+                  - generic [ref=e273]: →
+                  - text: ChatGPT Search
+                - generic [ref=e274]:
+                  - generic [ref=e275]: →
+                  - text: Gemini / Perplexity
+            - generic [ref=e276]:
+              - generic [ref=e277]: Digital Dog
+              - generic [ref=e279]: 💾 salva
+        - generic [ref=e280]:
+          - generic [ref=e281]: IG 05
+          - text: Conceito — O que é AIO?
+          - generic [ref=e282] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e283]:
+        - generic [ref=e286] [cursor=pointer]:
+          - generic [ref=e287]: ENTENDA A DIFERENÇA
+          - generic [ref=e289]:
+            - text: "SEO vs AIO:"
+            - text: não é a mesma
+            - text: coisa.
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - generic [ref=e292]: SEO
+              - generic [ref=e293]:
+                - generic [ref=e294]: Otimiza para links
+                - generic [ref=e295]: Usuário clica e navega
+                - generic [ref=e296]: Palavras-chave
+                - generic [ref=e297]: Relevância de página
+            - generic [ref=e298]:
+              - generic [ref=e299]: AIO
+              - generic [ref=e300]:
+                - generic [ref=e301]: Otimiza para respostas
+                - generic [ref=e302]: IA recomenda direto
+                - generic [ref=e303]: Autoridade + citações
+                - generic [ref=e304]: Confiança de fontes
+          - generic [ref=e305]:
+            - text: Você precisa dos dois.
+            - text: Mas a maioria só faz um.
+          - generic [ref=e306]:
+            - generic [ref=e307]: Digital Dog
+            - generic [ref=e309]: "@digitaldog.pet"
+        - generic [ref=e310]:
+          - generic [ref=e311]: IG 06
+          - text: Comparação — SEO vs AIO
+          - generic [ref=e312] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e313]:
+        - generic [ref=e316] [cursor=pointer]:
+          - generic [ref=e317]: COMO FUNCIONA
+          - generic [ref=e319]:
+            - text: Como a I.A decide
+            - text: "quem recomendar:"
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - generic [ref=e323]: "1"
+              - generic [ref=e325]:
+                - generic [ref=e326]: Coleta dados do seu negócio
+                - generic [ref=e327]: Sites, reviews, diretórios, citações
+            - generic [ref=e328]:
+              - generic [ref=e330]: "2"
+              - generic [ref=e332]:
+                - generic [ref=e333]: Mede autoridade e confiança
+                - generic [ref=e334]: Quem fala de você e o que diz
+            - generic [ref=e335]:
+              - generic [ref=e337]: "3"
+              - generic [ref=e339]:
+                - generic [ref=e340]: Cruza com a pergunta do usuário
+                - generic [ref=e341]: Contexto local, nicho e intenção
+            - generic [ref=e342]:
+              - generic [ref=e343]: "4"
+              - generic [ref=e344]:
+                - generic [ref=e345]: Recomenda quem ela conhece
+                - generic [ref=e346]: Invisível = inexistente para a IA
+          - generic [ref=e347]:
+            - generic [ref=e348]: Digital Dog
+            - generic [ref=e350]: 💾 salva
+        - generic [ref=e351]:
+          - generic [ref=e352]: IG 07
+          - text: Fluxo — Como a IA decide
+          - generic [ref=e353] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e354]:
+        - generic [ref=e357] [cursor=pointer]:
+          - generic [ref=e358]: DIAGNÓSTICO RÁPIDO
+          - generic [ref=e360]:
+            - text: Sua empresa está
+            - text: pronta para
+            - text: a I.A?
+          - generic [ref=e361]: "Marque o que você tem:"
+          - generic [ref=e362]:
+            - generic [ref=e365]: Schema markup no site
+            - generic [ref=e368]: Google Business otimizado
+            - generic [ref=e371]: Citações em diretórios locais
+            - generic [ref=e374]: Reviews com resposta ativa
+            - generic [ref=e377]: Conteúdo com E-E-A-T
+          - generic [ref=e379]:
+            - text: Se você marcou menos de 3,
+            - strong [ref=e380]: a IA provavelmente te ignora.
+          - generic [ref=e381]:
+            - generic [ref=e382]: Digital Dog
+            - generic [ref=e384]: 💾 salva
+        - generic [ref=e385]:
+          - generic [ref=e386]: IG 08
+          - text: Checklist — Diagnóstico rápido
+          - generic [ref=e387] [cursor=pointer]: ↗ Ver tamanho real
+      - generic [ref=e388]:
+        - generic [ref=e391] [cursor=pointer]:
+          - generic [ref=e392]: REVELAÇÃO
+          - generic [ref=e394]:
+            - text: O que acontece
+            - text: agora quando
+            - text: alguém pesquisa
+            - text: "seu negócio:"
+          - generic [ref=e395]:
+            - generic [ref=e396]:
+              - generic [ref=e397]: ✦
+              - generic [ref=e398]: Visão geral de IA
+            - generic [ref=e399]: "\"Com base nas fontes disponíveis, os melhores [seu nicho] em [sua cidade] são...\""
+            - generic [ref=e400]:
+              - generic [ref=e401]:
+                - generic [ref=e402]: "1."
+                - generic [ref=e403]: Empresa Concorrente A
+              - generic [ref=e404]:
+                - generic [ref=e405]: "2."
+                - generic [ref=e406]: Empresa Concorrente B
+              - generic [ref=e407]:
+                - generic [ref=e408]: —
+                - generic [ref=e409]: Seu negócio não aparece
+          - generic [ref=e410]: Isso está acontecendo agora.
+          - generic [ref=e411]:
+            - generic [ref=e412]: Digital Dog
+            - generic [ref=e414]: 💾 salva
+        - generic [ref=e415]:
+          - generic [ref=e416]: IG 09
+          - text: Revelação — Você não aparece
+          - generic [ref=e417] [cursor=pointer]: ↗ Ver tamanho real
