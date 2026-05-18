@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -240,68 +239,6 @@ export function PortfolioSection() {
             <p className="text-white/40 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.2vw, 1.05rem)' }}>
               Clínica, pet shop, e-commerce — não importa o segmento. A IA já recomenda nossos clientes em primeiro lugar.
             </p>
-          </div>
-        </div>
-
-        <div data-pf-row className="mb-20 border border-white/[0.07] bg-[#101010] lg:mb-24">
-          <div className="grid gap-10 px-7 py-8 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:px-10 lg:py-10">
-            <div className="flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-[#d1af66]" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/[0.18]">
-                    Novo case
-                  </span>
-                </div>
-
-                <h3
-                  className="mt-7 font-heading font-extrabold leading-[0.92] tracking-[-0.04em] text-white/[0.94]"
-                  style={{ fontSize: 'clamp(2.2rem, 5vw, 4.6rem)' }}
-                >
-                  Gioia
-                </h3>
-
-                <p className="mt-5 max-w-[34ch] text-[0.98rem] leading-[1.9] text-white/58">
-                  Template editorial mais limpo, com narrativa longa e placeholders 16:9 para montar os assets com
-                  calma no Figma antes de plugar no site.
-                </p>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/portfolio/gioia"
-                  className="inline-flex min-h-[46px] items-center gap-2.5 bg-[linear-gradient(135deg,#5E0001,#8b1617)] px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-[1px]"
-                >
-                  Abrir template
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path
-                      d="M3 7h8M8 4l3 3-3 3"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-[#f2ece2] p-4">
-              <div className="relative aspect-[16/9] overflow-hidden border border-[#d8cec0]">
-                <div className="absolute inset-6 border border-dashed border-[#5E0001]/20" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#5E0001]/45">
-                    Placeholder
-                  </span>
-                  <span className="mt-4 text-[clamp(1.5rem,2.8vw,2.3rem)] font-heading font-extrabold tracking-[-0.04em] text-[#1a1818]">
-                    Adicionar imagem de abertura
-                  </span>
-                  <span className="mt-4 max-w-[34ch] text-sm leading-[1.8] text-[#5b5249]">
-                    O case agora abre com um frame largo em 1920x1080, em vez de uma composição blocada.
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
