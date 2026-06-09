@@ -40,6 +40,7 @@
     "outbound:export-social-selling": "node --env-file=.env.local --experimental-strip-types --experimental-default-type=module scripts/outbound/export-social-selling-leads.ts"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "@next/third-parties": "^16.0.3",
