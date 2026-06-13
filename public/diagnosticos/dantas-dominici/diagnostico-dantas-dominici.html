@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email — Análise de presença digital para advocacia</title>
+    <style>
+      body, table, td, p, a, li {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f4f2ee;
+        color: #1a2433;
+      }
+
+      .wrapper {
+        width: 100%;
+        background: #f4f2ee;
+        padding: 28px 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid #ddd6ca;
+      }
+
+      .inner {
+        padding: 0 40px 40px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+
+      .headline {
+        margin: 10px 0 0;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 28px;
+        line-height: 1.18;
+        color: #0f172a;
+        font-weight: 700;
+      }
+
+      .subhead {
+        margin: 16px 0 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .meta-box {
+        margin-top: 26px;
+        border: 1px solid #ddd6ca;
+        background: #faf8f4;
+      }
+
+      .meta-cell {
+        width: 50%;
+        vertical-align: top;
+        padding: 16px 20px;
+        border-bottom: 1px solid #ece6db;
+      }
+
+      .meta-label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+
+      .meta-value {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #0f172a;
+      }
+
+      .section {
+        padding-top: 30px;
+        border-top: 1px solid #ece6db;
+        margin-top: 30px;
+      }
+
+      .section-kicker {
+        margin: 0 0 8px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 21px;
+        line-height: 1.2;
+        color: #0f172a;
+      }
+
+      .body-copy p,
+      .body-copy li {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .body-copy p {
+        margin: 0 0 14px;
+      }
+
+      .method-box {
+        margin-top: 4px;
+        padding: 18px 20px;
+        border: 1px solid #ddd6ca;
+        background: #faf8f4;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .method-box ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+
+      .method-box li {
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      .finding {
+        margin-top: 16px;
+        border: 1px solid #ddd6ca;
+        background: #ffffff;
+      }
+
+      .finding-head {
+        padding: 13px 18px;
+        border-bottom: 1px solid #ece6db;
+        background: #faf8f4;
+      }
+
+      .finding-number {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+
+      .finding-title {
+        margin: 3px 0 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f172a;
+        line-height: 1.4;
+      }
+
+      .finding-body {
+        padding: 16px 18px 18px;
+      }
+
+      .finding-line {
+        margin: 0 0 12px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .finding-line strong {
+        color: #0f172a;
+      }
+
+      .finding-line:last-child {
+        margin-bottom: 0;
+      }
+
+      .bullet-list {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .bullet-list li {
+        margin-bottom: 10px;
+      }
+
+      .evidence {
+        margin-top: 4px;
+      }
+
+      .evidence-shot {
+        margin-top: 18px;
+        border: 1px solid #ddd6ca;
+        background: #faf8f4;
+        padding: 10px;
+      }
+
+      .evidence-caption {
+        margin: 10px 2px 2px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #475569;
+      }
+
+      .map-area {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid #ece6db;
+      }
+
+      .map-area:first-child {
+        border-top: 0;
+        margin-top: 6px;
+      }
+
+      .map-area-title {
+        margin: 0 0 8px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #0f172a;
+      }
+
+      .map-firms {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .map-firms li {
+        margin-bottom: 7px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #334155;
+      }
+
+      .map-firms a {
+        color: #1d4ed8;
+        text-decoration: none;
+      }
+
+      .note-box {
+        margin-top: 18px;
+        padding: 16px 18px;
+        border-left: 3px solid #0f172a;
+        background: #faf8f4;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .next-box {
+        margin-top: 6px;
+        padding: 20px 22px;
+        border: 1px solid #ddd6ca;
+        background: #faf8f4;
+      }
+
+      .next-title {
+        margin: 0 0 8px;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 18px;
+        color: #0f172a;
+      }
+
+      .next-copy {
+        margin: 0 0 16px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #334155;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 20px;
+        background: #0f172a;
+        color: #ffffff !important;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 3px;
+      }
+
+      .button-alt {
+        margin: 12px 0 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #6b7280;
+      }
+
+      .footer {
+        padding-top: 26px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #475569;
+      }
+
+      .micro {
+        font-size: 12px;
+        line-height: 1.7;
+        color: #6b7280;
+      }
+
+      @media only screen and (max-width: 640px) {
+        .inner {
+          padding: 0 22px 28px;
+        }
+
+        .headline {
+          font-size: 24px !important;
+        }
+
+        .meta-cell {
+          display: block;
+          width: 100% !important;
+          padding: 14px 16px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      TEMPLATE VARIABLES (obrigatórias)
+      Pesquei suas áreas numa IA, sem te citar — veja quem ela recomendou em São Luís.         — frase curta para o preview do inbox (sem clickbait)
+      Olá         — primeiro nome do contato; fallback: "Olá" sem nome
+      Dantas & Dominici          — nome do escritório formatado (nunca caps lock)
+      São Luís/MA                — cidade-base
+      Família e sucessões, cível, trabalhista, previdenciário, penal, imobiliário, bancário e empresarial       — áreas de atuação detectadas
+      12 de junho de 2026        — data da análise (ex.: 12 de junho de 2026)
+      Johny Oliveira Digital Dog — Arquitetura Digital johny@digitaldog.pet https://digitaldog.pet/diagnostico
+
+      POR ACHADO (n = 1..3) — todos obrigatórios:
+      {{findingN_title}}       — título factual, sem alarme (ex.: "O site não declara a cidade de atuação")
+      {{findingN_evidence}}    — onde foi verificado: URL, consulta feita, data (ex.: "verificado em seusite.adv.br/contato em 12/06; busca 'advogado trabalhista Curitiba' no ChatGPT")
+      {{findingN_observation}} — o que aparece hoje, descritivo, sem julgamento
+      {{findingN_impact}}      — mecanismo: por que isso afeta indicação/busca, em causa→efeito
+      {{findingN_action}}      — correção objetiva, com esforço estimado quando possível
+
+      EVIDÊNCIA POR IA (seção de prints — busca real sem citar o escritório):
+      prints/dantas-perplexity-familia-sucessoes.png Pergunta "Quem é um bom advogado de família e sucessões em São Luís MA?" feita ao Perplexity (IA de busca) em 12/06. Ele recomenda a Dra. Josiane Ferraz (Josiane Advocacia) como melhor opção e lista ainda Lobão & Costa, Sereno Advogados, Silva Pinheiro & Corrêa e Henrique Teixeira. Família e sucessões é a primeira área listada no site de vocês — e o escritório não aparece na resposta.  — print 1 + legenda (query + o que reparar)
+      prints/dantas-perplexity-trabalhista.png Mesma pergunta para "advogado trabalhista em São Luís", também em 12/06. A IA cita Vitória Furtado, Bruno Narciso, Josiane Ferraz, Jorge Filho & Sá e ARS — e indica de onde tirou cada um: perfil no Instagram com seguidores e ficha verificada no JusBrasil. De novo, Dantas & Dominici não está na lista.  — print 2 + legenda
+      Em 2 de 2 áreas testadas, a IA recomendou concorrentes e não citou o escritório. Não é questão de competência jurídica — é que a IA só repete quem tem sinais públicos claros, e hoje ela não encontra esses sinais sobre vocês no formato que ela lê. — 1-2 frases amarrando a evidência (ex.: "em 2 de 2 áreas testadas o escritório não foi citado")
+      Produção (Resend): src = "cid:ai-evidence-1" e anexar o PNG com content_id correspondente.
+      Mock/preview: src = caminho relativo do PNG.
+
+      PANORAMA POR ÁREA (lista de concorrentes com site, depois dos prints):
+                        <div class="map-area">
+                    <p class="map-area-title">Família e Sucessões</p>
+                    <ul class="map-firms">
+                      <li><strong>Ariadne Maranhão Advogados</strong> — <a href="https://ariadnemaranhao.adv.br/">ariadnemaranhao.adv.br</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-familia-sao-luis-ma/">vlvadvogados.com/advogado-familia-sao-luis-ma</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/">lobaocostaadv.com.br</a></li>
+                      <li><strong>Amorim e Moraes Advogados</strong> — <a href="https://www.amorimemoraesadvogados.com.br/">amorimemoraesadvogados.com.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Cível e Consumidor</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/">lobaocostaadv.com.br</a></li>
+                      <li><strong>Directus Advocacia</strong> — <a href="https://directusadvocacia.com/">directusadvocacia.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Trabalhista</p>
+                    <ul class="map-firms">
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-trabalhista-sao-luis-ma/">vlvadvogados.com/advogado-trabalhista-sao-luis-ma</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/advogado-trabalhista/">lobaocostaadv.com.br/advogado-trabalhista</a></li>
+                      <li><strong>Maruzza Teixeira Advocacia</strong> — <a href="https://maruzzateixeira.com/">maruzzateixeira.com</a></li>
+                      <li><strong>Campos Pinho Advogados</strong> — <a href="https://campospinho.adv.br/advogado-trabalhista/advogado-trabalhista-em-sao-luis-ma/">campospinho.adv.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Previdenciário</p>
+                    <ul class="map-firms">
+                      <li><strong>Maruzza Teixeira Advocacia</strong> — <a href="https://maruzzateixeira.com/">maruzzateixeira.com</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-previdenciario-sao-luis-ma/">vlvadvogados.com/advogado-previdenciario-sao-luis-ma</a></li>
+                      <li><strong>Directus Advocacia</strong> — <a href="https://directusadvocacia.com/">directusadvocacia.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Penal</p>
+                    <ul class="map-firms">
+                      <li><strong>Paulo Dias Criminalista</strong> — <a href="https://www.paulodiascriminalista.com.br/">paulodiascriminalista.com.br</a></li>
+                      <li><strong>Natalia Rodrigues Criminalista</strong> — <a href="https://www.rodriguescriminalista.com.br/advogado-criminalista-em-sao-luis">rodriguescriminalista.com.br</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-criminalista/sao-luis-ma/">vlvadvogados.com/advogado-criminalista/sao-luis-ma</a></li>
+                      <li><strong>Evinis Talon</strong> — <a href="https://evinistalon.com/advogado-criminalista-no-maranhao/">evinistalon.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Imobiliário</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Pires & Menezes (PMS Adv)</strong> — <a href="https://piresmenezes.com.br/direito-bancario/">piresmenezes.com.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Bancário</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Almeida & Oliveira Advogados</strong> — <a href="https://almeidaeoliveiraadvogados.com.br/advogado-bancario-em-sao-luis/">almeidaeoliveiraadvogados.com.br</a></li>
+                      <li><strong>Pires & Menezes (PMS Adv)</strong> — <a href="https://piresmenezes.com.br/direito-bancario/">piresmenezes.com.br</a></li>
+                    </ul>
+                  </div> — bloco HTML gerado: por área, <div class="map-area"> com título + <ul class="map-firms">.
+                               Incluir SÓ domínios verificados (que resolvem). Framing = presença, não ranking.
+      Levantei essa lista nas mesmas áreas que o site de vocês anuncia. Em nenhuma delas o escritório apareceu — enquanto os nomes acima têm, quase sempre, uma página própria por área com a cidade no título. É exatamente essa a diferença que dá pra corrigir.  — 1 frase fechando (ex.: "em nenhuma das áreas o escritório aparece nesta lista").
+
+      PRÓXIMOS PASSOS:
+      Semana 1: publicar páginas próprias para as 2–3 áreas de maior demanda (ex.: família, trabalhista, previdenciário), com a área + "São Luís" no título e no texto. Semanas 2–3: colocar sócios em texto (nome, OAB, bio), estruturar o perfil no JusBrasil e padronizar o telefone/endereço em todos os canais. Semana 4: refazer exatamente estas mesmas perguntas na IA e comparar com as telas de hoje, para medir o que mudou.
+      As telas das buscas seguem acima, com data, para você conferir cada resposta por conta própria.       — nota sobre prints/anexos (ou string vazia)
+
+      REGRAS DE PREENCHIMENTO (para o agente que gera o conteúdo):
+      - Cada achado precisa ser verificável: nada de afirmação sem evidência apontável.
+      - Proibido superlativo de marketing ("revolucionário", "explodir", "dominar o Google").
+      - Proibido prometer resultado ("vai trazer X clientes"); descreva o mecanismo, não a promessa.
+      - Escreva como um parecer técnico curto: frases declarativas, voz ativa, zero hype.
+    -->
+
+    <div style="display: none; max-height: 0; overflow: hidden; opacity: 0;">
+      Pesquei suas áreas numa IA, sem te citar — veja quem ela recomendou em São Luís.
+    </div>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper">
+      <tr>
+        <td align="center">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="680" class="container">
+            <tr>
+              <td style="padding: 36px 40px 0; background: #ffffff;">
+                <div class="eyebrow">Digital Dog · análise que você solicitou</div>
+                <h1 class="headline">Como Dantas & Dominici aparece hoje em buscas locais e respostas de IA</h1>
+                <p class="subhead">
+                  Olá, obrigado pelo retorno. Abaixo estão os três pontos que considero mais relevantes,
+                  cada um com a evidência do que foi verificado, o efeito prático e a correção sugerida.
+                  A ideia é que você consiga validar cada item por conta própria — nada aqui depende de confiar na minha palavra.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="inner">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="meta-box">
+                  <tr>
+                    <td class="meta-cell">
+                      <span class="meta-label">Escritório</span>
+                      <span class="meta-value">Dantas & Dominici</span>
+                    </td>
+                    <td class="meta-cell">
+                      <span class="meta-label">Cidade-base</span>
+                      <span class="meta-value">São Luís/MA</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="meta-cell" style="border-bottom: 0;">
+                      <span class="meta-label">Atuação considerada</span>
+                      <span class="meta-value">Família e sucessões, cível, trabalhista, previdenciário, penal, imobiliário, bancário e empresarial</span>
+                    </td>
+                    <td class="meta-cell" style="border-bottom: 0;">
+                      <span class="meta-label">Data da verificação</span>
+                      <span class="meta-value">12 de junho de 2026</span>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="section body-copy">
+                  <div class="section-kicker">contexto · por que isso importa agora</div>
+                  <h2 class="section-title">Uma parte dos clientes pergunta primeiro a uma IA</h2>
+                  <p>
+                    Antes de pedir indicação a um conhecido, uma parcela crescente das pessoas descreve o problema ao ChatGPT,
+                    ao Gemini ou à busca do Google com IA e pergunta que tipo de profissional procurar. Essas ferramentas não
+                    conhecem reputação de porta de rua: elas montam a resposta a partir do que está publicado — site, perfil
+                    no Google, diretórios, menções.
+                  </p>
+                  <p>
+                    Isso não substitui a indicação tradicional nem o Google clássico. É uma camada a mais, que favorece quem
+                    publica sinais claros sobre <strong>quem atende, onde atua e em que tipo de caso</strong> — e ignora quem
+                    deixa essas informações implícitas.
+                  </p>
+                </div>
+
+                <div class="section body-copy">
+                  <div class="section-kicker">método · o que foi verificado</div>
+                  <h2 class="section-title">Como esta análise foi feita</h2>
+                  <div class="method-box">
+                    Para manter a leitura honesta, o escopo foi este:
+                    <ul>
+                      <li>Leitura do site oficial e da página de contato do escritório, como um visitante (e como um robô de IA) os encontra hoje.</li>
+                      <li>Buscas reais em São Luís/MA pelos termos que um cliente usaria, no Google e em assistentes de IA, registradas com data.</li>
+                      <li>Conferência dos sinais públicos básicos: perfil no Google, consistência de nome/endereço, menções em diretórios.</li>
+                    </ul>
+                    O que esta análise <strong>não</strong> é: auditoria completa de SEO, avaliação da qualidade jurídica do
+                    escritório, ou ranking garantido. São três achados verificáveis e priorizados — o suficiente para você
+                    decidir se o tema merece atenção.
+                  </div>
+                </div>
+
+                <div class="section">
+                  <div class="section-kicker">evidência · busca real, sem te citar</div>
+                  <h2 class="section-title">O que a IA respondeu hoje nas suas áreas</h2>
+                  <div class="body-copy">
+                    <p>
+                      Fiz a pergunta que um cliente faria — em São Luís/MA, por área — direto num assistente de busca por IA, e
+                      <strong>sem mencionar Dantas & Dominici</strong>, para não enviesar o resultado. Abaixo está a tela real do
+                      que a IA respondeu. Repare em quem ela cita e em quem não aparece.
+                    </p>
+                    <p style="font-size:14px;color:#475569;">
+                      Usei o <strong>Perplexity</strong> nessa verificação por um motivo prático: ele é um motor de busca por IA —
+                      pesquisa a web ao vivo e mostra a fonte de cada indicação, então dá para clicar e conferir cada nome.
+                      Como ele se apoia nas mesmas fontes públicas que alimentam os outros assistentes (ChatGPT, Gemini e afins),
+                      o que aparece aqui é o retrato mais fiel — e auditável — de como a camada de IA encontra escritórios hoje.
+                      Não é a opinião de uma única ferramenta; é o reflexo do que está publicado sobre cada um na internet.
+                    </p>
+                  </div>
+
+                  <div class="evidence">
+                    <div class="evidence-shot">
+                      <img src="https://digitaldog.pet/diagnosticos/dantas-dominici/prints/dantas-perplexity-familia-sucessoes.png" alt="Resultado de busca por IA" width="100%" style="display:block;border:1px solid #ddd6ca;" />
+                      <p class="evidence-caption">Pergunta "Quem é um bom advogado de família e sucessões em São Luís MA?" feita ao Perplexity (IA de busca) em 12/06. Ele recomenda a Dra. Josiane Ferraz (Josiane Advocacia) como melhor opção e lista ainda Lobão & Costa, Sereno Advogados, Silva Pinheiro & Corrêa e Henrique Teixeira. Família e sucessões é a primeira área listada no site de vocês — e o escritório não aparece na resposta.</p>
+                    </div>
+                    <div class="evidence-shot">
+                      <img src="https://digitaldog.pet/diagnosticos/dantas-dominici/prints/dantas-perplexity-trabalhista.png" alt="Resultado de busca por IA" width="100%" style="display:block;border:1px solid #ddd6ca;" />
+                      <p class="evidence-caption">Mesma pergunta para "advogado trabalhista em São Luís", também em 12/06. A IA cita Vitória Furtado, Bruno Narciso, Josiane Ferraz, Jorge Filho & Sá e ARS — e indica de onde tirou cada um: perfil no Instagram com seguidores e ficha verificada no JusBrasil. De novo, Dantas & Dominici não está na lista.</p>
+                    </div>
+                  </div>
+
+                  <div class="note-box">Em 2 de 2 áreas testadas, a IA recomendou concorrentes e não citou o escritório. Não é questão de competência jurídica — é que a IA só repete quem tem sinais públicos claros, e hoje ela não encontra esses sinais sobre vocês no formato que ela lê.</div>
+                </div>
+
+                <div class="section">
+                  <div class="section-kicker">panorama · quem aparece nessas buscas</div>
+                  <h2 class="section-title">Os escritórios que a busca por IA está mostrando, por área</h2>
+                  <div class="body-copy">
+                    <p>
+                      Para você ter o mapa completo (não só as duas telas acima), levantei por área quem hoje aparece bem
+                      quando o cliente pesquisa em São Luís/MA — com o site de cada um, para conferir. Não é um ranking oficial
+                      de "melhores advogados"; é quem tem hoje os sinais públicos que a IA e a busca leem com clareza.
+                    </p>
+                  </div>
+
+                                    <div class="map-area">
+                    <p class="map-area-title">Família e Sucessões</p>
+                    <ul class="map-firms">
+                      <li><strong>Ariadne Maranhão Advogados</strong> — <a href="https://ariadnemaranhao.adv.br/">ariadnemaranhao.adv.br</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-familia-sao-luis-ma/">vlvadvogados.com/advogado-familia-sao-luis-ma</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/">lobaocostaadv.com.br</a></li>
+                      <li><strong>Amorim e Moraes Advogados</strong> — <a href="https://www.amorimemoraesadvogados.com.br/">amorimemoraesadvogados.com.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Cível e Consumidor</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/">lobaocostaadv.com.br</a></li>
+                      <li><strong>Directus Advocacia</strong> — <a href="https://directusadvocacia.com/">directusadvocacia.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Trabalhista</p>
+                    <ul class="map-firms">
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-trabalhista-sao-luis-ma/">vlvadvogados.com/advogado-trabalhista-sao-luis-ma</a></li>
+                      <li><strong>Lobão & Costa Advogados</strong> — <a href="https://lobaocostaadv.com.br/advogado-trabalhista/">lobaocostaadv.com.br/advogado-trabalhista</a></li>
+                      <li><strong>Maruzza Teixeira Advocacia</strong> — <a href="https://maruzzateixeira.com/">maruzzateixeira.com</a></li>
+                      <li><strong>Campos Pinho Advogados</strong> — <a href="https://campospinho.adv.br/advogado-trabalhista/advogado-trabalhista-em-sao-luis-ma/">campospinho.adv.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Previdenciário</p>
+                    <ul class="map-firms">
+                      <li><strong>Maruzza Teixeira Advocacia</strong> — <a href="https://maruzzateixeira.com/">maruzzateixeira.com</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-previdenciario-sao-luis-ma/">vlvadvogados.com/advogado-previdenciario-sao-luis-ma</a></li>
+                      <li><strong>Directus Advocacia</strong> — <a href="https://directusadvocacia.com/">directusadvocacia.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Penal</p>
+                    <ul class="map-firms">
+                      <li><strong>Paulo Dias Criminalista</strong> — <a href="https://www.paulodiascriminalista.com.br/">paulodiascriminalista.com.br</a></li>
+                      <li><strong>Natalia Rodrigues Criminalista</strong> — <a href="https://www.rodriguescriminalista.com.br/advogado-criminalista-em-sao-luis">rodriguescriminalista.com.br</a></li>
+                      <li><strong>VLV Advogados</strong> — <a href="https://vlvadvogados.com/advogado-criminalista/sao-luis-ma/">vlvadvogados.com/advogado-criminalista/sao-luis-ma</a></li>
+                      <li><strong>Evinis Talon</strong> — <a href="https://evinistalon.com/advogado-criminalista-no-maranhao/">evinistalon.com</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Imobiliário</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Pires & Menezes (PMS Adv)</strong> — <a href="https://piresmenezes.com.br/direito-bancario/">piresmenezes.com.br</a></li>
+                    </ul>
+                  </div>
+                  <div class="map-area">
+                    <p class="map-area-title">Bancário</p>
+                    <ul class="map-firms">
+                      <li><strong>De Paula Advogados</strong> — <a href="https://depauladvogados.com/">depauladvogados.com</a></li>
+                      <li><strong>Almeida & Oliveira Advogados</strong> — <a href="https://almeidaeoliveiraadvogados.com.br/advogado-bancario-em-sao-luis/">almeidaeoliveiraadvogados.com.br</a></li>
+                      <li><strong>Pires & Menezes (PMS Adv)</strong> — <a href="https://piresmenezes.com.br/direito-bancario/">piresmenezes.com.br</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="note-box">Levantei essa lista nas mesmas áreas que o site de vocês anuncia. Em nenhuma delas o escritório apareceu — enquanto os nomes acima têm, quase sempre, uma página própria por área com a cidade no título. É exatamente essa a diferença que dá pra corrigir.</div>
+                </div>
+
+                <div class="section">
+                  <div class="section-kicker">achados · em ordem de prioridade</div>
+                  <h2 class="section-title">Os três pontos que eu corrigiria primeiro</h2>
+
+                  <div class="finding">
+                    <div class="finding-head">
+                      <span class="finding-number">Achado 1 · prioridade alta</span>
+                      <p class="finding-title">A IA recomenda concorrentes nas suas próprias áreas — e não cita o escritório</p>
+                    </div>
+                    <div class="finding-body">
+                      <p class="finding-line"><strong>Onde verifiquei:</strong> Perplexity (assistente de busca por IA), perguntas reais de cliente para "família e sucessões" e "trabalhista em São Luís", em 12/06/2026 (telas acima). Busca feita sem mencionar o escritório, para não enviesar.</p>
+                      <p class="finding-line"><strong>O que aparece hoje:</strong> O site anuncia sete áreas de atuação. Mas quando o cliente pergunta à IA quem procurar nessas áreas em São Luís, ela lista cinco nomes por área e nenhum é o de vocês. Em uma das respostas, a IA mostra de onde tirou os indicados: Instagram com seguidores e perfil verificado no JusBrasil.</p>
+                      <p class="finding-line"><strong>Efeito prático:</strong> Antes de pedir indicação a um conhecido, uma parte dos clientes já descreve o caso a uma IA e pergunta quem procurar. Quem a IA cita vira a indicação; quem ela não encontra fica fora da conversa — mesmo sendo igualmente competente. Hoje vocês estão fora dessa lista nas áreas que mais anunciam.</p>
+                      <p class="finding-line"><strong>Correção sugerida:</strong> Criar uma página própria por área-chave (começando pelas de maior demanda) com a área + "São Luís" no título e no texto, e estruturar o perfil nos diretórios que a IA lê (a começar pelo JusBrasil). É o formato que os escritórios citados têm e que hoje falta a vocês.</p>
+                    </div>
+                  </div>
+
+                  <div class="finding">
+                    <div class="finding-head">
+                      <span class="finding-number">Achado 2</span>
+                      <p class="finding-title">Os nomes dos sócios só existem em imagem, não em texto</p>
+                    </div>
+                    <div class="finding-body">
+                      <p class="finding-line"><strong>Onde verifiquei:</strong> Página inicial do site dantasedominici.adv.br, verificada em 12/06/2026: os sócios aparecem em uma foto legendada ("Átila e Wagner"), mas o nome completo e a OAB não estão em texto em nenhuma página.</p>
+                      <p class="finding-line"><strong>O que aparece hoje:</strong> O escritório tem rosto e nome — mas só dentro de uma imagem. Robôs de busca e de IA não leem texto dentro de foto.</p>
+                      <p class="finding-line"><strong>Efeito prático:</strong> Quando alguém pergunta "quem são os advogados do Dantas & Dominici", a IA não tem o que responder. E nome + OAB de um sócio é um dos sinais de confiança que a IA mais usa para decidir quem recomendar — exatamente o que falta aqui.</p>
+                      <p class="finding-line"><strong>Correção sugerida:</strong> Publicar, em texto, o nome completo, número de OAB e uma mini-bio de cada sócio. É conteúdo que vocês já têm; falta só sair da imagem e virar texto legível.</p>
+                    </div>
+                  </div>
+
+                  <div class="finding">
+                    <div class="finding-head">
+                      <span class="finding-number">Achado 3</span>
+                      <p class="finding-title">O telefone do escritório aparece diferente entre os canais</p>
+                    </div>
+                    <div class="finding-body">
+                      <p class="finding-line"><strong>Onde verifiquei:</strong> Site oficial: (98) 3222-7575. Diretório Diário Cidade (guia público que aparece na busca): (98) 8311-6330. Conferido em 12/06/2026.</p>
+                      <p class="finding-line"><strong>O que aparece hoje:</strong> Há pelo menos dois telefones diferentes circulando em canais públicos sobre o mesmo escritório.</p>
+                      <p class="finding-line"><strong>Efeito prático:</strong> Consistência de nome, endereço e telefone entre os canais é um dos fatores que a busca local mais usa para confiar (ou desconfiar) de um negócio. Na dúvida sobre qual dado é o certo, os sistemas tendem a preferir mostrar concorrentes com informação consistente — e o cliente ainda corre o risco de ligar no número errado.</p>
+                      <p class="finding-line"><strong>Correção sugerida:</strong> Padronizar nome, endereço e telefone exatamente iguais em site, Google, Instagram e diretórios. É trabalho administrativo, sem custo, mas precisa ser feito em todos os canais de uma vez.</p>
+                    </div>
+                  </div>
+
+                  <p class="micro" style="margin: 14px 0 0;">As telas das buscas seguem acima, com data, para você conferir cada resposta por conta própria.</p>
+                </div>
+
+                <div class="section body-copy">
+                  <div class="section-kicker">prioridade · próximos 30 dias</div>
+                  <h2 class="section-title">Se a decisão fosse minha, a ordem seria esta</h2>
+                  <ul class="bullet-list">
+                    <li>Semana 1: publicar páginas próprias para as 2–3 áreas de maior demanda (ex.: família, trabalhista, previdenciário), com a área + "São Luís" no título e no texto.</li>
+                    <li>Semanas 2–3: colocar sócios em texto (nome, OAB, bio), estruturar o perfil no JusBrasil e padronizar o telefone/endereço em todos os canais.</li>
+                    <li>Semana 4: refazer exatamente estas mesmas perguntas na IA e comparar com as telas de hoje, para medir o que mudou.</li>
+                  </ul>
+                  <p style="margin-top: 14px;">
+                    Parte disso o próprio escritório consegue executar internamente. O que exige trabalho técnico de
+                    estruturação — site, dados estruturados, consistência entre os canais — é o tipo de projeto que a
+                    Digital Dog faz.
+                  </p>
+                </div>
+
+                <div class="section">
+                  <div class="section-kicker">próximo passo · sem compromisso</div>
+                  <div class="next-box">
+                    <h3 class="next-title">Se quiser destrinchar os achados, proponho uma conversa de 30 minutos</h3>
+                    <p class="next-copy">
+                      Sem apresentação de vendas: passo pelos três pontos com a tela aberta, mostro o que verificei e
+                      respondo o que vocês quiserem perguntar. Se ao final fizer sentido um projeto, eu apresento uma
+                      proposta; se não fizer, a análise continua sendo sua e o custo segue sendo zero.
+                    </p>
+                    <a href="https://wa.me/5547988109155" class="button">Conversar pelo WhatsApp</a>
+                    <p class="button-alt">
+                      Prefere por escrito? É só responder este email — respondo eu mesmo, normalmente no mesmo dia.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="footer">
+                  <p style="margin: 0 0 12px;">
+                    Abraço,<br />
+                    <strong>Johny Oliveira</strong><br />
+                    Digital Dog — Arquitetura Digital · johny@digitaldog.pet
+                  </p>
+                  <p class="micro" style="margin: 0;">
+                    Esta é uma leitura consultiva enxuta, baseada apenas em sinais públicos verificados em 12 de junho de 2026.
+                    Não é auditoria técnica completa nem parecer jurídico, e nenhum resultado de posicionamento pode ser
+                    garantido por quem trabalha sério com isso. Se não quiser receber mais emails meus, responda "não"
+                    e encerro por aqui.
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
